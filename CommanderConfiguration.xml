@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Actions>
+	<Action name="bandwidth" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbBandwidth</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkCellCfgChannelBandwidth</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellCfg</TABLE>
+					<COLUMN>channelBandwidth</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="downlinkFreq" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbDownlinkFreq</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkCellCfgDownlinkFreq</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellCfg</TABLE>
+					<COLUMN>downlinkFreq</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="uplinkFreq" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbUplinkFreq</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkCellCfgUplinkFreq</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellCfg</TABLE>
+					<COLUMN>uplinkFreq</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="frameConfig" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbFrameConfig</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkCellSib1TddSubframeAssignmnent</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellSib1Cfg</TABLE>
+					<COLUMN>tddSubframeAssignmnent</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="duplexMode" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbDuplexMode</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkCellCfgDuplexMode</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellCfg</TABLE>
+					<COLUMN>duplexMode</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="fwdHandoverEnable" isCellSpecific="true">
+		<SNMP>
+			<MIB>asLteStkCellCfgFwdHoEnable</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>CellCfg</TABLE>
+					<COLUMN>fwdHoEnable</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="CFI" isCellSpecific="true">
+		<SNMP>
+			<MIB>asLteStkMacCfgControlFormatIndicator</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>Maccfg</TABLE>
+					<COLUMN>controlFormatIndicator</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="inService" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbServiceStates</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkChannelStatusServiceState</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="get">
+					<SYNTAX>cell show operationalstatus</SYNTAX>
+					<SAMPLE>... **** SERVICE STATE: IN SERVICE **** ...
+						... ****CELL 0
+						SERVICE STATE = 1 **** ...</SAMPLE>
+					<PARSERS>
+						<PARSER>\**.*SERVICE STATE\s*[=|:] ([01]) \**</PARSER>
+					</PARSERS>
+				</COMMAND>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>StackCfg</TABLE>
+					<COLUMN>operationalStatus</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="allRunning" isCellSpecific="true">
+		<SNMP>
+			<MIB>asLteStkCellStatusRunning</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="get">
+					<SYNTAX>cell show operationalstatus</SYNTAX>
+					<SAMPLE>... ****CELL 0 ALL RUNNING STATE = 1 ****
+						****CELL 1 ALL
+						RUNNING STATE = 1 **** ...</SAMPLE>
+					<PARSERS>
+						<PARSER>\**.*ALL RUNNING STATE\s*[=|:] ([01]) \**</PARSER>
+						<PARSER>\**.*ALL RUNNING \s*[=|:] ([01]) \**</PARSER>
+					</PARSERS>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="connectedUeStatus" isCellSpecific="true">
+		<NBI>
+			<METHOD>EnbConnectedUes</METHOD>
+		</NBI>
+	</Action>
+	<Action name="disconnectAllUes" isCellSpecific="false">
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="linux" OPERATION="perform">
+					<SYNTAX>ue disconnect all</SYNTAX>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="nodeReset" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeReset</METHOD>
+		</NBI>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="linux" OPERATION="perform">
+					<SYNTAX>reboot</SYNTAX>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="nodeResetCold" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeResetCold</METHOD>
+		</NBI>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="perform">
+					<SYNTAX>prcmngr reboot system clearDB=1</SYNTAX>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="nodeResetForced" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeResetForced</METHOD>
+		</NBI>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="linux" OPERATION="perform">
+					<SYNTAX>reboot</SYNTAX>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="nodeResetForceCold" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeResetForceCold</METHOD>
+		</NBI>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="perform" ID="0">
+					<SYNTAX>prcmngr reboot system clearDB=1</SYNTAX>
+				</COMMAND>
+				<COMMAND SHELL="linux" OPERATION="perform" ID="0">
+					<SYNTAX>reboot</SYNTAX>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="nodeResetForcedColdFactory" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeResetForcedColdFactory</METHOD>
+		</NBI>
+	</Action>
+	<Action name="nodeTamperDetectReset" isCellSpecific="false">
+		<NBI>
+			<METHOD>nodeTamperDetectReset</METHOD>
+		</NBI>
+	</Action>
+	<Action name="removedb" isCellSpecific="false">
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="perform">
+					<SYNTAX>prcmngr reboot system clearDB=1</SYNTAX>
+				</COMMAND>
+				<!-- <COMMAND SHELL="ltecli" OPERATION="table"> -->
+				<!-- <TABLE>PnPCfg</TABLE> -->
+				<!-- <COLUMN>PnPWarmResetModeAdmin</COLUMN> -->
+				<!-- </COMMAND> -->
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="maxSshConnections" isCellSpecific="false">
+		<NBI>
+			<METHOD>EnbMaxConnections</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkNetworkServicesCfgMaxSshCon</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>NetworkServices</TABLE>
+					<COLUMN>MaxSSHCon</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="rlcMode" isCellSpecific="false">
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>rabparams</TABLE>
+					<COLUMN>rlcMode</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="serialNumber" isCellSpecific="false">
+		<NBI>
+			<METHOD>EnbSerialNumber</METHOD>
+		</NBI>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="ltecli" OPERATION="table">
+					<TABLE>Inventory</TABLE>
+					<COLUMN>serialNumber</COLUMN>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="version" isCellSpecific="false">
+		<NBI>
+			<METHOD>EnbVersion</METHOD>
+		</NBI>
+		<SNMP>
+			<MIB>asLteStkStackStatusNodeSwBankChangeInfo</MIB>
+		</SNMP>
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="linux" OPERATION="get">
+					<SYNTAX>cat /version-installed | grep :version</SYNTAX>
+					<SAMPLE>release:version="15.15.10.102"</SAMPLE>
+					<PARSERS>
+						<PARSER>(\d+\.\d+\.\d+\.\d+)</PARSER>
+					</PARSERS>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="XlpBank" isCellSpecific="false">
+		<CLI>
+			<COMMANDS>
+				<COMMAND SHELL="linux" OPERATION="get">
+					<SYNTAX>/bs/bin/set_bank.sh</SYNTAX>
+					<SAMPLE>Current run is from bank: 1
+						Next run is from bank : 1</SAMPLE>
+					<PARSERS>
+						<PARSER>Current run is from bank:\s* ([012])</PARSER>
+					</PARSERS>
+				</COMMAND>
+			</COMMANDS>
+		</CLI>
+	</Action>
+	<Action name="LteNeighbors" isCellSpecific="false">
+		<NBI>
+			<METHOD>LteNeighbors</METHOD>
+		</NBI>
+	</Action>
+	<Action name="deleteLteStaticNeighbor" isCellSpecific="true">
+		<NBI>
+			<METHOD>deleteLteStaticNeighbor</METHOD>
+		</NBI>
+	</Action>
+	<Action name="deleteAllLteNeighbors" isCellSpecific="false">
+		<NBI>
+			<METHOD>deleteAllLteNeighbors</METHOD>
+		</NBI>
+	</Action>
+	<Action name="addLteNeighborByCellNumber" isCellSpecific="true">
+		<NBI>
+			<METHOD>addLteNeighborByCellNumber</METHOD>
+		</NBI>
+	</Action>
+	<Action name="EnbSonAnrStatus" isCellSpecific="false">
+		<NBI>
+			<METHOD>EnbSonAnrStatus</METHOD>
+		</NBI>
+	</Action>
+
+</Actions>
