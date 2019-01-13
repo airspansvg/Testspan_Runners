@@ -59,9 +59,11 @@
                     <!--#Jsystem#-->
                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.20683777-d4b2-4d4b-bf39-025727311096" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
-                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t15"/>
+                        <antcallback return="TestResultToReturn" target="t15"/>
                         <antcallback target="t16"/>
-                        <antcallback return="TestResultToReturn" target="t17"/>
+                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t17"/>
+                        <antcallback target="t18"/>
+                        <antcallback return="TestResultToReturn" target="t19"/>
                     </then>
                     <else>
                         <!--#Jsystem#-->
@@ -72,8 +74,8 @@
                     <!--#Jsystem#-->
                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.483340a0-8253-4a56-b6f5-93bb66ef206b" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
-                        <antcallback target="t18"/>
-                        <antcallback return="TestResultToReturn" target="t19"/>
+                        <antcallback target="t20"/>
+                        <antcallback return="TestResultToReturn" target="t21"/>
                     </then>
                     <else>
                         <!--#Jsystem#-->
@@ -87,8 +89,8 @@
                     <!--#Jsystem#-->
                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.0548e6e1-aa07-4f32-9c73-e387c5d12e6a" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
-                        <antcallback target="t20"/>
-                        <antcallback return="TestResultToReturn" target="t21"/>
+                        <antcallback target="t22"/>
+                        <antcallback return="TestResultToReturn" target="t23"/>
                     </then>
                     <else>
                         <!--#Jsystem#-->
@@ -99,8 +101,8 @@
                     <!--#Jsystem#-->
                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e9244225-144f-4e9c-9ad1-aee50d579eae" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
-                        <antcallback target="t22"/>
-                        <antcallback return="TestResultToReturn" target="t23"/>
+                        <antcallback target="t24"/>
+                        <antcallback return="TestResultToReturn" target="t25"/>
                     </then>
                     <else>
                         <!--#Jsystem#-->
@@ -108,10 +110,10 @@
                 </if>
             </else>
         </if>
-        <antcallback return="TestResultToReturn" target="t24"/>
-        <antcallback return="TestResultToReturn" target="t25"/>
         <antcallback return="TestResultToReturn" target="t26"/>
-        <antcallback target="t27"/>
+        <antcallback return="TestResultToReturn" target="t27"/>
+        <antcallback return="TestResultToReturn" target="t28"/>
+        <antcallback target="t29"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -235,13 +237,29 @@
     </target>
     <target name="t15">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="62bd3480-a97f-4003-9b73-bf89ea91b1b6"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.PowerControllerTests.powerOn"/>
+        </jsystem>
+    </target>
+    <target name="t16">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="cc51f152-ea53-49c4-91e2-8251c66a9722"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t17">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="dea79ddf-42c5-4ee6-afdc-4130351e7c10"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
         </jsystem>
     </target>
-    <target name="t16">
+    <target name="t18">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="cf4e066d-a939-4470-84ff-dc5d13870f16"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -249,7 +267,7 @@
             <test name="tests.EnodeBConfigSetTests.enodeBConfigSetTest"/>
         </jsystem>
     </target>
-    <target name="t17">
+    <target name="t19">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="fb10f83e-b308-4557-a2f3-a4a0c47e9810"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -257,7 +275,7 @@
             <test name="tests.RadioProfileTests.radioProfileTest"/>
         </jsystem>
     </target>
-    <target name="t18">
+    <target name="t20">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="6a420e02-78c5-45d0-9c47-88cc5cd02c13"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -265,7 +283,7 @@
             <test name="tests.EnodeBConfigSetTests.enodeBConfigSetTest"/>
         </jsystem>
     </target>
-    <target name="t19">
+    <target name="t21">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4f978fae-2677-416f-a962-92e2bd52117f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -273,7 +291,7 @@
             <test name="tests.RadioProfileTests.radioProfileTest"/>
         </jsystem>
     </target>
-    <target name="t20">
+    <target name="t22">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="d43d52b8-d6ff-4e42-9f47-5877787afd9a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -281,7 +299,7 @@
             <test name="tests.EnodeBConfigSetTests.enodeBConfigSetTest"/>
         </jsystem>
     </target>
-    <target name="t21">
+    <target name="t23">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="98423084-5f44-4c34-8310-c7201b9525df"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -289,7 +307,7 @@
             <test name="tests.RadioProfileTests.radioProfileTest"/>
         </jsystem>
     </target>
-    <target name="t22">
+    <target name="t24">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c83ff63f-6e17-478c-aa36-5d13a6410b29"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -297,7 +315,7 @@
             <test name="tests.EnodeBConfigSetTests.enodeBConfigSetTest"/>
         </jsystem>
     </target>
-    <target name="t23">
+    <target name="t25">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="87e42433-18b7-405a-9d16-36ee00d800a0"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -305,7 +323,7 @@
             <test name="tests.RadioProfileTests.radioProfileTest"/>
         </jsystem>
     </target>
-    <target name="t24">
+    <target name="t26">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="58a15797-7d2e-4287-afcc-fa1c879bd9da"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -313,7 +331,7 @@
             <test name="tests.EnodeBStateTests.rebootToAllRunning"/>
         </jsystem>
     </target>
-    <target name="t25">
+    <target name="t27">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e6f0bafc-c116-4ebe-a508-16e63fab4c89"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -321,7 +339,7 @@
             <test name="tests.EnodeBStateTests.performReboot"/>
         </jsystem>
     </target>
-    <target name="t26">
+    <target name="t28">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4b2e597f-c9f6-4592-8fb6-cc529d2a0ef7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -329,7 +347,7 @@
             <test name="tests.EnodeBStateTests.waitForEnbState"/>
         </jsystem>
     </target>
-    <target name="t27">
+    <target name="t29">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="5326acdf-353d-482f-a337-9deee316cb32"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
