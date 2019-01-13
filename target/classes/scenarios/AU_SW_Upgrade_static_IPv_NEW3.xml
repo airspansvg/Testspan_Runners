@@ -65,30 +65,22 @@
                                                         </jsystemsetantproperties>
                                                         <antcallback target="t7"/>
                                                         <antcallback return="TestResultToReturn, EnbRunningVersion, EnbStandbyVersion, EnbNmsState, EnbNodeState, RelayRunningVersion, RelayStandbyVersion, RelayNmsState, RelayNodeState" target="t8"/>
-                                                        <echo message="Check condition &quot;${EnbStandbyVersion}&quot; CONTAINS &quot;${EnbRunningVersion}&quot;"/>
-                                                        <echo message="Else if &quot;${RelayStandbyVersion}&quot; EQUALS &quot;${RelayRunningVersion}&quot;"/>
+                                                        <echo message="Check condition &quot;${EnbStandbyVersion};${RelayStandbyVersion}&quot; CONTAINS &quot;${EnbRunningVersion};${RelayRunningVersion}&quot;"/>
                                                         <if>
                                                             <!--#Jsystem#-->
-                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.00698c61-b7b6-4afc-a474-bd8a99b76b40" language="javascript" params="str &lt;SEP&gt; ${EnbStandbyVersion} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.00698c61-b7b6-4afc-a474-bd8a99b76b40" language="javascript" params="str &lt;SEP&gt; ${EnbStandbyVersion};${RelayStandbyVersion} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion};${RelayRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                                             <then>
                                                                 <antcallback target="t9"/>
+                                                                <antcallback target="t10"/>
+                                                                <antcallback return="TestResultToReturn" target="t11"/>
+                                                                <antcallback return="TestResultToReturn" target="t12"/>
+                                                                <antcallback return="TestResultToReturn" target="t13"/>
+                                                                <antcallback return="TestResultToReturn" target="t14"/>
+                                                                <antcallback return="TestResultToReturn" target="t15"/>
+                                                                <antcallback return="TestResultToReturn" target="t16"/>
+                                                                <antcallback return="TestResultToReturn" target="t17"/>
+                                                                <antcallback target="t18"/>
                                                             </then>
-                                                            <elseif>
-                                                                <!--#Jsystem#-->
-                                                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.21efed6a-a49f-4e31-aa66-2f96ca92c704" language="javascript" params="str &lt;SEP&gt; ${RelayStandbyVersion} &lt;SEP&gt; EQUALS &lt;SEP&gt; ${RelayRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-                                                                <then>
-                                                                    <antcallback target="t10"/>
-                                                                    <antcallback return="TestResultToReturn" target="t11"/>
-                                                                    <antcallback return="TestResultToReturn" target="t12"/>
-                                                                    <antcallback return="TestResultToReturn" target="t13"/>
-                                                                    <antcallback return="TestResultToReturn" target="t14"/>
-                                                                    <antcallback return="TestResultToReturn" target="t15"/>
-                                                                    <antcallback return="TestResultToReturn" target="t16"/>
-                                                                    <antcallback return="TestResultToReturn" target="t17"/>
-                                                                    <antcallback target="t18"/>
-                                                                </then>
-                                                                <!--#Jsystem#-->
-                                                            </elseif>
                                                             <else>
                                                                 <!--#Jsystem#-->
                                                                 <antcallback target="t19"/>
@@ -209,7 +201,7 @@
     </target>
     <target name="t10">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="40bc839f-d0dc-4d37-85cf-6c782b5d45c5"/>
+            <sysproperty key="jsystem.uuid" value="c0a9bba0-3fc2-45f8-abae-dd0465c3bd79"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.WaitTests.Wait"/>
@@ -217,7 +209,7 @@
     </target>
     <target name="t11">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="d27b2d3a-e45c-4ac9-b2f6-eec9e3b8e07a"/>
+            <sysproperty key="jsystem.uuid" value="119fa009-6340-41ac-ad57-ac8a07a82a3b"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.EnodeBStateTests.updateServiceState"/>
@@ -225,7 +217,7 @@
     </target>
     <target name="t12">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="2192d474-af79-47cd-9636-bfac617541ac"/>
+            <sysproperty key="jsystem.uuid" value="30f6e977-a3ec-4b28-947d-13d6c80d876e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.PowerControllerTests.powerOff"/>
@@ -233,7 +225,7 @@
     </target>
     <target name="t13">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="dd4175a0-6f46-402c-b362-949c42cf030f"/>
+            <sysproperty key="jsystem.uuid" value="9d8fb393-68a4-49fb-b8b2-ca1f936dca2c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.PowerControllerTests.powerOn"/>
@@ -241,7 +233,7 @@
     </target>
     <target name="t14">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="76a09a44-3bc1-4478-843e-9f86aadff130"/>
+            <sysproperty key="jsystem.uuid" value="9ce1f79c-7fae-4f34-b7e0-d2e6b7cc3d7e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.startTraffic"/>
@@ -249,7 +241,7 @@
     </target>
     <target name="t15">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="db4cb95c-5d5d-4a37-82ff-bba67de90551"/>
+            <sysproperty key="jsystem.uuid" value="389c7944-69d5-44be-9a3e-62a848dfad03"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.checkTraffic"/>
@@ -257,7 +249,7 @@
     </target>
     <target name="t16">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7425a4af-1cde-40b5-8753-7cd1bb147d2f"/>
+            <sysproperty key="jsystem.uuid" value="94efb015-29c8-4f0d-b1a9-86faf5a8a40c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.SoftwareUpgradeUsingNetspan.softwareUpgradeNetspan"/>
@@ -265,7 +257,7 @@
     </target>
     <target name="t17">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7bcd269e-7491-416f-94d3-a9df507e3daf"/>
+            <sysproperty key="jsystem.uuid" value="2bbd1967-0fbf-4b57-a9a6-a1693d46f35d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.checkTraffic"/>
@@ -273,7 +265,7 @@
     </target>
     <target name="t18">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="5d194326-0819-4b1c-9ff4-5ab4d617c0e4"/>
+            <sysproperty key="jsystem.uuid" value="43f56fb8-d3bc-4584-b241-5f9880634dbd"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.stopTraffic"/>
