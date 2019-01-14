@@ -15,6 +15,16 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a7558144-4a31-4530-b980-25f42e91133b" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+            <!--#Jsystem#-->
+            <sequential>
+                <echo message="Parameter: myVar1=@{myVar1}"/>
+                <var name="myVar1" value="@{myVar1}"/>
+                <jsystemsetantproperties>
+                    <!--Task for updating the ant parameters file - used for reference parameters-->
+                </jsystemsetantproperties>
+            </sequential>
+        </jsystemfor>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3abfd294-b0f0-4335-949d-b1220c2c55b7" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
             <sequential>
@@ -65,10 +75,10 @@
                                                         </jsystemsetantproperties>
                                                         <antcallback target="t7"/>
                                                         <antcallback return="TestResultToReturn, EnbRunningVersion, EnbStandbyVersion, EnbNmsState, EnbNodeState, RelayRunningVersion, RelayStandbyVersion, RelayNmsState, RelayNodeState" target="t8"/>
-                                                        <echo message="Check condition &quot;${EnbStandbyVersion};${RelayStandbyVersion}&quot; CONTAINS &quot;${EnbRunningVersion};${RelayRunningVersion}&quot;"/>
+                                                        <echo message="Check condition &quot;${scenario:Compare_Previous_eNB_version}&quot; CONTAINS &quot;${EnbRunningVersion}&quot;"/>
                                                         <if>
                                                             <!--#Jsystem#-->
-                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8e9a9d7a-2c19-43f2-8cca-abba59cacf6b" language="javascript" params="str &lt;SEP&gt; ${EnbStandbyVersion};${RelayStandbyVersion} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion};${RelayRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8e9a9d7a-2c19-43f2-8cca-abba59cacf6b" language="javascript" params="str &lt;SEP&gt; ${scenario:Compare_Previous_eNB_version} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                                             <then>
                                                                 <antcallback target="t9"/>
                                                                 <antcallback return="TestResultToReturn" target="t10"/>
@@ -89,6 +99,16 @@
                                                                 <antcallback return="TestResultToReturn" target="t22"/>
                                                                 <antcallback return="TestResultToReturn" target="t23"/>
                                                                 <antcallback return="TestResultToReturn" target="t24"/>
+                                                                <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4ddb8eae-fa16-4fe4-8b2e-36f18ba9f931" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+                                                                    <!--#Jsystem#-->
+                                                                    <sequential>
+                                                                        <echo message="Parameter: myVar1=@{myVar1}"/>
+                                                                        <var name="myVar1" value="@{myVar1}"/>
+                                                                        <jsystemsetantproperties>
+                                                                            <!--Task for updating the ant parameters file - used for reference parameters-->
+                                                                        </jsystemsetantproperties>
+                                                                    </sequential>
+                                                                </jsystemfor>
                                                             </else>
                                                         </if>
                                                     </sequential>
