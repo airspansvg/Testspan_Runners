@@ -15,6 +15,16 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a7558144-4a31-4530-b980-25f42e91133b" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+            <!--#Jsystem#-->
+            <sequential>
+                <echo message="Parameter: myVar=@{myVar}"/>
+                <var name="myVar" value="@{myVar}"/>
+                <jsystemsetantproperties>
+                    <!--Task for updating the ant parameters file - used for reference parameters-->
+                </jsystemsetantproperties>
+            </sequential>
+        </jsystemfor>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3abfd294-b0f0-4335-949d-b1220c2c55b7" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
             <sequential>
@@ -65,10 +75,10 @@
                                                         </jsystemsetantproperties>
                                                         <antcallback target="t7"/>
                                                         <antcallback return="TestResultToReturn, EnbRunningVersion, EnbStandbyVersion, EnbNmsState, EnbNodeState, RelayRunningVersion, RelayStandbyVersion, RelayNmsState, RelayNodeState" target="t8"/>
-                                                        <echo message="Check condition &quot;${scenario:Compare_Previous_eNB_version}&quot; CONTAINS &quot;${EnbRunningVersion}&quot;"/>
+                                                        <echo message="Check condition &quot;${scenario:Compare_Previous_eNB_version};${scenario:Compare_Previous_relay_version}&quot; CONTAINS &quot;${EnbRunningVersion};${RelayRunningVersion}&quot;"/>
                                                         <if>
                                                             <!--#Jsystem#-->
-                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8e9a9d7a-2c19-43f2-8cca-abba59cacf6b" language="javascript" params="str &lt;SEP&gt; ${scenario:Compare_Previous_eNB_version} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8e9a9d7a-2c19-43f2-8cca-abba59cacf6b" language="javascript" params="str &lt;SEP&gt; ${scenario:Compare_Previous_eNB_version};${scenario:Compare_Previous_relay_version} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${EnbRunningVersion};${RelayRunningVersion} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                                             <then>
                                                                 <antcallback target="t9"/>
                                                                 <antcallback return="TestResultToReturn" target="t10"/>
@@ -88,6 +98,17 @@
                                                                 <antcallback target="t21"/>
                                                                 <antcallback return="TestResultToReturn" target="t22"/>
                                                                 <antcallback return="TestResultToReturn" target="t23"/>
+                                                                <antcallback return="TestResultToReturn" target="t24"/>
+                                                                <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4ddb8eae-fa16-4fe4-8b2e-36f18ba9f931" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+                                                                    <!--#Jsystem#-->
+                                                                    <sequential>
+                                                                        <echo message="Parameter: myVar1=@{myVar1}"/>
+                                                                        <var name="myVar1" value="@{myVar1}"/>
+                                                                        <jsystemsetantproperties>
+                                                                            <!--Task for updating the ant parameters file - used for reference parameters-->
+                                                                        </jsystemsetantproperties>
+                                                                    </sequential>
+                                                                </jsystemfor>
                                                             </else>
                                                         </if>
                                                     </sequential>
@@ -95,9 +116,9 @@
                                             </then>
                                             <else>
                                                 <!--#Jsystem#-->
-                                                <antcallback target="t24"/>
-                                                <antcallback return="TestResultToReturn" target="t25"/>
+                                                <antcallback target="t25"/>
                                                 <antcallback return="TestResultToReturn" target="t26"/>
+                                                <antcallback return="TestResultToReturn" target="t27"/>
                                             </else>
                                         </if>
                                     </sequential>
@@ -105,12 +126,12 @@
                             </then>
                             <else>
                                 <!--#Jsystem#-->
-                                <antcallback target="t27"/>
                                 <antcallback target="t28"/>
-                                <antcallback return="TestResultToReturn" target="t29"/>
-                                <antcallback target="t30"/>
-                                <antcallback return="TestResultToReturn" target="t31"/>
+                                <antcallback target="t29"/>
+                                <antcallback return="TestResultToReturn" target="t30"/>
+                                <antcallback target="t31"/>
                                 <antcallback return="TestResultToReturn" target="t32"/>
+                                <antcallback return="TestResultToReturn" target="t33"/>
                             </else>
                         </if>
                     </sequential>
@@ -312,13 +333,21 @@
     </target>
     <target name="t24">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="032ee5d4-6c09-4890-b4b2-8591523ad346"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.enodeb.configuration.SoftwareConfigSetTest.configSetTest"/>
+        </jsystem>
+    </target>
+    <target name="t25">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="2b68b8cb-3262-425c-ad8b-16033112a96f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t25">
+    <target name="t26">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="161805f7-6ecf-4bcd-9038-98d0f7784f5e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -326,7 +355,7 @@
             <test name="tests.enodeb.raw.SendCommandTest.sendCommand"/>
         </jsystem>
     </target>
-    <target name="t26">
+    <target name="t27">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4aeded62-2a2a-449b-a018-f732456fa4f3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -334,7 +363,7 @@
             <test name="tests.EnodeBStateTests.waitForEnbState"/>
         </jsystem>
     </target>
-    <target name="t27">
+    <target name="t28">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="8e6d1285-29e6-456e-b3a6-fb406e85e959"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -342,7 +371,7 @@
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t28">
+    <target name="t29">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e416e8d0-2886-4107-a56b-569d2778ea0c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -350,7 +379,7 @@
             <test name="jsystem.framework.sut.ChangeSutTest.changeSut"/>
         </jsystem>
     </target>
-    <target name="t29">
+    <target name="t30">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="dadbbb0f-d703-4b24-a8e3-da132eb3f93f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -358,7 +387,7 @@
             <test name="tests.autoit.AutoitRunProgramTest.runProgramTest"/>
         </jsystem>
     </target>
-    <target name="t30">
+    <target name="t31">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c9543270-0364-4d6c-b778-4ed0613e5486"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -366,7 +395,7 @@
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t31">
+    <target name="t32">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="0856f75b-69f9-4cf1-b6e0-ab50dcb1afb0"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -374,7 +403,7 @@
             <test name="tests.EnodeBStateTests.performReboot"/>
         </jsystem>
     </target>
-    <target name="t32">
+    <target name="t33">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="49c86084-1b94-43a5-8556-917ad6bfacad"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
