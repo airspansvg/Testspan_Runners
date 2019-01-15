@@ -16,12 +16,23 @@
     <target name="execute scenario">
         <antcallback return="TestResultToReturn" target="t0"/>
         <antcallback target="t1"/>
+        <echo message="Check condition &quot;${scenario:Bandwidth}&quot; CONTAINS &quot;5&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.84fac9aa-181c-4538-be33-0b0aeb86b51b" language="javascript" params="str &lt;SEP&gt; ${scenario:Bandwidth} &lt;SEP&gt; CONTAINS &lt;SEP&gt; 5 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t2"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
         <echo message="Check condition &quot;${scenario:Bandwidth}&quot; CONTAINS &quot;10&quot;"/>
         <if>
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.99d58dd7-13ae-4c2f-8f48-e78dbe90c75a" language="javascript" params="str &lt;SEP&gt; ${scenario:Bandwidth} &lt;SEP&gt; CONTAINS &lt;SEP&gt; 10 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t2"/>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t3"/>
             </then>
             <else>
                 <!--#Jsystem#-->
@@ -32,7 +43,7 @@
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.f0e3784a-67dc-42ab-a02b-c1fc1f11aa47" language="javascript" params="str &lt;SEP&gt; ${scenario:Bandwidth} &lt;SEP&gt; CONTAINS &lt;SEP&gt; 15 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t3"/>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t4"/>
             </then>
             <else>
                 <!--#Jsystem#-->
@@ -43,13 +54,12 @@
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.5f1c9ccc-c37f-4127-a532-cb170af31a1c" language="javascript" params="str &lt;SEP&gt; ${scenario:Bandwidth} &lt;SEP&gt; CONTAINS &lt;SEP&gt; 20 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t4"/>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t5"/>
             </then>
             <else>
                 <!--#Jsystem#-->
             </else>
         </if>
-        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t5"/>
         <antcallback return="TestResultToReturn" target="t6"/>
         <antcallback return="TestResultToReturn" target="t7"/>
         <antcallback return="TestResultToReturn" target="t8"/>
@@ -200,7 +210,7 @@
     </target>
     <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="ac53820a-f043-4190-b0f2-f3e7743227f4"/>
+            <sysproperty key="jsystem.uuid" value="3696b64e-b437-4773-9b3c-012a86f19e37"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
@@ -208,7 +218,7 @@
     </target>
     <target name="t3">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="924f227e-fb43-4e17-b748-dea605fa8229"/>
+            <sysproperty key="jsystem.uuid" value="ac53820a-f043-4190-b0f2-f3e7743227f4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
@@ -216,7 +226,7 @@
     </target>
     <target name="t4">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="f87e7af5-a115-4121-8024-5ac8dcd7a5e3"/>
+            <sysproperty key="jsystem.uuid" value="924f227e-fb43-4e17-b748-dea605fa8229"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
@@ -224,7 +234,7 @@
     </target>
     <target name="t5">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="b4283117-8ddd-45e3-94f3-a2cf157e0ab7"/>
+            <sysproperty key="jsystem.uuid" value="f87e7af5-a115-4121-8024-5ac8dcd7a5e3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
