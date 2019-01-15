@@ -14,17 +14,7 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <echo message="Check condition &quot;${scenario:tsach}&quot; CONTAINS &quot;multicell&quot;"/>
-        <if>
-            <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.5668a50f-df11-4823-8497-2617f59ba635" language="javascript" params="str &lt;SEP&gt; ${scenario:tsach} &lt;SEP&gt; CONTAINS &lt;SEP&gt; multicell &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-            <then>
-                <antcallback return="TestResultToReturn" target="t0"/>
-            </then>
-            <else>
-                <!--#Jsystem#-->
-            </else>
-        </if>
+        <antcallback return="IsTestWasSuccessful" target="t0"/>
         <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback target="t2"/>
         <echo message="Check condition &quot;${scenario:Bandwidth}&quot; CONTAINS &quot;5&quot;"/>
@@ -299,10 +289,10 @@
     </target>
     <target name="t0">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="4189aff5-d592-4ba2-af56-be5b9382e7ec"/>
+            <sysproperty key="jsystem.uuid" value="d98c8ffd-df3d-4703-80af-60416bddb5a8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.ScriptingTests.runCMD"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
         </jsystem>
     </target>
     <target name="t1">
