@@ -49,6 +49,16 @@
                         </if>
                     </sequential>
                 </jsystemfor>
+                <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e22371d7-1fce-4107-a045-93dca32204be" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+                    <!--#Jsystem#-->
+                    <sequential>
+                        <echo message="Parameter: myVar2=@{myVar2}"/>
+                        <var name="myVar2" value="@{myVar2}"/>
+                        <jsystemsetantproperties>
+                            <!--Task for updating the ant parameters file - used for reference parameters-->
+                        </jsystemsetantproperties>
+                    </sequential>
+                </jsystemfor>
                 <antcallback target="t7"/>
                 <antcallback return="TestResultToReturn" target="t8"/>
                 <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
@@ -98,7 +108,7 @@
                     </then>
                     <elseif>
                         <!--#Jsystem#-->
-                        <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.beb8994d-a46a-45a5-9e2f-19a177d5502f" language="javascript" params="str &lt;SEP&gt; ${RelayRunningVersion} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${scenario:Compare_Previous_relay_version} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                        <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.498c1182-e44c-4e42-afc1-335cc2bc27e2" language="javascript" params="str &lt;SEP&gt; ${RelayRunningVersion} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${scenario:Compare_Previous_relay_version} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                         <then/>
                         <!--#Jsystem#-->
                     </elseif>
