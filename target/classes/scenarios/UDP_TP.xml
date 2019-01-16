@@ -14,10 +14,76 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback target="t0"/>
-        <antcallback return="IsTestWasSuccessful" target="t1"/>
+        <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <echo message="Check condition &quot;${scenario:Stop_ue}&quot; EQUALS &quot;ue2&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.5f2d1788-e555-4095-bdac-b0ab0b8c36b6" language="javascript" params="str &lt;SEP&gt; ${scenario:Stop_ue} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue2 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t1"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;${scenario:Stop_ue}&quot; EQUALS &quot;ue4&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.51488e36-c267-44ca-a2ed-5e2d63366f51" language="javascript" params="str &lt;SEP&gt; ${scenario:Stop_ue} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue4 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t2"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;${scenario:Stop_ue}&quot; EQUALS &quot;ue6&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.f4fc6f09-e11d-402d-a919-4152b92abfcc" language="javascript" params="str &lt;SEP&gt; ${scenario:Stop_ue} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue6 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t3"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <antcallback target="t4"/>
+        <antcallback return="TestResultToReturn" target="t5"/>
     </target>
     <target name="t0">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1e52d0d6-6ba7-4c2d-ad2a-98cf0d779b56"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t1">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b580a796-51ed-47a2-b76d-4208fc35a63d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t2">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="25681eef-bbee-4937-8c9b-6ee140f1dfa5"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t3">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="21b1ece5-a4e7-4306-9ff0-b31e6912436d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t4">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="ef83312c-f664-42a0-b14b-b4e097ccc73d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -25,7 +91,7 @@
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t1">
+    <target name="t5">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9a88b308-11da-4219-89d7-21951557e58c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
