@@ -11,25 +11,24 @@
     <typedef classname="com.aqua.anttask.jsystem.JSystemScriptCondition" name="jsystemscriptcondition"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSwitch" name="jsystemswitch"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
+    <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="EnbSnmpReturnValue, IsTestWasSuccessful" target="t0"/>
-        <antcallback return="IsTestWasSuccessful" target="t1"/>
+        <antcallback target="t0"/>
+        <antcallback target="t1"/>
     </target>
     <target name="t0">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="c418076e-c07e-4ce6-b5b0-fa416d22addf"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.SnmpTests.snmpAction"/>
-        </jsystem>
+        <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_in_set.xml">
+            <property name="jsystem.uuid" value="298a9521-3248-4ddb-88b2-e4a95c2cf314"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
     <target name="t1">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="ddf38f1d-28b7-4b4c-b9e9-57480de6e169"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.SCPFileUpload.securedFileRetrive"/>
-        </jsystem>
+        <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_SGW_deny_out_set.xml">
+            <property name="jsystem.uuid" value="b13415a5-41d0-4ddd-a26a-d9b4123b0d46"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>

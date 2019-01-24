@@ -11,23 +11,158 @@
     <typedef classname="com.aqua.anttask.jsystem.JSystemScriptCondition" name="jsystemscriptcondition"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSwitch" name="jsystemswitch"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
+    <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn, StringToReturn" target="t0"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
+        <echo message="Check condition &quot;IPv4&quot; EQUALS &quot;${sut:Custom/IP_ver}&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3c35192a-06f0-4490-b889-7bece589d8be" language="javascript" params="str &lt;SEP&gt; IPv4 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${sut:Custom/IP_ver} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <echo message="Check condition &quot;enb_1&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.093d513c-1d97-46de-b528-12fa064cd894" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t3"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+                <echo message="Check condition &quot;enb_2&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.86043f78-4a90-4cc3-b0d7-0d57dd5d3af1" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t4"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t5"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t6"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;IPv6&quot; EQUALS &quot;${sut:Custom/IP_ver}&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.c80fa6b9-99eb-48c2-94e2-4d2c52e1fd59" language="javascript" params="str &lt;SEP&gt; IPv6 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${sut:Custom/IP_ver} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <echo message="Check condition &quot;enb_1&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.0eb036be-f25c-4b6b-91c8-d6eee3cf44a4" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t7"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t8"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t9"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+                <echo message="Check condition &quot;enb_2&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6ab2899f-3b35-462b-b64c-8086be824c2e" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t10"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t11"/>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t12"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;IPv4&quot; EQUALS &quot;${sut:Custom/IP_ver}&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2a04f792-6427-429f-b848-57a4b3c4f0dc" language="javascript" params="str &lt;SEP&gt; IPv4 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${sut:Custom/IP_ver} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <echo message="Check condition &quot;enb_1&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.64fcc036-a5bf-4923-9c59-1fad97f71bbe" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t13"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+                <echo message="Check condition &quot;enb_2&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6e4b58ae-0858-47c2-a38a-ef70b967ab5c" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t14"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;IPv6&quot; EQUALS &quot;${sut:Custom/IP_ver}&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a871937d-0a7b-4e8c-bbeb-cb476d3af8b0" language="javascript" params="str &lt;SEP&gt; IPv6 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${sut:Custom/IP_ver} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <echo message="Check condition &quot;enb_1&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a1479ce3-d958-437e-8e17-6c68ec7a897a" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t15"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+                <echo message="Check condition &quot;enb_2&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.81ed2f6f-2763-43e7-a1be-f8a4ffc6530f" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, StringToReturn" target="t16"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="856f8751-19ea-49b9-b22b-2076bd743812"/>
+            <sysproperty key="jsystem.uuid" value="248ae936-4ebb-4598-b0b4-8c7251766255"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+            <test name="tests.PingGeneralTest.pingTest"/>
         </jsystem>
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="dcbc2369-abbe-4e54-afb0-ab88fc643d7c"/>
+            <sysproperty key="jsystem.uuid" value="5e0920ae-fbfe-46fa-bb49-25f631f62a62"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
@@ -35,7 +170,119 @@
     </target>
     <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="392706a2-97b9-4d59-8d53-e4df1f0593f6"/>
+            <sysproperty key="jsystem.uuid" value="6fd6d604-982c-4018-9e30-775fbdf152a6"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t3">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="784170f2-f6ea-414b-946b-42db1dc0fdf3"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t4">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="2c5def52-8ed7-498e-9e9a-cd442a49c2d6"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t5">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="511ec33f-21fb-4445-a24c-4d358a0fce31"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t6">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="3278866e-4f2f-445d-b43c-81765eaa80a5"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t7">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b8b6afc8-574e-42c5-9723-4bcea2c7c7fe"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t8">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="098962ba-d5ac-4dbb-830b-64be0e4d2d13"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t9">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="5ca5621d-348a-4a1d-83f3-e5fe1e3fc36d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t10">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="95ac4c7c-bd64-4150-b757-b1ccbdd57edf"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t11">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f95e1d6d-f80f-41a4-9ac0-9d2652fcb43b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t12">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="db50d015-42d3-4d4d-8037-167b033b2f7b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t13">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9a0961fe-befd-4496-b8c3-9f131022a152"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t14">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c8baa335-d996-4fb1-a228-1ed5a5356288"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t15">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="bd7d11f1-c475-4a95-8a41-f160d8ffd58f"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t16">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="df2f79f5-ade0-4afc-8e08-c8b1c375de01"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
