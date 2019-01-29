@@ -15,12 +15,12 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t0"/>
-        <echo message="Check condition &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;20&quot;"/>
-        <echo message="Else if &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;15&quot;"/>
-        <echo message="Else if &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;10&quot;"/>
+        <echo message="Check condition &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;5&quot;"/>
+        <echo message="Else if &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;4&quot;"/>
+        <echo message="Else if &quot;${EnbSnmpReturnValue}&quot; EQUALS &quot;3&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2f0a2c2e-01a5-4430-82e2-75ec68ecaeb8" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 20 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2f0a2c2e-01a5-4430-82e2-75ec68ecaeb8" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 5 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3577f2ad-4123-4fe1-985f-695203e8f22b" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                     <!--#Jsystem#-->
@@ -447,7 +447,7 @@
             </then>
             <elseif>
                 <!--#Jsystem#-->
-                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2363bd70-9671-485b-94bb-fac778c601ec" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 15 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a99472e5-b272-40b9-9836-a19b51f1c5ad" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 4 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                 <then>
                     <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.93ad077c-0ac7-452f-807c-aad3d836963f" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                         <!--#Jsystem#-->
@@ -876,7 +876,7 @@
             </elseif>
             <elseif>
                 <!--#Jsystem#-->
-                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.7ac6e2b2-415f-4153-9deb-be86dc4346f6" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 10 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.cf48d46c-a425-4c43-a47f-c1aca8268433" language="javascript" params="str &lt;SEP&gt; ${EnbSnmpReturnValue} &lt;SEP&gt; EQUALS &lt;SEP&gt; 3 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                 <then>
                     <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e9ee48d7-43e3-49a0-b6cf-677d91ae5d44" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                         <!--#Jsystem#-->
@@ -1305,6 +1305,428 @@
             </elseif>
             <else>
                 <!--#Jsystem#-->
+                <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.985306d0-9647-4604-9de0-0346de6ef157" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+                    <!--#Jsystem#-->
+                    <sequential>
+                        <echo message="Parameter: myVar=@{myVar}"/>
+                        <var name="myVar" value="@{myVar}"/>
+                        <jsystemsetantproperties>
+                            <!--Task for updating the ant parameters file - used for reference parameters-->
+                        </jsystemsetantproperties>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue1&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.d73b786e-5db8-4879-b33a-ce11b20fb4c8" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue1 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue1/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.1ea13ff1-294a-428c-8e0f-4d2290b92eb4" language="javascript" params="str &lt;SEP&gt; ${sut:ue1/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t217"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e6f0e3c3-bd5e-486c-9d42-48e4a9114d11" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t218"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t219"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t220"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t221"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue1/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.85534b82-02fd-41ea-bcf5-fab3ca657388" language="javascript" params="str &lt;SEP&gt; ${sut:ue1/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t222"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t223"/>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue2&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.912cf261-91e4-4101-a2b8-af4e6080c5ce" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue2 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue2/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e339131d-96ec-48dd-b345-433f59cbe625" language="javascript" params="str &lt;SEP&gt; ${sut:ue2/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t224"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8f6e3d39-c622-4b59-b62d-62ab967634e9" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t225"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t226"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t227"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fd854261-4fc2-4c5f-abb4-9c69d4489df0" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t228"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback target="t229"/>
+                                                        <antcallback return="IsTestWasSuccessful" target="t230"/>
+                                                        <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                        <if>
+                                                            <!--#Jsystem#-->
+                                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.9025c47c-3445-4b08-9995-bb6e9a435133" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                            <then>
+                                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t231"/>
+                                                            </then>
+                                                            <else>
+                                                                <!--#Jsystem#-->
+                                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t232"/>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t233"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t234"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t235"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.629b1ab3-3372-41eb-ac3e-7d50e125d04a" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t236"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t237"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue2/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.30196794-4d6e-44f0-92a8-6a60afcc866f" language="javascript" params="str &lt;SEP&gt; ${sut:ue2/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t238"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t239"/>
+                                        <antcallback return="IsTestWasSuccessful" target="t240"/>
+                                        <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.320fda61-7edb-423d-9da0-18a7be9b1921" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t241"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t242"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue3&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.cabd235c-1bee-4086-b4d2-3a2957d4ec5b" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue3 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue3/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.dd064ad6-1923-4a27-b186-bee620406ec3" language="javascript" params="str &lt;SEP&gt; ${sut:ue3/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t243"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.f6f8530f-ddf8-4010-a098-42ce17711c47" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t244"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t245"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t246"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t247"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue3/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3a46febd-959d-479c-86c5-78814e778a68" language="javascript" params="str &lt;SEP&gt; ${sut:ue3/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t248"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t249"/>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue4&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fc10fad9-8a5e-4878-b4c4-df1ca2bfc37d" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue4 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue4/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8c01f948-33d6-401b-b9db-097a73b30710" language="javascript" params="str &lt;SEP&gt; ${sut:ue4/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t250"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.f9fb9977-d0d6-4da4-800a-8fcb2d616ebf" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t251"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t252"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t253"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.c5262285-1f93-42f9-9476-83b7a8214169" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t254"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t255"/>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t256"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t257"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t258"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3f874ae2-9361-4947-99d8-8e0f5250f464" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t259"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t260"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue4/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.9aed8852-07e2-4448-a4c0-ab2b644d3b54" language="javascript" params="str &lt;SEP&gt; ${sut:ue4/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t261"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t262"/>
+                                        <antcallback return="IsTestWasSuccessful" target="t263"/>
+                                        <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fdc6027d-d2c1-43aa-9f53-d49b1fce88c3" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t264"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t265"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue5&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e8fd441f-c0a4-4a1f-a200-bf0b9cac8e21" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue5 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue5/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6acc2167-2f21-4548-aa0b-f19f337f9451" language="javascript" params="str &lt;SEP&gt; ${sut:ue5/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t266"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4d6d90d6-6f43-4791-850c-e85ca98a0888" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t267"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t268"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t269"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t270"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue5/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fcdce25f-6bf7-4b63-933c-22fd7266f783" language="javascript" params="str &lt;SEP&gt; ${sut:ue5/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t271"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t272"/>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <echo message="Check condition &quot;${myVar}&quot; EQUALS &quot;ue6&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.09476209-f269-4d4a-a9ee-03dbcb5d299f" language="javascript" params="str &lt;SEP&gt; ${myVar} &lt;SEP&gt; EQUALS &lt;SEP&gt; ue6 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <echo message="Check condition &quot;${sut:ue6/class}&quot; EQUALS &quot;UE.ZemtelUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e7f970df-0871-419b-a630-6311b7271f9d" language="javascript" params="str &lt;SEP&gt; ${sut:ue6/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.ZemtelUE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t273"/>
+                                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.53c02060-2251-4cf3-b5e5-01c1b1ead87b" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback target="t274"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t275"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t276"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.9322ec3b-39e5-48a4-93d7-c594ba5f0fba" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t277"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t278"/>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback target="t279"/>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t280"/>
+                                                <antcallback return="IsTestWasSuccessful" target="t281"/>
+                                                <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                                <if>
+                                                    <!--#Jsystem#-->
+                                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.03059a05-f05c-4d78-9e1f-b0f2d489babf" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                                    <then>
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t282"/>
+                                                    </then>
+                                                    <else>
+                                                        <!--#Jsystem#-->
+                                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t283"/>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                                <echo message="Check condition &quot;${sut:ue6/class}&quot; EQUALS &quot;UE.GemtekUE&quot;"/>
+                                <if>
+                                    <!--#Jsystem#-->
+                                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2fe12bdc-6ef3-411a-afd4-2630ceaec77f" language="javascript" params="str &lt;SEP&gt; ${sut:ue6/class} &lt;SEP&gt; EQUALS &lt;SEP&gt; UE.GemtekUE &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                    <then>
+                                        <antcallback target="t284"/>
+                                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t285"/>
+                                        <antcallback return="IsTestWasSuccessful" target="t286"/>
+                                        <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:pt2p}&quot;"/>
+                                        <if>
+                                            <!--#Jsystem#-->
+                                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.21b8bf8c-10b5-49f9-bb87-200069dbc37a" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:pt2p} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                            <then>
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t287"/>
+                                            </then>
+                                            <else>
+                                                <!--#Jsystem#-->
+                                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t288"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else>
+                                        <!--#Jsystem#-->
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                    </sequential>
+                </jsystemfor>
             </else>
         </if>
     </target>
@@ -3039,6 +3461,582 @@
     <target name="t216">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="f46ee2f0-7e71-488d-b6c6-5f8b1ee602f7"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t217">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="e0db4a9b-3743-4af8-86e7-02da3933b062"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t218">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c3b4259b-f9b4-483f-b22e-f2eeeff998e7"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t219">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f576abe4-241d-4595-a59d-9e2f55841958"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t220">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="0a2f3142-fef8-46a7-af1e-ad4174aff786"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t221">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c87ccc22-91c1-41e7-bab9-ee83f103d42f"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t222">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="cc324dfa-f51b-417e-950f-8b99e49eca09"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t223">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="6d1e1906-66a8-43d2-a79f-6d9215df08c4"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t224">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f8a2eacd-b70d-4e33-86f7-28511cd00452"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t225">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="7f2173a0-1573-4a32-ad1e-9e1b282fd5fe"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t226">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="2bf51ae9-f38d-4dea-93bf-3fd76a6007d5"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t227">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="7c063456-a750-41d2-9c40-45932dbc4c17"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t228">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="bb839b65-32a5-4985-8e73-e01adc6123fc"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t229">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="5cdec722-3314-4dac-a318-ddc9fb5257a1"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t230">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="615c685b-d7cd-4aaa-b078-975dceaa5581"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t231">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9f7cf00b-8821-4f6c-b2a7-025c4b3aab46"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t232">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b4718b61-d077-48ec-899f-195ca8d998fb"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t233">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="6936c5e6-cd8f-424c-afba-89a399662591"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t234">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="fa3a92cc-2e18-4508-a61e-68fb449ffcf1"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t235">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="6f112e05-4c7f-4d9b-86b3-087918ddbe2c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t236">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a31de231-996f-447e-abb5-0079ec0435fe"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t237">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="71c7b136-0b87-4cab-8e50-ef764ecb305e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t238">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="3844bcca-40ff-496e-94ff-f411cd8247a0"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t239">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="df2fffe8-8545-481c-96d4-9f61c6bbaffb"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t240">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d9916fc8-1a53-43be-9995-66222eae495c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t241">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c3fc2819-4690-43d6-95eb-3d2c95458aa3"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t242">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="7feb552d-9c84-4993-be32-6bd2f8652f1e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t243">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8b214035-6f0e-4803-9a9f-929ed1d9d88c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t244">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4794f9f5-66a1-4c30-bdf7-de24b9ebb866"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t245">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d29485ac-7011-41c6-b53a-0282563ea3a5"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t246">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9c69329b-e6e3-4ef1-abf6-f376cef3ac35"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t247">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c06c0dcb-18a5-41c8-9f7c-17e8ccafe139"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t248">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c8a183df-fa3f-4120-85ac-f16832097050"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t249">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1349ea7b-a736-405e-b16d-9e23f8bb459e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t250">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="094e0b07-197d-4fbc-a57f-a82be6fbe482"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t251">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b7640e75-3c2d-41e0-a639-f40116490cd9"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t252">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="2aefba2f-3c71-44bf-a999-33e8b5585548"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t253">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="54c92a5d-705c-41dc-9d4b-38964d99a124"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t254">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="0bbca7de-dee0-46c9-9598-45823ae8ecbe"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t255">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="e816d1a0-5de7-45d5-96e4-9aa0fad0672c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t256">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="7449283f-f558-4b80-8f21-a08e213f8c37"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t257">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d7b18a8f-89d1-40ff-8569-e5f7fac3c585"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t258">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="65425df7-894d-43b0-a842-1b5d88e6b04a"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t259">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="bdcd464e-8d07-4d2c-b1a3-fdf6ca2421b4"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t260">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="578a034f-2450-4433-a831-1327e41d728a"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t261">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="75b1c2ef-2e8f-452e-b075-f25990e17086"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t262">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="270d3b85-7ffb-4055-9859-a79debae7162"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t263">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9aa71c87-eeb8-4b41-a81c-ef76f97d16bc"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t264">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a2d5f4d1-d6ec-4405-9c0e-6ea38c48273f"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t265">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="3a3c6543-aac6-4ff6-ac10-a0ad59c87141"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t266">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="ae809016-a693-4b95-ae9c-0577d390531d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t267">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8dd135a0-3355-44cd-abe0-ef194d72f4c7"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t268">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c7ed2458-6098-47f9-ba91-2fd9224d1979"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t269">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8b26f215-3bd0-4a28-8eef-b55e5aadbe09"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t270">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a37df9c0-0962-4cf6-ab42-bccf880c33f8"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t271">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="60daf8fb-0aab-46f0-9622-e32d9b9c15ab"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t272">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f71ae6ca-56ae-4782-9896-40f3ed9cda42"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t273">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4e15ab82-9466-4352-8382-7f66093aa12c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t274">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="5813916b-378b-4dfa-b89e-f4ad31b56be8"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t275">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="88f1cf4b-cbb4-482b-99be-a690f32421df"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t276">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="566bf780-d96f-4668-a2a8-86cc69710123"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t277">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a7cca248-4c2b-479e-8cf6-062a133fafcc"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t278">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9232e328-429f-45b1-9207-eb84ea8e7727"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t279">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f69febcc-eee6-4972-a100-73c9fa6db0cb"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t280">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4e6beeb6-faa1-4af2-85e6-64195e70aa13"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t281">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="36717201-8fa1-42d4-b919-a38e55da6e12"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t282">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9a7f5c96-df26-47a8-a55e-083d94211bee"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t283">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d2494a2c-fb66-4456-b26c-83a61ee1bf0b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t284">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1eacd0a6-2f44-459e-976b-03d40559c2ed"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.WaitTests.Wait"/>
+        </jsystem>
+    </target>
+    <target name="t285">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8b5c1687-d159-4ebe-b3ff-93ec98f6e50d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t286">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="96245784-5912-46f7-b9c6-2a1972458572"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t287">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8cb01c92-fea2-416f-bcfa-64e52f8c8fc1"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.UeSnmpTests.snmpAction"/>
+        </jsystem>
+    </target>
+    <target name="t288">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a61ebcbc-ea70-4928-a2a2-d011bad4a4eb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.UeSnmpTests.snmpAction"/>
