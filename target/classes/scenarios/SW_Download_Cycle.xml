@@ -14,7 +14,7 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a69edd57-db74-4bea-8acb-1021666225ce" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
             <sequential>
@@ -23,23 +23,16 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
-                <antcallback target="t1"/>
-                <antcallback return="IsTestWasSuccessful" target="t2"/>
-                <antcallback return="IsTestWasSuccessful" target="t3"/>
-                <antcallback return="IsTestWasSuccessful" target="t4"/>
-                <antcallback return="IsTestWasSuccessful" target="t5"/>
-                <antcallback return="IsTestWasSuccessful" target="t6"/>
-                <antcallback return="IsTestWasSuccessful" target="t7"/>
-                <antcallback return="IsTestWasSuccessful" target="t8"/>
-                <antcallback return="IsTestWasSuccessful" target="t9"/>
-                <antcallback return="IsTestWasSuccessful" target="t10"/>
-                <antcallback return="IsTestWasSuccessful" target="t11"/>
-                <antcallback return="IsTestWasSuccessful" target="t12"/>
-                <antcallback return="IsTestWasSuccessful" target="t13"/>
-                <antcallback return="IsTestWasSuccessful" target="t14"/>
+                <antcallback return="TestResultToReturn" target="t1"/>
+                <antcallback return="TestResultToReturn" target="t2"/>
+                <antcallback return="TestResultToReturn" target="t3"/>
+                <antcallback target="t4"/>
+                <antcallback return="TestResultToReturn" target="t5"/>
+                <antcallback return="TestResultToReturn" target="t6"/>
+                <antcallback return="TestResultToReturn" target="t7"/>
             </sequential>
         </jsystemfor>
-        <antcallback target="t15"/>
+        <antcallback target="t8"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -51,37 +44,21 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="29870215-ef88-47a2-b9a4-5a837942579f"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.TrafficGeneratorController.stopTraffic"/>
-        </jsystem>
-    </target>
-    <target name="t2">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="b49ce696-7a74-455b-9825-56a79fbed78b"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.startCatchAlarmEvent"/>
-        </jsystem>
-    </target>
-    <target name="t3">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="d69a6cb2-5eeb-4632-af89-7b6c0d151301"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.SoftwareUpgradeUsingNetspan.softwareUpgradeNetspan"/>
         </jsystem>
     </target>
-    <target name="t4">
+    <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="50d95348-d35c-4d08-b647-28baf132ae70"/>
+            <sysproperty key="jsystem.uuid" value="6264cc4e-d267-4d6e-956f-5e5bd2e2f4d7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.catchAlarmEvent"/>
+            <test name="tests.enodeb.configuration.SoftwareConfigSetTest.configSetTest"/>
         </jsystem>
     </target>
-    <target name="t5">
+    <target name="t3">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e9c14d0b-c7e4-41d2-a122-a3df9f67f964"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -89,15 +66,15 @@
             <test name="tests.TrafficGeneratorController.checkTraffic"/>
         </jsystem>
     </target>
-    <target name="t6">
+    <target name="t4">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="989e81f4-c94d-4c9b-bf3f-d5e8c8d01068"/>
+            <sysproperty key="jsystem.uuid" value="213451f9-2a45-4325-accb-fae83290b24a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.startCatchAlarmEvent"/>
+            <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t7">
+    <target name="t5">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="446e1320-293d-45ba-963a-c60f24741fbf"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -105,15 +82,15 @@
             <test name="tests.SoftwareUpgradeUsingNetspan.softwareUpgradeNetspan"/>
         </jsystem>
     </target>
-    <target name="t8">
+    <target name="t6">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="50ad9b3c-3aaa-4e60-9e32-2275df2add21"/>
+            <sysproperty key="jsystem.uuid" value="0203178d-9b92-434c-8b89-42e4bd3095bc"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.catchAlarmEvent"/>
+            <test name="tests.enodeb.configuration.SoftwareConfigSetTest.configSetTest"/>
         </jsystem>
     </target>
-    <target name="t9">
+    <target name="t7">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="59e9ca62-1ea3-42fa-bb12-8e8c1012201c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -121,47 +98,7 @@
             <test name="tests.TrafficGeneratorController.checkTraffic"/>
         </jsystem>
     </target>
-    <target name="t10">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="49f453b7-e511-4907-b641-4f9cfe1b6a65"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.startCatchAlarmEvent"/>
-        </jsystem>
-    </target>
-    <target name="t11">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="633ea6ad-708e-4ec8-a101-58ac0c203290"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.SoftwareUpgradeUsingNetspan.softwareUpgradeNetspan"/>
-        </jsystem>
-    </target>
-    <target name="t12">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="347ed257-a30f-4dc1-a101-f7f7b7158cb0"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.FaultManagementTests.catchAlarmEvent"/>
-        </jsystem>
-    </target>
-    <target name="t13">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="76097040-f82d-4144-8561-066a897cbc35"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.SoftwareUpgradeUsingNetspan.softwareUpgradeNetspan"/>
-        </jsystem>
-    </target>
-    <target name="t14">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="1c8f6c03-45bf-49fe-a650-11836af6d5da"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.TrafficGeneratorController.checkTraffic"/>
-        </jsystem>
-    </target>
-    <target name="t15">
+    <target name="t8">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4d0331fc-b891-4e86-84e7-25537c470d4b"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
