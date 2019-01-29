@@ -14,125 +14,32 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="IsTestWasSuccessful" target="t0"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t3"/>
-        <echo message="Check condition &quot;enb_1&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
-        <if>
-            <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.63a2e2d5-08d1-4d83-8333-321a84238cbb" language="javascript" params="str &lt;SEP&gt; enb_1 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-            <then>
-                <antcallback return="TestResultToReturn, StringToReturn" target="t4"/>
-            </then>
-            <else>
-                <!--#Jsystem#-->
-            </else>
-        </if>
-        <echo message="Check condition &quot;enb_2&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
-        <if>
-            <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.5f528477-7696-435f-b82d-00a4f5d88da3" language="javascript" params="str &lt;SEP&gt; enb_2 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-            <then>
-                <antcallback return="TestResultToReturn, StringToReturn" target="t5"/>
-            </then>
-            <else>
-                <!--#Jsystem#-->
-            </else>
-        </if>
-        <echo message="Check condition &quot;enb_3&quot; EQUALS &quot;${scenario:eNodeBsUnderTest}&quot;"/>
-        <if>
-            <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e2f63c66-b646-4b57-b69e-4d5d05ba615c" language="javascript" params="str &lt;SEP&gt; enb_3 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-            <then>
-                <antcallback return="TestResultToReturn, StringToReturn" target="t6"/>
-            </then>
-            <else>
-                <!--#Jsystem#-->
-            </else>
-        </if>
-        <antcallback target="t7"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t8"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t9"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t1"/>
+        <antcallback return="TestResultToReturn" target="t2"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="89605620-2354-4c91-80ea-2de2392e7b7f"/>
+            <sysproperty key="jsystem.uuid" value="af65817c-1a41-4894-8e29-bdeef2e708e7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.InitScenarioParametersTest.test"/>
+            <test name="tests.StartTimerTest.StartTimer"/>
         </jsystem>
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="343620c2-59f6-463f-8451-d737a74c1b17"/>
+            <sysproperty key="jsystem.uuid" value="d19532d0-8c8a-4e11-be0b-667c4c3db476"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+            <test name="tests.PnpTests.PnPTest"/>
         </jsystem>
     </target>
     <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="ea7037aa-b841-4bc8-8ee8-b5661517d9db"/>
+            <sysproperty key="jsystem.uuid" value="5ebed1f4-8050-4cf5-9001-db1f8e12702d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t3">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="f832260a-717b-492a-bd30-e3e1db94f4c4"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t4">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="6d73c482-9be2-49ad-895a-555b4d87a750"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t5">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="39359791-c0b4-4ee6-91c4-ac97fbf10ba7"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t6">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="ec220013-91a6-44b2-8e18-6dd5307eff39"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t7">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="0eb616fb-8709-4e69-a334-5069bc1b74d0"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.WaitTests.Wait"/>
-        </jsystem>
-    </target>
-    <target name="t8">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="406cc05a-9608-4707-8425-a04a4d5d68c8"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t9">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="e2b54836-36fd-485e-a225-8e0e3032abc0"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+            <test name="tests.netspan.signals.AnalyzeSignalsTest.AnalyzeSignals"/>
         </jsystem>
     </target>
 </project>
