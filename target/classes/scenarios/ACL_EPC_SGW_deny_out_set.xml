@@ -86,6 +86,8 @@
                 <!--#Jsystem#-->
             </else>
         </if>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t12"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t13"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -178,6 +180,22 @@
     <target name="t11">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="db50d015-42d3-4d4d-8037-167b033b2f7b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t12">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f5fa0fb0-1598-40a3-b6fe-505145b95a1e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t13">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="af366da7-0b24-4945-96de-c096f102a1de"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.raw.ShellTests.sendCommandsOnSession"/>
