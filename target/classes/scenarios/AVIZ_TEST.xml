@@ -27,10 +27,10 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
-                <echo message="Check condition &quot;EPC_num&quot; EQUALS &quot;EPC_${myVar}&quot;"/>
+                <echo message="Check condition &quot;${sut:Custom/EPC_num}&quot; EQUALS &quot;EPC_${myVar}&quot;"/>
                 <if>
                     <!--#Jsystem#-->
-                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.58530c62-4b83-4aaf-8b93-9ea70313c681" language="javascript" params="str &lt;SEP&gt; EPC_num &lt;SEP&gt; EQUALS &lt;SEP&gt; EPC_${myVar} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.58530c62-4b83-4aaf-8b93-9ea70313c681" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/EPC_num} &lt;SEP&gt; EQUALS &lt;SEP&gt; EPC_${myVar} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
                         <antcallback target="t5"/>
                         <antcallback target="t6"/>
