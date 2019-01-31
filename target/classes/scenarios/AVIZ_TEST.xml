@@ -27,11 +27,21 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
-                <antcallback target="t5"/>
-                <antcallback target="t6"/>
-                <antcallback target="t7"/>
-                <antcallback target="t8"/>
-                <antcallback target="t9"/>
+                <echo message="Check condition &quot;EPC_num&quot; EQUALS &quot;EPC_${myVar}&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.58530c62-4b83-4aaf-8b93-9ea70313c681" language="javascript" params="str &lt;SEP&gt; EPC_num &lt;SEP&gt; EQUALS &lt;SEP&gt; EPC_${myVar} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback target="t5"/>
+                        <antcallback target="t6"/>
+                        <antcallback target="t7"/>
+                        <antcallback target="t8"/>
+                        <antcallback target="t9"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                    </else>
+                </if>
             </sequential>
         </jsystemfor>
     </target>
@@ -77,21 +87,21 @@
     </target>
     <target name="t5">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_in_set.xml">
-            <property name="jsystem.uuid" value="a9449bfb-309d-42c5-9714-5bb9add1c12c"/>
+            <property name="jsystem.uuid" value="2ce7f0fa-12e1-4fa8-9b34-8deada0e9b08"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
     <target name="t6">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_out_set.xml">
-            <property name="jsystem.uuid" value="36350e62-fe35-4acb-843e-828638daba4d"/>
+            <property name="jsystem.uuid" value="e28d2500-8779-4e4e-8258-569d770bf33c"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
     <target name="t7">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="4c1ac73d-9b2b-4e9b-a503-e1a4ec375f21"/>
+            <sysproperty key="jsystem.uuid" value="26977ab0-2f26-44e6-bef4-ee42d43b26e2"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.WaitTests.Wait"/>
@@ -99,14 +109,14 @@
     </target>
     <target name="t8">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_in_remove.xml">
-            <property name="jsystem.uuid" value="e587f428-cac1-4c4b-a3a6-0e4236c7406e"/>
+            <property name="jsystem.uuid" value="2687c46a-90d1-4bfd-a211-f37d7e9c6b96"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
     <target name="t9">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_out_remove.xml">
-            <property name="jsystem.uuid" value="23768c68-19c1-410a-b51e-60681cdaa70f"/>
+            <property name="jsystem.uuid" value="4ffd6af9-102f-4a2c-8be8-60db8ab7c35b"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
