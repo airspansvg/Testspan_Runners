@@ -18,15 +18,16 @@
         <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback return="TestResultToReturn" target="t3"/>
-        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t4"/>
-        <antcallback target="t5"/>
-        <antcallback return="TestResultToReturn" target="t6"/>
-        <antcallback target="t7"/>
-        <antcallback return="TestResultToReturn" target="t8"/>
-        <antcallback target="t9"/>
+        <antcallback return="TestResultToReturn" target="t4"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t5"/>
+        <antcallback target="t6"/>
+        <antcallback return="TestResultToReturn" target="t7"/>
+        <antcallback target="t8"/>
+        <antcallback return="TestResultToReturn" target="t9"/>
         <antcallback return="TestResultToReturn, StopTimeToReturn" target="t10"/>
-        <antcallback target="t11"/>
+        <antcallback return="TestResultToReturn" target="t11"/>
         <antcallback return="TestResultToReturn" target="t12"/>
+        <antcallback target="t13"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -62,13 +63,21 @@
     </target>
     <target name="t4">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="84655be2-0555-40f5-bd9a-f50383a356e4"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.TrafficGeneratorController.startTraffic"/>
+        </jsystem>
+    </target>
+    <target name="t5">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="cb66e3c8-c9f1-4ebf-86ed-9ed78dadf0ba"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.StartTimerTest.StartTimer"/>
         </jsystem>
     </target>
-    <target name="t5">
+    <target name="t6">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="bbce9572-c873-4205-940f-853fd34244a6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -76,7 +85,7 @@
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t6">
+    <target name="t7">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="bf3d6c9c-82af-41ad-8d41-4aeb47a6412b"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -84,7 +93,7 @@
             <test name="tests.EnodeBStateTests.performReboot"/>
         </jsystem>
     </target>
-    <target name="t7">
+    <target name="t8">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="36983607-efb4-4a42-ac36-5a6fbe3abbec"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -92,20 +101,12 @@
             <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
-    <target name="t8">
+    <target name="t9">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="0b9335f3-ce5f-4d72-a2bf-ba3d0f4ed61c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.EnodeBStateTests.waitForEnbState"/>
-        </jsystem>
-    </target>
-    <target name="t9">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="474768b6-45f4-4418-9e50-b10ec084f325"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.WaitTests.Wait"/>
         </jsystem>
     </target>
     <target name="t10">
@@ -118,18 +119,26 @@
     </target>
     <target name="t11">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="97098057-d153-458e-a116-ffa64e3026ee"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.WaitTests.Wait"/>
-        </jsystem>
-    </target>
-    <target name="t12">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3c449e03-16a7-4c3d-bf8f-37607df04745"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.netspan.signals.AnalyzeSignalsTest.AnalyzeSignals"/>
+        </jsystem>
+    </target>
+    <target name="t12">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="0706117d-2680-4fdb-9191-d1e98e13367c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.TrafficGeneratorController.checkTraffic"/>
+        </jsystem>
+    </target>
+    <target name="t13">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4af7435f-9dba-4497-8fbe-a3c861246a69"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.TrafficGeneratorController.stopTraffic"/>
         </jsystem>
     </target>
 </project>
