@@ -14,9 +14,9 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
         <antcallback return="TestResultToReturn" target="t1"/>
-        <antcallback return="TestResultToReturn" target="t2"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t2"/>
         <antcallback target="t3"/>
         <antcallback target="t4"/>
         <antcallback target="t5"/>
@@ -33,26 +33,26 @@
     </target>
     <target name="t0">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="d26a6cba-63aa-499d-acd9-29eb12c9098e"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="tests.StartTimerTest.StartTimer"/>
-        </jsystem>
-    </target>
-    <target name="t1">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="65af99e4-e4b8-4d87-a2de-3813a4aeb631"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.startTraffic"/>
         </jsystem>
     </target>
-    <target name="t2">
+    <target name="t1">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1800c64b-0e9d-4840-9058-8d9db1cc3560"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="tests.TrafficGeneratorController.checkTraffic"/>
+        </jsystem>
+    </target>
+    <target name="t2">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d26a6cba-63aa-499d-acd9-29eb12c9098e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="tests.StartTimerTest.StartTimer"/>
         </jsystem>
     </target>
     <target name="t3">
