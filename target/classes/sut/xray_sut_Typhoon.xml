@@ -400,22 +400,9 @@
 		<Tac>13000</Tac>		
 	 </cell_2>
 	 
-
-		
 		<duplexMode>TDD</duplexMode>
 		<PTP_UE1>C:/Users/spuser/Documents/Spirent/Typhoon_UE1.tcc</PTP_UE1>
 		<PTP_UE3>C:/Users/spuser/Documents/Spirent/Typhoon_UE3.tcc</PTP_UE3>
-		<customEnbConfig  index="0">         
-			<class>com.airspan.netspan.web_services.lte.EnbConfigT</class>
-			<customName>S1</customName>
-			<neighbourManagementProfile>Automation_SR16.50v1_GPL_Typhoon_S1</neighbourManagementProfile>
-		</customEnbConfig >
-		<customEnbConfig index="1">         
-			<class>com.airspan.netspan.web_services.lte.EnbConfigT</class>
-			<customName>X2</customName>
-			<neighbourManagementProfile>Automation_SR16.50v1_GPL_Typhoon_X2</neighbourManagementProfile>
-		</customEnbConfig>
-
 		<snmp>
 			<class>Utils.Snmp.SNMP</class>
 			<readCommunity>ro-public</readCommunity>
@@ -448,7 +435,8 @@
 		<intra20>39750</intra20>
 		<inter15>39900</inter15>
 		<intra15>39750</intra15>
-		
+		<S1>Automation_SR16.50v1_GPL_Typhoon_S1</S1>
+<X2>Automation_SR16.50v1_GPL_Typhoon_X2</X2>
 		
 		
 				<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
@@ -483,17 +471,6 @@
 		<Radio_Profile>Automation_SR16.50v1_AS1300_2_GPL_Typhoon_Cell1</Radio_Profile>
 		<Tac>13000</Tac>		
 	 </cell_2>
-	 
-		<customEnbConfig  index="0">         
-			<class>com.airspan.netspan.web_services.lte.EnbConfigT</class>
-			<customName>S1</customName>
-			<neighbourManagementProfile>Automation_SR16.50v1_GPL_Typhoon_S1</neighbourManagementProfile>
-		</customEnbConfig >
-		<customEnbConfig index="1">         
-			<class>com.airspan.netspan.web_services.lte.EnbConfigT</class>
-			<customName>X2</customName>
-			<neighbourManagementProfile>Automation_SR16.50v1_GPL_Typhoon_X2</neighbourManagementProfile>
-		</customEnbConfig>
 
 		<snmp>
 			<class>Utils.Snmp.SNMP</class>
@@ -713,231 +690,6 @@
 		</port>
 	</gen>
 
-	<svg-racksw>
-		<class>networking.cisco.CiscoCatalyst2960</class>
-		<ipAddress>172.20.61.151</ipAddress>
-		<username>root</username>
-		<enable>airspan</enable>
-		<interfaces index="0">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet0/1</interfaceName>
-			<description>enb_2</description>
-			<connectedTo>enb_2</connectedTo>
-		</interfaces>
-
-		<interfaces index="1">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet0/8</interfaceName>
-			<description>enb_1</description>
-			<connectedTo>enb_1</connectedTo>
-		</interfaces>
-
-
-
-		<vlans index="0">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>X2_DATA</vlanName>
-		</vlans>
-		<vlans index="1">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>S1_DATA</vlanName>
-		</vlans>
-	</svg-racksw>
-
-	<svg-ipsecsw>
-		<class>networking.cisco.CiscoCatalyst2960</class>
-		<ipAddress>172.20.61.230</ipAddress>
-		<username>root</username>
-		<enable>airspan</enable>
-		<interfaces index="0">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/2</interfaceName>
-			<description>enb_1</description>
-			<connectedTo>enb_1</connectedTo>
-		</interfaces>
-
-		<interfaces index="1">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/2</interfaceName>
-			<description>enb_2</description>
-			<connectedTo>enb_2</connectedTo>
-		</interfaces>
-
-
-		<vlans index="0">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>X2_DATA</vlanName>
-		</vlans>
-		<vlans index="1">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>S1_DATA</vlanName>
-		</vlans>
-	</svg-ipsecsw>
-
-	<Deny_X2>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_X2>
-
-	<Deny_S1>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="3">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_S1>
-
-	
-	<Deny_Netspan>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.100</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</destination>
-		</rules>
-		<rules index="3">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.129</ipAddress>
-			</destination>
-		</rules>  
-		<rules index="4">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-
-	</Deny_Netspan>	
-
-
 	<Iperf_Session_UE1>
 		<class>Utils.Iperf.IperfSession</class>
 		<networkSideStation>
@@ -1079,24 +831,6 @@
 		<sessionName>Session4</sessionName>
 	</Iperf_Session_UE4>
 
-	<IPERF_SERVER>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_SERVER</sessionPath>
-	</IPERF_SERVER>
-
-	<IPERF_USER1>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_USER1</sessionPath>
-	</IPERF_USER1>
-
-	<IPERF_USER2>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_USER2</sessionPath>
-	</IPERF_USER2>
-
 	<pingServer>
 		<class>Utils.Station.WorkStation</class>
 		<hostIpAddres>192.168.59.114</hostIpAddres>
@@ -1112,34 +846,5 @@
 		<password>HeWGEUx66m=_4!ND</password>
 		<operationSystemName>Linux</operationSystemName>
 	</pingServer1>
-
-	<teraterm1>
-		<class>Utils.TeratermBundle</class>
-		<folderPath>C:\Program Files (x86)\teraterm\</folderPath>
-		<children index="0">
-			<class>Utils.MoxaCom</class>
-			<port>23</port>
-			<comName>172.20.60.26</comName>
-		</children>
-	</teraterm1>
-
-	<crtDLPing>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>mgmt\Iperf_Server(DL)</sessionPath>
-	</crtDLPing>
-
-	<crtULPing>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>mgmt\Iperf_Client_1(UL)</sessionPath>
-	</crtULPing>
-
-	<crt3004>
-		<class>Utils.SecureCRT</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>Iperf\Iperf_user2-192.168.57.17</sessionPath>
-	</crt3004>
-
 
 </sut>
