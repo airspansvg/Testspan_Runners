@@ -5,20 +5,32 @@
 		<NMSpAddress>172.22.2.222</NMSpAddress>
 		<IP_ver>IPv4</IP_ver>
 		<setup_name>piranha</setup_name>
+		<COLD_REBOOT_KEY>AU_cold_reboot</COLD_REBOOT_KEY>
+		<COLD_REBOOT_NEG_KEY>AU_cold_reboot_NEG</COLD_REBOOT_NEG_KEY>
+		<WARM_REBOOT_KEY>AU_reboot</WARM_REBOOT_KEY>
+		<WARM_REBOOT_NEG_KEY>AU_reboot_NEG</WARM_REBOOT_NEG_KEY>
+		<SCAN_KEY>AU_REALY_ENB_SCAN</SCAN_KEY>
+		<SCAN_NEG_KEY>AU_REALY_ENB_SCAN_NEG</SCAN_NEG_KEY>
 	</Custom>
 
 	<EPC>
 		<class>EPC.CiscoEPC</class> 
 		<ipAddress>192.168.59.27</ipAddress> 
-		<username>root</username>
+		<username>spuser</username>
 		<password>sp_user9</password>
 	</EPC>
-
 
 	<NetspanWS>
 		<class>com.airspan.netspan.web_services.ver_16_0.NetspanWSImpl</class>
 		<hostname>asil-svg-nms22</hostname>
 	</NetspanWS>
+	
+	<NetspanSF>
+		<class>com.airspan.netspansf.web_services.impl.NetspanSFImpl</class>
+		<hostname>192.168.57.189</hostname>
+		<username>automation</username> <!-- The user has to be of type Power User -->
+		<password>Automation1!</password>
+	</NetspanSF>
 
 	<ue1>
 		<class>UE.GemtekUE</class>
@@ -156,28 +168,51 @@
 
 
 
-
-
 	<enb_1>
 		<class>EnodeB.AirUnity544</class>
 		<netspanName>DABA1B5C887E</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<band>B41L</band>
 		<eNBID>544</eNBID>
-		<TAC_1>13000</TAC_1>
-		<TAC_2>13110</TAC_2>
+		<TAC_Cell1>13100</TAC_Cell1>
+		<TAC_1>13100</TAC_1>
+		<TAC_2>13100</TAC_2>
 		<inter20>40090</inter20>
 		<intra20>39890</intra20>
 		<inter15>41470</inter15>
 		<intra15>41320</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<S1>SR15.50v2_AirUnity_GPL_Automation_S1</S1>
-		<X2>SR15.50v2_AirUnity_GPL_Automation_X2</X2>
+		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_S1</S1>
+		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</X2>
 		<MCProfile_CA_ON>AirUnity Default Disabled_Pirhana_CA</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>AirUnity Default Disabled</MCProfile_CA_OFF>
 		<X2_ANR_ON>Piranha_PnpEnable</X2_ANR_ON>
 		<X2_ANR_OFF>Piranha_PnpEnable_NOANR</X2_ANR_OFF>
 		<Radio_Cell1>AU_Radio_41490_25_SR16.00</Radio_Cell1>
+	<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+                                                     <!-- eNB Profiles -->
+                <System_Profile>Automation_SR16.5v10 AirUnity system defaults</System_Profile>
+                <eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
+                <Sync_Profile>Automation_AU_Sync_SR16.00_Ava</Sync_Profile>
+                <Security_Profile>Automation_AU_Security_SR16.00</Security_Profile>
+                <Net_Profile>Automation_AU_Network_Fairfax_SR16.50_Ava</Net_Profile>                         
+                <Mng_Profile>Automation_AU_Management_SR16.00</Mng_Profile>
+                <Ngh_Profile>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</Ngh_Profile>
+                <Son_Profile>Automation_AU_SON_AirportCity_SR16.00</Son_Profile>
+                <MC_Profile>Automation_AirUnity Default Disabled</MC_Profile>
+                                
+                                                     <!-- CELL1 Profiles -->
+        <cell_1>              
+                <Cell_Adv_Profile>Automation_AU_Cell_Advanced_AirportCity</Cell_Adv_Profile>
+                <Embms_Profile>Automation_AU_eMBMS_SR16.00</Embms_Profile>
+                <Traffic_Mng>Automation_SR15.0 AirUnity Defaults</Traffic_Mng>
+                <Call_Trace>Automation_AirUnity Call Trace Disabled</Call_Trace>
+                <Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00</Mobility_Profile>
+                <Radio_Profile>Auto_AU_Radio_41190_25_SR16.00</Radio_Profile>
+                <Tac>15110</Tac>                          
+        </cell_1>
 		<customEnbConfig  index="0">         
 			<class>com.airspan.netspan.web_services.lte.EnbConfigT</class>
 			<customName>S1</customName>
@@ -194,14 +229,9 @@
 			<interHandoverEarfcn>40090</interHandoverEarfcn>
 			<intraHandoverEarfcn>39890</intraHandoverEarfcn>
 		</customCellParams>
-		<relay>
-			<class>EnodeB.Components.Relay</class>
-			<relaySshProxy>
-				<proxyHostIp>192.168.56.1</proxyHostIp>
-				<proxyHostUsername>root</proxyHostUsername>
-				<proxyHostPassword>airspan</proxyHostPassword>
-			</relaySshProxy>
-		</relay>
+		<proxyHostIp>192.168.56.1</proxyHostIp>
+		<proxyHostUser>root</proxyHostUser>
+		<proxyHostPassword>airspan</proxyHostPassword>
 		<snmp>
 			<class>Utils.Snmp.SNMP</class>
 			<readCommunity>ro-public</readCommunity>
@@ -231,22 +261,26 @@
 				<relayUsername>admin</relayUsername>
 				<relayPassword>HeWGEUx66m=_4!ND</relayPassword>
 			</relaySshProxy>
-		</relay>	
+		</relay>
 
 	</enb_1>
+
 
 	<enb_2>      <!-- VELOCITY500 -->
 		<class>EnodeB.AirUnity587</class>
 		<netspanName>DC9A22014EC0</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<eNBID>587</eNBID>
-		<TAC_1>13000</TAC_1>
+		<TAC_1>13100</TAC_1>
 		<TAC_2>13110</TAC_2>
+		<TAC_Cell1>13100</TAC_Cell1>
 		<band>B41L</band>
 		<intra20>39890</intra20>
 		<inter20>40090</inter20>
 		<inter15>39890</inter15>
 		<intra15>40040</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<enb_type>Home</enb_type>
 		<mcc>200</mcc>
 		<mnc>01</mnc>
@@ -317,6 +351,7 @@
 				<port>4009</port>
 			</serialCom>
 		</relay>
+
 	</enb_2>
 
 	<enb_3>
@@ -458,8 +493,6 @@
 
 
 	<powerControl>
-
-
 		<class>PowerControllers.Aten</class>
 		<snmp>
 			<class>Utils.Snmp.SNMP</class>                            
@@ -468,11 +501,11 @@
 			<snmpVersion>V1</snmpVersion>
 			<strAddress>172.20.61.12</strAddress>
 		</snmp>
-		<!--<ipAddress>172.20.61.12</ipAddress>
+		<!--ipAddress>172.20.61.12</ipAddress>
 		 1= SNMP version2c 
 		<snmpVersion>V1</snmpVersion>
 		<readCommunity>public</readCommunity>
-		<writeCommunity>private</writeCommunity>-->	
+		<writeCommunity>private</writeCommunity-->
 		<ports index="0">
 			<class>PowerControllers.PowerControllerPort</class>
 			<port>A2</port>
@@ -488,7 +521,6 @@
 			<port>A4</port>
 			<description>dynamic_UEs</description>
 		</ports>
-
 	</powerControl>
 
 	<powerControl1>
@@ -518,6 +550,7 @@
 			<description>enb_1</description>
 		</ports>
 	</powerControl1>
+
 
 	<gen>
 		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
@@ -638,12 +671,7 @@
 	</svg-ipsecsw>
 
 
-	<NetspanSF>
-		<class>com.airspan.netspansf.web_services.impl.NetspanSFImpl</class>
-		<hostname>172.22.6.179</hostname>
-		<username>automation</username> <!-- The user has to be of type Power User -->
-		<password>Automation1!</password>
-	</NetspanSF>
+
 	<Deny_X2>
 		<class>networking.acl.AccessList</class>
 		<rules index="0">
@@ -652,11 +680,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</destination>
 		</rules>
 		<rules index="1">
@@ -665,11 +693,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</destination>
 		</rules>
 		<rules index="2">
@@ -688,11 +716,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
+				<ipAddress>fc74:172:21:153::1</ipAddress>
 			</destination>
 		</rules>
 		<rules index="1">
@@ -701,11 +729,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
+				<ipAddress>fc74:172:21:153::1</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</destination>
 		</rules>
 		<rules index="2">
@@ -714,11 +742,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
+				<ipAddress>fc74:172:21:153::1</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</destination>
 		</rules>
 
@@ -728,11 +756,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.153.1</ipAddress>
+				<ipAddress>fc74:172:21:153::1</ipAddress>
 			</destination>
 		</rules>						
 
@@ -752,11 +780,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.220</ipAddress>
+				<ipAddress>fc74:172:22:2::220</ipAddress>
 			</destination>
 		</rules>
 		<rules index="1">
@@ -765,11 +793,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.220</ipAddress>
+				<ipAddress>fc74:172:22:2::220</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.50</ipAddress>
+				<ipAddress>fc72:22:54:0:35::44</ipAddress>
 			</destination>
 		</rules>
 
@@ -779,11 +807,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.220</ipAddress>
+				<ipAddress>fc74:172:22:2::220</ipAddress>
 			</destination>
 		</rules>
 		<rules index="3">
@@ -792,11 +820,11 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.220</ipAddress>
+				<ipAddress>fc74:172:22:2::220</ipAddress>
 			</source>
 			<destination>
 				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.35.40</ipAddress>
+				<ipAddress>fc72:22:54:0:35::87</ipAddress>
 			</destination>
 		</rules>
 
@@ -895,13 +923,6 @@
 		<upgradePassword>velocity</upgradePassword>
 		<protocolType>tftp</protocolType>
 	</UpgradeServer_velocity>	
-
-	<NetspanSF>
-		<class>com.airspan.netspansf.web_services.impl.NetspanSFImpl</class>
-		<hostname>172.22.6.179</hostname>
-		<username>adminstrator</username> <!-- The user has to be of type Power User -->
-		<password>adminstrator</password>
-	</NetspanSF>
 
 	<Iperf_Session_UE1>
 		<class>Utils.Iperf.IperfSession</class>
@@ -1068,6 +1089,7 @@
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
 	</Pinger>
+
 
 	<IPERF_SERVER>
 		<class>Utils.SecureCRT</class>

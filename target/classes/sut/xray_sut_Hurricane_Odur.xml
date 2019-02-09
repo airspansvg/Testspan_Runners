@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
 	<Custom>
+		<EPC_num>EPC_4</EPC_num>
 		<class>Custom</class>
 		<NMSpAddress>172.22.2.222</NMSpAddress>
 		<IP_ver>IPv4</IP_ver>
@@ -197,7 +198,7 @@
 		<Traffic_Mng>Auto_SR15.5 AS-Relay_Hurricane</Traffic_Mng>
 		<Call_Trace>Auto_AirSpeed-Relay Call Trace Disabled</Call_Trace>
 		<Mobility_Profile>Auto_SR15.5v1 AS-Relay_GPL_SB_Hurr_Cell1</Mobility_Profile>
-		<Radio_Profile>Auto_AS1250R_B42L_Hurricane_Cell12</Radio_Profile>
+		<Radio_Profile>Auto_AS1250R_B42L_Hurricane_Cell1</Radio_Profile>
 		<Tac>4</Tac>		
 	 </cell_1>
 	                        <!-- CELL2 Profiles -->
@@ -236,7 +237,7 @@
 
 
 	<enb_2>
-		<class>EnodeB.AirSpeed1250</class>
+		<class>EnodeB.AirSpeed1250Wired</class>
 		<netspanName>Hurricane_AS1250E_Wired_BH</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<band>B42</band>
@@ -294,7 +295,6 @@
 		</snmp>					
 		<XLP>
 			<class>EnodeB.Components.XLP</class>
-			<band>42</band>
 			<ipAddress>172.20.117.72</ipAddress>
 			<serialCom>
 				<class>Utils.MoxaCom</class>
@@ -378,10 +378,6 @@
 		</ports>
 	</powerControl>
 
-
-
-
-
 	<gen>
 		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
@@ -404,205 +400,6 @@
 			<portName>UL</portName>
 		</port>
 	</gen>
-
-	<svg-racksw>
-		<class>networking.cisco.CiscoCatalyst2960</class>
-		<ipAddress>172.20.60.181</ipAddress>
-		<username>root</username>
-		<enable>airspan</enable>
-		<interfaces index="0">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/5</interfaceName>
-			<description>enb_1</description>
-			<connectedTo>enb_1</connectedTo>
-		</interfaces>
-
-		<interfaces index="1">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/6</interfaceName>
-			<description>enb_2</description>
-			<connectedTo>enb_2</connectedTo>
-		</interfaces>
-
-
-
-		<vlans index="0">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>X2_DATA</vlanName>
-		</vlans>
-		<vlans index="1">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>S1_DATA</vlanName>
-		</vlans>
-	</svg-racksw>
-
-	<svg-ipsecsw>
-		<class>networking.cisco.CiscoCatalyst2960</class>
-		<ipAddress>172.20.61.230</ipAddress>
-		<username>root</username>
-		<enable>airspan</enable>
-		<interfaces index="0">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/2</interfaceName>
-			<description>enb_1</description>
-			<connectedTo>enb_1</connectedTo>
-		</interfaces>
-
-		<interfaces index="1">
-			<class>networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/2</interfaceName>
-			<description>enb_2</description>
-			<connectedTo>enb_2</connectedTo>
-		</interfaces>
-
-
-		<vlans index="0">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>X2_DATA</vlanName>
-		</vlans>
-		<vlans index="1">
-			<class>networking.core.switching.Vlan</class>
-			<vlanNumber>229</vlanNumber>
-			<vlanName>S1_DATA</vlanName>
-		</vlans>
-	</svg-ipsecsw>
-
-
-	<Deny_X2>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.17</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.54.17</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_X2>
-
-	<Deny_S1>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.154.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.21.154.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_S1>
-
-
-	<Deny_Netspan>
-		<class>networking.acl.AccessList</class>
-		<rules index="0">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</destination>
-		</rules>
-		<rules index="3">
-			<class>networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</source>
-			<destination>
-				<class>networking.acl.RuleElement</class>
-				<ipAddress>172.20.17.1</ipAddress>
-			</destination>
-		</rules>  
-		<rules index="4">
-			<class>networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-
-	</Deny_Netspan>      
 
 	<Iperf_Session_UE1>
 		<class>Utils.Iperf.IperfSession</class>
