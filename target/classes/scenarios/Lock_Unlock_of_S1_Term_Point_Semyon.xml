@@ -26,7 +26,6 @@
                 <antcallback return="TestResultToReturn, StopTimeToReturn" target="t7"/>
                 <antcallback return="TestResultToReturn" target="t8"/>
                 <antcallback return="TestResultToReturn" target="t9"/>
-                <antcallback return="TestResultToReturn, StartTimeToReturn" target="t10"/>
                 <!--#Jsystem#-->
             </case>
             <default>
@@ -34,11 +33,12 @@
             </default>
             <!--#Jsystem#-->
         </jsystemswitch>
-        <antcallback target="t11"/>
-        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t12"/>
+        <antcallback target="t10"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t11"/>
+        <antcallback target="t12"/>
         <antcallback target="t13"/>
         <antcallback target="t14"/>
-        <antcallback target="t15"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t15"/>
         <jsystemswitch caseinsensitive="false" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6e3c69eb-2428-4f8a-8734-237ee03683cc" parentName="${jsystem.parent.name}.${ant.project.name}" value="${scenario:Enb_Cells_Configuration}">
             <case fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.57cadc68-0444-4966-a7f0-58bb461b971b" parentName="${jsystem.parent.name}.${ant.project.name}" value="FSM_Single_Cell">
                 <antcallback return="TestResultToReturn, StopTimeToReturn" target="t16"/>
@@ -135,21 +135,13 @@
         </jsystem>
     </target>
     <target name="t10">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="d95ef0f2-e4ad-4055-960b-2385be85bdf2"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
-        </jsystem>
-    </target>
-    <target name="t11">
         <jsystem-ant antfile="${scenarios.base}/scenarios/delete_eNB_from_MME.xml">
             <property name="jsystem.uuid" value="e36d75ee-0441-4c84-b0bb-44f843636071"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t12">
+    <target name="t11">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="5ae18272-c520-49d3-86bd-b2551c6249d9"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -157,26 +149,34 @@
             <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
         </jsystem>
     </target>
-    <target name="t13">
+    <target name="t12">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_in_remove.xml">
             <property name="jsystem.uuid" value="9929bbc1-85b7-4352-b70b-c4b114273606"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t14">
+    <target name="t13">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_out_remove.xml">
             <property name="jsystem.uuid" value="8e4f649a-464f-4a8e-a91e-061f15b5a796"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t15">
+    <target name="t14">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4a2911be-38c0-413e-b7fe-e4ab88fe5670"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t15">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="66841b17-6101-4f4b-921a-ace1355f0f62"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
         </jsystem>
     </target>
     <target name="t16">
