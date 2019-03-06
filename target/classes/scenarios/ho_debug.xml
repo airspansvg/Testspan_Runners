@@ -29,10 +29,10 @@
             </else>
         </if>
         <antcallback return="TestResultToReturn" target="t4"/>
-        <echo message="Check condition &quot;HandoverType&quot; EQUALS &quot;S1_Handover&quot;"/>
+        <echo message="Check condition &quot;${scenario:HandoverType}&quot; EQUALS &quot;S1_Handover&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.63b03a9b-e938-4cb7-a971-eb0bf1f59144" language="javascript" params="str &lt;SEP&gt; HandoverType &lt;SEP&gt; EQUALS &lt;SEP&gt; S1_Handover &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.63b03a9b-e938-4cb7-a971-eb0bf1f59144" language="javascript" params="str &lt;SEP&gt; ${scenario:HandoverType} &lt;SEP&gt; EQUALS &lt;SEP&gt; S1_Handover &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <echo message="Check condition &quot;true&quot; EQUALS &quot;${sut:Custom/ACL_X2}&quot;"/>
                 <if>
