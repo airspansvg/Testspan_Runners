@@ -13,23 +13,23 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="IsTestWasSuccessful" target="t0"/>
-        <antcallback return="IsTestWasSuccessful" target="t1"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback target="t2"/>
-        <antcallback return="IsTestWasSuccessful" target="t3"/>
-        <antcallback return="IsTestWasSuccessful" target="t4"/>
+        <antcallback return="TestResultToReturn" target="t3"/>
+        <antcallback return="TestResultToReturn" target="t4"/>
         <antcallback target="t5"/>
-        <antcallback return="IsTestWasSuccessful" target="t6"/>
-        <echo message="Check condition &quot;${IsTestWasSuccessful}&quot; EQUALS &quot;PASS&quot;"/>
+        <antcallback return="TestResultToReturn" target="t6"/>
+        <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.663c9093-4f91-40ad-88b4-e5ce06dedd22" language="javascript" params="str &lt;SEP&gt; ${IsTestWasSuccessful} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.663c9093-4f91-40ad-88b4-e5ce06dedd22" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="IsTestWasSuccessful" target="t7"/>
+                <antcallback return="TestResultToReturn" target="t7"/>
                 <antcallback target="t8"/>
-                <antcallback return="IsTestWasSuccessful" target="t9"/>
+                <antcallback return="TestResultToReturn" target="t9"/>
                 <antcallback target="t10"/>
-                <antcallback return="IsTestWasSuccessful" target="t11"/>
+                <antcallback return="TestResultToReturn" target="t11"/>
             </then>
             <else>
                 <!--#Jsystem#-->
