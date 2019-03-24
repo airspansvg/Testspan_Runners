@@ -11,10 +11,11 @@
     <typedef classname="com.aqua.anttask.jsystem.JSystemScriptCondition" name="jsystemscriptcondition"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSwitch" name="jsystemswitch"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
+    <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="TestResultToReturn" target="t0"/>
-        <antcallback return="TestResultToReturn" target="t1"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback return="TestResultToReturn" target="t3"/>
         <antcallback return="TestResultToReturn" target="t4"/>
@@ -28,27 +29,27 @@
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t12"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t13"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t14"/>
-        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t15"/>
-        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t16"/>
+        <antcallback target="t15"/>
+        <antcallback return="TestResultToReturn" target="t16"/>
         <antcallback target="t17"/>
         <antcallback return="TestResultToReturn" target="t18"/>
-        <antcallback target="t19"/>
-        <antcallback return="TestResultToReturn" target="t20"/>
+        <antcallback return="TestResultToReturn" target="t19"/>
+        <antcallback target="t20"/>
         <antcallback return="TestResultToReturn" target="t21"/>
-        <antcallback target="t22"/>
+        <antcallback return="TestResultToReturn" target="t22"/>
         <antcallback return="TestResultToReturn" target="t23"/>
-        <antcallback return="TestResultToReturn" target="t24"/>
+        <antcallback target="t24"/>
         <antcallback return="TestResultToReturn" target="t25"/>
-        <antcallback target="t26"/>
-        <antcallback return="TestResultToReturn" target="t27"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t26"/>
+        <antcallback target="t27"/>
         <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t28"/>
         <antcallback target="t29"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t30"/>
+        <antcallback return="TestResultToReturn" target="t30"/>
         <antcallback target="t31"/>
         <antcallback return="TestResultToReturn" target="t32"/>
-        <antcallback target="t33"/>
-        <antcallback return="TestResultToReturn" target="t34"/>
-        <antcallback return="TestResultToReturn" target="t35"/>
+        <antcallback return="TestResultToReturn" target="t33"/>
+        <antcallback return="TestResultToReturn, StopTimeToReturn" target="t34"/>
+        <antcallback target="t35"/>
         <antcallback return="TestResultToReturn" target="t36"/>
         <antcallback target="t37"/>
     </target>
@@ -62,10 +63,10 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="54736bef-7c61-4446-953b-2a096383ed3c"/>
+            <sysproperty key="jsystem.uuid" value="505680e7-63ec-4bbc-b63f-a90b1b33d0e1"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.FaultManagementTests.startCatchAlarmEvent"/>
+            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
         </jsystem>
     </target>
     <target name="t2">
@@ -166,7 +167,7 @@
     </target>
     <target name="t14">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="c985cf6a-141d-4a54-9d7b-0b766d2178bb"/>
+            <sysproperty key="jsystem.uuid" value="630bbf11-06e7-40bb-9ea5-44638c34fcd6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.UeSnmpTests.snmpAction"/>
@@ -174,29 +175,13 @@
     </target>
     <target name="t15">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="a75a8a34-9efc-49ef-9e2d-d722a24a2931"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.UeSnmpTests.snmpAction"/>
-        </jsystem>
-    </target>
-    <target name="t16">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="630bbf11-06e7-40bb-9ea5-44638c34fcd6"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.UeSnmpTests.snmpAction"/>
-        </jsystem>
-    </target>
-    <target name="t17">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="782a220b-a51c-41e9-9788-ddc95f5043eb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t18">
+    <target name="t16">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="6bb45b93-5230-4f18-95dc-3dd73df578b8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -204,7 +189,7 @@
             <test name="com.airspan.testspan.jsystem.tests.UpdateServiceStateTest.updateServiceState"/>
         </jsystem>
     </target>
-    <target name="t19">
+    <target name="t17">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="987b6bfb-2b28-47e6-a7d1-c889769ad31a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -212,7 +197,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t20">
+    <target name="t18">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b2cb8adf-069f-45a2-a580-ed68e0407778"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -220,7 +205,7 @@
             <test name="com.airspan.testspan.jsystem.tests.UpdateServiceStateTest.updateServiceState"/>
         </jsystem>
     </target>
-    <target name="t21">
+    <target name="t19">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="ca07b5b6-49f8-4116-b46c-a03bb279b48c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -228,7 +213,7 @@
             <test name="com.airspan.testspan.jsystem.tests.TrafficGeneratorController.startTraffic"/>
         </jsystem>
     </target>
-    <target name="t22">
+    <target name="t20">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3b4c8c52-6d04-48d1-ac88-1af321b819db"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -236,7 +221,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t23">
+    <target name="t21">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="acc1f0fa-3499-42f9-8f85-6c50c6a90699"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -244,7 +229,7 @@
             <test name="com.airspan.testspan.jsystem.tests.AttenuatorsTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t24">
+    <target name="t22">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="be1bcfa9-0482-4a1a-b824-9cbb9e7668f0"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -252,7 +237,7 @@
             <test name="com.airspan.testspan.jsystem.tests.AttenuatorsTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t25">
+    <target name="t23">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9b30212e-6a70-4f2b-b2f5-99aebc3192ee"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -260,7 +245,7 @@
             <test name="com.airspan.testspan.jsystem.tests.AttenuatorsTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t26">
+    <target name="t24">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="a700b018-1228-4f64-95e3-91a38ed2c53e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -268,7 +253,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t27">
+    <target name="t25">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e3cb08fe-f775-4844-b47f-ee8795299fc3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -276,7 +261,7 @@
             <test name="com.airspan.testspan.jsystem.tests.ValidateNeighborParametersTest.validateNeighborParameters"/>
         </jsystem>
     </target>
-    <target name="t28">
+    <target name="t26">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e56748cc-1285-4dad-8bd3-1ec9544fb282"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -284,7 +269,7 @@
             <test name="com.airspan.testspan.jsystem.tests.SnmpTests.snmpAction"/>
         </jsystem>
     </target>
-    <target name="t29">
+    <target name="t27">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9bf1cce3-f5b9-4462-b67e-3779d9b33c17"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -292,7 +277,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t30">
+    <target name="t28">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="39a6c06e-8bfd-40a2-a185-45fbaacd9ea4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -300,7 +285,7 @@
             <test name="com.airspan.testspan.jsystem.tests.SnmpTests.snmpAction"/>
         </jsystem>
     </target>
-    <target name="t31">
+    <target name="t29">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b69e2cdf-9813-403f-a81a-ce706c604169"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -308,7 +293,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t32">
+    <target name="t30">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9e8c7926-c32f-4666-8b5a-5fafd77e4f6f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -316,7 +301,7 @@
             <test name="com.airspan.testspan.jsystem.tests.EnodebStateTests.checkIfPhyConnected"/>
         </jsystem>
     </target>
-    <target name="t33">
+    <target name="t31">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e024ada8-6d6e-4b3a-b2d5-d8ec8f05bdbb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -324,7 +309,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t34">
+    <target name="t32">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b12fdec5-ac66-4823-bdb5-e148c4686a49"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -332,7 +317,7 @@
             <test name="com.airspan.testspan.jsystem.tests.ValidateNeighborParametersTest.validateNeighborParameters"/>
         </jsystem>
     </target>
-    <target name="t35">
+    <target name="t33">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="5b3c0222-dbec-4b2f-a932-e44960fcfe2a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -340,12 +325,28 @@
             <test name="com.airspan.testspan.jsystem.tests.HandoverTests.handoverTest"/>
         </jsystem>
     </target>
-    <target name="t36">
+    <target name="t34">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="452f66ca-785e-40fc-aecb-7fb2d3e30f9c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.StopTimerTest.stopTimer"/>
+        </jsystem>
+    </target>
+    <target name="t35">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="371fb75a-ef05-42de-b3bb-030a988b33c7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.FaultManagementTests.catchAlarmEvent"/>
+        </jsystem>
+    </target>
+    <target name="t36">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="660452a6-cce0-48ef-9033-f0f35b066ca1"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.netspan.signals.AnalyzeSignalsTest.analyzeSignals"/>
         </jsystem>
     </target>
     <target name="t37">
