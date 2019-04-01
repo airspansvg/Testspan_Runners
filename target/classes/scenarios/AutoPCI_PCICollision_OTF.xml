@@ -39,7 +39,7 @@
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a03a3509-4850-426f-b982-fb651578d46e" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="TestResultToReturn" target="t20"/>
+                <antcallback return="TestResultToReturn, StartTimeToReturn" target="t20"/>
                 <antcallback target="t21"/>
                 <antcallback target="t22"/>
                 <antcallback return="TestResultToReturn" target="t23"/>
@@ -57,12 +57,12 @@
                             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.9a1b6f5e-a4aa-460c-84eb-96eb44a83e3c" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <antcallback target="t27"/>
-                                <antcallback return="TestResultToReturn" target="t28"/>
                                 <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
                                 <if>
                                     <!--#Jsystem#-->
                                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6b534559-839e-45bb-a233-1b9be50fa176" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                     <then>
+                                        <antcallback return="TestResultToReturn, StopTimeToReturn" target="t28"/>
                                         <antcallback target="t29"/>
                                         <antcallback return="TestResultToReturn" target="t30"/>
                                         <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
@@ -289,10 +289,10 @@
     </target>
     <target name="t20">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="2fcb10a2-8283-47d7-8001-f482c25eaa2f"/>
+            <sysproperty key="jsystem.uuid" value="f6ba17d0-161d-4081-8a48-c11d05279052"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.FaultManagementTests.startCatchAlarmEvent"/>
+            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
         </jsystem>
     </target>
     <target name="t21">
@@ -352,10 +352,10 @@
     </target>
     <target name="t28">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="59365ab7-d1e5-408d-9712-e7e1ece3e117"/>
+            <sysproperty key="jsystem.uuid" value="103183a9-9623-435c-8ee2-b91b20d9e39f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.FaultManagementTests.catchAlarmEvent"/>
+            <test name="com.airspan.testspan.jsystem.tests.StopTimerTest.stopTimer"/>
         </jsystem>
     </target>
     <target name="t29">
@@ -368,10 +368,10 @@
     </target>
     <target name="t30">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9edeb154-876a-4e4f-a61c-be09cb6cfbc9"/>
+            <sysproperty key="jsystem.uuid" value="af89cab9-8389-4f58-9c9b-57a6b48a9101"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.FaultManagementTests.catchAlarmEvent"/>
+            <test name="com.airspan.testspan.jsystem.tests.netspan.signals.AnalyzeSignalsTest.analyzeSignals"/>
         </jsystem>
     </target>
     <target name="t31">
