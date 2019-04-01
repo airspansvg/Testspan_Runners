@@ -123,9 +123,11 @@
             </then>
             <else>
                 <!--#Jsystem#-->
+                <antcallback target="t41"/>
             </else>
         </if>
-        <antcallback target="t41"/>
+        <antcallback target="t42"/>
+        <antcallback target="t43"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -456,7 +458,23 @@
     </target>
     <target name="t41">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="4ba945d9-4cd9-440a-aecb-3d529dc05595"/>
+            <sysproperty key="jsystem.uuid" value="8af95407-205a-4088-9f3f-cffda4fd8ec0"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t42">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4c7b4428-9873-4ba1-9afa-787803ca291e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t43">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="7678580a-5dea-4fab-b422-5e443af3ed44"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.TrafficGeneratorController.stopTraffic"/>
