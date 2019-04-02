@@ -19,15 +19,16 @@
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback target="t3"/>
         <antcallback return="TestResultToReturn" target="t4"/>
-        <antcallback return="TestResultToReturn" target="t5"/>
-        <echo message="Check condition &quot;${scenario:PNP}&quot; EQUALS &quot;false&quot;"/>
+        <antcallback return="IsTestWasSuccessful" target="t5"/>
+        <echo message="Check condition &quot;${scenario:PNP}&quot; EQUALS &quot;&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.b48b9389-a3d1-43ef-a237-f0ddd8351639" language="javascript" params="str &lt;SEP&gt; ${scenario:PNP} &lt;SEP&gt; EQUALS &lt;SEP&gt; false &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-            <then/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.b48b9389-a3d1-43ef-a237-f0ddd8351639" language="javascript" params="str &lt;SEP&gt; ${scenario:PNP} &lt;SEP&gt; EQUALS &lt;SEP&gt;  &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn" target="t6"/>
+            </then>
             <else>
                 <!--#Jsystem#-->
-                <antcallback return="TestResultToReturn" target="t6"/>
             </else>
         </if>
         <antcallback target="t7"/>
@@ -87,7 +88,7 @@
     </target>
     <target name="t6">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="a0d9bcab-3257-405b-bab1-2e55c80e7c42"/>
+            <sysproperty key="jsystem.uuid" value="91217a0b-d2c2-46b4-af13-63d559ae8312"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.PnpTests.pnpTest"/>
