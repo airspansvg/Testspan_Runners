@@ -33,13 +33,13 @@
         <antcallback target="t16"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t17"/>
         <antcallback return="TestResultToReturn" target="t18"/>
-        <antcallback return="TestResultToReturn" target="t19"/>
+        <antcallback return="TestResultToReturn, StartTimeToReturn" target="t19"/>
+        <antcallback return="TestResultToReturn" target="t20"/>
         <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
         <if>
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a03a3509-4850-426f-b982-fb651578d46e" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="TestResultToReturn, StartTimeToReturn" target="t20"/>
                 <antcallback target="t21"/>
                 <antcallback target="t22"/>
                 <antcallback return="TestResultToReturn" target="t23"/>
@@ -283,18 +283,18 @@
     </target>
     <target name="t19">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="8403e966-7547-4e0a-87be-598592d72aad"/>
+            <sysproperty key="jsystem.uuid" value="fa8f43f9-8a70-4211-9dc6-90557812dcd7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.TrafficGeneratorController.checkTraffic"/>
+            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
         </jsystem>
     </target>
     <target name="t20">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="f6ba17d0-161d-4081-8a48-c11d05279052"/>
+            <sysproperty key="jsystem.uuid" value="8403e966-7547-4e0a-87be-598592d72aad"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.StartTimerTest.startTimer"/>
+            <test name="com.airspan.testspan.jsystem.tests.TrafficGeneratorController.checkTraffic"/>
         </jsystem>
     </target>
     <target name="t21">
