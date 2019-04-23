@@ -14,14 +14,13 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback target="t0"/>
-        <antcallback return="IsTestWasSuccessful" target="t1"/>
+        <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
-        <antcallback return="TestResultToReturn" target="t3"/>
-        <antcallback target="t4"/>
-        <antcallback return="TestResultToReturn" target="t5"/>
-        <antcallback target="t6"/>
-        <antcallback return="TestResultToReturn" target="t7"/>
+        <antcallback target="t3"/>
+        <antcallback return="TestResultToReturn" target="t4"/>
+        <antcallback target="t5"/>
+        <antcallback return="TestResultToReturn" target="t6"/>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2361d349-06b1-4eb2-b945-fd97e6351d00" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
             <sequential>
@@ -30,18 +29,11 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
-                <antcallback return="TestResultToReturn" target="t8"/>
+                <antcallback return="TestResultToReturn" target="t7"/>
             </sequential>
         </jsystemfor>
     </target>
     <target name="t0">
-        <jsystem-ant antfile="${scenarios.base}/scenarios/Set_Environment_new.xml">
-            <property name="jsystem.uuid" value="64fdcc40-ed76-4e9a-b649-ef7f6ab2de6e"/>
-            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-        </jsystem-ant>
-    </target>
-    <target name="t1">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="2833d989-367c-4059-8809-e12d9421d814"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -49,7 +41,7 @@
             <test name="com.airspan.testspan.jsystem.tests.InitScenarioParametersTest.test"/>
         </jsystem>
     </target>
-    <target name="t2">
+    <target name="t1">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c90a7489-0537-450c-8686-ab00e9d98f7f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -57,7 +49,7 @@
             <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.LoadConfigurationTest.loadConfiguration"/>
         </jsystem>
     </target>
-    <target name="t3">
+    <target name="t2">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c89e07bb-5ab1-41b6-8e21-9592c260ee1a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -65,7 +57,7 @@
             <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.RunConfigurationFileTest.runConfigurationFile"/>
         </jsystem>
     </target>
-    <target name="t4">
+    <target name="t3">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="bf7a8895-0266-48eb-927d-a76bbed377db"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -73,7 +65,7 @@
             <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
         </jsystem>
     </target>
-    <target name="t5">
+    <target name="t4">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="a7a16211-d2bf-4d82-9cb6-fbb1a7137db6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -81,14 +73,14 @@
             <test name="com.airspan.testspan.jsystem.tests.StcTpReport.tpReport"/>
         </jsystem>
     </target>
-    <target name="t6">
+    <target name="t5">
         <jsystem-ant antfile="${scenarios.base}/scenarios/New_UDP.xml">
             <property name="jsystem.uuid" value="2390be4b-c0b9-49b3-97cd-b273041f3c86"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t7">
+    <target name="t6">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="d577cc37-9989-4d67-936f-ab27a8054baa"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -96,7 +88,7 @@
             <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.StopConfigurationFileTest.stopConfigurationFile"/>
         </jsystem>
     </target>
-    <target name="t8">
+    <target name="t7">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c9d3e7b1-d9b1-4904-ae7c-bb69d4c44369"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
