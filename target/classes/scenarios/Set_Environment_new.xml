@@ -14,7 +14,7 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn" target="t0"/>
+        <antcallback target="t0"/>
         <antcallback target="t1"/>
         <antcallback return="IsTestWasSuccessful" target="t2"/>
         <jsystemswitch caseinsensitive="false" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.162737ef-23c8-4842-a741-636f841b7aec" parentName="${jsystem.parent.name}.${ant.project.name}" value="${scenario:Enb_Cells_Configuration}">
@@ -428,12 +428,11 @@
         </jsystemswitch>
     </target>
     <target name="t0">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="1c6c96bb-0ed4-4c07-8d41-a0585ba7b72a"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.ScriptingTests.runCmd"/>
-        </jsystem>
+        <jsystem-ant antfile="${scenarios.base}/scenarios/matrix_cell0_cell1.xml">
+            <property name="jsystem.uuid" value="c92fee91-435e-48e1-9bb7-f91774673925"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
     <target name="t1">
         <jsystem showoutput="true">
