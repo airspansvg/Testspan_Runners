@@ -14,7 +14,7 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn" target="t0"/>
+        <antcallback return="IsTestWasSuccessful" target="t0"/>
         <antcallback target="t1"/>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4def52da-0992-41e4-b151-3cf4dd3f9a2c" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
@@ -122,7 +122,7 @@
                     <then/>
                     <elseif>
                         <!--#Jsystem#-->
-                        <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2956b1fc-6e86-4fea-9012-19bc06ce3609" language="javascript" params="str &lt;SEP&gt; ${RelayRunningVersion} &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:Compare_Previous_relay_version} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                        <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.98d60a7e-aca7-496f-a9bb-c3556b62cf8e" language="javascript" params="str &lt;SEP&gt; ${RelayRunningVersion} &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:Compare_Previous_relay_version} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                         <then>
                             <antcallback target="t30"/>
                             <antcallback return="TestResultToReturn" target="t31"/>

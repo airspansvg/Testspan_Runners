@@ -15,8 +15,26 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="TestResultToReturn" target="t0"/>
-        <antcallback return="TestResultToReturn" target="t1"/>
-        <antcallback return="TestResultToReturn" target="t2"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
+        <antcallback return="IsTestWasSuccessful" target="t3"/>
+        <antcallback return="TestResultToReturn" target="t4"/>
+        <antcallback return="TestResultToReturn" target="t5"/>
+        <antcallback target="t6"/>
+        <antcallback return="TestResultToReturn" target="t7"/>
+        <antcallback return="TestResultToReturn" target="t8"/>
+        <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.de79c407-0985-4c6a-99ec-02d83bf0e8ca" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
+            <!--#Jsystem#-->
+            <sequential>
+                <echo message="Parameter: loopVar=@{loopVar}"/>
+                <var name="loopVar" value="@{loopVar}"/>
+                <jsystemsetantproperties>
+                    <!--Task for updating the ant parameters file - used for reference parameters-->
+                </jsystemsetantproperties>
+                <antcallback return="TestResultToReturn" target="t9"/>
+            </sequential>
+        </jsystemfor>
+        <antcallback return="TestResultToReturn" target="t10"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -28,13 +46,77 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9582a351-83c6-462e-a972-f3ddea315ae0"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t2">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1c4bca7b-a212-491c-b83c-370a1769f3dd"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.raw.ShellTests.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t3">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b71b8396-66c7-4e0a-a870-87dc4c563bdf"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.InitScenarioParametersTest.test"/>
+        </jsystem>
+    </target>
+    <target name="t4">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="8f59e397-c22c-4e96-9a4d-7504ec1b33c2"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.LoadConfigurationTest.loadConfiguration"/>
+        </jsystem>
+    </target>
+    <target name="t5">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="10858b30-4dce-452d-95c5-8a5db57abb64"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.RunConfigurationFileTest.runConfigurationFile"/>
+        </jsystem>
+    </target>
+    <target name="t6">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="52c69dfa-818b-40af-8f15-37f5ca8ca437"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.WaitTests.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t7">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="901b98ce-8e31-40cd-b5dd-899d9eafd604"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.IxLoadTpReport.throughput"/>
         </jsystem>
     </target>
-    <target name="t2">
+    <target name="t8">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="00366d87-1055-4b14-8b41-85a8b68c3303"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.StopConfigurationFileTest.stopConfigurationFile"/>
+        </jsystem>
+    </target>
+    <target name="t9">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f963b779-4f34-4e6d-ba5c-11e2996a0aed"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.amarisoft.uesimulator.AddUeTest.addUe"/>
+        </jsystem>
+    </target>
+    <target name="t10">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e71585cb-1bca-4c40-b932-e7dda3c7fd44"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
