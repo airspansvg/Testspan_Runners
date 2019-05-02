@@ -18,22 +18,13 @@
         <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback return="TestResultToReturn" target="t3"/>
-        <antcallback return="TestResultToReturn" target="t4"/>
-        <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:PNPloggers}&quot;"/>
+        <antcallback return="IsTestWasSuccessful" target="t4"/>
+        <echo message="Check condition &quot;${scenario:enable_logs}&quot; EQUALS &quot;true&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.daa780fd-9700-4e8c-9507-ff29a13e89b7" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; ${scenario:PNPloggers} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.240c8e7f-349c-45e9-8379-4abc5c9bebf6" language="javascript" params="str &lt;SEP&gt; ${scenario:enable_logs} &lt;SEP&gt; EQUALS &lt;SEP&gt; true &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <jsystemswitch caseinsensitive="false" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.51e8e224-ba39-4af0-a4a5-bfe60dccdb02" parentName="${jsystem.parent.name}.${ant.project.name}" value="${scenario:HW}">
-                    <case fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.0c294013-969f-47a1-adf0-91b15b7ea837" parentName="${jsystem.parent.name}.${ant.project.name}" value="AS1250">
-                        <antcallback return="TestResultToReturn" target="t5"/>
-                        <!--#Jsystem#-->
-                    </case>
-                    <default>
-                        <!--#Jsystem#-->
-                    </default>
-                    <!--#Jsystem#-->
-                </jsystemswitch>
+                <antcallback return="TestResultToReturn" target="t5"/>
             </then>
             <else>
                 <!--#Jsystem#-->
@@ -88,10 +79,10 @@
     </target>
     <target name="t5">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="a5986c5c-528e-47cd-a41c-70ad32aa93dc"/>
+            <sysproperty key="jsystem.uuid" value="9a66b6a5-8ced-4c45-882f-c794cc563136"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendRawCommandsOnOutputTriggerTest.sendRawCommandsOnOutputTrigger"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandTest.sendCommand"/>
         </jsystem>
     </target>
     <target name="t6">

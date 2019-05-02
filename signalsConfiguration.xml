@@ -3,11 +3,11 @@
 a configuration file used for Analyze signals test.
 the configuration file represent all the signals (Alarms\event) the user want to check.
 
-1. <signalsConfiguration> - root element, should warp all the other elements. can contain multiple <signals key="bla" ignorAny="true"> elements.
+1. <signalsConfiguration> - root element, should warp all the other elements. can contain multiple <signals key="bla" ignoreAny="true"> elements.
 
-2. <signals key="String" ignorAny="true\false"> - represent a single set of rules for Analyze signals test.
+2. <signals key="String" ignoreAny="true\false"> - represent a single set of rules for Analyze signals test.
     "key" -      this string  distinguishes the element. this string should be inserted to the test.
-    "ignorAny" - "true": ignore any signal that not listed inside <signalsExpectedList>.
+    "ignoreAny" - "true": ignore any signal that not listed inside <signalsExpectedList>.
                  "false": ignore only the signals listed in the <signalsIgnoreList>.
 
 3. <signalsExpectedList> - represent list of signals of all the signals for the test that should appears in netspan.
@@ -25,7 +25,7 @@ the configuration file represent all the signals (Alarms\event) the user want to
 
 Example:
 <signalsConfiguration>
-    <signals key="String" ignorAny="true\false">
+    <signals key="String" ignoreAny="true\false">
 
         <signalsExpectedList>
             <alarm>
@@ -80,7 +80,7 @@ Example:
         </signalsIgnoreList>
     </signals>
 
-    <signals key="String" ignorAny="true\false">
+    <signals key="String" ignoreAny="true\false">
 
         <signalsExpectedList>
             <alarm>
@@ -141,7 +141,7 @@ Example:
 <signalsConfiguration>
 
 	<!--AirStrand1300_TDD_B41_LiteCoMP-->
-	<signals key="FSM_Lock_Cell_Carrier_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_LiteCoMP" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -249,7 +249,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_LiteCoMP" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -360,7 +360,7 @@ Example:
 	</signals>
 
 	<!--AirStrand1300_TDD_B41_Multi_Cell-->
-	<signals key="FSM_Lock_Cell_Carrier_Multi_Cell" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Multi_Cell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -391,6 +391,13 @@ Example:
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>	
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<event>
 				<id>526</id>
 				<typeContains>Channel Status Change</typeContains>
@@ -513,7 +520,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Multi_Cell" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Multi_Cell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -565,6 +572,13 @@ Example:
 				<infoContains>In Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>			
 			<alarm>
 				<id>664</id>
 				<typeContains>Cell 1 Transmission disabled</typeContains>
@@ -669,7 +683,7 @@ Example:
 	</signals>
 
 	<!--AirStrand1300_TDD_B41_Sector1/Single_Cell(1)-->
-	<signals key="FSM_Lock_Cell_Carrier_Sector1" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Sector1" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -777,7 +791,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Sector1" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Sector1" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -887,7 +901,7 @@ Example:
 	</signals>
 
 		<!--AirStrand1300_TDD_B41_Sector2/Single_Cell(2)-->
-	<signals key="FSM_Lock_Cell_Carrier_Sector2" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Sector2" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1002,7 +1016,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Sector2" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Sector2" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1112,7 +1126,7 @@ Example:
 	</signals>
 
 	<!--AV100C_TDD_B41_FSMv4-->
-	<signals key="FSM_Lock_Cell_Carrier_FSMv4" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_FSMv4" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1220,7 +1234,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_FSMv4" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_FSMv4" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1329,7 +1343,7 @@ Example:
 	</signals>
 
 	<!--AutoPCI_OnTheFly-->
-	<signals key="Auto_PCI_On_The_Fly" ignorAny="false">
+	<signals key="Auto_PCI_On_The_Fly" ignoreAny="false">
 
 		<signalsExpectedList>
 			
@@ -1380,7 +1394,7 @@ Example:
 	</signals>	
 	
 	
-	<signals key="bla" ignorAny="true">
+	<signals key="bla" ignoreAny="true">
 
 		<signalsExpectedList>
 			<alarm>
@@ -1487,7 +1501,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="X2_Neighbour_Inactive_SingleCell" ignorAny="false">
+	<signals key="X2_Neighbour_Inactive_SingleCell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1551,7 +1565,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="X2_Neighbour_Active_SingleCell" ignorAny="false">
+	<signals key="X2_Neighbour_Active_SingleCell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1615,7 +1629,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>	
 
-	<signals key="X2_Neighbour_Inactive_MultiCell" ignorAny="false">
+	<signals key="X2_Neighbour_Inactive_MultiCell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1694,7 +1708,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="X2_Neighbour_Active_MultiCell" ignorAny="false">
+	<signals key="X2_Neighbour_Active_MultiCell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1774,7 +1788,7 @@ Example:
 	</signals>	
 	
 	
-	<signals key="AU_REALY_ENB_REBOOT" ignorAny="true">
+	<signals key="AU_REALY_ENB_REBOOT" ignoreAny="true">
 
 		<signalsExpectedList>
 			<event>
@@ -1823,7 +1837,7 @@ Example:
 	</signals>
 
 	<!--AirHarmony4K_TDD_B41-->
-	<signals key="XLP_2_RX_TX_Lock_Cell_Carrier" ignorAny="false">
+	<signals key="XLP_2_RX_TX_Lock_Cell_Carrier" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1966,7 +1980,7 @@ Example:
 
 
 	<!--AStrand_LiteCoMP_TDD-->
-	<signals key="FSM_Lock_S1_Term_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Lock_S1_Term_LiteCoMP" ignoreAny="false">
 
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
@@ -2099,7 +2113,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_S1_Term_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Unlock_S1_Term_LiteCoMP" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
             <event>
@@ -2249,7 +2263,7 @@ Example:
 	</signals>
 
 	<!--AStrand_Sector1_TDD-->
-	<signals key="FSM_Lock_S1_Term_Sector1" ignorAny="false">
+	<signals key="FSM_Lock_S1_Term_Sector1" ignoreAny="false">
 
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
@@ -2382,7 +2396,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_S1_Term_Sector1" ignorAny="false">
+	<signals key="FSM_Unlock_S1_Term_Sector1" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
             <event>
@@ -2531,8 +2545,7 @@ Example:
 
 	</signals>
 	
-	
-	<signals key="AutoPCI_PCICollision_OTF" ignorAny="false">
+	<signals key="AutoPCI_PCIConfusion_OTF" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->			
 		</signalsExpectedList>
@@ -2552,10 +2565,61 @@ Example:
 		</signalsIgnoreList>
 
 	</signals>
+	
+	<signals key="AutoPCI_PCICollision_OTF" ignoreAny="true">
+		<signalsExpectedList>
+			<event>
+				<id>533</id>
+				<typeContains>Auto-PCI Allocation</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>PCI COLLISION DETECTED</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>533</id>
+				<typeContains>Auto-PCI Allocation</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>PCI COLLISION RESOLVED</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+           <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+           <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>			
+		</signalsExpectedList>
+
+			
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+		</signalsIgnoreList>
+
+	</signals>
 
 
 	<!--AStrand_Sector2_TDD-->
-	<signals key="FSM_Lock_S1_Term_Sector2" ignorAny="false">
+	<signals key="FSM_Lock_S1_Term_Sector2" ignoreAny="false">
 
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
@@ -2696,7 +2760,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_S1_Term_Sector2" ignorAny="false">
+	<signals key="FSM_Unlock_S1_Term_Sector2" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
             <event>
@@ -2814,7 +2878,7 @@ Example:
 	</signals>
 
 	<!--AStrand_Muilti_Cell_TDD-->
-	<signals key="FSM_Lock_S1_Term_MultiCell" ignorAny="false">
+	<signals key="FSM_Lock_S1_Term_MultiCell" ignoreAny="false">
 
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
@@ -2995,7 +3059,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_S1_Term_MultiCell" ignorAny="false">
+	<signals key="FSM_Unlock_S1_Term_MultiCell" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
             <event>
@@ -3168,7 +3232,7 @@ Example:
 
 
 	<!--AirHarmony4K_TDD_B41_Single_Cell-->
-	<signals key="XLP_2_RX_TX_Lock_S1" ignorAny="false">
+	<signals key="XLP_2_RX_TX_Lock_S1" ignoreAny="false">
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
 			<event>
@@ -3286,7 +3350,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="XLP_2_RX_TX_Unlock_S1" ignorAny="false">
+	<signals key="XLP_2_RX_TX_Unlock_S1" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
 
@@ -3445,7 +3509,7 @@ Example:
 
 
 	<!--AirHarmony4K_TDD_B41_Multi_Cell-->
-	<signals key="XLP_2_RX_TX_Lock_S1_MultiCell" ignorAny="false">
+	<signals key="XLP_2_RX_TX_Lock_S1_MultiCell" ignoreAny="false">
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
 			<event>
@@ -3578,7 +3642,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="XLP_2_RX_TX_Unlock_S1_MultiCell" ignorAny="false">
+	<signals key="XLP_2_RX_TX_Unlock_S1_MultiCell" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
 
@@ -3751,7 +3815,7 @@ Example:
 	</signals>
 
 	<!--enb_1: AirHarmony4K_TDD_B41-->
-	<signals key="cells_enb_1" ignorAny="false">
+	<signals key="cells_enb_1" ignoreAny="false">
 
 		<signalsExpectedList>
 
@@ -4150,7 +4214,7 @@ Example:
 
 
 	<!--REALY_ENB_SCAN-->
-	<signals key="AU_REALY_ENB_SCAN" ignorAny="true">
+	<signals key="AU_REALY_ENB_SCAN" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4165,7 +4229,7 @@ Example:
 
 	<!--REALY_ENB_FORCE_SCAN-->
 
-	<signals key="AU_REALY_ENB_FORCE_SCAN" ignorAny="true">
+	<signals key="AU_REALY_ENB_FORCE_SCAN" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4180,7 +4244,7 @@ Example:
 
 	<!--REALY_ENB_SCAN_NEG-->
 
-	<signals key="AU_REALY_ENB_SCAN_NEG" ignorAny="true">
+	<signals key="AU_REALY_ENB_SCAN_NEG" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4195,7 +4259,7 @@ Example:
 
 	<!--perform reboot-->
 
-	<signals key="AU_reboot" ignorAny="true">
+	<signals key="AU_reboot" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4210,7 +4274,7 @@ Example:
 
 
 	<!--perform reboot NEG-->
-	<signals key="AU_reboot_NEG" ignorAny="true">
+	<signals key="AU_reboot_NEG" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4225,7 +4289,7 @@ Example:
 
 
 	<!--perform cold reboot -->
-	<signals key="AU_cold_reboot" ignorAny="true">
+	<signals key="AU_cold_reboot" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -4240,7 +4304,21 @@ Example:
 
 
 	<!--perform cold reboot NEG-->
-	<signals key="AU_cold_reboot_NEG" ignorAny="true">
+	<signals key="AU_cold_reboot_NEG" ignoreAny="true">
+
+
+		<signalsExpectedList>
+		</signalsExpectedList>
+
+
+		<signalsFailureList>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+		</signalsIgnoreList>
+	</signals>
+	<!--AS1250_PNP-->
+	<signals key="AS1250_PNP" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -4254,7 +4332,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="Get_Signals" ignorAny="true">
+	<signals key="Get_Signals" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -4271,7 +4349,7 @@ Example:
 	
 	
 	<!--Return back to DeNB during SW download-->
-	<signals key="AS1250_Return_back_to_DeNB_during_SW_download" ignorAny="true">
+	<signals key="AS1250_Return_back_to_DeNB_during_SW_download" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -4287,7 +4365,7 @@ Example:
 
 
 	<!--SW DOWNLOAD CYCLE-->
-	<signals key="XLP_SW_DOWNLOAD_CYCLE" ignorAny="true">
+	<signals key="XLP_SW_DOWNLOAD_CYCLE" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
