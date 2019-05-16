@@ -15,9 +15,9 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="TestResultToReturn" target="t0"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
+        <antcallback return="IsTestWasSuccessful" target="t1"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
-        <antcallback return="IsTestWasSuccessful" target="t3"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t3"/>
         <echo message="Check condition &quot;${scenario:Enb_Cells_Configuration}&quot; CONTAINS &quot;SingleCell&quot;"/>
         <if>
             <!--#Jsystem#-->
@@ -67,15 +67,15 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="6b3fa68b-6e25-4926-98cf-c5a82405b89b"/>
+            <sysproperty key="jsystem.uuid" value="64011c01-ef49-46ad-a9f1-2d087b096d55"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
         </jsystem>
     </target>
     <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="a4ade76a-4625-4aa5-bc21-8502d18318e8"/>
+            <sysproperty key="jsystem.uuid" value="c00fd33d-5f26-4d63-8d07-6ea9dff973a3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
@@ -83,10 +83,10 @@
     </target>
     <target name="t3">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="50e25a5c-827f-4f08-9dcf-78c88f6a99a0"/>
+            <sysproperty key="jsystem.uuid" value="b9f634d8-07c2-4a72-bfd3-2a78aa0c369d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
         </jsystem>
     </target>
     <target name="t4">
