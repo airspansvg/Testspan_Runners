@@ -18,12 +18,44 @@
         <antcallback return="IsTestWasSuccessful" target="t1"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t2"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t3"/>
-        <antcallback return="TestResultToReturn" target="t4"/>
-        <antcallback return="TestResultToReturn" target="t5"/>
-        <antcallback target="t6"/>
+        <echo message="Check condition &quot;${scenario:Enb_Cells_Configuration}&quot; CONTAINS &quot;SingleCell&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.07efbdd1-df73-4eeb-8569-79e9de2cf60b" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_Cells_Configuration} &lt;SEP&gt; CONTAINS &lt;SEP&gt; SingleCell &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn" target="t4"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;${scenario:Enb_Cells_Configuration}&quot; CONTAINS &quot;MultiCell&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.981925d9-8a73-4e2f-a9c0-0ff171992c2f" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_Cells_Configuration} &lt;SEP&gt; CONTAINS &lt;SEP&gt; MultiCell &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn" target="t5"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
+        <echo message="Check condition &quot;${scenario:Enb_Cells_Configuration}&quot; CONTAINS &quot;MultiCell_CA&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fe4adff3-2720-4eb9-80c3-5d48c58e2f3a" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_Cells_Configuration} &lt;SEP&gt; CONTAINS &lt;SEP&gt; MultiCell_CA &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn" target="t6"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
         <antcallback return="TestResultToReturn" target="t7"/>
-        <antcallback return="TestResultToReturn" target="t8"/>
+        <antcallback target="t8"/>
         <antcallback return="TestResultToReturn" target="t9"/>
+        <antcallback return="TestResultToReturn" target="t10"/>
+        <antcallback return="TestResultToReturn" target="t11"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -59,7 +91,7 @@
     </target>
     <target name="t4">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="deb01029-1735-4a27-a4b0-b92fa7cb309b"/>
+            <sysproperty key="jsystem.uuid" value="f43ac459-b301-4685-9351-99b548174fc3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.ue.simulators.amarisoft.uesimulator.LoadConfigurationTest.loadConfiguration"/>
@@ -67,13 +99,29 @@
     </target>
     <target name="t5">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="96b5c993-f046-4366-8359-d0a909a0042e"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.ue.simulators.amarisoft.uesimulator.LoadConfigurationTest.loadConfiguration"/>
+        </jsystem>
+    </target>
+    <target name="t6">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="23adc48f-b944-46e3-838e-ddb57b8c229d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.ue.simulators.amarisoft.uesimulator.LoadConfigurationTest.loadConfiguration"/>
+        </jsystem>
+    </target>
+    <target name="t7">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="7ee2f716-d326-4c9a-bb7d-dde8a1d39537"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.ue.simulators.amarisoft.uesimulator.StartConfigurationFileTest.startConfigurationFile"/>
         </jsystem>
     </target>
-    <target name="t6">
+    <target name="t8">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e866d4e6-a994-4715-bddc-a1bb10943cb3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -81,7 +129,7 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t7">
+    <target name="t9">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="5ddc269b-0286-4543-9d50-580835907d7d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -89,7 +137,7 @@
             <test name="com.airspan.testspan.jsystem.tests.deprecated.complex.IxLoadTpReport.throughput"/>
         </jsystem>
     </target>
-    <target name="t8">
+    <target name="t10">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="ab9fcf67-db46-4e87-8cf1-3f598e5269cb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -97,7 +145,7 @@
             <test name="com.airspan.testspan.jsystem.tests.ue.simulators.amarisoft.uesimulator.StopConfigurationFileTest.stopConfigurationFile"/>
         </jsystem>
     </target>
-    <target name="t9">
+    <target name="t11">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e7d0418c-6a58-4c93-acad-79248643568f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
