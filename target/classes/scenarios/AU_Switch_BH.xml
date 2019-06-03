@@ -115,10 +115,10 @@
                             <!--Task for updating the ant parameters file - used for reference parameters-->
                         </jsystemsetantproperties>
                         <antcallback target="t34"/>
-                        <echo message="Check condition &quot;AU544&quot; EQUALS &quot;${scenario:HW_Type}&quot;"/>
+                        <echo message="Check condition &quot;AU544&quot; CONTAINS &quot;${scenario:HW_Type}&quot;"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.596a2831-93fa-44d5-ad42-1b56dee66f69" language="javascript" params="str &lt;SEP&gt; AU544 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:HW_Type} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.596a2831-93fa-44d5-ad42-1b56dee66f69" language="javascript" params="str &lt;SEP&gt; AU544 &lt;SEP&gt; CONTAINS &lt;SEP&gt; ${scenario:HW_Type} &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <antcallback target="t35"/>
                                 <antcallback return="TestResultToReturn, StringToReturn" target="t36"/>
@@ -132,7 +132,7 @@
                                     <else>
                                         <!--#Jsystem#-->
                                         <antcallback target="t38"/>
-                                        <antcallback return="TestResultToReturn" target="t39"/>
+                                        <antcallback return="TestResultToReturn, StringToReturn" target="t39"/>
                                         <antcallback target="t40"/>
                                         <antcallback return="TestResultToReturn" target="t41"/>
                                         <antcallback target="t42"/>
@@ -484,10 +484,10 @@
     </target>
     <target name="t39">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="eeaa82fc-e037-44e9-bf1e-4e197538fac0"/>
+            <sysproperty key="jsystem.uuid" value="60ab7198-a65c-4cf7-99ef-1e14a13eab81"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
         </jsystem>
     </target>
     <target name="t40">
