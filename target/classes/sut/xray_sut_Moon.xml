@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
+
 	<Custom>
 		<class>Custom</class>
-		<NMSpAddress>172.22.2.222</NMSpAddress>
+		<NMSpAddress>172.22.2.204</NMSpAddress>
 		<IP_ver>IPv4</IP_ver>
 		<setup_name>moon</setup_name>
 		<IP_MME>172.21.165.1</IP_MME>
@@ -19,7 +20,7 @@
 
 	<NetspanWS>
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
-		<hostname>asil-svg-nms22</hostname>
+		<hostname>asil-svg-nms4</hostname>
 	</NetspanWS> 
 
 	<ue_lists>
@@ -37,12 +38,12 @@
 		<ueList index="2">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
 			<description>enb_2.ptp</description>
-			<ues>ue1</ues>
+			<ues>ue3</ues>
 		</ueList>
 		<ueList index="3">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
 			<description>enb_2.pt2p</description>
-			<ues>ue1,ue2</ues>
+			<ues>ue3,ue4</ues>
 		</ueList>
 	</ue_lists>
 
@@ -83,17 +84,8 @@
 		</snmp>	
 	</ue2>
 
+	
 	<ue3>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
-		<deviceID>869295039666835</deviceID>
-		<imsi>460020002946087</imsi>
-		<ueCategory>4</ueCategory>
-		<!-- default ueCategory is 4-->
-		<connectedToEnb>enb_2</connectedToEnb>
-	</ue3>
-
-
-	<!--ue3>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.30.3</wanIpAddress>
 		<lanIpAddress>100.30.3.254</lanIpAddress>
@@ -108,8 +100,8 @@
 			<snmpVersion>V2</snmpVersion>
 			<strAddress>100.30.3.254</strAddress>
 		</snmp>	
-	</ue3-->
-
+	</ue3>
+	
 	<ue4>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.30.4</wanIpAddress>
@@ -255,13 +247,13 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.15.40</strAddress>
+			<strAddress>172.20.30.53</strAddress>
 		</snmp>	
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
-			<ipAddress>172.20.15.40</ipAddress>
+			<ipAddress>172.20.30.53</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
@@ -278,7 +270,7 @@
 		</dans>
 	</enb_1> 
 
-	<enb_3>     
+	<enb_2>     
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000d</class>
 		<netspanName>Moon_H1KD</netspanName>
 		<duplexMode>TDD</duplexMode>
@@ -327,30 +319,30 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.15.41</strAddress>
+			<strAddress>172.20.30.40</strAddress>
 		</snmp>
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
-			<ipAddress>172.20.15.41</ipAddress>
+			<ipAddress>172.20.30.40</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
 				<port>4009</port>
 			</serialCom>
 		</xlp>
-		<!--<dans index="0">
+		<dans index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
 				<port>4008</port>
 			</serialCom>
-		</dans> -->
-	</enb_3> 
+		</dans> 
+	</enb_2> 
 
-	<enb_2>     
+	<enb_3>     
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
 		<netspanName>Moon_Donor_AS1300</netspanName>
 		<duplexMode>TDD</duplexMode>
@@ -371,12 +363,7 @@
 				<port>4002</port>
 			</serialCom>
 		</xlp>
-		<relay>
-			<System_Default_Profile>XXXXXXXXXXXXXX</System_Default_Profile>
-			<Relay_Profile>XXXXXXXXXXXXXXXX</Relay_Profile>
-			<Relay_Advanced_Profile>XXXXXXXXXXXXXXX</Relay_Advanced_Profile>
-		</relay>
-	</enb_2>
+	</enb_3>
 
 
 	<HO_attenuator>
@@ -453,7 +440,7 @@
 
 
 	<gen>
-		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
+		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
 		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
@@ -461,14 +448,14 @@
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>10</slot>
 			<port>7</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>10</slot>
 			<port>8</port>
