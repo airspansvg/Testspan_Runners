@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
+
 	<Custom>
 		<class>Custom</class>
 		<NMSpAddress>172.22.2.204</NMSpAddress>
+		<IP_ver>IPv4</IP_ver>
+		<setup_name>moon</setup_name>
+		<IP_MME>172.21.165.1</IP_MME>
+		<EPC_num>EPC_15</EPC_num>
+		<RackSW>172.20.60.26</RackSW>
+		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/26</enb_2_RackSW>
+		<Role>Relay_eNodeB</Role>
 	</Custom>
 
 	<EPC>
 		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
-		<ipAddress>192.168.56.30</ipAddress> 
+		<ipAddress>192.168.56.19</ipAddress> 
 		<username>spuser</username>
 		<password>sp_user9</password>
 	</EPC>
 
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_15_5.NetspanWsImpl</class>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_0.NetspanWsImpl</class>
 		<hostname>asil-svg-nms4</hostname>
 	</NetspanWS> 
+
+	<ue_lists>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
+		<ueList index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.ptp</description>
+			<ues>ue1</ues>
+		</ueList>
+		<ueList index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.pt2p</description>
+			<ues>ue1,ue2</ues>
+		</ueList>
+		<ueList index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.ptp</description>
+			<ues>ue3</ues>
+		</ueList>
+		<ueList index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.pt2p</description>
+			<ues>ue3,ue4</ues>
+		</ueList>
+	</ue_lists>
+
 
 
 
@@ -53,6 +87,7 @@
 		</snmp>	
 	</ue2>
 
+	
 	<ue3>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.30.3</wanIpAddress>
@@ -69,7 +104,7 @@
 			<strAddress>100.30.3.254</strAddress>
 		</snmp>	
 	</ue3>
-
+	
 	<ue4>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.30.4</wanIpAddress>
@@ -156,21 +191,6 @@
 	</ue8>
 
 
-	<ue_cells_map_1>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.UesMapping</class>
-		<uesPerNodeCells index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.ue.UesPerNodeCells</class>
-			<nodeName>enb_1</nodeName>
-			<cell1>ue1,ue2</cell1>
-			<cell2>ue1,ue2</cell2>
-		</uesPerNodeCells>
-		<uesPerNodeCells index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.ue.UesPerNodeCells</class>
-			<nodeName>enb_2</nodeName>
-			<cell1>ue3,ue4</cell1>
-			<cell2>ue3,ue4</cell2>
-		</uesPerNodeCells>
-	</ue_cells_map_1>
 
 	<enb_1>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class>
@@ -191,41 +211,76 @@
 		<X2_ANR_OFF>Automation_SR15.50v6_3_GPL_Moon_ANR_OFF</X2_ANR_OFF>
 		<MCProfile_CA_ON>Automation_SR15.50v6_3_GPL_Moon</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>Automation_SR15.50v6_3_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
+
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+		<!-- eNB Profiles -->
+		<System_Profile>Automation_SR15.5v16_Moon</System_Profile>
+		<eNB_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR15.50v6_3_GPL_Moon</Sync_Profile>
+		<Security_Profile>Automation_SR15.50v6_3_GPL_Moon</Security_Profile>
+		<Net_Profile>Automation_SR15.50v6_9_GPL_Moon</Net_Profile>		
+		<Mng_Profile>Automation_SR15.50v6_3_GPL_Moon</Mng_Profile>
+		<Ngh_Profile>Automation_SR15.50v6_3_GPL_Moon_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR15.50v6_3_GPL_Moon</Son_Profile>
+		<MC_Profile>Automation_SR15.50v6_3_GPL_Moon</MC_Profile>
+
+		<!-- CELL1 Profiles -->
+		<cell_1>	
+			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_4K</Mobility_Profile>
+			<Radio_Profile>Auto_FC2_BW20_41200_Moon_4K_Cell1</Radio_Profile>
+			<Tac>11000</Tac>		
+		</cell_1>
+		<!-- CELL2 Profiles -->
+		<cell_2>	
+			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_4K</Mobility_Profile>
+			<Radio_Profile>Auto_FC2_BW20_41005_Moon_4K_Cell2</Radio_Profile>
+			<Tac>11000</Tac>		
+		</cell_2>
+
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.15.40</strAddress>
+			<strAddress>172.20.30.53</strAddress>
+
 		</snmp>	
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<band>41</band>
-			<ipAddress>172.20.15.40</ipAddress>
+			<band>B41LH</band>
+			<ipAddress>172.20.30.53</ipAddress>	
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
 				<port>4006</port>
 			</serialCom>
 		</xlp>
-		<dans index="0">
+		<dans index="0"> 
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
 				<port>4007</port>
 			</serialCom>
-		</dans>  
-	</enb_1>
+		</dans>
+	</enb_1> 
 
 	<enb_2>     
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000d</class>
 		<netspanName>Moon_H1KD</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<band>B41LH</band>
-		<inter20>41470</inter20>
-		<intra20>41275</intra20>
+		<inter20>41005</inter20>
+		<intra20>41200</intra20>
 		<inter15>41470</inter15>
 		<intra15>41320</intra15>
 		<mcc>200</mcc>
@@ -241,18 +296,41 @@
 		<PLMN>Automation_SR15.50v6_3_GPL_Moon</PLMN>
 		<MCProfile_CA_ON>Automation_SR15.50v6_3_GPL_Moon</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>Automation_SR15.50v6_3_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
+
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+
+		<cell_1>	
+			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_1KD</Mobility_Profile>
+			<Radio_Profile>Auto_FC2_BW20_41200_Moon_1KD_Cell1</Radio_Profile>
+			<Tac>11000</Tac>		
+		</cell_1>
+		<cell_2>	
+			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_1KD</Mobility_Profile>
+			<Radio_Profile>Auto_FC2_BW20_41005_Moon_1KD_Cell2</Radio_Profile>
+			<Tac>11000</Tac>		
+		</cell_2>
+
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>ro-public</readCommunity>
-			<writeCommunity>rw-private</writeCommunity>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.15.41</strAddress>
+			<strAddress>172.20.30.40</strAddress>
+
 		</snmp>
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
-			<ipAddress>172.20.15.41</ipAddress>
+			<ipAddress>172.20.30.40</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
@@ -266,17 +344,13 @@
 				<comName>172.20.61.5</comName>
 				<port>4008</port>
 			</serialCom>
-		</dans>
-	</enb_2>
+		</dans> 
+	</enb_2> 
 
 	<enb_3>     
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
 		<netspanName>Moon_Donor_AS1300</netspanName>
-		<customCellParams index="0">
-			<!-- Removed -->
-			<interHandoverEarfcn>40090</interHandoverEarfcn>
-			<intraHandoverEarfcn>39890</intraHandoverEarfcn>
-		</customCellParams>
+		<duplexMode>TDD</duplexMode>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
 			<readCommunity>public</readCommunity>
@@ -294,28 +368,7 @@
 				<port>4002</port>
 			</serialCom>
 		</xlp>
-		<dans index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
-				<port>4005</port>
-			</serialCom>
-		</dans>
 	</enb_3>
-
-	<relay>
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Relay</class>
-		<relaySshProxy>
-			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.terminal.RelaySshProxy</class>
-			<proxyHostIp>192.168.57.16</proxyHostIp> 
-			<proxyHostUsername>root</proxyHostUsername> 
-			<proxyHostPassword>airspan</proxyHostPassword>
-			<relayIp>169.254.1.1</relayIp> <!-- Can be excluded, has default value --> 
-			<relayUsername>admin</relayUsername> <!-- Can be excluded, has default value -->
-			<relayPassword>HeWGEUx66m=_4!ND</relayPassword> <!-- Can be excluded, has default value -->
-		</relaySshProxy>
-	</relay>
 
 
 	<HO_attenuator>
@@ -395,8 +448,8 @@
 		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
-		<defaultConfigTccFile>C:/Users/spuser/Documents/Spirent/Moon_Automation.tcc</defaultConfigTccFile>
-		<runFiles>c:/Testspan/fileName</runFiles>
+		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
+		<runFiles>c:\Testspan\fileName</runFiles>
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
@@ -415,230 +468,14 @@
 		</port>
 	</gen>
 
-	<ixLoad>
-		<class>Ixia.IxLoad.IxLoad</class>
-		<shellPath>C:/Program Files (x86)/Ixia/Tcl/8.5.12.0/bin/tclsh85.exe</shellPath>
-		<installationPath>C:/Program Files (x86)/Ixia/IxLoad/6.60-EA</installationPath>
-		<configFile>C:/Users/spuser/Documents/Ixia/IxLoad/Repository/Piranha_FTP.rxf</configFile>
-		<originates index="0">
-			<class>Ixia.IxLoad.IxLoadNetwork</class>
-			<name>Traffic1@uplink</name>
-			<ports index="0">
-				<class>Ixia.IxLoad.IxLoadPort</class>
-				<ip>172.20.60.234</ip>
-				<portName>1.2.15</portName>
-			</ports>
-		</originates>
-		<terminates index="0">
-			<class>Ixia.IxLoad.IxLoadNetwork</class>
-			<name>Traffic2@downlink</name>
-			<ports index="0">
-				<class>Ixia.IxLoad.IxLoadPort</class>
-				<ip>172.20.60.234</ip>
-				<portName>1.2.16</portName>
-			</ports>
-		</terminates>
-	</ixLoad>
-
-	<svg-racksw>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.cisco.CiscoCatalyst2960</class>
-		<ipAddress>172.20.60.26</ipAddress>
-		<username>root</username>
-		<enable>airspan</enable>
-		<interfaces index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/14</interfaceName>
-			<description>enb_1</description>
-			<connectedTo>enb_1</connectedTo>
-		</interfaces>
-
-		<interfaces index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.cisco.interfaces.switching.SwitchInterface</class>
-			<interfaceName>GigabitEthernet1/0/2</interfaceName>
-			<description>enb_2</description>
-			<connectedTo>enb_2</connectedTo>
-		</interfaces>
-
-		<vlans index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.core.switching.Vlan</class>
-			<vlanNumber>230</vlanNumber>
-			<vlanName>X2_DATA</vlanName>
-		</vlans>
-		<vlans index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.core.switching.Vlan</class>
-			<vlanNumber>230</vlanNumber>
-			<vlanName>S1_DATA</vlanName>
-		</vlans>
-	</svg-racksw>
-
-
-	<Deny_X2>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_X2>
-
-	<Deny_S1>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.151.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.151.1</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.151.1</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</destination>
-		</rules>
-
-		<rules index="3">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.151.1</ipAddress>
-			</destination>
-		</rules>
-
-		<rules index="4">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_S1>
-
-	<Deny_Netspan>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.204</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.204</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.53</ipAddress>
-			</destination>
-		</rules>
-
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.204</ipAddress>
-			</destination>
-		</rules>
-		<rules index="3">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.204</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.30.40</ipAddress>
-			</destination>
-		</rules>
-		<rules index="4">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_Netspan>	
-
-
 	<Iperf_Session_UE1>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfAppSession</class>
-		<port>3003</port>
-		<sessionName>Session1</sessionName>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.103</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
@@ -646,15 +483,13 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>10.10.30.0</routeIp>
 			<defaultGateway>80.80.30.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.103</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
 		</networkSideStation>
 		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.149</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
 			<localEndPointIp>10.10.30.1</localEndPointIp>
 			<vlan>1341</vlan>
 			<ethIf>eth1</ethIf>
@@ -662,21 +497,19 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>80.80.30.0</routeIp>
 			<defaultGateway>100.30.1.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.149</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
 		</userSideStation>
+		<port>3003</port>
+		<sessionName>Session1</sessionName>
 	</Iperf_Session_UE1>
 
 	<Iperf_Session_UE2>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfAppSession</class>
-		<port>4004</port>
-		<sessionName>Session2</sessionName>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.103</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
@@ -684,15 +517,14 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>10.10.30.0</routeIp>
 			<defaultGateway>80.80.30.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.103</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
+			<remoteEndPointIp/>
 		</networkSideStation>
 		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.57.43</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
 			<localEndPointIp>10.10.30.2</localEndPointIp>
 			<vlan>1342</vlan>
 			<ethIf>eth1</ethIf>
@@ -700,21 +532,19 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>80.80.30.0</routeIp>
 			<defaultGateway>100.30.2.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.57.43</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
 		</userSideStation>
+		<port>4004</port>
+		<sessionName>Session2</sessionName>
 	</Iperf_Session_UE2>
 
 	<Iperf_Session_UE3>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfAppSession</class>
-		<port>3003</port>
-		<sessionName>Session3</sessionName>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.103</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
@@ -722,15 +552,14 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>10.10.30.0</routeIp>
 			<defaultGateway>80.80.30.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.103</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
+			<remoteEndPointIp/>
 		</networkSideStation>
 		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.149</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
 			<localEndPointIp>10.10.30.3</localEndPointIp>
 			<vlan>1343</vlan>
 			<ethIf>eth1</ethIf>
@@ -738,21 +567,19 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>80.80.30.0</routeIp>
 			<defaultGateway>100.30.3.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.149</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
 		</userSideStation>
+		<port>3003</port>
+		<sessionName>Session3</sessionName>
 	</Iperf_Session_UE3>
 
 	<Iperf_Session_UE4>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfAppSession</class>
-		<port>4004</port>
-		<sessionName>Session4</sessionName>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.56.103</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
@@ -760,15 +587,14 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>10.10.30.0</routeIp>
 			<defaultGateway>80.80.30.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.103</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
+			<remoteEndPointIp/>
 		</networkSideStation>
 		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.LinuxIps</class>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>192.168.57.43</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
 			<localEndPointIp>10.10.30.4</localEndPointIp>
 			<vlan>1344</vlan>
 			<ethIf>eth1</ethIf>
@@ -776,13 +602,9 @@
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>80.80.30.0</routeIp>
 			<defaultGateway>100.30.4.254</defaultGateway>
-			<sshConnector>
-				<class>com.airspan.testspan.jsystem.sysobjs.station.server.SshConnector</class>
-				<host>192.168.56.103</host>
-				<userName>root</userName>
-				<password>airspan</password>
-			</sshConnector>
 		</userSideStation>
+		<port>4004</port>
+		<sessionName>Session4</sessionName>
 	</Iperf_Session_UE4>
 
 
@@ -802,23 +624,11 @@
 		<operationSystemName>Linux</operationSystemName>
 	</pingServer2>
 
+	<smartPhoneServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.SmartPhoneServer</class>
+		<ipAddress>tunasmart</ipAddress>
+		<port>8089</port>
+	</smartPhoneServer>
 
-	<IPERF_SERVER>
-		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_SERVER</sessionPath>
-	</IPERF_SERVER>
-
-	<IPERF_USER1>
-		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_USER1</sessionPath>
-	</IPERF_USER1>
-
-	<IPERF_USER2>
-		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPERF\IPERF_USER2</sessionPath>
-	</IPERF_USER2>
 
 </sut>
