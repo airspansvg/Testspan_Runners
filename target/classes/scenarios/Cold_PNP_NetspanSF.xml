@@ -90,11 +90,12 @@
             </else>
         </if>
         <antcallback target="t35"/>
-        <antcallback return="TestResultToReturn, TpDlMbps, TpUlMbps, TpNumberOfUes, TpL4Protocol, TpFrameSize, TpCalcLabel, TpTrafficDirection, TpTestingTool" target="t36"/>
-        <antcallback return="TestResultToReturn" target="t37"/>
+        <antcallback return="TestResultToReturn" target="t36"/>
+        <antcallback return="TestResultToReturn, TpDlMbps, TpUlMbps, TpNumberOfUes, TpL4Protocol, TpFrameSize, TpCalcLabel, TpTrafficDirection, TpTestingTool" target="t37"/>
         <antcallback return="TestResultToReturn" target="t38"/>
         <antcallback return="TestResultToReturn" target="t39"/>
-        <antcallback target="t40"/>
+        <antcallback return="TestResultToReturn" target="t40"/>
+        <antcallback target="t41"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -386,13 +387,21 @@
     </target>
     <target name="t36">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1cc02cda-ca4d-4053-91a5-d4e815a16f41"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.SendAndValidateArp.checkArp"/>
+        </jsystem>
+    </target>
+    <target name="t37">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1562ad36-fc78-4ba7-87a9-2df7478c417b"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.ValidateTrafficTest.validateTraffic"/>
         </jsystem>
     </target>
-    <target name="t37">
+    <target name="t38">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="99163397-f237-40c6-bc5f-cd30d611f9e2"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -400,7 +409,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.parallel.StopCommandsSessionTest.stopCommandSession"/>
         </jsystem>
     </target>
-    <target name="t38">
+    <target name="t39">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="a5207c17-23ed-4c12-bf85-5015da0ae689"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -408,7 +417,7 @@
             <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.StopTrafficTest.stopTraffic"/>
         </jsystem>
     </target>
-    <target name="t39">
+    <target name="t40">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="ad20178f-504f-486c-9833-0a21c1cb29a7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -416,7 +425,7 @@
             <test name="com.airspan.testspan.jsystem.tests.windows.scripts.RunCmdTest.runCmd"/>
         </jsystem>
     </target>
-    <target name="t40">
+    <target name="t41">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3244adc5-68df-490a-8281-f0105c474496"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
