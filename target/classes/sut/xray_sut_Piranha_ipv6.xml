@@ -5,10 +5,13 @@
 		<NMSpAddress>fc74:172:22:2::222</NMSpAddress>
 		<IP_ver>IPv6</IP_ver>
 		<setup_name>piranha</setup_name>
-		<IP_MME>172.21.153.1</IP_MME>
+		<IP_MME>fc74:172:21:165::1</IP_MME>
 		<setup_vlan>1500</setup_vlan>
 		<sec_GW_ipv4>172.22.50.220</sec_GW_ipv4>
-		<EPC_num>EPC_3</EPC_num>
+		<EPC_num>EPC_15</EPC_num>
+		<RackSW>172.20.61.4</RackSW>
+		<enb_1_RackSW>GigabitEthernet1/0/2</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/4</enb_2_RackSW>  
 		<COLD_REBOOT_KEY>AU_cold_reboot</COLD_REBOOT_KEY>
 		<COLD_REBOOT_NEG_KEY>AU_cold_reboot_NEG</COLD_REBOOT_NEG_KEY>
 		<WARM_REBOOT_KEY>AU_reboot</WARM_REBOOT_KEY>
@@ -20,7 +23,7 @@
 
 	<EPC>
 		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
-		<ipAddress>192.168.59.27</ipAddress> 
+		<ipAddress>192.168.59.19</ipAddress> 
 		<username>spuser</username>
 		<password>sp_user9</password>
 	</EPC>
@@ -36,6 +39,30 @@
 		<username>automation</username> <!-- The user has to be of type Power User -->
 		<password>Automation1!</password>
 	</NetspanSfWs>
+	
+	<ue_lists>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
+		<ueList index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.ptp</description>
+			<ues>ue1</ues>
+		</ueList>
+		<ueList index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.pt2p</description>
+			<ues>ue1,ue2</ues>
+		</ueList>
+		<ueList index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.ptp</description>
+			<ues>ue3</ues>
+		</ueList>
+		<ueList index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.pt2p</description>
+			<ues>ue3,ue4</ues>
+		</ueList>
+	</ue_lists>
 
 	<ue1>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
@@ -533,7 +560,7 @@
 
 
 	<gen>
-		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
+		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
 		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\TP_Automation_File2.tcc</defaultConfigTccFile>
@@ -541,14 +568,14 @@
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>11</slot>
 			<port>1</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>11</slot>
 			<port>2</port>
