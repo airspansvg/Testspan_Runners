@@ -14,9 +14,9 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn" target="t0"/>
+        <antcallback target="t0"/>
         <antcallback return="TestResultToReturn" target="t1"/>
-        <antcallback target="t2"/>
+        <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback return="IsTestWasSuccessful" target="t3"/>
         <antcallback return="TestResultToReturn" target="t4"/>
         <antcallback return="TestResultToReturn" target="t5"/>
@@ -49,9 +49,18 @@
         <antcallback return="TestResultToReturn" target="t32"/>
         <antcallback target="t33"/>
         <antcallback return="TestResultToReturn" target="t34"/>
-        <antcallback target="t35"/>
+        <antcallback return="TestResultToReturn" target="t35"/>
+        <antcallback target="t36"/>
     </target>
     <target name="t0">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="30209fb2-6ce6-417b-86a7-2acd397ac1f3"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t1">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="d2df5fa5-b16b-4f60-81d6-fdaccdbfe952"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -59,20 +68,12 @@
             <test name="com.airspan.testspan.jsystem.tests.attenuators.SetAttenuatorsValueTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t1">
+    <target name="t2">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="7b3a8415-d576-4ec0-a59c-a209956adb10"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.EnodebStateTests.rebootToAllRunning"/>
-        </jsystem>
-    </target>
-    <target name="t2">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="30209fb2-6ce6-417b-86a7-2acd397ac1f3"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
     <target name="t3">
@@ -332,10 +333,18 @@
     </target>
     <target name="t35">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="1469516f-7951-48c8-8cbe-82721a304be2"/>
+            <sysproperty key="jsystem.uuid" value="96a68b2c-7cd6-4721-ae8d-7a7147a20c62"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.deprecated.TrafficGeneratorController.stopTraffic"/>
+            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.StopTrafficTest.stopTraffic"/>
+        </jsystem>
+    </target>
+    <target name="t36">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="dcfa9878-6365-4670-b9ff-0dad0eb2c361"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
 </project>
