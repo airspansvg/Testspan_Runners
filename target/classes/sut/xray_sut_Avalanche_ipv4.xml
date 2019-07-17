@@ -217,6 +217,7 @@
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_S1</S1>
 		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</X2>
+
 		<MCProfile_CA_ON>AirUnity Default Disabled_Avalanche_CA</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>AirUnity Default Disabled</MCProfile_CA_OFF>
 		<X2_ANR_ON>Avalanche_PnpEnable</X2_ANR_ON>
@@ -237,6 +238,7 @@
                                                      <!-- CELL1 Profiles -->
         <cell_1>              
                 <Cell_Adv_Profile>Automation_AU_Cell_Advanced_AirportCity</Cell_Adv_Profile>
+				<Cell_Adv_Profile_ANR>AU_Cell_Advanced_Tel_Aviv_NGHRemTH=15</Cell_Adv_Profile_ANR>
                 <Embms_Profile>Automation_AU_eMBMS_SR16.00</Embms_Profile>
                 <Traffic_Mng>Automation_SR15.0 AirUnity Defaults</Traffic_Mng>
                 <Call_Trace>Automation_AirUnity Call Trace Disabled</Call_Trace>
@@ -385,6 +387,33 @@
 		<maxAttenuation>27</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
+	
+	<ANR_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4009</port>
+				<comName>172.20.61.142</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4010</port>
+				<comName>172.20.61.142</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>1000</stepTime>
+		<attenuationStep>2</attenuationStep>
+		<maxAttenuation>27</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</ANR_attenuator>	
 
 	<fwd_HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -496,7 +525,9 @@
 
 
 
-	<gen>
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
 		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
@@ -518,8 +549,8 @@
 			<port>10</port>
 			<portName>UL</portName>
 		</port>
-	</gen>
-
+		</stc>
+	</stcController>
 	<ixLoad>
 		<class>Ixia.IxLoad.IxLoad</class>
 		<shellPath>C:/Program Files (x86)/Ixia/Tcl/8.5.12.0/bin/tclsh85.exe</shellPath>
