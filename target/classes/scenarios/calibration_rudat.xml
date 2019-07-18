@@ -35,31 +35,30 @@
                             <!--Task for updating the ant parameters file - used for reference parameters-->
                         </jsystemsetantproperties>
                         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t4"/>
-                        <echo message="Check condition ${SnmpReturnValue} &gt; -80"/>
+                        <echo message="Check condition ${SnmpReturnValue} &gt; ${scenario:new_value}"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.423dac4c-d357-4876-90f3-83819ed97591" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt; &lt;SEP&gt; -80" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.423dac4c-d357-4876-90f3-83819ed97591" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt; &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <antcallback return="TestResultToReturn" target="t5"/>
                             </then>
                             <else>
                                 <!--#Jsystem#-->
-                                <antcallback target="t6"/>
                             </else>
                         </if>
-                        <echo message="Check condition ${SnmpReturnValue} &lt;= -80"/>
-                        <echo message="Else if ${SnmpReturnValue} &gt;= -83"/>
+                        <echo message="Check condition ${SnmpReturnValue} &lt;= ${scenario:new_value}"/>
+                        <echo message="Else if ${SnmpReturnValue} &gt;= ${scenario:new_value_3}"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.df7c3e1f-cce2-4cbb-bc1c-0bce04b1a6c1" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; -80" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.df7c3e1f-cce2-4cbb-bc1c-0bce04b1a6c1" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback target="t7"/>
+                                <antcallback target="t6"/>
                             </then>
                             <elseif>
                                 <!--#Jsystem#-->
-                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ebc959ce-31ea-4954-986b-56630931d022" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt;= &lt;SEP&gt; -83" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e7f1e3d3-5d40-432a-833e-53c6e883c873" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt;= &lt;SEP&gt; ${scenario:new_value_3}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                 <then>
-                                    <antcallback target="t8"/>
+                                    <antcallback target="t7"/>
                                 </then>
                                 <!--#Jsystem#-->
                             </elseif>
@@ -67,10 +66,10 @@
                                 <!--#Jsystem#-->
                             </else>
                         </if>
-                        <antcallback target="t9"/>
+                        <antcallback target="t8"/>
                     </sequential>
                 </jsystemfor>
-                <antcallback target="t10"/>
+                <antcallback target="t9"/>
                 <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4f0ea1c5-46c8-4456-bbb8-e7714ceb3e90" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                     <!--#Jsystem#-->
                     <sequential>
@@ -79,32 +78,31 @@
                         <jsystemsetantproperties>
                             <!--Task for updating the ant parameters file - used for reference parameters-->
                         </jsystemsetantproperties>
-                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t11"/>
-                        <echo message="Check condition ${SnmpReturnValue} &gt; -80"/>
+                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t10"/>
+                        <echo message="Check condition ${SnmpReturnValue} &gt; ${scenario:new_value}"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.c1c32b7a-caec-4248-bc4b-10ec5d9cfc1f" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt; &lt;SEP&gt; -80" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.c1c32b7a-caec-4248-bc4b-10ec5d9cfc1f" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt; &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback return="TestResultToReturn" target="t12"/>
+                                <antcallback return="TestResultToReturn" target="t11"/>
                             </then>
                             <else>
                                 <!--#Jsystem#-->
-                                <antcallback target="t13"/>
                             </else>
                         </if>
-                        <echo message="Check condition ${SnmpReturnValue} &lt;= -80"/>
-                        <echo message="Else if ${SnmpReturnValue} &gt;= -83"/>
+                        <echo message="Check condition ${SnmpReturnValue} &lt;= ${scenario:new_value}"/>
+                        <echo message="Else if ${SnmpReturnValue} &gt;= ${scenario:new_value_3}"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ca30d0e5-f6b6-4937-9d17-1d9134103988" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; -80" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ca30d0e5-f6b6-4937-9d17-1d9134103988" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback target="t14"/>
+                                <antcallback target="t12"/>
                             </then>
                             <elseif>
                                 <!--#Jsystem#-->
-                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2dde843c-fbd6-433b-989e-2286bdeddb44" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt;= &lt;SEP&gt; -83" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.35905fdc-11e6-4179-80a1-9eaaeb0c2dfd" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &gt;= &lt;SEP&gt; ${scenario:new_value_3}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                 <then>
-                                    <antcallback target="t15"/>
+                                    <antcallback target="t13"/>
                                 </then>
                                 <!--#Jsystem#-->
                             </elseif>
@@ -112,36 +110,13 @@
                                 <!--#Jsystem#-->
                             </else>
                         </if>
-                        <antcallback target="t16"/>
+                        <antcallback target="t14"/>
                     </sequential>
                 </jsystemfor>
-                <antcallback target="t17"/>
+                <antcallback target="t15"/>
             </sequential>
         </jsystemfor>
-        <antcallback target="t18"/>
-        <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.7a55c346-1d90-4f35-a076-292271ee0529" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
-            <!--#Jsystem#-->
-            <sequential>
-                <echo message="Parameter: myVar3=@{myVar3}"/>
-                <var name="myVar3" value="@{myVar3}"/>
-                <jsystemsetantproperties>
-                    <!--Task for updating the ant parameters file - used for reference parameters-->
-                </jsystemsetantproperties>
-                <echo message="Check condition ${myVar3} = -80"/>
-                <if>
-                    <!--#Jsystem#-->
-                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.47c13696-42ad-40dd-aa88-df172497dbcf" language="javascript" params="math &lt;SEP&gt; ${myVar3} &lt;SEP&gt; = &lt;SEP&gt; -80" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-                    <then>
-                        <antcallback return="TestResultToReturn" target="t19"/>
-                    </then>
-                    <else>
-                        <!--#Jsystem#-->
-                        <antcallback target="t20"/>
-                    </else>
-                </if>
-            </sequential>
-        </jsystemfor>
-        <antcallback target="t21"/>
+        <antcallback target="t16"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -193,7 +168,7 @@
     </target>
     <target name="t6">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="5f986bd0-1f67-46a8-83e8-2cbd60e82a36"/>
+            <sysproperty key="jsystem.uuid" value="49537c09-a287-4f0d-9b69-14a5eea31634"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -201,7 +176,7 @@
     </target>
     <target name="t7">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="49537c09-a287-4f0d-9b69-14a5eea31634"/>
+            <sysproperty key="jsystem.uuid" value="9bb350f2-49bc-44fb-950d-f7934f5f0060"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -209,7 +184,7 @@
     </target>
     <target name="t8">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9bb350f2-49bc-44fb-950d-f7934f5f0060"/>
+            <sysproperty key="jsystem.uuid" value="e4e14c52-dd65-42db-84c2-7c42448798b5"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -217,7 +192,7 @@
     </target>
     <target name="t9">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="e4e14c52-dd65-42db-84c2-7c42448798b5"/>
+            <sysproperty key="jsystem.uuid" value="43d77f1a-03e0-4001-87e3-f55709cb9f6a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -225,21 +200,13 @@
     </target>
     <target name="t10">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="927a4ee6-f78b-47b0-bb56-595be90ee029"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t11">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="40b6260a-fbba-4df7-b572-408766d44ee7"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.ue.UeSnmpActionTest.ueSnmpAction"/>
         </jsystem>
     </target>
-    <target name="t12">
+    <target name="t11">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3b50a7c3-f34f-4e1f-9c94-d32a4721d6eb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -247,15 +214,7 @@
             <test name="com.airspan.testspan.jsystem.tests.attenuators.SetAttenuatorsValueTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t13">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="34fa2e59-43bc-4ee2-bbd7-f7ed0949baeb"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t14">
+    <target name="t12">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="55cf4f1e-70c4-47f7-8563-b67ccd2fdb62"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -263,7 +222,7 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t15">
+    <target name="t13">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="7b13db62-5d4f-4e32-8467-17137e47c817"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -271,7 +230,7 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t16">
+    <target name="t14">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1f16d793-038a-411d-a737-dbf6da5b4548"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -279,39 +238,15 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t17">
+    <target name="t15">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="b558c27a-66be-4f16-b22e-e85714be74fe"/>
+            <sysproperty key="jsystem.uuid" value="2871d319-fb92-4665-bd05-f2c60ebd97d8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t18">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="e3bfbaae-84f5-4eef-a2cd-e4dfe2f4a54f"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t19">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="21d6b6a8-22a9-42e9-b867-48ba63933d8b"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.attenuators.SetAttenuatorsValueTest.setAttenuatorsValue"/>
-        </jsystem>
-    </target>
-    <target name="t20">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="f1e86a66-48f9-4644-8034-61275cb463a5"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t21">
+    <target name="t16">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="a6ec4ed3-e33d-43a8-8287-10d7b254cb7c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
