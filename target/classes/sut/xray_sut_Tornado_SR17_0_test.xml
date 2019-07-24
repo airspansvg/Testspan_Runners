@@ -14,6 +14,7 @@
 		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
 		<enb_2_RackSW>GigabitEthernet1/0/13</enb_2_RackSW>
 		<ACL_X2>true</ACL_X2>
+		<IPSec_ON_OFF>OFF</IPSec_ON_OFF>
 	</Custom>
 	
 	<EPC>
@@ -57,41 +58,6 @@
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_0.NetspanWsImpl</class>
 		<hostname>asil-svg-nms4</hostname>
 	</NetspanWS>
-	
-	
-	<attenuator_AMC_1>
-		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
-		<attenuators index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>60</maxAttenuation>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4009</port>
-				<comName>172.20.60.44</comName>
-			</serialCom>
-		</attenuators>
-		<stepTime>400</stepTime>
-		<attenuationStep>1</attenuationStep>
-		<maxAttenuation>16</maxAttenuation>
-		<minAttenuation>1</minAttenuation>
-	</attenuator_AMC_1>
-
-	<attenuator_AMC_2>
-		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
-		<attenuators index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>60</maxAttenuation>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4010</port>
-				<comName>172.20.60.44</comName>
-			</serialCom>
-		</attenuators>
-		<stepTime>400</stepTime>
-		<attenuationStep>1</attenuationStep>
-		<maxAttenuation>16</maxAttenuation>
-		<minAttenuation>1</minAttenuation>
-	</attenuator_AMC_2>
 
 
 	<ue1>
@@ -232,6 +198,7 @@
 
 
 	<enb_1>
+	    <enb_type>Macro</enb_type>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4400</class>
 		<netspanName>Tornado_AH4400</netspanName>
 		<band>B41LH</band>
@@ -312,6 +279,7 @@
 	</enb_1>
 
 	<enb_2>
+	    <enb_type>Macro</enb_type>
 		<attnSide>LEFT</attnSide>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000d</class>
 		<netspanName>Tornado_Harmony1KD</netspanName>
@@ -599,6 +567,8 @@
 
 
 	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
 		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application\pkgIndex.tcl</initScriptPath>
@@ -620,8 +590,8 @@
 			<port>10</port>
 			<portName>UL</portName>
 		</port>
+		</stc>
 	</stcController>
-
 
 	<pingServer>
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
@@ -810,5 +780,39 @@
 		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
 		<sessionPath>IPG\IPG_Tornado_4K</sessionPath>
 	</IPG_SERVER>
+	
+	<attenuator_AMC_1>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4009</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</attenuator_AMC_1>
+
+	<attenuator_AMC_2>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4010</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</attenuator_AMC_2>
 
 </sut>
