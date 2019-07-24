@@ -27,7 +27,7 @@
         <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.1868637c-ac7e-4006-bdd9-a86fa9ab63aa" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.1868637c-ac7e-4006-bdd9-a86fa9ab63aa" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <antcallback return="TestResultToReturn" target="t10"/>
                 <antcallback return="TestResultToReturn" target="t11"/>
@@ -64,7 +64,8 @@
             </then>
             <else>
                 <!--#Jsystem#-->
-                <antcallback target="t32"/>
+                <antcallback return="TestResultToReturn" target="t32"/>
+                <antcallback target="t33"/>
             </else>
         </if>
     </target>
@@ -325,6 +326,14 @@
         </jsystem>
     </target>
     <target name="t32">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a6d039c9-5a39-40c5-b43d-b338a0a80f68"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.StopTrafficTest.stopTraffic"/>
+        </jsystem>
+    </target>
+    <target name="t33">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9f5a7bf9-1bfc-4e6b-b9db-d831e7b5c130"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
