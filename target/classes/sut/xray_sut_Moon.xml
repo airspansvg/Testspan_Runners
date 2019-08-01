@@ -8,6 +8,7 @@
 		<IPSec_ON_OFF>OFF</IPSec_ON_OFF>
 		<setup_name>moon</setup_name>
 		<IP_MME>172.21.165.1</IP_MME>
+		<ZMTL_MC20>41200;41005;</ZMTL_MC20>
 		<EPC_num>EPC_15</EPC_num>
 		<RackSW>172.20.60.26</RackSW>
 		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
@@ -163,7 +164,7 @@
 	</ue6>
 
 	<ue7>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.7</wanIpAddress>
 		<lanIpAddress>100.30.7.254</lanIpAddress>
 		<imsi>200010001001230</imsi>
@@ -208,10 +209,12 @@
 		<TAC_1>11000</TAC_1>
 		<TAC_2>11110</TAC_2>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<inter20>41005</inter20>
-		<intra20>41200</intra20>
-		<inter15>41050</inter15>
-		<intra15>41200</intra15>
+		<intra20>41005</intra20>
+		<inter20>41200</inter20>
+		<inter15>41470</inter15>
+		<intra15>41320</intra15>
+		<!--inter15>41050</inter15-->
+		<!--intra15>41200</intra15-->
 		<S1>Automation_SR17.0v10_v2.0_GPL_Moon_S1</S1>
 		<X2>Automation_SR17.0v10_v2.0_GPL_Moon_X2</X2>
 		<X2_ANR_ON>Automation_SR15.50v6_3_GPL_Moon_ANR_ON</X2_ANR_ON>
@@ -288,8 +291,8 @@
 		<netspanName>Moon_H1KD</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<band>B41LH</band>
-		<inter20>41005</inter20>
-		<intra20>41200</intra20>
+		<intra20>41005</intra20>
+		<inter20>41200</inter20>
 		<inter15>41470</inter15>
 		<intra15>41320</intra15>
 		<mcc>200</mcc>
@@ -481,12 +484,14 @@
 	</powerControl>
 
 	
-		<gen>
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
 		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
-		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
+		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
 		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
-		<runFiles>c:\Testspan\fileName</runFiles>
+		<runFiles>c:/Testspan/fileName</runFiles>
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
@@ -503,7 +508,10 @@
 			<port>8</port>
 			<portName>UL</portName>
 		</port>
-		</gen>
+		</stc>
+	</stcController>
+	
+	
 	<Iperf_Session_UE1>
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>

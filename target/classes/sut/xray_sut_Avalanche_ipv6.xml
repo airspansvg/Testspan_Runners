@@ -5,9 +5,9 @@
 		<NMSipAddress>fc74:172:22:2::222</NMSipAddress>
 		<IP_ver>IPv6</IP_ver>
 		<setup_name>avalanche</setup_name>
-		<IP_MME>172.21.165.1</IP_MME>
 		<setup_vlan>1260</setup_vlan>
 		<sec_GW_ipv4>172.22.50.220</sec_GW_ipv4>
+		<proxyHostIp>192.168.57.209</proxyHostIp>
 		<EPC_num>EPC_15</EPC_num>
 		<ACL_X2>false</ACL_X2>
 		<RackSW>172.20.61.141</RackSW>
@@ -16,6 +16,10 @@
 		<WARM_REBOOT_KEY>AU_reboot</WARM_REBOOT_KEY>
 		<COLD_REBOOT_KEY>AU_cold_reboot</COLD_REBOOT_KEY>
 		<SCAN_KEY>AU_REALY_ENB_SCAN</SCAN_KEY>
+		<IP_MME>fc74:172:21:169::211</IP_MME>
+		<Mng_Profile_15min>Automation_AU_Management_SR16.00</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->
+		<Traffic_Mng_Idle_OFF>Automation_SR15.0 AirUnity Defaults</Traffic_Mng_Idle_OFF>
+		<Traffic_Mng_Idle_ON>Automation_SR15.0 AirUnity Defaults_Idle_Mode-ON</Traffic_Mng_Idle_ON>
 	</Custom>
 
 	<EPC>
@@ -26,33 +30,33 @@
 	</EPC>
 	
 	<ue_lists>
-                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
-                                <ueList index="0">
-                                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-                                                <description>enb_1.ptp</description>
-                                                <ues>ue1</ues>
+        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
+        <ueList index="0">
+                        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+                        <description>enb_1.ptp</description>
+                        <ues>ue1</ues>
+        </ueList>
+        <ueList index="1">
+                        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+                        <description>enb_1.pt2p</description>
+                        <ues>ue1,ue2</ues>
+        </ueList>
+        <ueList index="2">
+                        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+                        <description>enb_2.ptp</description>
+                        <ues>ue3</ues>
+        </ueList>
+        <ueList index="3">
+                        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+                        <description>enb_2.pt2p</description>
+                        <ues>ue3,ue4</ues>
+        </ueList>
+     	<ueList index="4">
+                        <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+                        <description>Anr</description>
+                        <ues>ue5,ue6,ue7,ue8</ues>
                                 </ueList>
-                                <ueList index="1">
-                                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-                                                <description>enb_1.pt2p</description>
-                                                <ues>ue1,ue2</ues>
-                                </ueList>
-                                <ueList index="2">
-                                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-                                                <description>enb_2.ptp</description>
-                                                <ues>ue3</ues>
-                                </ueList>
-                                <ueList index="3">
-                                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-                                                <description>enb_2.pt2p</description>
-                                                <ues>ue3,ue4</ues>
-                                </ueList>
-								<ueList index="4">
-                                                <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-                                                <description>Anr</description>
-                                                <ues>ue5,ue6,ue7,ue8</ues>
-                                </ueList>
-        </ue_lists>
+    </ue_lists>
 
 
 
@@ -201,8 +205,21 @@
 			<strAddress>100.25.8.254</strAddress>
 		</snmp>
 	</ue8>
+	
+	<ue9>
+        <class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+        <deviceID>13a5158c</deviceID>
+        <imsi>460020002946100</imsi>
+        <ueCategory>4</ueCategory>
+        <!-- default ueCategory is 4-->
+        <connectedToEnb>enb_1,enb_2</connectedToEnb>
+    </ue9>
 
-
+    <smartPhoneServer>
+        <class> com.airspan.testspan.jsystem.sysobjs.ue.smartphone.SmartPhoneServer </class>
+        <ipAddress>http://avasmart</ipAddress>
+        <port>8089</port>
+    </smartPhoneServer>
 
 
 	<enb_1>
@@ -526,8 +543,9 @@
 	</powerControl>
 
 
-
-	<gen>
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
 		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
@@ -549,7 +567,8 @@
 			<port>10</port>
 			<portName>UL</portName>
 		</port>
-	</gen>
+		</stc>
+	</stcController>
 
 	<NetspanSF>
 		<class>com.airspan.testspan.jsystem.sysobj.netspansf.web_services.NetspanSfWsImpl</class>
@@ -819,6 +838,13 @@
 		</rules>
 	</Deny_SGW>
 
+    <amarisoftMME>
+         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+         <userName>root</userName>
+         <password>airspan</password>
+         <ipAddress>192.168.62.20</ipAddress>
+         <port>9002</port>
+    </amarisoftMME>
 
 	<Iperf_Session_UE1>
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
