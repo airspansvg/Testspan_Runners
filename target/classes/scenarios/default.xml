@@ -14,14 +14,14 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="41c0db35-4333-4f85-a063-0848e7fc11ff"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.NetworkSwitchActions.interfaceActions"/>
+            <test name="com.airspan.testspan.jsystem.tests.network_switch.SetSwitchConfigurationTest.setSwitchConfiguration"/>
         </jsystem>
     </target>
 </project>

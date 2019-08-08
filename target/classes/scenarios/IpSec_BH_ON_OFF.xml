@@ -13,21 +13,21 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="IsTestWasSuccessful" target="t0"/>
-        <echo message="Check condition &quot;${IsTestWasSuccessful}&quot; EQUALS &quot;PASS&quot;"/>
+        <antcallback return="TestResultToReturn" target="t0"/>
+        <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ad532c1e-c3d9-497b-b008-2863d2b1f10a" language="javascript" params="str &lt;SEP&gt; ${IsTestWasSuccessful} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ad532c1e-c3d9-497b-b008-2863d2b1f10a" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <antcallback target="t1"/>
             </then>
             <else>
                 <!--#Jsystem#-->
                 <antcallback target="t2"/>
-                <antcallback return="IsTestWasSuccessful" target="t3"/>
-                <antcallback return="IsTestWasSuccessful" target="t4"/>
+                <antcallback return="TestResultToReturn" target="t3"/>
+                <antcallback return="TestResultToReturn" target="t4"/>
                 <antcallback target="t5"/>
-                <antcallback return="IsTestWasSuccessful" target="t6"/>
+                <antcallback return="TestResultToReturn" target="t6"/>
             </else>
         </if>
     </target>
@@ -36,7 +36,7 @@
             <sysproperty key="jsystem.uuid" value="827bb478-66a8-46a1-8fc3-53331257a500"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.PingGeneralTest.pingTest"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.PingTest.ping"/>
         </jsystem>
     </target>
     <target name="t1">
@@ -60,7 +60,7 @@
             <sysproperty key="jsystem.uuid" value="55e47144-0963-45f2-8a3b-7ec132e36556"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.NetworkSwitchActions.interfaceActions"/>
+            <test name="com.airspan.testspan.jsystem.tests.network_switch.SetSwitchConfigurationTest.setSwitchConfiguration"/>
         </jsystem>
     </target>
     <target name="t4">
@@ -68,7 +68,7 @@
             <sysproperty key="jsystem.uuid" value="f6ca04c6-8269-4831-9df7-ebaff2058e00"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.EnodebStateTests.performReboot"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.RebootEnodebTest.rebootEnodeb"/>
         </jsystem>
     </target>
     <target name="t5">
@@ -84,7 +84,7 @@
             <sysproperty key="jsystem.uuid" value="859ece07-967b-4957-9113-801f6d096beb"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.EnodebStateTests.waitForEnbState"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.WaitForEnodebStateTest.waitForEnodebState"/>
         </jsystem>
     </target>
 </project>

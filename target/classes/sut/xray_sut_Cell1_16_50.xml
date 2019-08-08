@@ -36,7 +36,7 @@
 
 	<NetspanWS>
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
-		<hostname>asil-svg-nms22</hostname>
+		<hostname>asil-svg-nms6</hostname>
 	</NetspanWS>
 
 
@@ -872,10 +872,41 @@
 			</serialCom>
 		</xlp>
 	</enb_17>
+	
+	<enb_18>       <!-- AirSpeed1250 -->
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirSpeed1250</class>
+		<netspanName>AirSpeed1250_Cell_UeSim_Cage</netspanName>
+		<band>B42</band>
+		<duplexMode>TDD</duplexMode>
+		<relay>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Relay</class>
+			<System_Default_Profile>SR16.5v16 AirSpeed-Relay Relay system defaults</System_Default_Profile>
+            <Relay_Profile>AS_1250_GPL_SB_March19</Relay_Profile>
+            <Relay_Advanced_Profile>SR15.5 AirSpeed Defaults_GPL_SB_GA2</Relay_Advanced_Profile>
+		</relay>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>h=KUK4dJ</readCommunity>
+			<writeCommunity>BcqRz?3Z</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.38.14</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<ipAddress>172.20.38.14</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.141</comName>
+				<port>4002</port>
+			</serialCom>
+		</xlp>
+	</enb_18>
 
 	
-	<gen>
-		<class>jsystem.sysobj.testcenter.emulations.TestCenterEmulations</class>
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
+		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:/Program Files (x86)/Spirent Communications/Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
 		<defaultConfigTccFile>C:\Users\spuser\Documents\Spirent\UE_SIM_CELLS.tcc</defaultConfigTccFile>
@@ -883,21 +914,21 @@
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>4</slot>
 			<port>1</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
-			<class>jsystem.sysobj.testcenter.emulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
 			<slot>4</slot>
 			<port>2</port>
 			<portName>UL</portName>
 		</port>
-	</gen>
-
+		</stc>
+	</stcController>
 	<ixLoad>
 		<class>Ixia.IxLoad.IxLoad</class>
 		<shellPath>C:\Program Files (x86)\Ixia\Tcl\8.5.12.0\bin\tclsh85.exe</shellPath>

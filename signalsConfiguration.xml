@@ -3,11 +3,11 @@
 a configuration file used for Analyze signals test.
 the configuration file represent all the signals (Alarms\event) the user want to check.
 
-1. <signalsConfiguration> - root element, should warp all the other elements. can contain multiple <signals key="bla" ignorAny="true"> elements.
+1. <signalsConfiguration> - root element, should warp all the other elements. can contain multiple <signals key="bla" ignoreAny="true"> elements.
 
-2. <signals key="String" ignorAny="true\false"> - represent a single set of rules for Analyze signals test.
+2. <signals key="String" ignoreAny="true\false"> - represent a single set of rules for Analyze signals test.
     "key" -      this string  distinguishes the element. this string should be inserted to the test.
-    "ignorAny" - "true": ignore any signal that not listed inside <signalsExpectedList>.
+    "ignoreAny" - "true": ignore any signal that not listed inside <signalsExpectedList>.
                  "false": ignore only the signals listed in the <signalsIgnoreList>.
 
 3. <signalsExpectedList> - represent list of signals of all the signals for the test that should appears in netspan.
@@ -25,7 +25,7 @@ the configuration file represent all the signals (Alarms\event) the user want to
 
 Example:
 <signalsConfiguration>
-    <signals key="String" ignorAny="true\false">
+    <signals key="String" ignoreAny="true\false">
 
         <signalsExpectedList>
             <alarm>
@@ -80,7 +80,7 @@ Example:
         </signalsIgnoreList>
     </signals>
 
-    <signals key="String" ignorAny="true\false">
+    <signals key="String" ignoreAny="true\false">
 
         <signalsExpectedList>
             <alarm>
@@ -137,10 +137,11 @@ Example:
 </signalsConfiguration>
 -->
 
+
 <signalsConfiguration>
 
 	<!--AirStrand1300_TDD_B41_LiteCoMP-->
-	<signals key="FSM_Lock_Cell_Carrier_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_LiteCoMP" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -148,6 +149,28 @@ Example:
 				<typeContains>Cell 1 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>			
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
 			<alarm>
@@ -174,22 +197,9 @@ Example:
 				<infoNotContains></infoNotContains>
 				<changeType></changeType>
 			</alarm>			
-			<event>
-				<id>504</id>
-				<typeContains>RF1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>	
-			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out Of Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
 			<alarm>
-				<id>557</id>				
+				<id>557</id>
+				<isCountInstances>false</isCountInstances>				
 				<typeContains>Channel Out of Service (OOS)</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
@@ -220,13 +230,6 @@ Example:
 			<event>
 				<id>535</id>
 				<typeContains>Node Local Access Attempt</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id>505</id>
-				<typeContains>RF2 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
@@ -248,18 +251,42 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_LiteCoMP" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_LiteCoMP" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
 				<id>665</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Cell 1 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In-Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>			
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<alarm>
 				<id>664</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Cell 1 Transmission disabled</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In-Service</infoContains>
@@ -282,29 +309,9 @@ Example:
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>			
-			<event>
-				<id>504</id>
-				<typeContains>RF1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id>505</id>
-				<typeContains>RF2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>			
-			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
 			<alarm>
-				<id>557</id>				
+				<id>557</id>
+				<isCountInstances>false</isCountInstances>				
 				<typeContains>Channel Out of Service (OOS)</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In Service</infoContains>
@@ -326,6 +333,7 @@ Example:
 		<signalsIgnoreList>
 			<alarm>
 				<id>567</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Node Local Access Attempt</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
@@ -335,6 +343,7 @@ Example:
 
 			<event>
 				<id>535</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Node Local Access Attempt</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
@@ -343,6 +352,7 @@ Example:
 
 			<event>
 				<id></id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Alarm Sync:</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
@@ -359,7 +369,7 @@ Example:
 	</signals>
 
 	<!--AirStrand1300_TDD_B41_Multi_Cell-->
-	<signals key="FSM_Lock_Cell_Carrier_Multi_Cell" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Multi_Cell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -390,6 +400,13 @@ Example:
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>	
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<event>
 				<id>526</id>
 				<typeContains>Channel Status Change</typeContains>
@@ -460,7 +477,15 @@ Example:
 				<changeType>RAISED</changeType>
 			</alarm>			
 			<alarm>
-				<id>557</id>				
+				<id>557</id>	  <!-- Cell_1-->			
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>	<!-- Cell_2-->		
 				<typeContains>Channel Out of Service (OOS)</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
@@ -512,7 +537,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Multi_Cell" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Multi_Cell" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -564,6 +589,13 @@ Example:
 				<infoContains>In Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>			
 			<alarm>
 				<id>664</id>
 				<typeContains>Cell 1 Transmission disabled</typeContains>
@@ -613,10 +645,18 @@ Example:
 				<changeType>CLEARED</changeType>
 			</alarm>			
 			<alarm>
-				<id>557</id>				
+				<id>557</id>	  <!-- Cell_1-->			
 				<typeContains>Channel Out of Service (OOS)</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>	<!-- Cell_2-->		
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
@@ -668,7 +708,7 @@ Example:
 	</signals>
 
 	<!--AirStrand1300_TDD_B41_Sector1/Single_Cell(1)-->
-	<signals key="FSM_Lock_Cell_Carrier_Sector1" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Sector1" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -687,6 +727,7 @@ Example:
 			</event>	
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
@@ -776,7 +817,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Sector1" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Sector1" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -802,6 +843,7 @@ Example:
 			</event>			
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In Service</infoContains>
@@ -886,7 +928,7 @@ Example:
 	</signals>
 
 		<!--AirStrand1300_TDD_B41_Sector2/Single_Cell(2)-->
-	<signals key="FSM_Lock_Cell_Carrier_Sector2" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_Sector2" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -912,6 +954,7 @@ Example:
 			</event>	
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
@@ -1001,7 +1044,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_Sector2" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_Sector2" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1027,6 +1070,7 @@ Example:
 			</event>			
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In Service</infoContains>
@@ -1111,7 +1155,7 @@ Example:
 	</signals>
 
 	<!--AV100C_TDD_B41_FSMv4-->
-	<signals key="FSM_Lock_Cell_Carrier_FSMv4" ignorAny="false">
+	<signals key="FSM_Lock_Cell_Carrier_FSMv4" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1130,6 +1174,7 @@ Example:
 			</event>	
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
@@ -1219,7 +1264,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 	
-	<signals key="FSM_Unlock_Cell_Carrier_FSMv4" ignorAny="false">
+	<signals key="FSM_Unlock_Cell_Carrier_FSMv4" ignoreAny="false">
 
 		<signalsExpectedList>
 			<event>
@@ -1245,6 +1290,7 @@ Example:
 			</event>			
 			<event>
 				<id>526</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>In Service</infoContains>
@@ -1327,7 +1373,59 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="bla" ignorAny="true">
+	<!--AutoPCI_OnTheFly-->
+	<signals key="Auto_PCI_On_The_Fly" ignoreAny="false">
+
+		<signalsExpectedList>
+			
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+			<id>100</id>
+			<typeContains>Node Lost Comms</typeContains>
+			<typeNotContains></typeNotContains>
+			<infoContains></infoContains>
+			<infoNotContains></infoNotContains>
+			<changeType></changeType>
+			</alarm>	
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>	
+	
+	
+	<signals key="bla" ignoreAny="true">
 
 		<signalsExpectedList>
 			<alarm>
@@ -1434,48 +1532,322 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
+	<signals key="X2_Neighbour_Inactive_SingleCell" ignoreAny="true">
 
-	<signals key="AU_REALY_ENB_REBOOT" ignorAny="true">
+		<signalsExpectedList>
+			<event>
+				<id>527</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="X2_Neighbour_Active_SingleCell" ignoreAny="true">
+
+		<signalsExpectedList>
+			<event>
+				<id>527</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>	
+
+	<signals key="X2_Neighbour_Inactive_MultiCell" ignoreAny="true">
+
+		<signalsExpectedList>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_INACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="X2_Neighbour_Active_MultiCell" ignoreAny="true">
+
+		<signalsExpectedList>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>con status COMMS_STATUS_ACTIVE</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>	
+	
+	
+	<signals key="AU_REALY_ENB_REBOOT" ignoreAny="true">
 
 		<signalsExpectedList>
 			<event>
 				<id>532</id>
-				<typeContains></typeContains>
+				<typeContains>PnP Identification</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
+				<infoContains>Backhaul=irelay</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
 			<event>
 				<id>532</id>
-				<typeContains></typeContains>
+				<typeContains>PnP Identification</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id>158</id>
-				<typeContains></typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>PnP State=Completed</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id>158</id>
-				<typeContains></typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>PnP State=Completed</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
+			</event>			
 		</signalsExpectedList>
-
-
 		<signalsFailureList>
 			<event>
 				<id>532</id>
 				<typeContains></typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains>Lat=0, Long=0</infoNotContains>
+				<infoContains>Lat=0, Long=0</infoContains>
+				<infoNotContains></infoNotContains>
 			</event>
 		</signalsFailureList>
 
@@ -1483,9 +1855,8 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<!--AirHarmony4K_TDD_B41-->
-	<signals key="XLP_2_RX_TX_Lock_Cell_Carrier" ignorAny="false">
-
+	<signals key="XLP_Lock_Cell_Carrier_SingleCell" ignoreAny="false">
+	
 		<signalsExpectedList>
 			<event>
 				<id>665</id>
@@ -1494,6 +1865,20 @@ Example:
 				<infoContains>Out of Service TX off configure</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>	
 			<alarm>
 				<id>664</id>
 				<typeContains>Cell 1 Transmission disabled</typeContains>
@@ -1518,6 +1903,206 @@ Example:
 				<infoNotContains></infoNotContains>
 				<changeType>RAISED</changeType>
 			</alarm>
+			<alarm>
+				<id>557</id>				<!-- Cell_1-->
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="XLP_Unlock_Cell_Carrier_SingleCell" ignoreAny="false">
+	
+		<signalsExpectedList>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>			
+			<alarm>
+				<id>557</id>				<!-- Cell_1-->
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Alarm Sync:</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>	
+	
+	
+	<!--AirHarmony4K_TDD_B41-->
+	<signals key="XLP_Lock_Cell_Carrier_MultiCell" ignoreAny="false">
+	
+		<signalsExpectedList>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<event>
 				<id>666</id>
 				<typeContains>Cell 2 Status Change</typeContains>
@@ -1525,14 +2110,6 @@ Example:
 				<infoContains>Out of Service TX off configure</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<alarm>
-				<id>665</id>
-				<typeContains>Cell 2 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
 			<event>
 				<id>504</id>
 				<typeContains>RF1 Status Change</typeContains>
@@ -1547,6 +2124,38 @@ Example:
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>	
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
 			<alarm>
 				<id>557</id>				<!-- Cell_1-->
 				<typeContains>Channel Out of Service (OOS)</typeContains>
@@ -1624,293 +2233,102 @@ Example:
 			</event>
 		</signalsIgnoreList>
 	</signals>
-
-	<!--AU/AV/ASpeed/AStrand_Single_Cell_TDD-->
-	<signals key="FSM_Lock_S1_Term" ignorAny="false">
-
-		<!-- RAISED Alarms -->
-		<signalsExpectedList>
-			<alarm>
-				<id>556</id>
-				<typeContains>MME Connectivity Lost</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>connection lost</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
-			<event>
-				<id>525</id>
-				<typeContains>MME S1-C Comms Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>connection lost</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>664</id>
-				<typeContains>Cell 1 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
-			<event>
-				<id>665</id>
-				<typeContains>Cell 1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>665</id>
-				<typeContains>Cell 2 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
-			<event>
-				<id>666</id>
-				<typeContains>Cell 2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
-			<event>
-				<id>504</id>
-				<typeContains>RF1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
-			<event>
-				<id>505</id>
-				<typeContains>RF2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<!--
-			<alarm>			
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out Of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-			<alarm>
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out Of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-			-->
-		</signalsExpectedList>
-
-		<signalsFailureList>
-			<alarm>
-				<id>100</id>
-				<typeContains>Node Lost Comms</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType></changeType>
-			</alarm>
-		</signalsFailureList>
-
-		<signalsIgnoreList>
-			<alarm>
-				<id>567</id>
-				<typeContains>Node Local Access Attempt</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType></changeType>
-			</alarm>
-			<event>
-				<id>535</id>
-				<typeContains>Node Local Access Attempt</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id></id>
-				<typeContains>Alarm Sync:</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-		</signalsIgnoreList>
-
-	</signals>
-
 	
-	<signals key="FSM_Unlock_S1_Term" ignorAny="false">
+	<signals key="XLP_Unlock_Cell_Carrier_MultiCell" ignoreAny="false">
+	
 		<signalsExpectedList>
-			<!--CLEARED Alarms -->
-
-			<alarm>
-				<id>556</id>
-				<typeContains>MME Connectivity Lost</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>connected</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
-			<event>
-				<id>525</id>
-				<typeContains>MME S1-C Comms Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>connected</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>664</id>
-				<typeContains>Cell 1 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
 			<event>
 				<id>665</id>
 				<typeContains>Cell 1 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoContains>Out of Service TX off configure</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>665</id>
-				<typeContains>Cell 2 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
-			<event>
-				<id>666</id>
-				<typeContains>Cell 2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
 			<event>
 				<id>504</id>
 				<typeContains>RF1 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
 			<event>
 				<id>505</id>
 				<typeContains>RF2 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
+				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
 			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
+				<infoContains>Out of Service TX off configure</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<!--
-            <alarm>
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-			
 			<alarm>
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
+				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
-			-->
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>				
+			<alarm>
+				<id>557</id>				<!-- Cell_1-->
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>				<!-- Cell_2-->
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
 		</signalsExpectedList>
 
 		<signalsFailureList>
@@ -1940,21 +2358,6 @@ Example:
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<alarm>
-				<id>558</id>
-				<typeContains>X2 Neighbour Comms Loss</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType></changeType>
-			</alarm>
-			<event>
-				<id>527</id>
-				<typeContains>Node X2 Neighbour Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains></infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
 			<event>
 				<id></id>
 				<typeContains>Alarm Sync:</typeContains>
@@ -1962,40 +2365,22 @@ Example:
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
+			<event>
+				<id></id>
+				<typeContains></typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
+				<infoContains>Alarm Sync:</infoContains>
 				<infoNotContains></infoNotContains>
-				<changeType></changeType>
-			</alarm>
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType></changeType>
-			</alarm>
+			</event>
 		</signalsIgnoreList>
+	</signals>	
 
-	</signals>
 
-	<!--AirHarmony4K_TDD_B41-->
-	<signals key="XLP_2_RX_TX_Lock_S1" ignorAny="false">
+	<!--AStrand_LiteCoMP_TDD-->
+	<signals key="FSM_Lock_S1_Term_LiteCoMP" ignoreAny="false">
 
 		<!-- RAISED Alarms -->
 		<signalsExpectedList>
-			<alarm>
-				<id>556</id>
-				<typeContains>MME Connectivity Lost</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>connection lost</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
 			<event>
 				<id>525</id>
 				<typeContains>MME S1-C Comms Status Change</typeContains>
@@ -2003,50 +2388,22 @@ Example:
 				<infoContains>connection lost</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>664</id>
-				<typeContains>Cell 1 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
 			<event>
-				<id>665</id>
-				<typeContains>Cell 1 Status Change</typeContains>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change (per PLMN)</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
+				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>665</id>
-				<typeContains>Cell 2 Transmission disabled</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
 			<event>
-				<id>666</id>
-				<typeContains>Cell 2 Status Change</typeContains>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service TX off configure</infoContains>
+				<infoContains>Out Of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
 			<event>
 				<id>504</id>
 				<typeContains>RF1 Status Change</typeContains>
@@ -2054,16 +2411,6 @@ Example:
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>RAISED</changeType>
-			</alarm>
-
 			<event>
 				<id>505</id>
 				<typeContains>RF2 Status Change</typeContains>
@@ -2071,24 +2418,63 @@ Example:
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<!--
-			<alarm>			
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out Of Service</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>RAISED</changeType>
 			</alarm>
 			<alarm>
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>Out Of Service</infoContains>
+				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>RAISED</changeType>
 			</alarm>
-			-->
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
 		</signalsExpectedList>
 
 		<signalsFailureList>
@@ -2125,40 +2511,27 @@ Example:
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>Out of Service</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
 		</signalsIgnoreList>
-
 	</signals>
-
-
-	<signals key="XLP_2_RX_TX_Unlock_S1" ignorAny="false">
+	
+	<signals key="FSM_Unlock_S1_Term_LiteCoMP" ignoreAny="false">
 		<signalsExpectedList>
 			<!--CLEARED Alarms -->
-
-			<alarm>
-				<id>556</id>
-				<typeContains>MME Connectivity Lost</typeContains>
+            <event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>connected</infoContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
 				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
+			</event>
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<event>
 				<id>525</id>
 				<typeContains>MME S1-C Comms Status Change</typeContains>
@@ -2166,7 +2539,28 @@ Example:
 				<infoContains>connected</infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
-
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 			<alarm>
 				<id>664</id>
 				<typeContains>Cell 1 Transmission disabled</typeContains>
@@ -2175,81 +2569,24 @@ Example:
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
-
-			<event>
-				<id>665</id>
-				<typeContains>Cell 1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
 			<alarm>
-				<id>665</id>
-				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
-
-			<event>
-				<id>666</id>
-				<typeContains>Cell 2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
 			<alarm>
-				<id>508</id>
-				<typeContains>RF1 Hardware Fault</typeContains>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoContains>connected</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
-			</alarm>
-
-			<event>
-				<id>504</id>
-				<typeContains>RF1 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<alarm>
-				<id>509</id>
-				<typeContains>RF2 Hardware Fault</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-				<changeType>CLEARED</changeType>
-			</alarm>
-
-			<event>
-				<id>505</id>
-				<typeContains>RF2 Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In-Service (Normal Operation)</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-
-			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<event>
-				<id>526</id>
-				<typeContains>Channel Status Change</typeContains>
-				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
-				<infoNotContains></infoNotContains>
-			</event>
-			<!--
+			</alarm>	
             <alarm>
 				<id>557</id> 
 				<typeContains>Channel Out of Service (OOS)</typeContains>
@@ -2258,16 +2595,23 @@ Example:
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
-			
 			<alarm>
-				<id>557</id> 
-				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
 				<typeNotContains></typeNotContains>
-				<infoContains>In Service</infoContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
 				<infoNotContains></infoNotContains>
 				<changeType>CLEARED</changeType>
 			</alarm>
-			-->
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			
 		</signalsExpectedList>
 
 		<signalsFailureList>
@@ -2319,13 +2663,760 @@ Example:
 				<infoContains></infoContains>
 				<infoNotContains></infoNotContains>
 			</event>
+			</signalsIgnoreList>
+
+	</signals>
+
+	<!--AStrand_Sector1_TDD-->
+	<signals key="FSM_Lock_S1_Term_Sector1" ignoreAny="false">
+
+		<!-- RAISED Alarms -->
+		<signalsExpectedList>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="FSM_Unlock_S1_Term_Sector1" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->
+            <event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>	
+            <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			</signalsIgnoreList>
+
+	</signals>
+	
+	<signals key="AutoPCI_PCIConfusion_OTF" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->			
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+		</signalsIgnoreList>
+
+	</signals>
+	
+	<signals key="AutoPCI_PCICollision_OTF" ignoreAny="true">
+		<signalsExpectedList>
+			<event>
+				<id>533</id>
+				<typeContains>Auto-PCI Allocation</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>PCI COLLISION DETECTED</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>533</id>
+				<typeContains>Auto-PCI Allocation</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>PCI COLLISION RESOLVED</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+           <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+           <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>			
+		</signalsExpectedList>
+
+			
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+		</signalsIgnoreList>
+
+	</signals>
+
+
+	<!--AStrand_Sector2_TDD-->
+	<signals key="FSM_Lock_S1_Term_Sector2" ignoreAny="false">
+
+		<!-- RAISED Alarms -->
+		<signalsExpectedList>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+            <event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>509</id>
+				<typeContains>RF4 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>530</id>
+				<typeContains>RF3 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>531</id>
+				<typeContains>RF4 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="FSM_Unlock_S1_Term_Sector2" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->
+            <event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+            <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+
+	</signals>
+
+	<!--AStrand_Muilti_Cell_TDD-->
+	<signals key="FSM_Lock_S1_Term_MultiCell" ignoreAny="false">
+
+		<!-- RAISED Alarms -->
+		<signalsExpectedList>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>No available MMEs</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+            <event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>669</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>All MME Connectivity Lost (per PLMN)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>557</id>
+				<typeContains>Channel Out of Service</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out Of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
 			<alarm>
 				<id>508</id>
 				<typeContains>RF1 Hardware Fault</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
-				<changeType></changeType>
+				<changeType>RAISED</changeType>
 			</alarm>
 			<alarm>
 				<id>509</id>
@@ -2333,14 +3424,825 @@ Example:
 				<typeNotContains></typeNotContains>
 				<infoContains>Out of Service</infoContains>
 				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>530</id>
+				<typeContains>RF3 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>531</id>
+				<typeContains>RF4 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
 				<changeType></changeType>
 			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+	
+	<signals key="FSM_Unlock_S1_Term_MultiCell" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->
+            <event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+            <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+
+	</signals>
+
+
+	<!--AirHarmony4K_TDD_B41_Single_Cell-->
+	<signals key="XLP_2_RX_TX_Lock_S1" ignoreAny="false">
+		<!-- RAISED Alarms -->
+		<signalsExpectedList>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+            <alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>			
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+
+	<signals key="XLP_2_RX_TX_Unlock_S1" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->
+
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>		
+            <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+
+	</signals>
+
+
+	<!--AirHarmony4K_TDD_B41_Multi_Cell-->
+	<signals key="XLP_2_RX_TX_Lock_S1_MultiCell" ignoreAny="false">
+		<!-- RAISED Alarms -->
+		<signalsExpectedList>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+            <alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service TX off configure</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Out of Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connection lost</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>RAISED</changeType>
+			</alarm>			
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+		</signalsIgnoreList>
+	</signals>
+
+	<signals key="XLP_2_RX_TX_Unlock_S1_MultiCell" ignoreAny="false">
+		<signalsExpectedList>
+			<!--CLEARED Alarms -->
+
+			<event>
+				<id>525</id>
+				<typeContains>MME S1-C Comms Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>505</id>
+				<typeContains>RF2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>504</id>
+				<typeContains>RF1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>526</id>
+				<typeContains>Channel Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>665</id>
+				<typeContains>Cell 1 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id>666</id>
+				<typeContains>Cell 2 Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>664</id>
+				<typeContains>Cell 1 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>665</id>
+				<typeContains>Cell 2 Transmission disabled</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>508</id>
+				<typeContains>RF1 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>516</id>
+				<typeContains>RF1 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>517</id>
+				<typeContains>RF2 Transmitter Off</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>556</id>
+				<isCountInstances>false</isCountInstances>
+				<typeContains>MME Connectivity Lost</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>connected</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+			<alarm>
+				<id>509</id>
+				<typeContains>RF2 Hardware Fault</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In-Service (Normal Operation)</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>		
+            <alarm>
+				<id>557</id> 
+				<typeContains>Channel Out of Service (OOS)</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>In Service</infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType>CLEARED</changeType>
+			</alarm>
+		</signalsExpectedList>
+
+		<signalsFailureList>
+			<alarm>
+				<id>100</id>
+				<typeContains>Node Lost Comms</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+			<alarm>
+				<id>567</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>535</id>
+				<typeContains>Node Local Access Attempt</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<alarm>
+				<id>558</id>
+				<typeContains>X2 Neighbour Comms Loss</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+				<changeType></changeType>
+			</alarm>
+			<event>
+				<id>527</id>
+				<typeContains>Node X2 Neighbour Status Change</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
+			<event>
+				<id></id>
+				<typeContains>Alarm Sync:</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains></infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 		</signalsIgnoreList>
 
 	</signals>
 
 	<!--enb_1: AirHarmony4K_TDD_B41-->
-	<signals key="cells_enb_1" ignorAny="false">
+	<signals key="cells_enb_1" ignoreAny="false">
 
 		<signalsExpectedList>
 
@@ -2578,6 +4480,7 @@ Example:
 
 			<event>
 				<id>669</id>
+				<isCountInstances>false</isCountInstances>
 				<typeContains>All MME S1-C Comms Status Change (per PLMN)</typeContains>
 				<typeNotContains></typeNotContains>
 				<infoContains></infoContains>
@@ -2739,7 +4642,7 @@ Example:
 
 
 	<!--REALY_ENB_SCAN-->
-	<signals key="AU_REALY_ENB_SCAN" ignorAny="true">
+	<signals key="AU_REALY_ENB_SCAN" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -2754,7 +4657,7 @@ Example:
 
 	<!--REALY_ENB_FORCE_SCAN-->
 
-	<signals key="AU_REALY_ENB_FORCE_SCAN" ignorAny="true">
+	<signals key="AU_REALY_ENB_FORCE_SCAN" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -2769,7 +4672,7 @@ Example:
 
 	<!--REALY_ENB_SCAN_NEG-->
 
-	<signals key="AU_REALY_ENB_SCAN_NEG" ignorAny="true">
+	<signals key="AU_REALY_ENB_SCAN_NEG" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -2784,7 +4687,7 @@ Example:
 
 	<!--perform reboot-->
 
-	<signals key="AU_reboot" ignorAny="true">
+	<signals key="AU_reboot" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -2799,7 +4702,7 @@ Example:
 
 
 	<!--perform reboot NEG-->
-	<signals key="AU_reboot_NEG" ignorAny="true">
+	<signals key="AU_reboot_NEG" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
@@ -2814,9 +4717,16 @@ Example:
 
 
 	<!--perform cold reboot -->
-	<signals key="AU_cold_reboot" ignorAny="true">
+	<signals key="AU_cold_reboot" ignoreAny="true">
 
 		<signalsExpectedList>
+			<event>
+				<id>532</id>
+				<typeContains>PnP Identification</typeContains>
+				<typeNotContains></typeNotContains>
+				<infoContains>Backhaul=irelay</infoContains>
+				<infoNotContains></infoNotContains>
+			</event>
 		</signalsExpectedList>
 
 
@@ -2829,7 +4739,21 @@ Example:
 
 
 	<!--perform cold reboot NEG-->
-	<signals key="AU_cold_reboot_NEG" ignorAny="true">
+	<signals key="AU_cold_reboot_NEG" ignoreAny="true">
+
+
+		<signalsExpectedList>
+		</signalsExpectedList>
+
+
+		<signalsFailureList>
+		</signalsFailureList>
+
+		<signalsIgnoreList>
+		</signalsIgnoreList>
+	</signals>
+	<!--AS1250_PNP-->
+	<signals key="AS1250_PNP" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -2843,7 +4767,7 @@ Example:
 		</signalsIgnoreList>
 	</signals>
 
-	<signals key="Get_Signals" ignorAny="true">
+	<signals key="Get_Signals" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -2860,7 +4784,7 @@ Example:
 	
 	
 	<!--Return back to DeNB during SW download-->
-	<signals key="AS1250_Return_back_to_DeNB_during_SW_download" ignorAny="true">
+	<signals key="AS1250_Return_back_to_DeNB_during_SW_download" ignoreAny="true">
 
 
 		<signalsExpectedList>
@@ -2876,7 +4800,7 @@ Example:
 
 
 	<!--SW DOWNLOAD CYCLE-->
-	<signals key="XLP_SW_DOWNLOAD_CYCLE" ignorAny="true">
+	<signals key="XLP_SW_DOWNLOAD_CYCLE" ignoreAny="true">
 
 		<signalsExpectedList>
 		</signalsExpectedList>
