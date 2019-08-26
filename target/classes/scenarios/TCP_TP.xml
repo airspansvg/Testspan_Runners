@@ -35,10 +35,10 @@
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.85f43534-e042-407c-a86e-9f2253085c67" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <antcallback target="t5"/>
-                <echo message="Check condition &quot;${scenario:Change_TX_Power}&quot; EQUALS &quot;ENABLE&quot;"/>
+                <echo message="Check condition &quot;${scenario:Change_TX_Power}&quot; EQUALS &quot;Enable&quot;"/>
                 <if>
                     <!--#Jsystem#-->
-                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2ecbbce4-1af7-4db1-bef2-351d5f183e8d" language="javascript" params="str &lt;SEP&gt; ${scenario:Change_TX_Power} &lt;SEP&gt; EQUALS &lt;SEP&gt; ENABLE &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2ecbbce4-1af7-4db1-bef2-351d5f183e8d" language="javascript" params="str &lt;SEP&gt; ${scenario:Change_TX_Power} &lt;SEP&gt; EQUALS &lt;SEP&gt; Enable &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
                         <antcallback target="t6"/>
                         <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
@@ -56,26 +56,26 @@
                                 <antcallback return="TestResultToReturn" target="t11"/>
                             </else>
                         </if>
+                        <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.bccf8596-07aa-4de5-b622-9a40f2340e02" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <antcallback return="TestResultToReturn" target="t12"/>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                                <antcallback return="TestResultToReturn" target="t13"/>
+                            </else>
+                        </if>
                     </then>
                     <else>
                         <!--#Jsystem#-->
-                        <antcallback target="t12"/>
+                        <antcallback target="t14"/>
                     </else>
                 </if>
-                <antcallback target="t13"/>
-                <antcallback return="TestResultToReturn" target="t14"/>
-                <echo message="Check condition &quot;${scenario:Active_cell}&quot; EQUALS &quot;MC&quot;"/>
-                <if>
-                    <!--#Jsystem#-->
-                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.025ffce0-f572-40a8-87b1-1419de596af7" language="javascript" params="str &lt;SEP&gt; ${scenario:Active_cell} &lt;SEP&gt; EQUALS &lt;SEP&gt; MC &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-                    <then>
-                        <antcallback return="TestResultToReturn" target="t15"/>
-                    </then>
-                    <else>
-                        <!--#Jsystem#-->
-                        <antcallback return="TestResultToReturn" target="t16"/>
-                    </else>
-                </if>
+                <antcallback target="t15"/>
+                <antcallback return="TestResultToReturn" target="t16"/>
             </then>
             <else>
                 <!--#Jsystem#-->
@@ -179,13 +179,29 @@
     </target>
     <target name="t12">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="95f99777-ed4e-4f7f-96ff-37759fb4f8f7"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetRadioProfileTest.setRadioProfile"/>
+        </jsystem>
+    </target>
+    <target name="t13">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4f30a9f1-e7ac-468a-9b8e-73daa14c1bab"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetRadioProfileTest.setRadioProfile"/>
+        </jsystem>
+    </target>
+    <target name="t14">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="f153533e-0f8b-4552-bab9-82bdcee974f9"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t13">
+    <target name="t15">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="12efa179-f2b7-4a25-b7db-fcefdd76121f"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -193,28 +209,12 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t14">
+    <target name="t16">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="d171911a-d95d-4773-ab1d-fd2fc57d933c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.deprecated.complex.IperfTpReport.iperfTpTest"/>
-        </jsystem>
-    </target>
-    <target name="t15">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="86b936eb-efe6-4c0a-ae3a-715693314507"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetRadioProfileTest.setRadioProfile"/>
-        </jsystem>
-    </target>
-    <target name="t16">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="dc1bc49b-3745-4a1e-bd08-55808ecd5048"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetRadioProfileTest.setRadioProfile"/>
         </jsystem>
     </target>
     <target name="t17">
