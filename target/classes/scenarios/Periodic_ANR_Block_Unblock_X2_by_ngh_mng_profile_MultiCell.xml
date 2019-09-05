@@ -15,13 +15,13 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback target="t0"/>
-        <antcallback return="TestResultToReturn" target="t1"/>
+        <antcallback return="IsTestWasSuccessful" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback return="TestResultToReturn" target="t3"/>
         <antcallback return="TestResultToReturn" target="t4"/>
         <antcallback return="TestResultToReturn" target="t5"/>
-        <antcallback return="TestResultToReturn" target="t6"/>
-        <antcallback return="IsTestWasSuccessful" target="t7"/>
+        <antcallback target="t6"/>
+        <antcallback return="TestResultToReturn" target="t7"/>
         <antcallback return="TestResultToReturn" target="t8"/>
         <antcallback return="TestResultToReturn" target="t9"/>
         <antcallback target="t10"/>
@@ -235,13 +235,21 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9e1748eb-91ec-4d73-bfc5-91fe826e02a2"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
+        </jsystem>
+    </target>
+    <target name="t2">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1ee5d04b-253b-41cc-834f-a2e46253ed66"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.attenuators.SetAttenuatorsValueTest.setAttenuatorsValue"/>
         </jsystem>
     </target>
-    <target name="t2">
+    <target name="t3">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b6f01b93-670d-47bd-9a97-f60209ed909e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -249,7 +257,7 @@
             <test name="com.airspan.testspan.jsystem.tests.power_controller.PowerOffPortTest.powerOffPort"/>
         </jsystem>
     </target>
-    <target name="t3">
+    <target name="t4">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="029327ee-1ec3-474c-8d26-2b9ffc2b0989"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -257,7 +265,7 @@
             <test name="com.airspan.testspan.jsystem.tests.power_controller.PowerOnPortTest.powerOnPort"/>
         </jsystem>
     </target>
-    <target name="t4">
+    <target name="t5">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="721a8f29-03b4-4cdb-a354-3abc5b876b31"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -265,28 +273,20 @@
             <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetRadioProfileTest.setRadioProfile"/>
         </jsystem>
     </target>
-    <target name="t5">
+    <target name="t6">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="cecf9886-1252-4dad-b516-60ac7bd3c3ee"/>
+            <sysproperty key="jsystem.uuid" value="095a45d4-4d7d-4b45-92c9-5a232cb9a69c"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.netspan.profiles.SetSonProfileTest.setSonProfile"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.configuration.SetEnodebConfigTest.setEnodebConfig"/>
         </jsystem>
     </target>
-    <target name="t6">
+    <target name="t7">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b8eb25f5-f6f6-4db6-9852-d87012d4eb71"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.EnodebStateTests.rebootToAllRunning"/>
-        </jsystem>
-    </target>
-    <target name="t7">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9e1748eb-91ec-4d73-bfc5-91fe826e02a2"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
         </jsystem>
     </target>
     <target name="t8">
