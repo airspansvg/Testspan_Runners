@@ -4,16 +4,24 @@
 		<class>Custom</class>
 		<NMSpAddress>172.22.2.222</NMSpAddress>
 		<IP_ver>IPv4</IP_ver>
+		<setup_name>piranha</setup_name>
+		<IP_MME>172.21.165.1</IP_MME>
+		<setup_vlan>1500</setup_vlan>
 		<sec_GW_ipv4>172.22.50.220</sec_GW_ipv4>
 		<EPC_num>EPC_15</EPC_num>
-		<IP_MME>172.21.165.1</IP_MME>
-		<setup_name>piranha</setup_name>
+		<RackSW>172.20.61.4</RackSW>
+		<enb_1_RackSW>GigabitEthernet1/0/2</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/4</enb_2_RackSW>  
 		<COLD_REBOOT_KEY>AU_cold_reboot</COLD_REBOOT_KEY>
 		<COLD_REBOOT_NEG_KEY>AU_cold_reboot_NEG</COLD_REBOOT_NEG_KEY>
 		<WARM_REBOOT_KEY>AU_reboot</WARM_REBOOT_KEY>
 		<WARM_REBOOT_NEG_KEY>AU_reboot_NEG</WARM_REBOOT_NEG_KEY>
 		<SCAN_KEY>AU_REALY_ENB_SCAN</SCAN_KEY>
 		<SCAN_NEG_KEY>AU_REALY_ENB_SCAN_NEG</SCAN_NEG_KEY>
+		<AutoPCI_3rdPartyEnbIP>fc74:172:23:111::1</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
+		<AutoPCI_Main_Window>Automation_AU_Maintenance_Windows</AutoPCI_Main_Window>
+		<Default_Main_Window>Automation_AU_Management_SR16.00_5_min</Default_Main_Window>	
 	</Custom>
 
 	<EPC>
@@ -28,13 +36,13 @@
 		<hostname>asil-svg-nms22</hostname>
 	</NetspanWS>
 
-	<NetspanSF>
+	<NetspanSfWs>
 		<class>com.airspan.testspan.jsystem.sysobj.netspansf.web_services.NetspanSfWsImpl</class>
 		<hostname>192.168.57.189</hostname>
 		<username>automation</username> <!-- The user has to be of type Power User -->
 		<password>Automation1!</password>
-	</NetspanSF>
-	
+	</NetspanSfWs>
+
 	<ue_lists>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
 		<ueList index="0">
@@ -61,6 +69,11 @@
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
 			<description>Anr</description>
 			<ues>ue5,ue6,ue7,ue8</ues>
+		</ueList>
+		<ueList index="5">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>HO</description>
+			<ues>ue1-ue8</ues>
 		</ueList>
 	</ue_lists>
 
@@ -204,29 +217,34 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirUnity544</class>
 		<netspanName>DABA1B5C887E</netspanName>
 		<duplexMode>TDD</duplexMode>
+		<enb_type>Home</enb_type>
 		<band>B41L</band>
 		<eNBID>544</eNBID>
-		<TAC_Cell1>15100</TAC_Cell1>
-		<TAC_1>15100</TAC_1>
-		<TAC_2>13100</TAC_2>
+		<TAC_Cell1>13100</TAC_Cell1>
+		<TAC_1>13100</TAC_1>
+		<TAC_2>13110</TAC_2>
 		<inter20>40090</inter20>
 		<intra20>39890</intra20>
+		<inter15>41470</inter15>
+		<intra15>41320</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_S1</S1>
-		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</X2>
+		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_S1</S1>
+		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</X2>
+		<Cell_Adv_Profile_ANR>AU_Cell_Advanced_Tel_Aviv_NGHRemTH=15</Cell_Adv_Profile_ANR>
 		<MCProfile_CA_ON>AirUnity Default Disabled_Pirhana_CA</MCProfile_CA_ON>
-		<MCProfile_CA_OFF>AirUnity Default Disabled</MCProfile_CA_OFF>
+		<MCProfile_CA_OFF>Automation_AirUnity Default Disabled</MCProfile_CA_OFF>
 		<X2_ANR_ON>Piranha_PnpEnable</X2_ANR_ON>
 		<X2_ANR_OFF>Piranha_PnpEnable_NOANR</X2_ANR_OFF>
-		<Cell_Adv_Profile_ANR>AU_Cell_Advanced_Tel_Aviv_NGHRemTH=15</Cell_Adv_Profile_ANR>
 		<Radio_Cell1>AU_Radio_41490_25_SR16.00</Radio_Cell1>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
 		<System_Profile>Automation_SR16.5v10 AirUnity system defaults</System_Profile>
 		<eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
-		<Sync_Profile>Automation_AU_Sync_SR16.00_Ava</Sync_Profile>
+		<Sync_Profile>AU_Sync_SR16.00</Sync_Profile>
 		<Security_Profile>Automation_AU_Security_SR16.00</Security_Profile>
-		<Net_Profile>AU_Network_Fairfax_IPV6_SR16.00_Piranha</Net_Profile>                         
+		<Net_Profile>AU_Network_Fairfax_SR16.00</Net_Profile>                         
 		<Mng_Profile>Automation_AU_Management_SR16.00</Mng_Profile>
 		<Ngh_Profile>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</Ngh_Profile>
 		<Son_Profile>Automation_AU_SON_AirportCity_SR16.00</Son_Profile>
@@ -235,12 +253,12 @@
 		<!-- CELL1 Profiles -->
 		<cell_1>              
 			<Cell_Adv_Profile>AU_Cell_Advanced_Tel_Aviv</Cell_Adv_Profile>
-			<Radio_Profile>AU_Radio_41190_25_SR16.00</Radio_Profile>
-			<Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00_Pir</Mobility_Profile>
 			<Embms_Profile>Automation_AU_eMBMS_SR16.00</Embms_Profile>
 			<Traffic_Mng>Automation_SR15.0 AirUnity Defaults</Traffic_Mng>
 			<Call_Trace>Automation_AirUnity Call Trace Disabled</Call_Trace>
-			<Tac>13100</Tac>              
+			<Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00_Inter_HO</Mobility_Profile>
+			<Radio_Profile>Auto_AU_Radio_41190_25_SR16.00</Radio_Profile>
+			<Tac>13100</Tac>                          
 		</cell_1>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
@@ -262,8 +280,7 @@
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Relay</class>
 			<relaySshProxy>
 				<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.terminal.RelaySshProxy</class>
-				<!--<proxyHostIp>192.168.57.16</proxyHostIp> -->
-				<proxyHostIp>192.168.57.33</proxyHostIp> 
+				<proxyHostIp>192.168.57.16</proxyHostIp> 
 				<proxyHostUsername>root</proxyHostUsername> 
 				<proxyHostPassword>airspan</proxyHostPassword>
 				<relayIp>169.254.1.1</relayIp>
@@ -285,6 +302,10 @@
 		<band>B41L</band>
 		<intra20>39890</intra20>
 		<inter20>40090</inter20>
+		<inter15>39890</inter15>
+		<intra15>40040</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<enb_type>Home</enb_type>
 		<mcc>200</mcc>
 		<mnc>01</mnc>
@@ -292,35 +313,36 @@
 		<mvnomnc1>20</mvnomnc1>
 		<mvnomcc2>400</mvnomcc2>
 		<mvnomnc2>10</mvnomnc2>
-        <PLMN>Automation_AU_Network_Fairfax_SR16.50</PLMN>
+		<mvnomcc3>200</mvnomcc3>
+		<mvnomnc3>10</mvnomnc3>
+		<PLMN>Automation_AU_Network_Fairfax_SR16.50</PLMN>
 		<changePLMN>Automation_AU_Network_Fairfax_SR16.50_changePLMN</changePLMN>
-		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_S1</S1>
-		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</X2>
+		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_S1</S1>
+		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</X2>
+		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<X2_ANR_ON>Piranha_PnpEnable</X2_ANR_ON>
 		<X2_ANR_OFF>Piranha_PnpEnable_NOANR</X2_ANR_OFF>
-		<Radio_Cell1>AU_Radio_41490_25_SR16.00</Radio_Cell1>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
 		<System_Profile>Automation_SR16.5v10 AirUnity system defaults</System_Profile>
-		<eNB_Adv_Profile>AU_Advanced_Tel_Aviv_SR16.00</eNB_Adv_Profile>
-		<Net_Profile>AU_Network_Fairfax_SR16.00</Net_Profile> 
-		<Sync_Profile>AU_Sync_SR16.00_GPS</Sync_Profile>
-		<Security_Profile>Automation_AU_Security_SR16.00</Security_Profile> 
-		<Son_Profile>Automation_AU_SON_AirportCity_SR16.00</Son_Profile>
+		<eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
+		<Sync_Profile>AU_Sync_SR16.00</Sync_Profile>
+		<Security_Profile>Automation_AU_Security_SR16.00</Security_Profile>
+		<Net_Profile>AU_Network_Fairfax_IPV6_SR16.00_Piranha</Net_Profile>                         
 		<Mng_Profile>Automation_AU_Management_SR16.00</Mng_Profile>
+		<Ngh_Profile>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</Ngh_Profile>
+		<Son_Profile>Automation_AU_SON_AirportCity_SR16.00</Son_Profile>
 		<MC_Profile>Automation_AirUnity Default Disabled</MC_Profile>
-		<Ngh_Profile>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</Ngh_Profile>
-
 
 		<!-- CELL1 Profiles -->
 		<cell_1>              
-			<Cell_Adv_Profile>Automation_AU_Cell_Advanced_AirportCity</Cell_Adv_Profile>
-			<Radio_Profile>AU_Radio_41190_25_SR16.00</Radio_Profile>
-			<Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00_Pir</Mobility_Profile>
+			<Cell_Adv_Profile>Automation_SR17.0v10_v2.0_GPL_NghRemTh=15</Cell_Adv_Profile>
 			<Embms_Profile>Automation_AU_eMBMS_SR16.00</Embms_Profile>
 			<Traffic_Mng>Automation_SR15.0 AirUnity Defaults</Traffic_Mng>
 			<Call_Trace>Automation_AirUnity Call Trace Disabled</Call_Trace>
-			<Tac>13100</Tac>              
+			<Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00_Pir</Mobility_Profile>
+			<Radio_Profile>Auto_AU_Radio_41190_25_SR16.00</Radio_Profile>
+			<Tac>13100</Tac>                          
 		</cell_1>
 
 		<snmp>
@@ -336,7 +358,7 @@
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.3</comName>
-				<port>4003</port>
+				<port>4005</port>
 			</serialCom>
 		</xlp>
 		<relay>
@@ -344,7 +366,7 @@
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.3</comName>
-				<port>4005</port>
+				<port>4009</port>
 			</serialCom>
 		</relay>
 
@@ -363,13 +385,25 @@
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
+			<customCellParams index="0">
+				<interHandoverEarfcn>41200</interHandoverEarfcn>
+				<intraHandoverEarfcn>41400</intraHandoverEarfcn>
+			</customCellParams>
 			<ipAddress>172.20.15.236</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.3</comName>
-				<port>4009</port>
+				<port>4001</port>
 			</serialCom>
 		</xlp>
+		<dans index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.61.3</comName>
+				<port>4002</port>
+			</serialCom>
+		</dans>
 	</enb_3>
 
 
@@ -381,7 +415,7 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4010</port>
+				<port>4015</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
@@ -390,7 +424,7 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4011</port>
+				<port>4016</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
@@ -400,7 +434,7 @@
 		<maxAttenuation>26</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
-	
+
 	<ANR_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
@@ -408,7 +442,7 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4010</port>
+				<port>4015</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
@@ -417,16 +451,16 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4011</port>
+				<port>4016</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
 		<waitTime>1000</waitTime>
 		<stepTime>1000</stepTime>
 		<attenuationStep>2</attenuationStep>
-		<maxAttenuation>28</maxAttenuation>
+		<maxAttenuation>26</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
-	</ANR_attenuator>	
+	</ANR_attenuator>
 
 	<fwd_HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -435,7 +469,7 @@
 			<maxAttenuation>60</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4010</port>
+				<port>4015</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
@@ -444,7 +478,7 @@
 			<maxAttenuation>60</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4011</port>
+				<port>4016</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
