@@ -24,6 +24,7 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t2"/>
                 <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.d3612370-b78d-45f2-8d77-241e885d500b" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                     <!--#Jsystem#-->
                     <sequential>
@@ -32,7 +33,6 @@
                         <jsystemsetantproperties>
                             <!--Task for updating the ant parameters file - used for reference parameters-->
                         </jsystemsetantproperties>
-                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t2"/>
                         <echo message="Check condition ${SnmpReturnValue} &gt; ${scenario:new_value}"/>
                         <if>
                             <!--#Jsystem#-->
@@ -40,6 +40,7 @@
                             <then>
                                 <antcallback return="TestResultToReturn" target="t3"/>
                                 <antcallback target="t4"/>
+                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t5"/>
                             </then>
                             <else>
                                 <!--#Jsystem#-->
@@ -51,13 +52,13 @@
                             <!--#Jsystem#-->
                             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.f554e5aa-b00b-40f9-b974-ac752435b684" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback target="t5"/>
+                                <antcallback target="t6"/>
                             </then>
                             <elseif>
                                 <!--#Jsystem#-->
-                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.882b6202-7cc3-4368-b55c-7af201948856" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; EQUALS &lt;SEP&gt;  &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.2dc4bfee-68f2-4a25-9b94-d197a0d30fcf" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; EQUALS &lt;SEP&gt;  &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                 <then>
-                                    <antcallback target="t6"/>
+                                    <antcallback target="t7"/>
                                 </then>
                                 <!--#Jsystem#-->
                             </elseif>
@@ -65,10 +66,10 @@
                                 <!--#Jsystem#-->
                             </else>
                         </if>
-                        <antcallback target="t7"/>
                     </sequential>
                 </jsystemfor>
                 <antcallback target="t8"/>
+                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t9"/>
                 <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.1c79fd7d-90a4-4475-8487-918a80bd44d1" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
                     <!--#Jsystem#-->
                     <sequential>
@@ -77,7 +78,6 @@
                         <jsystemsetantproperties>
                             <!--Task for updating the ant parameters file - used for reference parameters-->
                         </jsystemsetantproperties>
-                        <antcallback return="SnmpReturnValue, TestResultToReturn" target="t9"/>
                         <echo message="Check condition ${SnmpReturnValue} &gt; ${scenario:new_value}"/>
                         <if>
                             <!--#Jsystem#-->
@@ -85,6 +85,7 @@
                             <then>
                                 <antcallback return="TestResultToReturn" target="t10"/>
                                 <antcallback target="t11"/>
+                                <antcallback return="SnmpReturnValue, TestResultToReturn" target="t12"/>
                             </then>
                             <else>
                                 <!--#Jsystem#-->
@@ -96,13 +97,13 @@
                             <!--#Jsystem#-->
                             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.66dd2549-df7f-4b41-9e2c-4ba3f6913f7b" language="javascript" params="math &lt;SEP&gt; ${SnmpReturnValue} &lt;SEP&gt; &lt;= &lt;SEP&gt; ${scenario:new_value}" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback target="t12"/>
+                                <antcallback target="t13"/>
                             </then>
                             <elseif>
                                 <!--#Jsystem#-->
-                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.ca09a4bd-be68-4dc3-83c6-f11364c6245b" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; EQUALS &lt;SEP&gt;  &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e9f940e3-7b62-4c1a-b11b-400f807bbd67" language="javascript" params="str &lt;SEP&gt;  &lt;SEP&gt; EQUALS &lt;SEP&gt;  &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                                 <then>
-                                    <antcallback target="t13"/>
+                                    <antcallback target="t14"/>
                                 </then>
                                 <!--#Jsystem#-->
                             </elseif>
@@ -110,7 +111,6 @@
                                 <!--#Jsystem#-->
                             </else>
                         </if>
-                        <antcallback target="t14"/>
                     </sequential>
                 </jsystemfor>
                 <antcallback target="t15"/>
@@ -121,64 +121,64 @@
         <antcallback return="TestResultToReturn" target="t18"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t19"/>
         <antcallback return="TestResultToReturn" target="t20"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t21"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t21"/>
         <antcallback return="TestResultToReturn" target="t22"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t23"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t23"/>
         <antcallback return="TestResultToReturn" target="t24"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t25"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t25"/>
         <antcallback return="TestResultToReturn" target="t26"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t27"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t27"/>
         <antcallback return="TestResultToReturn" target="t28"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t29"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t29"/>
         <antcallback return="TestResultToReturn" target="t30"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t31"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t31"/>
         <antcallback return="TestResultToReturn" target="t32"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t33"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t33"/>
         <antcallback return="TestResultToReturn" target="t34"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t35"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t35"/>
         <antcallback return="TestResultToReturn" target="t36"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t37"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t37"/>
         <antcallback return="TestResultToReturn" target="t38"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t39"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t39"/>
         <antcallback return="TestResultToReturn" target="t40"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t41"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t41"/>
         <antcallback return="TestResultToReturn" target="t42"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t43"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t43"/>
         <antcallback return="TestResultToReturn" target="t44"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t45"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t45"/>
         <antcallback return="TestResultToReturn" target="t46"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t47"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t47"/>
         <antcallback return="TestResultToReturn" target="t48"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t49"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t49"/>
         <antcallback return="TestResultToReturn" target="t50"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t51"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t51"/>
         <antcallback return="TestResultToReturn" target="t52"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t53"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t53"/>
         <antcallback return="TestResultToReturn" target="t54"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t55"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t55"/>
         <antcallback return="TestResultToReturn" target="t56"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t57"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t57"/>
         <antcallback return="TestResultToReturn" target="t58"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t59"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t59"/>
         <antcallback return="TestResultToReturn" target="t60"/>
         <antcallback return="TestResultToReturn" target="t61"/>
         <antcallback return="TestResultToReturn" target="t62"/>
         <antcallback return="TestResultToReturn" target="t63"/>
         <antcallback target="t64"/>
         <antcallback return="TestResultToReturn" target="t65"/>
-        <antcallback return="TestResultToReturn" target="t66"/>
-        <antcallback return="TestResultToReturn" target="t67"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t66"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t67"/>
         <antcallback return="TestResultToReturn" target="t68"/>
         <antcallback target="t69"/>
         <antcallback return="TestResultToReturn, TpDlMbps, TpUlMbps, TpNumberOfUes, TpL4Protocol, TpFrameSize, TpCalcLabel, TpTrafficDirection, TpTestingTool" target="t70"/>
-        <antcallback return="TestResultToReturn" target="t71"/>
-        <antcallback return="TestResultToReturn" target="t72"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t71"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t72"/>
         <antcallback return="TestResultToReturn" target="t73"/>
         <antcallback return="TestResultToReturn" target="t74"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="fb830b14-6ccc-4b97-b30b-42e19cabc4cb"/>
+            <sysproperty key="jsystem.uuid" value="0e971343-0af0-414a-856a-a190ff111404"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
@@ -194,7 +194,7 @@
     </target>
     <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="2b15dd82-162b-4258-859a-88cf7f37bacb"/>
+            <sysproperty key="jsystem.uuid" value="588cddc5-8b2d-4f00-93c6-e183865c3894"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.ue.UeSnmpActionTest.ueSnmpAction"/>
@@ -218,15 +218,15 @@
     </target>
     <target name="t5">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="0159b515-f5ba-448f-a3b3-f916230b64ef"/>
+            <sysproperty key="jsystem.uuid" value="7a2fc5e4-1612-4aaa-ac38-56f08e767ba4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+            <test name="com.airspan.testspan.jsystem.tests.ue.UeSnmpActionTest.ueSnmpAction"/>
         </jsystem>
     </target>
     <target name="t6">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="cb775531-2cff-4221-8f13-743aa436f6c1"/>
+            <sysproperty key="jsystem.uuid" value="0159b515-f5ba-448f-a3b3-f916230b64ef"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -234,7 +234,7 @@
     </target>
     <target name="t7">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="14e29ddd-7564-442a-a6f2-f5842b9b3a71"/>
+            <sysproperty key="jsystem.uuid" value="cb775531-2cff-4221-8f13-743aa436f6c1"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -250,7 +250,7 @@
     </target>
     <target name="t9">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="c5716be8-d137-4026-ba7e-b1edc1678564"/>
+            <sysproperty key="jsystem.uuid" value="be06392d-20ae-426b-9956-439732b7b8a6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.ue.UeSnmpActionTest.ueSnmpAction"/>
@@ -274,15 +274,15 @@
     </target>
     <target name="t12">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="df19a1e7-9c36-4038-a64d-9aaa9270f967"/>
+            <sysproperty key="jsystem.uuid" value="23cba71b-a36d-4c05-a74c-0d96429d69d4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+            <test name="com.airspan.testspan.jsystem.tests.ue.UeSnmpActionTest.ueSnmpAction"/>
         </jsystem>
     </target>
     <target name="t13">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="659e4b50-49ec-4eb5-b252-8d31465b1d83"/>
+            <sysproperty key="jsystem.uuid" value="df19a1e7-9c36-4038-a64d-9aaa9270f967"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -290,7 +290,7 @@
     </target>
     <target name="t14">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="83df6e45-633e-42f4-b621-a6c22aafbe75"/>
+            <sysproperty key="jsystem.uuid" value="659e4b50-49ec-4eb5-b252-8d31465b1d83"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
@@ -322,7 +322,7 @@
     </target>
     <target name="t18">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="05183c35-77ad-46ad-8ec1-3f98129b73fe"/>
+            <sysproperty key="jsystem.uuid" value="9e38fb62-79a2-427e-b051-319c81c87566"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
@@ -338,7 +338,7 @@
     </target>
     <target name="t20">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="737270db-436b-4dcf-844e-7496b3c72672"/>
+            <sysproperty key="jsystem.uuid" value="7f296bfd-5250-4818-be41-cfda87bc3dd4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
@@ -770,7 +770,7 @@
     </target>
     <target name="t74">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7cc76064-959a-4832-bb2a-27d26bb62349"/>
+            <sysproperty key="jsystem.uuid" value="cb5b8ffc-4e85-46e2-b860-270ca32f0552"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
