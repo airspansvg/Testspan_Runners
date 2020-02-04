@@ -2,7 +2,7 @@
 
 	<Custom>
 		<class>Custom</class>
-		<NMSipAddress>fc74:172:22:2::222</NMSipAddress>
+		<NMSipAddress>fc74:172:22:2::223</NMSipAddress>
 		<IP_ver>IPv6</IP_ver>
 		<setup_name>avalanche</setup_name>
 		<setup_vlan>1260</setup_vlan>
@@ -20,6 +20,11 @@
 		<Mng_Profile_15min>Automation_AU_Management_SR16.00_15min</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->
 		<Traffic_Mng_Idle_OFF>Automation_SR15.0 AirUnity Defaults_Idle_Mode-OFF</Traffic_Mng_Idle_OFF>
 		<Traffic_Mng_Idle_ON>Automation_SR15.0 AirUnity Defaults_Idle_Mode-ON</Traffic_Mng_Idle_ON>
+		<AutoPCI_3rdPartyEnbIP>fc72:22:54:0:25::78</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
+		<AutoPCI_Main_Window>Automation_AU_Maintenance_Windows</AutoPCI_Main_Window>
+		<Default_Main_Window>Automation_AU_Management_SR16.00_5_min</Default_Main_Window>
+		
 	</Custom>
 
 	<EPC>
@@ -61,14 +66,24 @@
 			<description>HO</description>
 			<ues>ue1-ue8</ues>
 		</ueList>
-	</ue_lists>
-
+		<ueList index="6">
+            <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+            <description>dynamic_UEs.ptp</description>
+            <ues>ue5</ues>
+        </ueList>
+        <ueList index="7">
+            <class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+            <description>dynamic_UEs.pt2p</description>
+            <ues>ue5,ue6,ue7,ue8</ues>
+        </ueList>
+    </ue_lists>
+	
 
 
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
-		<hostname>asil-svg-nms22</hostname>
-		<WsUrlStatistics>http://asil-svg-nms22/ws/16.5/Statistics</WsUrlStatistics>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>asil-svg-nms23</hostname>
+		<WsUrlStatistics>http://asil-svg-nms23/ws/17.5/Statistics</WsUrlStatistics>
 	</NetspanWS>
 
 	<NetspanSfWs>
@@ -79,7 +94,7 @@
 	</NetspanSfWs>
 
 	<ue1>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.25.1</wanIpAddress>
 		<lanIpAddress>100.25.1.254</lanIpAddress>
 		<imsi>200010001010101</imsi>
@@ -96,7 +111,7 @@
 	</ue1>
 
 	<ue2>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.25.2</wanIpAddress>
 		<lanIpAddress>100.25.2.254</lanIpAddress>
 		<imsi>200010001010102</imsi>
@@ -113,7 +128,7 @@
 	</ue2>
 
 	<ue3>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.25.3</wanIpAddress>
 		<lanIpAddress>100.25.3.254</lanIpAddress>
 		<imsi>200010001010103</imsi>
@@ -129,7 +144,7 @@
 	</ue3>
 
 	<ue4>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.25.4</wanIpAddress>
 		<lanIpAddress>100.25.4.254</lanIpAddress>
 		<imsi>200010001010104</imsi>
@@ -250,8 +265,7 @@
 		<Radio_Cell1>Auto_AU_Radio_41490_25_SR16.00</Radio_Cell1>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR16.5v12 AirUnity system defaults</System_Profile> <!-- IDLE OFF -->
-		<System_Profile_Idle_ON>SR16.5v12 AirUnity system defaults</System_Profile_Idle_ON>
+		<System_Profile>Automation_SR17.5v9 AirUnity system defaults</System_Profile>
 		<eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
 		<Sync_Profile>Automation_AU_Sync_SR16.00_Ava</Sync_Profile>
 		<Security_Profile>Automation_AU_Security_SR16.00</Security_Profile>
@@ -330,7 +344,7 @@
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR16.5v12 AirUnity system defaults</System_Profile>
+		<System_Profile>Automation_SR17.5v9 AirUnity system defaults</System_Profile>
 		<eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
 		<Sync_Profile>Automation_AU_Sync_SR16.00_Ava</Sync_Profile>
 		<Security_Profile>Automation_AU_Security_SR16.00</Security_Profile>
@@ -773,7 +787,7 @@
 			</source>
 			<destination>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>fc74:172:22:2::222</ipAddress>
+				<ipAddress>fc74:172:22:2::223</ipAddress>
 			</destination>
 		</rules>
 		<rules index="1">
@@ -782,7 +796,7 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>fc74:172:22:2::222</ipAddress>
+				<ipAddress>fc74:172:22:2::223</ipAddress>
 			</source>
 			<destination>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
@@ -800,7 +814,7 @@
 			</source>
 			<destination>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>fc74:172:22:2::222</ipAddress>
+				<ipAddress>fc74:172:22:2::223</ipAddress>
 			</destination>
 		</rules>
 		<rules index="3">
@@ -809,7 +823,7 @@
 			<protocol>ip</protocol>
 			<source>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>fc74:172:22:2::222</ipAddress>
+				<ipAddress>fc74:172:22:2::223</ipAddress>
 			</source>
 			<destination>
 				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
