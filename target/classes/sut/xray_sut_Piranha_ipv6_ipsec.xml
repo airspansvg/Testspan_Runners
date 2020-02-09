@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
+
 	<Custom>
 		<class>Custom</class>
 		<NMSpAddress>fc74:172:22:2::223</NMSpAddress>
 		<IP_ver>IPv6</IP_ver>
 		<setup_name>piranha</setup_name>
+		<IP_MME>172.21.165.1</IP_MME>
+		<setup_vlan>1500</setup_vlan>
 		<sec_GW_ipv4>172.22.50.220</sec_GW_ipv4>
 		<EPC_num>EPC_15</EPC_num>
-		<ACL_X2>false</ACL_X2>
+		<RackSW>172.20.61.4</RackSW>
+		<enb_1_RackSW>GigabitEthernet1/0/2</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/4</enb_2_RackSW>  
 		<COLD_REBOOT_KEY>AU_cold_reboot</COLD_REBOOT_KEY>
 		<COLD_REBOOT_NEG_KEY>AU_cold_reboot_NEG</COLD_REBOOT_NEG_KEY>
 		<WARM_REBOOT_KEY>AU_reboot</WARM_REBOOT_KEY>
 		<WARM_REBOOT_NEG_KEY>AU_reboot_NEG</WARM_REBOOT_NEG_KEY>
 		<SCAN_KEY>AU_REALY_ENB_SCAN</SCAN_KEY>
 		<SCAN_NEG_KEY>AU_REALY_ENB_SCAN_NEG</SCAN_NEG_KEY>
-		<proxyHostIp>192.168.57.163</proxyHostIp>
+		<AutoPCI_3rdPartyEnbIP>172.20.35.40</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
+		<AutoPCI_Main_Window>Automation_AU_Maintenance_Windows</AutoPCI_Main_Window>
+		<Default_Main_Window>Automation_AU_Management_SR16.00_5_min</Default_Main_Window>
+		<proxyHostIp>192.168.57.163</proxyHostIp>		
 	</Custom>
+
 
 	<EPC>
 		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
 		<ipAddress>192.168.56.19</ipAddress> 
-		<username>autosvg</username>
-		<password>autosvg1</password>
+		<username>spuser</username>
+		<password>sp_user9</password>
 	</EPC>
 
 	<NetspanWS>
@@ -105,7 +115,7 @@
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
 			<strAddress>100.35.3.254</strAddress>
-		</snmp>	
+		</snmp>		
 	</ue3>
 
 	<ue4>
@@ -138,7 +148,7 @@
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
 			<strAddress>100.35.5.254</strAddress>
-		</snmp>	
+		</snmp>		
 	</ue5>
 
 	<ue6>
@@ -193,13 +203,11 @@
 	</ue8>
 
 
-
-
-
 	<enb_1>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirUnity544</class>
 		<netspanName>DABA1B5C887E</netspanName>
 		<duplexMode>TDD</duplexMode>
+		<enb_type>Home</enb_type>
 		<band>B41L</band>
 		<eNBID>544</eNBID>
 		<TAC_Cell1>15110</TAC_Cell1>
@@ -305,7 +313,7 @@
 		<eNB_Adv_Profile>Automation_Piranha</eNB_Adv_Profile>
 		<Net_Profile>Automation_Piranha</Net_Profile> 
 		<Sync_Profile>Automation_Piranha</Sync_Profile>
-		<Security_Profile>Automation_Piranha</Security_Profile> 
+		<Security_Profile>SR15.0 AirUnity Default</Security_Profile> 
 		<Son_Profile>Automation_Piranha</Son_Profile>
 		<Mng_Profile>Automation_5Min_Piranha</Mng_Profile>
 		<MC_Profile>Automation_AirUnity Default Disabled</MC_Profile>
@@ -500,14 +508,25 @@
 
 
 	<powerControl>
+
 		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
 			<readCommunity>public</readCommunity>
+
+			<writeCommunity>private</writeCommunity>	
+			<snmpVersion>V1</snmpVersion>
+			<strAddress>172.20.61.12</strAddress>
+		<!--ipAddress>172.20.61.143</ipAddress>
+		 1= SNMP version2c 
+		<snmpVersion>V1</snmpVersion>
+		<readCommunity>public</readCommunity>
+		<writeCommunity>private</writeCommunity-->
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V1</snmpVersion>
 			<strAddress>172.20.61.12</strAddress>
 		</snmp>	
+
 		<ports index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
 			<port>A2</port>
@@ -523,6 +542,7 @@
 			<port>A5</port>
 			<description>dynamic_UEs</description>
 		</ports>
+
 	</powerControl>
 
 	<powerControl1>
