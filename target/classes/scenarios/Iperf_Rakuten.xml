@@ -21,7 +21,8 @@
         <antcallback return="TestResultToReturn" target="t4"/>
         <antcallback target="t5"/>
         <antcallback return="TestResultToReturn" target="t6"/>
-        <antcallback target="t7"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t7"/>
+        <antcallback target="t8"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -80,6 +81,14 @@
         </jsystem>
     </target>
     <target name="t7">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9b386363-7c4d-4006-b583-aa7e44d21739"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t8">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="7842c148-fbb7-438a-b42e-4070546a20d4"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
