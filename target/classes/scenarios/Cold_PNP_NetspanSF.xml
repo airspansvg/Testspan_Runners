@@ -60,7 +60,17 @@
         <antcallback return="TestResultToReturn, StopTimeToReturn" target="t23"/>
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t24"/>
         <antcallback target="t25"/>
-        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t26"/>
+        <echo message="Check condition &quot;${scenario:HW_for_Sf}&quot; NOT_EQUALS &quot;AirUnity&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.6b9a33a3-d5a3-42fc-81c7-657af07b9be7" language="javascript" params="str &lt;SEP&gt; ${scenario:HW_for_Sf} &lt;SEP&gt; NOT_EQUALS &lt;SEP&gt; AirUnity &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t26"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+            </else>
+        </if>
         <antcallback target="t27"/>
         <antcallback return="IsTestWasSuccessful" target="t28"/>
         <echo message="Check condition &quot;${scenario:eNodeBsUnderTest}&quot; EQUALS &quot;enb_1&quot;"/>
@@ -330,7 +340,7 @@
     </target>
     <target name="t26">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="b5a766b9-7b65-493d-9a23-88aa5bc4c5b9"/>
+            <sysproperty key="jsystem.uuid" value="de39916c-9cb9-425e-b241-3c379f53161e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.netspan.signals.ValidateSignalsTest.validateSignals"/>
