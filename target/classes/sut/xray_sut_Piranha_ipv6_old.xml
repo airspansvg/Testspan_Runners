@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
-
 	<Custom>
 		<class>Custom</class>
-		<NMSipAddress>fc74:172:22:2::223</NMSipAddress>
+		<NMSpAddress>fc74:172:22:2::222</NMSpAddress>
 		<IP_ver>IPv6</IP_ver>
 		<setup_name>piranha</setup_name>
-		<IP_MME>172.21.165.1</IP_MME>
+		<IP_MME>fc74:172:21:165::1</IP_MME>
 		<setup_vlan>1500</setup_vlan>
 		<sec_GW_ipv4>172.22.50.220</sec_GW_ipv4>
 		<EPC_num>EPC_15</EPC_num>
-		<ACL_X2>false</ACL_X2>
 		<RackSW>172.20.61.4</RackSW>
 		<enb_1_RackSW>GigabitEthernet1/0/2</enb_1_RackSW>
 		<enb_2_RackSW>GigabitEthernet1/0/4</enb_2_RackSW>  
@@ -20,35 +18,34 @@
 		<WARM_REBOOT_NEG_KEY>AU_reboot_NEG</WARM_REBOOT_NEG_KEY>
 		<SCAN_KEY>AU_REALY_ENB_SCAN</SCAN_KEY>
 		<SCAN_NEG_KEY>AU_REALY_ENB_SCAN_NEG</SCAN_NEG_KEY>
-		<AutoPCI_3rdPartyEnbIP>172.20.35.40</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbIP>fc72:22:54:0:35::87</AutoPCI_3rdPartyEnbIP>
 		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
 		<AutoPCI_Main_Window>Automation_AU_Maintenance_Windows</AutoPCI_Main_Window>
 		<Default_Main_Window>Automation_AU_Management_SR16.00_5_min</Default_Main_Window>
-		<proxyHostIp>192.168.57.163</proxyHostIp>		
+        <proxyHostIp>192.168.57.163</proxyHostIp>		
 	</Custom>
-
 
 	<EPC>
 		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
 		<ipAddress>192.168.56.19</ipAddress> 
-		<username>spuser</username>
-		<password>sp_user9</password>
+		<username>autosvg</username>
+		<password>autosvg1</password>
 	</EPC>
 
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
-		<hostname>asil-svg-nms23</hostname>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
+		<hostname>asil-svg-nms22</hostname>
 	</NetspanWS>
-	
+
 	<NetspanSfWs>
 		<class>com.airspan.testspan.jsystem.sysobj.netspansf.web_services.NetspanSfWsImpl</class>
 		<hostname>192.168.57.189</hostname>
 		<username>automation</username> <!-- The user has to be of type Power User -->
 		<password>Automation1!</password>
 	</NetspanSfWs>
-	
+
 	<ue_lists>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
+		    <class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
 		<ueList index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
 			<description>enb_1.ptp</description>
@@ -71,16 +68,16 @@
 		</ueList>
 		<ueList index="4">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-			<description>HO</description>
-			<ues>ue1-ue8</ues>
+			<description>Anr</description>
+			<ues>ue5,ue6,ue7,ue8</ues>
 		</ueList>
 	</ue_lists>
 
 	<ue1>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.1</wanIpAddress>
 		<lanIpAddress>100.35.1.254</lanIpAddress>
-		<imsi>200010001010277</imsi>
+		<imsi>200010001003399</imsi>
 		<powerControllerMapping>powerControl/A2</powerControllerMapping>
 		<connectedToEnb>enb_1</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -94,7 +91,7 @@
 	</ue1>
 
 	<ue2>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.12</wanIpAddress>
 		<lanIpAddress>100.35.2.254</lanIpAddress>
 		<imsi>200010001007019</imsi>
@@ -111,10 +108,10 @@
 	</ue2>
 
 	<ue3>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.3</wanIpAddress>
 		<lanIpAddress>100.35.3.254</lanIpAddress>
-		<imsi>200010001010236</imsi>
+		<imsi>200010001000122</imsi>
 		<connectedToEnb>enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -127,10 +124,10 @@
 	</ue3>
 
 	<ue4>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.4</wanIpAddress>
 		<lanIpAddress>100.35.4.254</lanIpAddress>
-		<imsi>200010001010238</imsi>
+		<imsi>200010001007033</imsi>
 		<connectedToEnb>enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -143,10 +140,10 @@
 	</ue4>
 
 	<ue5>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.5</wanIpAddress>
 		<lanIpAddress>100.35.5.254</lanIpAddress>
-		<imsi>200010001010235</imsi>
+		<imsi>200010001003219</imsi>
 		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -160,10 +157,10 @@
 	</ue5>
 
 	<ue6>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.6</wanIpAddress>
 		<lanIpAddress>100.35.6.254</lanIpAddress>
-		<imsi>200010001010239</imsi>
+		<imsi>200010001003397</imsi>
 		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -177,10 +174,10 @@
 	</ue6>
 
 	<ue7>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.7</wanIpAddress>
 		<lanIpAddress>100.35.7.254</lanIpAddress>
-		<imsi>200010001010237</imsi>
+		<imsi>200010001003480</imsi>
 		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -194,10 +191,10 @@
 	</ue7>
 
 	<ue8>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
 		<wanIpAddress>10.10.35.8</wanIpAddress>
 		<lanIpAddress>100.35.8.254</lanIpAddress>
-		<imsi>200010001010287</imsi>
+		<imsi>200010001003218</imsi>
 		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -211,25 +208,29 @@
 	</ue8>
 
 
+
 	<enb_1>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirUnity544</class>
 		<netspanName>DABA1B5C887E</netspanName>
-		<nodeId>DABA1B5C887E</nodeId>
 		<duplexMode>TDD</duplexMode>
 		<enb_type>Home</enb_type>
 		<band>B41L</band>
 		<eNBID>544</eNBID>
-		<TAC_Cell1>15110</TAC_Cell1>
-		<TAC_1>15110</TAC_1>
-		<TAC_2>13100</TAC_2>
+		<TAC_Cell1>13100</TAC_Cell1>
+		<TAC_1>13100</TAC_1>
+		<TAC_2>13110</TAC_2>
 		<inter20>40090</inter20>
 		<intra20>39890</intra20>
+		<inter15>41470</inter15>
+		<intra15>41320</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_S1</S1>
-		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</X2>
-		
+		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_S1</S1>
+		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</X2>
+		<Cell_Adv_Profile_ANR>AU_Cell_Advanced_Tel_Aviv_NGHRemTH=15</Cell_Adv_Profile_ANR>
 		<MCProfile_CA_ON>AirUnity Default Disabled_Pirhana_CA</MCProfile_CA_ON>
-		<MCProfile_CA_OFF>AirUnity Default Disabled</MCProfile_CA_OFF>
+		<MCProfile_CA_OFF>Automation_AirUnity Default Disabled</MCProfile_CA_OFF>
 		<X2_ANR_ON>Piranha_PnpEnable</X2_ANR_ON>
 		<X2_ANR_OFF>Piranha_PnpEnable_NOANR</X2_ANR_OFF>
 		<Radio_Cell1>AU_Radio_41490_25_SR16.00</Radio_Cell1>
@@ -255,8 +256,9 @@
 			<Embms_Profile>Automation_Piranha</Embms_Profile>
 			<Traffic_Mng>Automation_Piranha</Traffic_Mng>
 			<Call_Trace>Automation_Piranha</Call_Trace>
-			<Tac>15110</Tac>              
+			<Tac>13100</Tac>                          
 		</cell_1>
+
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
 			<readCommunity>ro-public</readCommunity>
@@ -279,33 +281,33 @@
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Relay</class>
 			<relaySshProxy>
 				<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.terminal.RelaySshProxy</class>
-				<proxyHostIp>192.168.57.163</proxyHostIp> 
+				<proxyHostIp>192.168.56.1</proxyHostIp> 
 				<proxyHostUsername>spuser</proxyHostUsername> 
 				<proxyHostPassword>sp_user9</proxyHostPassword>
 				<relayIp>169.254.1.1</relayIp>
 				<relayUsername>admin</relayUsername>
-				<relayPassword>HeWGEUx66m=_4!ND</relayPassword>
+				<relayPassword>KBLY*X4_ynA2j-*H</relayPassword>
 			</relaySshProxy>
-			<Role>Relay_eNodeB</Role>
-			<System_Default_Profile>SR16.5v16 AirUnity Relay system defaults</System_Default_Profile>
-			<Relay_Profile>AU_Relay_Full-IPV6_AirportCity_SR16.00_Ava</Relay_Profile>
-			<Relay_Advanced_Profile>AU_RelayAdvanced_SR16.00</Relay_Advanced_Profile>
-		</relay>	
+		</relay>
 
 	</enb_1>
+
 
 	<enb_2>      <!-- VELOCITY500 -->
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirUnity587</class>
 		<netspanName>DC9A22014EC0</netspanName>
-		<nodeId>DC9A22014EC0</nodeId>
 		<duplexMode>TDD</duplexMode>
 		<eNBID>587</eNBID>
-		<TAC_Cell1>15110</TAC_Cell1>
-		<TAC_1>15110</TAC_1>
-		<TAC_2>11100</TAC_2>
+		<TAC_1>13100</TAC_1>
+		<TAC_2>13110</TAC_2>
+		<TAC_Cell1>13100</TAC_Cell1>
 		<band>B41L</band>
-		<inter20>39890</inter20>
-		<intra20>40090</intra20>
+		<intra20>39890</intra20>
+		<inter20>40090</inter20>
+		<inter15>39890</inter15>
+		<intra15>40040</intra15>
+		<inter10>39988</inter10>
+		<intra10>39890</intra10>
 		<enb_type>Home</enb_type>
 		<mcc>200</mcc>
 		<mnc>01</mnc>
@@ -313,35 +315,38 @@
 		<mvnomnc1>20</mvnomnc1>
 		<mvnomcc2>400</mvnomcc2>
 		<mvnomnc2>10</mvnomnc2>
-		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_S1</S1>
-		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_Piranha_X2</X2>
+		<mvnomcc3>200</mvnomcc3>
+		<mvnomnc3>10</mvnomnc3>
+		<PLMN>Automation_AU_Network_Fairfax_SR16.50</PLMN>
+		<changePLMN>Automation_AU_Network_Fairfax_SR16.50_changePLMN</changePLMN>
+		<S1>Automation_AU_Neighbour_Tel_Aviv_SR16.00_S1</S1>
+		<X2>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</X2>
+		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<X2_ANR_ON>Piranha_PnpEnable</X2_ANR_ON>
 		<X2_ANR_OFF>Piranha_PnpEnable_NOANR</X2_ANR_OFF>
-		<Radio_Cell1>AU_Radio_41490_25_SR16.00</Radio_Cell1>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v9 AirUnity system defaults</System_Profile>
-		<eNB_Adv_Profile>Automation_Piranha</eNB_Adv_Profile>
-		<Net_Profile>Automation_Piranha</Net_Profile> 
-		<Sync_Profile>Automation_Piranha</Sync_Profile>
-		<Security_Profile>SR15.0 AirUnity Default_piranha</Security_Profile> 
-		<Son_Profile>Automation_Piranha</Son_Profile>
-		<Mng_Profile>Automation_5Min_Piranha</Mng_Profile>
+		<System_Profile>Automation_SR16.5v10 AirUnity system defaults</System_Profile>
+		<eNB_Adv_Profile>Automation_AU_Advanced_AirportCity_SR16.00</eNB_Adv_Profile>
+		<Sync_Profile>AU_Sync_SR16.00</Sync_Profile>
+		<Security_Profile>Automation_Piranha</Security_Profile>
+		<Net_Profile>AU_Network_Fairfax_IPV6_SR16.00_Piranha</Net_Profile>                         
+		<Mng_Profile>Automation_AU_Management_SR16.00</Mng_Profile>
+		<Ngh_Profile>Automation_AU_Neighbour_Tel_Aviv_SR16.00_X2</Ngh_Profile>
+		<Son_Profile>Automation_AU_SON_AirportCity_SR16.00</Son_Profile>
 		<MCProfile_CA_OFF>Automation_AirUnity Default Disabled</MCProfile_CA_OFF>
-		<Ngh_Profile>Automation_X2_Piranha</Ngh_Profile>
-
 
 		<!-- CELL1 Profiles -->
 		<cell_1>              
-			<Cell_Adv_Profile>Automation_Piranha</Cell_Adv_Profile>
-			<Radio_Profile>Automation_EARFCN-39890_Piranha</Radio_Profile>
-			<Mobility_Profile>Automation_AU587_Piranha</Mobility_Profile>
-			<HO_Mobility_Profile>Automation_AU587_No_MeasGap_Piranha</HO_Mobility_Profile>
-			<Embms_Profile>Automation_Piranha</Embms_Profile>
-			<Traffic_Mng>Automation_Piranha</Traffic_Mng>
-			<Call_Trace>Automation_Piranha</Call_Trace>
-			<Tac>15110</Tac>              
+			<Cell_Adv_Profile>Automation_SR17.0v10_v2.0_GPL_NghRemTh=15</Cell_Adv_Profile>
+			<Embms_Profile>Automation_AU_eMBMS_SR16.00</Embms_Profile>
+			<Traffic_Mng>Automation_SR15.0 AirUnity Defaults</Traffic_Mng>
+			<Call_Trace>Automation_AirUnity Call Trace Disabled</Call_Trace>
+			<Mobility_Profile>Automation_AU_Mobility_AirportCity_SR16.00_Pir</Mobility_Profile>
+			<Radio_Profile>Auto_AU_Radio_41190_25_SR16.00</Radio_Profile>
+			<Tac>13100</Tac>                          
 		</cell_1>
+
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
 			<readCommunity>ro-public</readCommunity>
@@ -365,11 +370,8 @@
 				<comName>172.20.61.3</comName>
 				<port>4005</port>
 			</serialCom>
-			<Role>Relay_eNodeB</Role>
-			<System_Default_Profile>SR16.5v16 AirUnity Relay system defaults</System_Default_Profile>
-			<Relay_Profile>AU_Relay_Full-IPV6_AirportCity_SR16.00_Ava</Relay_Profile>
-			<Relay_Advanced_Profile>AU_RelayAdvanced_SR16.00</Relay_Advanced_Profile>
 		</relay>
+
 	</enb_2>
 
 	<enb_3>
@@ -428,18 +430,18 @@
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
-		<waitTime>1000</waitTime>
-		<stepTime>1000</stepTime>
+		<waitTime>700</waitTime>
+		<stepTime>500</stepTime>
 		<attenuationStep>2</attenuationStep>
-		<maxAttenuation>30</maxAttenuation>
+		<maxAttenuation>26</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
 
-	<fwd_HO_attenuator>
+	<ANR_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>60</maxAttenuation>
+			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<port>4010</port>
@@ -448,10 +450,37 @@
 		</attenuators>
 		<attenuators index="1">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>60</maxAttenuation>
+			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<port>4011</port>
+				<comName>172.20.61.3</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>1000</stepTime>
+		<attenuationStep>2</attenuationStep>
+		<maxAttenuation>26</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</ANR_attenuator>
+
+	<fwd_HO_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4015</port>
+				<comName>172.20.61.3</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4016</port>
 				<comName>172.20.61.3</comName>
 			</serialCom>
 		</attenuators>
@@ -462,14 +491,6 @@
 		<minAttenuation>0</minAttenuation>
 	</fwd_HO_attenuator>
 
-
-	<Pinger>
-		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<hostIpAddress>172.22.62.250</hostIpAddress>
-		<userName>root</userName>
-		<password>airspan</password>
-		<operationSystemName>Linux</operationSystemName>
-	</Pinger>
 
 	<!--  <HO_attenuator_donor>
         <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -519,25 +540,19 @@
 
 
 	<powerControl>
-
 		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
 			<readCommunity>public</readCommunity>
-
-			<writeCommunity>private</writeCommunity>	
+			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V1</snmpVersion>
 			<strAddress>172.20.61.12</strAddress>
-		<!--ipAddress>172.20.61.143</ipAddress>
+		</snmp>
+		<!--ipAddress>172.20.61.12</ipAddress>
 		 1= SNMP version2c 
 		<snmpVersion>V1</snmpVersion>
 		<readCommunity>public</readCommunity>
 		<writeCommunity>private</writeCommunity-->
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V1</snmpVersion>
-			<strAddress>172.20.61.12</strAddress>
-		</snmp>	
-
 		<ports index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
 			<port>A2</port>
@@ -553,7 +568,6 @@
 			<port>A5</port>
 			<description>dynamic_UEs</description>
 		</ports>
-
 	</powerControl>
 
 	<powerControl1>
@@ -565,17 +579,25 @@
 			<snmpVersion>V1</snmpVersion>
 			<strAddress>172.20.61.189</strAddress>
 		</snmp>
+
+
+		<!--<ipAddress>172.20.61.189</ipAddress>
+		 1= SNMP version2c
+		<snmpVersion>V1</snmpVersion>
+		<readCommunity>public</readCommunity>
+		<writeCommunity>private</writeCommunity> -->	
 		<ports index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A2</port>
-			<description>enb_1</description>
+			<port>A5</port>
+			<description>enb_2</description>
 		</ports>
 		<ports index="1">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
 			<port>A3</port>
-			<description>enb_2</description>
+			<description>enb_1</description>
 		</ports>
 	</powerControl1>
+
 
 	<stcController>
 		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
@@ -955,7 +977,7 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.8</host>
+			<host>192.168.60.52</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
@@ -969,7 +991,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.9</host>
+			<host>192.168.59.222</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -989,7 +1011,7 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.8</host>
+			<host>192.168.60.52</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
@@ -1004,7 +1026,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.10</host>
+			<host>192.168.60.49</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -1024,7 +1046,7 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.8</host>
+			<host>192.168.60.52</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
@@ -1039,7 +1061,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.9</host>
+			<host>192.168.59.222</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -1059,7 +1081,7 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.8</host>
+			<host>192.168.60.52</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
@@ -1074,7 +1096,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.10</host>
+			<host>192.168.60.49</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -1095,7 +1117,7 @@
 
 	<pingServer1>
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<ipAddress>172.20.62.8</ipAddress>
+		<ipAddress>192.168.60.52</ipAddress>
 		<userName>root</userName>
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
@@ -1103,11 +1125,19 @@
 
 	<pingServer2>
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<ipAddress>172.20.62.9</ipAddress>
+		<ipAddress>192.168.59.222</ipAddress>
 		<userName>root</userName>
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
 	</pingServer2>
+
+	<Pinger>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+		<hostIpAddress>172.22.62.250</hostIpAddress>
+		<userName>root</userName>
+		<password>airspan</password>
+		<operationSystemName>Linux</operationSystemName>
+	</Pinger>
 
 
 	<IPERF_SERVER>
