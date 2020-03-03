@@ -193,6 +193,7 @@
                             </then>
                             <else>
                                 <!--#Jsystem#-->
+                                <antcallback target="t45"/>
                             </else>
                         </if>
                     </sequential>
@@ -559,5 +560,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
+    </target>
+    <target name="t45">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/UDP_TP.xml">
+            <property name="jsystem.uuid" value="96606db9-9175-45a6-a62b-614da77f82ca"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
