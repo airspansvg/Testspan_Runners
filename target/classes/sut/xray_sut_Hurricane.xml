@@ -2,22 +2,24 @@
 
 	<Custom>
 		<vCU>fc74:172:22:74:0:0:0:158</vCU>
+		<vCU_AH>fc74:172:22:74:0:0:0:161</vCU_AH>
 		<class>Custom</class>
 		<EPC_num>EPC_4</EPC_num>
-		<NMSipAddress>172.22.2.222</NMSipAddress>
+		<NMSipAddress>172.22.2.207</NMSipAddress>
 		<IP_ver>IPv4</IP_ver>
 		<setup_name>hurricane</setup_name>
 		<setup_vlan>1140</setup_vlan>
-		<IP_MME>172.21.154.1</IP_MME>
+		<IP_MME>1.1.1.1</IP_MME>
 		<ACL_X2>false</ACL_X2>
 		<ZMTL_MC20>41200;41005;</ZMTL_MC20>
+		<WsVersion>VER_17_0</WsVersion>
 	</Custom>
 
 	<EPC>
 		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
-		<ipAddress>192.168.57.188</ipAddress> 
-		<username>spuser</username>
-		<password>sp_user9</password>
+		<ipAddress>-svg-nms-fake</ipAddress> 
+		<username>autosvg</username>
+		<password>autosvg1</password>
 	</EPC>
 	
 	<ue_lists>
@@ -50,8 +52,8 @@
 	</ue_lists>
 
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
-		<hostname>asil-svg-nms22</hostname>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_0.NetspanWsImpl</class>
+		<hostname>asil-svg-nms7</hostname>
 	</NetspanWS>
 
 	<ue1>
@@ -191,62 +193,73 @@
 	</ue8>
 
 
-	<enb_1>
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class>
-		<netspanName>Hurricane_AirSpeed1250</netspanName>
-		<duplexMode>TDD</duplexMode>
-		<band>B42</band>
-		<eNBID>9150</eNBID>
-		<inter20>41889</inter20>
-		<intra20>41691</intra20> 
-		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 
+	
+	<enb_1>       <!-- AH4K Rakuten DU Mode IPv6 TAC 15110 MME 165 VCU 161 Cell ID 41216 -->
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class>
+		<netspanName>RoW_AH4K_FDD_B3</netspanName>
+		<band>B3</band>
+		<duplexMode>FDD</duplexMode>
+		<intra20>1500</intra20>
+		<intra5>1500</intra5>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>h=KUK4dJ</readCommunity>
-			<writeCommunity>BcqRz?3Z</writeCommunity>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.17.1</strAddress>
+			<strAddress>fc74:172:20:560::1:57</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<band>42</band>
-			<ipAddress>172.20.17.1</ipAddress>
+			<ipAddress>fc74:172:20:560::1:57</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.73</comName>
-				<port>4002</port>
+				<port>4007</port>
 			</serialCom>
 		</xlp>
+		<dans index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.61.73</comName>
+				<port>4008</port>
+			</serialCom>
+		</dans>
 	</enb_1>
-
-
-	<enb_2>
+	
+	<enb_2> <!-- AS1050 DU Mode IPv6 TAC 15110 MME 165 VCU 158 Cell2 ID 40449-->
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirVelocity1200</class>
-		<netspanName>Hurricane_AS1250E_Wired_BH</netspanName>
-		<duplexMode>TDD</duplexMode>
-		<band>B42</band>
-		<eNBID>7200</eNBID>
-		<inter20>41841</inter20>
-		<intra20>41691</intra20> 
-
-		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
+		<netspanName>RoW_AV1200_FDD_B7_IPSEC</netspanName>
+		<band>B3</band>
+		<duplexMode>FDD</duplexMode>
+		<intra20>1500</intra20>
+		<intra5>1500</intra5>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>h=KUK4dJ</readCommunity>
-			<writeCommunity>BcqRz?3Z</writeCommunity>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.117.72</strAddress>
-		</snmp>					
+			<strAddress>fc74:172:20:560::1:56</strAddress>
+		</snmp>
+
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<ipAddress>172.20.117.72</ipAddress>
+			<ipAddress>fc74:172:20:560::1:56</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.73</comName>
 				<port>4010</port>
 			</serialCom>
 		</xlp>
+		<dans index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.61.73</comName>
+				<port>4011</port>
+			</serialCom>
+		</dans>
 	</enb_2>
 	
 
