@@ -90,8 +90,9 @@
         </if>
         <antcallback return="TestResultToReturn, StringToReturn" target="t24"/>
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t25"/>
-        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t26"/>
-        <antcallback return="TestResultToReturn" target="t27"/>
+        <antcallback target="t26"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t27"/>
+        <antcallback return="TestResultToReturn" target="t28"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -302,6 +303,13 @@
         </jsystem>
     </target>
     <target name="t26">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/DU_Get_SW_Ver.xml">
+            <property name="jsystem.uuid" value="f0cbc408-6297-4abd-91b8-4b6925863690"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t27">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c598cb24-01fe-442f-9bff-fcee1cd4c898"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -309,7 +317,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
         </jsystem>
     </target>
-    <target name="t27">
+    <target name="t28">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="225eca93-444a-423f-a245-bd0cda5b1329"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
