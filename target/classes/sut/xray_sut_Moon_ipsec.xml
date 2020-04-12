@@ -2,17 +2,23 @@
 
 
 	<Custom>
+		<sshUser>op</sshUser>
+		<sshPassword_SR17>PZ8Hfy3=Ve7fQkt*</sshPassword_SR17>
 		<class>Custom</class>
-		<NMSpAddress>172.22.2.204</NMSpAddress>
+		<NMSipAddress>172.22.2.204</NMSipAddress>
 		<IP_ver>IPv4</IP_ver>
-		<IPSec_ON_OFF>ON</IPSec_ON_OFF>
+		<IPSec_ON_OFF>OFF</IPSec_ON_OFF>
 		<setup_name>moon</setup_name>
 		<IP_MME>172.21.165.1</IP_MME>
+		<ZMTL_MC20>41200;41002;</ZMTL_MC20>
 		<EPC_num>EPC_15</EPC_num>
 		<RackSW>172.20.60.26</RackSW>
 		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
 		<enb_2_RackSW>GigabitEthernet1/0/26</enb_2_RackSW>
+		<setup_vlan>1230</setup_vlan>
 		<Role>Relay_eNodeB</Role>
+		<ACL_X2>false</ACL_X2>
+		<Mng_Profile_15min>SR17.00V6.0_AirHarmony_Sprint_GPL_Moon</Mng_Profile_15min>
 	</Custom>
 
 	<EPC>
@@ -23,7 +29,7 @@
 	</EPC>
 
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_0.NetspanWsImpl</class>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
 		<hostname>asil-svg-nms4</hostname>
 	</NetspanWS> 
 
@@ -51,8 +57,8 @@
 		</ueList>
 		<ueList index="4">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
-			<description>enb_1.pt2p</description>
-			<ues>ue5,ue6</ues>
+			<description>Anr</description>
+			<ues>ue5,ue6,ue7,ue8</ues>
 		</ueList>
 		<ueList index="5">
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
@@ -65,9 +71,11 @@
 
 
 	<ue1>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.1</wanIpAddress>
 		<lanIpAddress>100.30.1.254</lanIpAddress>
+		<iperfDlIpAddress>80.80.30.99</iperfDlIpAddress>
+		<iperfUlIpAddress>100.30.1.100</iperfUlIpAddress>
 		<imsi>200010001001252</imsi>
 		<powerControllerMapping>powerControl/A2</powerControllerMapping>
 		<connectedToEnb>enb_1</connectedToEnb>
@@ -82,9 +90,11 @@
 	</ue1>
 
 	<ue2>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.2</wanIpAddress>
 		<lanIpAddress>100.30.2.254</lanIpAddress>
+		<iperfDlIpAddress>80.80.30.100</iperfDlIpAddress>
+		<iperfUlIpAddress>100.30.2.100</iperfUlIpAddress>
 		<imsi>200010001001250</imsi>
 		<powerControllerMapping>powerControl/A2</powerControllerMapping>
 		<connectedToEnb>enb_1</connectedToEnb>
@@ -98,11 +108,13 @@
 		</snmp>	
 	</ue2>
 
-	
+
 	<ue3>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.3</wanIpAddress>
 		<lanIpAddress>100.30.3.254</lanIpAddress>
+		<iperfDlIpAddress>80.80.30.99</iperfDlIpAddress>
+		<iperfUlIpAddress>100.30.3.100</iperfUlIpAddress>
 		<imsi>200010001005948</imsi>
 		<powerControllerMapping>powerControl/A3</powerControllerMapping>
 		<connectedToEnb>enb_2</connectedToEnb>
@@ -115,11 +127,13 @@
 			<strAddress>100.30.3.254</strAddress>
 		</snmp>	
 	</ue3>
-	
+
 	<ue4>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.4</wanIpAddress>
 		<lanIpAddress>100.30.4.254</lanIpAddress>
+		<iperfDlIpAddress>80.80.30.100</iperfDlIpAddress>
+		<iperfUlIpAddress>100.30.4.100</iperfUlIpAddress>
 		<imsi>200010001001231</imsi>
 		<powerControllerMapping>powerControl/A3</powerControllerMapping>
 		<connectedToEnb>enb_2</connectedToEnb>
@@ -134,7 +148,7 @@
 	</ue4>
 
 	<ue5>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.5</wanIpAddress>
 		<lanIpAddress>100.30.5.254</lanIpAddress>
 		<imsi>200010001001376</imsi>
@@ -151,7 +165,7 @@
 	</ue5>
 
 	<ue6>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.6</wanIpAddress>
 		<lanIpAddress>100.30.6.254</lanIpAddress>
 		<imsi>200010001001222</imsi>
@@ -168,7 +182,7 @@
 	</ue6>
 
 	<ue7>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.7</wanIpAddress>
 		<lanIpAddress>100.30.7.254</lanIpAddress>
 		<imsi>200010001001230</imsi>
@@ -185,7 +199,7 @@
 	</ue7>
 
 	<ue8>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.30.8</wanIpAddress>
 		<lanIpAddress>100.30.8.254</lanIpAddress>
 		<imsi>200010001001232</imsi>
@@ -207,54 +221,56 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class>
 		<netspanName>Moon_H4K</netspanName>
 		<duplexMode>TDD</duplexMode>
+		<enb_type>Macro</enb_type>
 		<band>B41LH</band>
-		<TAC_Cell1>11000</TAC_Cell1>
-		<TAC_1>11000</TAC_1>
-		<TAC_2>11110</TAC_2>
-		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<inter20>41005</inter20>
+		<eNBID>4444</eNBID>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>500</TAC_2>
+		<inter20>41002</inter20>
+		<inter20_MC>41000</inter20_MC>
 		<intra20>41200</intra20>
 		<inter15>41050</inter15>
 		<intra15>41200</intra15>
-		<S1>Automation_SR17.0v10_v2.0_GPL_Moon_S1</S1>
-		<X2>Automation_SR17.0v10_v2.0_GPL_Moon_X2</X2>
-		<X2_ANR_ON>Automation_SR15.50v6_3_GPL_Moon_ANR_ON</X2_ANR_ON>
-		<X2_ANR_OFF>Automation_SR15.50v6_3_GPL_Moon_ANR_OFF</X2_ANR_OFF>
-		<MCProfile_CA_ON>Automation_SR15.50v6_3_GPL_Moon</MCProfile_CA_ON>
-		<MCProfile_CA_OFF>Automation_SR15.50v6_3_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
+		<S1>Automation_SR17.50v1.0_GPL_Moon_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Moon_X2</X2>
+		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Moon_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Moon_ANR_OFF</X2_ANR_OFF>
+		<Cell_Adv_Profile_ANR>Automation_SR17.50v1.0_GPL_NghRemTh=15</Cell_Adv_Profile_ANR>
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR15.5v16_Moon</System_Profile>
-		<eNB_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</eNB_Adv_Profile>
-		<Sync_Profile>Automation_SR15.50v6_3_GPL_Moon</Sync_Profile>
-		<Security_Profile>Automation_SR15.50v6_3_GPL_Moon</Security_Profile>
-		<Net_Profile>Automation_SR17.0v10_v2.0_GPL_Moon</Net_Profile>		
-		<Mng_Profile>Automation_SR15.50v6_3_GPL_Moon</Mng_Profile>
-		<Ngh_Profile>Automation_SR17.0v10_v2.0_GPL_Moon_X2</Ngh_Profile>
-		<Son_Profile>Automation_SR15.50v6_3_GPL_Moon</Son_Profile>
-		<MC_Profile>Automation_SR15.50v6_3_GPL_Moon</MC_Profile>
+		<System_Profile>Automation_SR17.5v9 AirHarmony system defaults IDLE OFF</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Moon</Sync_Profile>
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Moon</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Moon</Net_Profile>		
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Moon</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Moon_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Moon</Son_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Moon</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
 
 		<!-- CELL1 Profiles -->
 		<cell_1>	
-			<Cell_Adv_Profile>Automation_SR17.0v10_v2.0_GPL_NghRemTh=15</Cell_Adv_Profile>
-			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
-			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
-			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
-			<Mobility_Profile>Automation_SR17.0v10_v2.0_GPL_Moon_H4K</Mobility_Profile>
-			<Radio_Profile>Auto_FC2_BW20_41200_Moon_4K_Cell1</Radio_Profile>
-			<Tac>11000</Tac>		
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Moon_4K</Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v1.0_GPL_Moon_4K_Cell0</Radio_Profile>
+			<Tac>15100</Tac>		
 		</cell_1>
 		<!-- CELL2 Profiles -->
 		<cell_2>	
-			<Cell_Adv_Profile>Automation_SR17.0v10_v2.0_GPL_NghRemTh=15</Cell_Adv_Profile>
-			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
-			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
-			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
-			<Mobility_Profile>Automation_SR17.0v10_v2.0_GPL_Moon_H4K_Cell2</Mobility_Profile>
-			<Radio_Profile>Auto_FC2_BW20_41005_Moon_4K_Cell2</Radio_Profile>
-			<Tac>11000</Tac>		
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Moon_4K</Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v1.0_GPL_Moon_4K_Cell1</Radio_Profile>
+			<Tac>15100</Tac>		
 		</cell_2>
+
 
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
@@ -262,14 +278,14 @@
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
 			<!--- <strAddress>172.20.30.53</strAddress> *** while using iRelay*** -->
-			<strAddress>172.20.15.40</strAddress>
+			<strAddress>172.22.54.133</strAddress>
 		</snmp>	
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
 			<!--- <strAddress>172.20.30.53</strAddress> *** while using iRelay*** -->
-			<ipAddress>172.20.15.40</ipAddress>
+			<ipAddress>172.22.54.133</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.5</comName>
@@ -291,43 +307,61 @@
 		<netspanName>Moon_H1KD</netspanName>
 		<duplexMode>TDD</duplexMode>
 		<band>B41LH</band>
-		<inter20>41005</inter20>
-		<intra20>41200</intra20>
-		<inter15>41470</inter15>
-		<intra15>41320</intra15>
+		<inter20>41250</inter20>
+		<inter20_MC>40598</inter20_MC>
+		<intra20>41448</intra20>
+		<inter15>41050</inter15>
+		<intra15>41200</intra15>
 		<mcc>200</mcc>
 		<mnc>01</mnc>
-		<mvnomcc1>200</mvnomcc1>
-		<mvnomnc1>20</mvnomnc1>
+		<mvnomcc1>454</mvnomcc1>
+		<mvnomnc1>03</mvnomnc1>
 		<mvnomcc2>400</mvnomcc2>
 		<mvnomnc2>10</mvnomnc2>
 		<enb_type>Macro</enb_type>
-		<S1>Automation_SR15.50v6_3_GPL_Moon_S1</S1>
-		<X2>Automation_SR15.50v6_3_GPL_Moon_X2</X2>
-		<changePLMN>Automation_SR15.50v6_3_GPL_Moon_add_PLMN</changePLMN>
-		<PLMN>Automation_SR15.50v6_3_GPL_Moon</PLMN>
-		<MCProfile_CA_ON>Automation_SR15.50v6_3_GPL_Moon</MCProfile_CA_ON>
-		<MCProfile_CA_OFF>Automation_SR15.50v6_3_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
+		<tx_power1>40</tx_power1>
+		<tx_power2>20</tx_power2>
+		<S1>Automation_SR17.50v1.0_GPL_Moon_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Moon_X2</X2>
+		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Moon_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Moon_ANR_OFF</X2_ANR_OFF>
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+		<!-- eNB Profiles -->
+		<System_Profile>Automation_SR17.5v9 AirHarmony system defaults IDLE OFF</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Moon</Sync_Profile>
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Moon</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Moon</Net_Profile>		
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Moon</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Moon_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Moon</Son_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Moon</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Moon_CA_OFF</MCProfile_CA_OFF>
 
+		<!-- CELL1 Profiles -->
 		<cell_1>	
-			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
-			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
-			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
-			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
-			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_1KD</Mobility_Profile>
-			<Radio_Profile>Auto_FC2_BW20_41200_Moon_1KD_Cell1</Radio_Profile>
-			<Tac>11000</Tac>		
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Moon_H1KD</Mobility_Profile>
+			<HO_Mobility_Profile>Automation_Moon_H1KD_Cell1_No_Meas</HO_Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v1.0_GPL_Moon_1K_Cell0</Radio_Profile>
+			<Radio_Profile_Inter>Automation_SR17.50v1.0_GPL_Moon_1K_Cell0_inter</Radio_Profile_Inter>
+			<Tac>15100</Tac>		
 		</cell_1>
+		<!-- CELL2 Profiles -->
 		<cell_2>	
-			<Cell_Adv_Profile>Automation_SR15.50v6_3_GPL_Moon</Cell_Adv_Profile>
-			<Embms_Profile>Automation_SR15.50v6_3_GPL_Moon</Embms_Profile>
-			<Traffic_Mng>Automation_SR15.50v6_3_GPL_Moon</Traffic_Mng>
-			<Call_Trace>Automation_SR15.50v6_3_GPL_Moon</Call_Trace>
-			<Mobility_Profile>Automation_SR15.50v6_3_GPL_Moon_1KD</Mobility_Profile>
-			<Radio_Profile>Auto_FC2_BW20_41005_Moon_1KD_Cell2</Radio_Profile>
-			<Tac>11000</Tac>		
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Moon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Moon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Moon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Moon_H1KD</Mobility_Profile>
+			<HO_Mobility_Profile>Automation_Moon_H1KD_Cell2_No_Meas</HO_Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v1.0_GPL_Moon_1K_Cell1</Radio_Profile>
+			<Radio_Profile_Inter>Automation_SR17.50v1.0_GPL_Moon_1K_Cell1_inter</Radio_Profile_Inter>
+			<Tac>15100</Tac>		
 		</cell_2>
 
 		<snmp>
@@ -388,7 +422,7 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>30</maxAttenuation>
+			<maxAttenuation>26</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<port>4001</port>
@@ -397,7 +431,7 @@
 		</attenuators>
 		<attenuators index="1">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>30</maxAttenuation>
+			<maxAttenuation>26</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<port>4003</port>
@@ -407,10 +441,10 @@
 		<waitTime>1000</waitTime>
 		<stepTime>500</stepTime>
 		<attenuationStep>2</attenuationStep>
-		<maxAttenuation>30</maxAttenuation>
+		<maxAttenuation>26</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
-	
+
 	<ANR_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
@@ -436,8 +470,8 @@
 		<attenuationStep>2</attenuationStep>
 		<maxAttenuation>30</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
-	</ANR_attenuator>	
-	
+	</ANR_attenuator>
+
 	<GPS_ONOFF_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
@@ -487,38 +521,41 @@
 	<stcController>
 		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
 		<stc>
-		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
-		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
-		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
-		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
-		<runFiles>c:\Testspan\fileName</runFiles>
-		<autoReservePorts>false</autoReservePorts>
-		<ip>172.20.60.233</ip>
-		<port index="0">
-			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+			<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
+			<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
+			<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
+			<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
+			<runFiles>c:/Testspan/fileName</runFiles>
+			<autoReservePorts>false</autoReservePorts>
 			<ip>172.20.60.233</ip>
-			<slot>10</slot>
-			<port>7</port>
-			<portName>DL</portName>
-		</port>
-		<port index="1">
-			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
-			<ip>172.20.60.233</ip>
-			<slot>10</slot>
-			<port>8</port>
-			<portName>UL</portName>
-		</port>
+			<port index="0">
+				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+				<ip>172.20.60.233</ip>
+				<slot>10</slot>
+				<port>7</port>
+				<portName>DL</portName>
+			</port>
+			<port index="1">
+				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+				<ip>172.20.60.233</ip>
+				<slot>10</slot>
+				<port>8</port>
+				<portName>UL</portName>
+			</port>
 		</stc>
 	</stcController>
+
+
 	<Iperf_Session_UE1>
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.103</host>
+			<host>172.20.62.5</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
+			<localEndPointIp2>80.80.30.100</localEndPointIp2>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
 			<ethIfIP>80.80.30.99</ethIfIP>
@@ -528,7 +565,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.149</host>
+			<host>172.20.62.4</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -548,11 +585,12 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.103</host>
+			<host>172.20.62.5</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
+			<localEndPointIp2>80.80.30.100</localEndPointIp2>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
 			<ethIfIP>80.80.30.99</ethIfIP>
@@ -563,7 +601,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.57.43</host>
+			<host>172.20.62.6</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -583,11 +621,12 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.103</host>
+			<host>172.20.62.5</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
+			<localEndPointIp2>80.80.30.100</localEndPointIp2>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
 			<ethIfIP>80.80.30.99</ethIfIP>
@@ -598,7 +637,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.149</host>
+			<host>172.20.62.4</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -618,11 +657,12 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
 		<networkSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.56.103</host>
+			<host>172.20.62.5</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>network</location>
 			<localEndPointIp>80.80.30.99</localEndPointIp>
+			<localEndPointIp2>80.80.30.100</localEndPointIp2>
 			<vlan>1340</vlan>
 			<ethIf>eth1</ethIf>
 			<ethIfIP>80.80.30.99</ethIfIP>
@@ -633,7 +673,7 @@
 		</networkSideStation>
 		<userSideStation>
 			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>192.168.57.43</host>
+			<host>172.20.62.6</host>
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
@@ -649,10 +689,25 @@
 		<sessionName>Session4</sessionName>
 	</Iperf_Session_UE4>
 
+	<Pinger>  <!-- UEs(Clients)_Iperf -->
+		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+		<hostIpAddress>172.20.62.4</hostIpAddress>
+		<userName>root</userName>
+		<password>airspan</password>
+		<operationSystemName>Linux</operationSystemName>
+	</Pinger>
+
+	<Pinger2> <!-- Server_Iperf -->
+		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+		<hostIpAddress>172.20.62.5</hostIpAddress>
+		<userName>root</userName>
+		<password>airspan</password>
+		<operationSystemName>Linux</operationSystemName>
+	</Pinger2>
 
 	<pingServer1>
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<ipAddress>192.168.56.103</ipAddress>
+		<ipAddress>172.20.62.5</ipAddress>
 		<userName>root</userName>
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
@@ -660,7 +715,7 @@
 
 	<pingServer2>
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<ipAddress>192.168.56.149</ipAddress>
+		<ipAddress>172.20.62.4</ipAddress>
 		<userName>root</userName>
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
@@ -671,6 +726,21 @@
 		<ipAddress>tunasmart</ipAddress>
 		<port>8089</port>
 	</smartPhoneServer>
+
+	<!-- For New_Iperf test -->
+	<iperf_server_1> <!-- Server_Iperf -->
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfServer</class>
+		<userName>root</userName>
+		<password>airspan</password>
+		<ipAddress>172.20.62.5</ipAddress>
+	</iperf_server_1>
+
+	<iperf_server_2> <!-- UEs(Clients)_Iperf -->
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfServer</class>
+		<userName>root</userName>
+		<password>airspan</password>
+		<ipAddress>172.20.62.4</ipAddress>
+	</iperf_server_2>
 
 
 </sut>
