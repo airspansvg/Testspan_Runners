@@ -17,14 +17,6 @@
         <antcallback return="TestResultToReturn" target="t0"/>
         <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback return="IsTestWasSuccessful" target="t2"/>
-        <antcallback return="TestResultToReturn" target="t3"/>
-        <antcallback return="TestResultToReturn" target="t4"/>
-        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t5"/>
-        <antcallback target="t6"/>
-        <antcallback return="TestResultToReturn" target="t7"/>
-        <antcallback return="TestResultToReturn" target="t8"/>
-        <antcallback target="t9"/>
-        <antcallback return="TestResultToReturn, TpDlMbps, TpUlMbps, TpNumberOfUes, TpL4Protocol, TpFrameSize, TpCalcLabel, TpTrafficDirection, TpTestingTool" target="t10"/>
         <jsystemfor delimiter=";" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.13652814-4272-4481-acb7-778c2167fa79" list="a;b;c;d" param="myVar" parentName="${jsystem.parent.name}.${ant.project.name}">
             <!--#Jsystem#-->
             <sequential>
@@ -33,35 +25,35 @@
                 <jsystemsetantproperties>
                     <!--Task for updating the ant parameters file - used for reference parameters-->
                 </jsystemsetantproperties>
-                <antcallback return="TestResultToReturn" target="t11"/>
+                <antcallback return="TestResultToReturn" target="t3"/>
                 <echo message="Check condition &quot;${TestResultToReturn}&quot; EQUALS &quot;PASS&quot;"/>
                 <if>
                     <!--#Jsystem#-->
                     <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.b1e79b6e-8c58-4e1d-9f4f-1f38e191a362" language="javascript" params="str &lt;SEP&gt; ${TestResultToReturn} &lt;SEP&gt; EQUALS &lt;SEP&gt; PASS &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                     <then>
-                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t12"/>
-                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t13"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t4"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t5"/>
                         <echo message="Check condition &quot;${scenario:enable_logs}&quot; EQUALS &quot;true&quot;"/>
                         <if>
                             <!--#Jsystem#-->
                             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.63f97e39-0459-4d5d-9c28-98ca98704472" language="javascript" params="str &lt;SEP&gt; ${scenario:enable_logs} &lt;SEP&gt; EQUALS &lt;SEP&gt; true &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
-                                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t14"/>
+                                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t6"/>
                             </then>
                             <else>
                                 <!--#Jsystem#-->
                             </else>
                         </if>
-                        <antcallback target="t15"/>
-                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t16"/>
-                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t17"/>
+                        <antcallback target="t7"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t8"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t9"/>
                     </then>
                     <else>
                         <!--#Jsystem#-->
                     </else>
                 </if>
-                <antcallback return="TestResultToReturn" target="t18"/>
-                <antcallback return="TestResultToReturn" target="t19"/>
+                <antcallback return="TestResultToReturn" target="t10"/>
+                <antcallback return="TestResultToReturn" target="t11"/>
             </sequential>
         </jsystemfor>
     </target>
@@ -91,77 +83,13 @@
     </target>
     <target name="t3">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="5cf82fed-4f3b-4d7b-83ce-fb7aea98a36f"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.CreateConfigurationTest.createConfiguration"/>
-        </jsystem>
-    </target>
-    <target name="t4">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="c9ccb511-d632-42bf-8591-145f1c4a62f4"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.StartTrafficTest.startTraffic"/>
-        </jsystem>
-    </target>
-    <target name="t5">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9a9f2ac3-f0ce-4eeb-9ecf-5387485a67fe"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.parallel.StartCommandsSessionTest.startCommandSession"/>
-        </jsystem>
-    </target>
-    <target name="t6">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="254ba106-efd9-46c0-825e-b8e44a12057d"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t7">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="0bcbf37b-7647-4cd6-a69b-0695d8f43f58"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.SendAndValidateArp.checkArp"/>
-        </jsystem>
-    </target>
-    <target name="t8">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7c62ac39-9d6d-40d1-9dff-56d0cbfa41d3"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.SubscribeToCountersTest.subscribeToCounters"/>
-        </jsystem>
-    </target>
-    <target name="t9">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="917a6bf6-7a7e-4e61-b800-30642ffbda33"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
-    <target name="t10">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="05676c55-5949-4cdf-9801-c6035c81905c"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.ValidateTrafficTest.validateTraffic"/>
-        </jsystem>
-    </target>
-    <target name="t11">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3d1f8151-cf86-46bb-ada7-631e00beacdd"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.windows.scripts.RunCmdTest.runCmd"/>
         </jsystem>
     </target>
-    <target name="t12">
+    <target name="t4">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="102802b7-e9bd-4749-8dbb-14cd5d89c242"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -169,7 +97,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.configuration.ConvertToPnpTest.convertToPnpTest"/>
         </jsystem>
     </target>
-    <target name="t13">
+    <target name="t5">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="56619166-7b75-4568-9da9-96774e586b8a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -177,7 +105,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.WaitForEnodebStateTest.waitForEnodebState"/>
         </jsystem>
     </target>
-    <target name="t14">
+    <target name="t6">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b69fbf96-d59d-4bf4-8980-4bed609d18e5"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -185,7 +113,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
         </jsystem>
     </target>
-    <target name="t15">
+    <target name="t7">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="eff967bf-3341-4da6-a63a-cc03571c688d"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -193,7 +121,7 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t16">
+    <target name="t8">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9dbb95fd-cfc6-407f-a782-4eb85defb028"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -201,7 +129,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.UpgradeSoftwareUsingNetspanTest.upgradeSoftwareUsingNetspan"/>
         </jsystem>
     </target>
-    <target name="t17">
+    <target name="t9">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e14226b8-e040-4bb9-8c55-a86c868f1349"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -209,7 +137,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.WaitForEnodebStateTest.waitForEnodebState"/>
         </jsystem>
     </target>
-    <target name="t18">
+    <target name="t10">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9626e83a-bf54-47ad-9a84-b00973acc990"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -217,7 +145,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t19">
+    <target name="t11">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="4efb1f0d-bc24-4c03-a2e4-db484bb298f8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
