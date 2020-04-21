@@ -283,4 +283,65 @@
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
 	
+	<powerControl1>
+		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V1</snmpVersion>
+			<strAddress>172.20.60.168</strAddress>
+		</snmp>
+
+
+		<!--<ipAddress>172.20.60.168</ipAddress>
+		 1= SNMP version2c
+		<snmpVersion>V1</snmpVersion>
+		<readCommunity>public</readCommunity>
+		<writeCommunity>private</writeCommunity> -->	
+		<ports index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A1</port>
+			<description>enb_1</description>
+		</ports>
+		<ports index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A2</port>
+			<description>enb_2</description>
+		</ports>
+		<ports index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A3</port>
+			<description>dynamic_UEs</description>
+		</ports>
+	</powerControl1>
+
+
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
+			<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
+			<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
+			<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
+			<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\TP_Automation_File2.tcc</defaultConfigTccFile>
+			<runFiles>c:/Testspan/fileName</runFiles>
+			<autoReservePorts>false</autoReservePorts>
+			<ip>172.20.60.233</ip>
+			<port index="0">
+				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+				<ip>172.20.60.233</ip>
+				<slot>12</slot>
+				<port>3</port>
+				<portName>DL</portName>
+			</port>
+			<port index="1">
+				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+				<ip>172.20.60.233</ip>
+				<slot>12</slot>
+				<port>4</port>
+				<portName>UL</portName>
+			</port>
+		</stc>
+	</stcController>
+	
 </sut>	
