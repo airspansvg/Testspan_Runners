@@ -230,16 +230,27 @@
                     </then>
                     <else>
                         <!--#Jsystem#-->
-                        <antcallback return="TestResultToReturn" target="t80"/>
+                        <echo message="Check condition &quot;secondPowerController&quot; EQUALS &quot;true&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.8f7ad314-eb53-4a19-9f8d-82c520bda856" language="javascript" params="str &lt;SEP&gt; secondPowerController &lt;SEP&gt; EQUALS &lt;SEP&gt; true &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <antcallback return="TestResultToReturn" target="t80"/>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                                <antcallback return="TestResultToReturn" target="t81"/>
+                            </else>
+                        </if>
                     </else>
                 </if>
-                <antcallback return="TestResultToReturn" target="t81"/>
-                <antcallback target="t82"/>
+                <antcallback return="TestResultToReturn" target="t82"/>
                 <antcallback target="t83"/>
+                <antcallback target="t84"/>
             </else>
         </if>
-        <antcallback return="TestResultToReturn" target="t84"/>
         <antcallback return="TestResultToReturn" target="t85"/>
+        <antcallback return="TestResultToReturn" target="t86"/>
     </target>
     <target name="t0">
         <jsystem-ant antfile="${scenarios.base}/scenarios/ACL_EPC_MME_deny_in_remove.xml">
@@ -878,7 +889,7 @@
     </target>
     <target name="t80">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="ca780d1f-add4-46a2-8025-1a491777f365"/>
+            <sysproperty key="jsystem.uuid" value="672fcdb1-fd02-406e-b62c-11e1f534e5d1"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.power_controller.PowerOffPortTest.powerOffPort"/>
@@ -886,13 +897,21 @@
     </target>
     <target name="t81">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="32f35218-f3cd-4de3-8663-f2863f39151b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.power_controller.PowerOffPortTest.powerOffPort"/>
+        </jsystem>
+    </target>
+    <target name="t82">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="c571ac9d-2cb3-4eb8-9db4-d6471f087d0e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.power_controller.PowerOnPortTest.powerOnPort"/>
         </jsystem>
     </target>
-    <target name="t82">
+    <target name="t83">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="bd19595d-1934-48ff-8e90-3af28f983f57"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -900,14 +919,14 @@
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t83">
+    <target name="t84">
         <jsystem-ant antfile="${scenarios.base}/scenarios/UE_Class_Detector.xml">
             <property name="jsystem.uuid" value="c92dc4f7-4177-4243-9ab5-033fb66fa629"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t84">
+    <target name="t85">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="81a45617-8e98-4742-91d9-87b9d215d8cf"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -915,7 +934,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t85">
+    <target name="t86">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="804e9044-d233-40fb-98d6-be5d6f868424"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
