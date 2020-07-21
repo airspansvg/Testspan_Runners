@@ -25,6 +25,7 @@
 		<ZMTL_SC20>1500</ZMTL_SC20>
 		<ZMTL_SC5>1575</ZMTL_SC5>
 		<WsVersion>VER_17_0</WsVersion>
+		<IP_MME>fc74:172:21:169::211</IP_MME>
 	</Custom>
 
 	<EPC>
@@ -216,8 +217,37 @@
 		</snmp>	
 	</ue8>
 
+	<ue9>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+		<deviceID>c73ad4d2</deviceID>
+		<imsi>460020002946037</imsi>
+		<ueCategory>4</ueCategory>
+		<!-- default ueCategory is 4-->
+		<connectedToEnb>enb_1,enb_2</connectedToEnb>
+	</ue9>
 
-
+    <amarisoftMME>
+        <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+        <userName>root</userName>
+        <password>airspan</password>
+        <ipAddress>fc74:172:21:169::211</ipAddress>
+        <port>9002</port>
+    </amarisoftMME>
+	
+	<AppiumServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer </class>
+		<ipAddress>tokyosmart</ipAddress>
+		<ip>192.168.59.213</ip>
+		<port>4723</port>
+	</AppiumServer>
+	
+	<amarisoftMME>
+		<class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+		<userName>root</userName>
+		<password>airspan</password>
+		<ipAddress>192.168.62.20</ipAddress>
+		<port>9002</port>
+	</amarisoftMME>
 	
 	<enb_1>       <!-- AH4K Rakuten DU Mode IPv6 TAC 15110 MME 165 VCU 165  -->
 		<!--  <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class> -->
@@ -315,6 +345,33 @@
 		<maxAttenuation>30</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
+	
+	<HO_Smart_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4015</port>
+				<comName>172.20.62.26</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4016</port>
+				<comName>172.20.62.26</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>500</stepTime>
+		<attenuationStep>2</attenuationStep>
+		<maxAttenuation>30</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</HO_Smart_attenuator>
 
 	<GPS_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
