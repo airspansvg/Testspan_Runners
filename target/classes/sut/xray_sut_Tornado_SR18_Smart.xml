@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?><sut validators="">
+
+	<Custom>
+		<class>Custom</class>
+		<NMSipAddress>172.22.2.204</NMSipAddress>
+		<IP_ver>IPv4</IP_ver>
+		<setup_vlan>1100</setup_vlan>
+		<setup_name>tornado</setup_name>
+		<IP_MME>172.21.165.1</IP_MME>
+		<sec_GW_ipv4>172.22.5.235</sec_GW_ipv4>
+		<EPC_num>EPC_15</EPC_num>
+		<ZMTL_MC20>41200;41005;</ZMTL_MC20>
+		<RackSW>172.20.61.170</RackSW>
+		<Mng_Profile_15min>Automation_SR17.50v1.0_GPL_Tornado_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->		
+		<Traffic_Mng_Idle_ON>Automation_SR17.5v9 AirHarmony system defaults_No_IDLE IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->	
+		<Traffic_Mng_Idle_OFF>Automation_SR17.5v9 AirHarmony system defaults_No_IDLE IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
+		<System_Profile_Idle_OFF>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
+		<System_Profile_Idle_ON>Automation_SR17.5v14 AirHarmony system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->
+		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/13</enb_2_RackSW>
+		<ACL_X2>true</ACL_X2>
+		<IPSec_ON_OFF>OFF</IPSec_ON_OFF>
+		<AutoPCI_3rdPartyEnbIP>100.10.20.130</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
+		<AutoPCI_Main_Window>Automation_Maintenance_Windows</AutoPCI_Main_Window>
+	</Custom>
+	
+	<EPC>
+		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
+		<ipAddress>192.168.56.19</ipAddress> 
+		<username>autosvg</username>
+		<password>autosvg1</password>
+	</EPC>
+	
+	
+	<ue_lists>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
+		<ueList index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.ptp</description>
+			<ues>ue1</ues>
+		</ueList>
+		<ueList index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_1.pt2p</description>
+			<ues>ue1,ue2</ues>
+		</ueList>
+		<ueList index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.ptp</description>
+			<ues>ue3</ues>
+		</ueList>
+		<ueList index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_2.pt2p</description>
+			<ues>ue3,ue4</ues>
+		</ueList>
+		<ueList index="4">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>Anr</description>
+			<ues>ue5,ue6,ue7,ue8</ues>
+		</ueList>
+		<ueList index="5">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>HO</description>
+			<ues>ue1-ue8</ues>
+		</ueList>
+	</ue_lists>
+	
+
+	<NetspanWS>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>asil-svg-nms4</hostname>
+		<WS>17.5</WS>
+	</NetspanWS>
+
+
+	<ue1>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<wanIpAddress>10.10.15.11</wanIpAddress>
+		<lanIpAddress>100.115.1.254</lanIpAddress>
+		<imsi>200010001001301</imsi>
+		<powerControllerMapping>powerControl/A2</powerControllerMapping>
+		<connectedToEnb>enb_1</connectedToEnb>
+		<ueCategory>4</ueCategory>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>100.115.1.254</strAddress>
+		</snmp>
+	</ue1>
+
+	<ue2>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
+		<wanIpAddress>10.10.15.12</wanIpAddress>
+		<lanIpAddress>100.115.2.254</lanIpAddress>
+		<imsi>200010001001311</imsi>
+		<powerControllerMapping>powerControl/A2</powerControllerMapping>
+		<connectedToEnb>enb_1</connectedToEnb>
+		<ueCategory>4</ueCategory>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>100.115.2.254</strAddress>
+		</snmp>
+	</ue2>
+
+	<ue3>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<wanIpAddress>10.10.15.13</wanIpAddress>
+		<lanIpAddress>100.115.3.254</lanIpAddress>
+		<imsi>200100001108002</imsi>
+		<powerControllerMapping>powerControl/A3</powerControllerMapping>
+		<connectedToEnb>enb_2</connectedToEnb>
+		<ueCategory>4</ueCategory>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>100.115.3.254</strAddress>
+		</snmp>
+	</ue3>
+
+	<ue4>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<wanIpAddress>10.10.15.14</wanIpAddress>
+		<lanIpAddress>100.115.4.254</lanIpAddress>
+		<imsi>200010001003228</imsi>
+		<powerControllerMapping>powerControl/A3</powerControllerMapping>
+		<connectedToEnb>enb_2</connectedToEnb>
+		<ueCategory>4</ueCategory>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>100.115.4.254</strAddress>
+		</snmp>
+	</ue4>
+    <amarisoftMME>
+         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+         <userName>root</userName>
+         <password>airspan</password>
+         <ipAddress>192.168.62.20</ipAddress>
+         <port>9004</port>
+    </amarisoftMME>
+	<AppiumServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer</class>
+		<ipAddress>tornados</ipAddress>
+		<ip>192.168.59.190</ip>
+		<port>4723</port>
+	</AppiumServer>
+
+	<OnePlusTornado>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+		<deviceID>876e1e61</deviceID>
+		<imsi>460020002946076</imsi>
+		<ueCategory>4</ueCategory>
+		<!-- default ueCategory is 4-->
+		<connectedToEnb>enb_1</connectedToEnb>
+	</OnePlusTornado>
+
+	
+
+	<enb_1>
+	    <enb_type>Macro</enb_type>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4400</class>
+		<netspanName>Tornado_AH4400</netspanName>
+		<band>B41LH</band>
+		<duplexMode>TDD</duplexMode>
+		<eNBID>4444</eNBID>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>500</TAC_2>
+		<inter20>41002</inter20>
+		<inter20_MC>41000</inter20_MC>
+		<intra20>41200</intra20>
+		<inter15>41050</inter15>
+		<intra15>41200</intra15>
+		<S1>Automation_SR17.50v1.0_GPL_Tornado_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Tornado_X2</X2>
+		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Tornado_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Tornado_ANR_OFF</X2_ANR_OFF>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Tornado</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Tornado_CA_OFF</MCProfile_CA_OFF>
+		<Cell_Adv_Profile_ANR>Automation_SR17.50v1.0_GPL_NghRemTh=15</Cell_Adv_Profile_ANR>
+		
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+		                     <!-- eNB Profiles -->
+		<Mng_Profile_15min>Automation_SR17.50v1.0_GPL_Tornado_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->		
+		<Traffic_Mng_Idle_ON>Automation_SR17.5v9 AirHarmony system defaults_No_IDLE IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->	
+		<Traffic_Mng_Idle_OFF>Automation_SR17.5v9 AirHarmony system defaults_No_IDLE IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
+		<System_Profile_Idle_OFF>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
+		<System_Profile_Idle_ON>Automation_SR17.5v14 AirHarmony system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->
+		<System_Profile>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Tornado</Sync_Profile>
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Tornado</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Tornado_Smart</Net_Profile>		
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Tornado</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Tornado_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Tornado</Son_Profile>
+		<MC_Profile>Automation_SR17.50v1.0_GPL_Tornado</MC_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Tornado</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Tornado_OFF</MCProfile_CA_OFF>
+		
+		                     <!-- CELL1 Profiles -->
+	 <cell_1>	
+		<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</Cell_Adv_Profile>
+		<Embms_Profile>Automation_SR17.50v1.0_GPL_Tornado</Embms_Profile>
+		<Traffic_Mng>Automation_SR17.50v1.0_GPL_Tornado</Traffic_Mng>
+		<Call_Trace>Automation_SR17.50v1.0_GPL_Tornado</Call_Trace>
+		<Mobility_Profile>Automation_SR17.50v1.0_GPL_Tornado_4.4K</Mobility_Profile>
+		<Radio_Profile>Automation_SR17.50v1.0_GPL_Tornado_4.4K_Cell0</Radio_Profile>
+		<Tac>15100</Tac>		
+	 </cell_1>
+	                        <!-- CELL2 Profiles -->
+	 <cell_2>	
+		<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</Cell_Adv_Profile>
+		<Embms_Profile>Automation_SR17.50v1.0_GPL_Tornado</Embms_Profile>
+		<Traffic_Mng>Automation_SR17.50v1.0_GPL_Tornado</Traffic_Mng>
+		<Call_Trace>Automation_SR17.50v1.0_GPL_Tornado</Call_Trace>
+		<Mobility_Profile>Automation_SR17.50v1.0_GPL_Tornado_4.4K</Mobility_Profile>
+		<Radio_Profile>Automation_SR17.50v1.0_GPL_Tornado_4.4K_Cell1</Radio_Profile>
+		<Tac>15100</Tac>		
+	 </cell_2>
+
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.15.143</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<band>41</band>
+			<ipAddress>172.20.15.143</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.44</comName>
+				<port>4003</port>
+			</serialCom>
+		</xlp>
+		<dans index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.44</comName>
+				<port>4004</port>
+			</serialCom>
+		</dans> 
+	</enb_1>
+
+	<enb_2>
+	    <enb_type>Macro</enb_type>
+		<attnSide>LEFT</attnSide>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000d</class>
+		<netspanName>Tornado_Harmony1KD</netspanName>
+		<band>B41LH</band>
+		<duplexMode>TDD</duplexMode>
+		<inter20>40600</inter20>
+		<inter20_MC>40598</inter20_MC>
+		<intra20>40798</intra20>
+		<inter15>41050</inter15>
+		<intra15>41200</intra15>
+		<mcc>200</mcc>
+		<mnc>01</mnc>
+		<mvnomcc1>454</mvnomcc1>
+		<mvnomnc1>03</mvnomnc1>
+		<mvnomcc2>400</mvnomcc2>
+		<mvnomnc2>10</mvnomnc2>
+		<enb_type>Macro</enb_type>
+		<tx_power1>40</tx_power1>
+		<tx_power2>20</tx_power2>
+		<S1>Automation_SR17.50v1.0_GPL_Tornado_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Tornado_X2</X2>
+		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Tornado_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Tornado_ANR_OFF</X2_ANR_OFF>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Tornado</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Tornado_CA_OFF</MCProfile_CA_OFF>
+		
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+		                     <!-- eNB Profiles -->
+		<System_Profile>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Tornado</Sync_Profile>
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Tornado</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Tornado_Smart</Net_Profile>		
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Tornado</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Tornado_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Tornado</Son_Profile>
+		<MC_Profile>Automation_SR17.50v1.0_GPL_Tornado</MC_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Tornado</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Tornado_OFF</MCProfile_CA_OFF>
+		
+		                     <!-- CELL1 Profiles -->
+	 <cell_1>	
+		<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</Cell_Adv_Profile>
+		<Embms_Profile>Automation_SR17.50v1.0_GPL_Tornado</Embms_Profile>
+		<Traffic_Mng>Automation_SR17.50v1.0_GPL_Tornado</Traffic_Mng>
+		<Call_Trace>Automation_SR17.50v1.0_GPL_Tornado</Call_Trace>
+		<Mobility_Profile>Automation_SR17.50v1.0_GPL_Tornado_H1KD</Mobility_Profile>
+		<HO_Mobility_Profile>Automation_Tornado_H1KD_Cell1_No_Meas</HO_Mobility_Profile>
+		<Radio_Profile>Automation_SR17.50v1.0_GPL_Tornado_1K_Cell0</Radio_Profile>
+		<Tac>15100</Tac>		
+	 </cell_1>
+	                        <!-- CELL2 Profiles -->
+	 <cell_2>	
+		<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Tornado</Cell_Adv_Profile>
+		<Embms_Profile>Automation_SR17.50v1.0_GPL_Tornado</Embms_Profile>
+		<Traffic_Mng>Automation_SR17.50v1.0_GPL_Tornado</Traffic_Mng>
+		<Call_Trace>Automation_SR17.50v1.0_GPL_Tornado</Call_Trace>
+		<Mobility_Profile>Automation_SR17.50v1.0_GPL_Tornado_H1KD</Mobility_Profile>
+		<HO_Mobility_Profile>Automation_Tornado_H1KD_Cell2_No_Meas</HO_Mobility_Profile>
+		<Radio_Profile>Automation_SR17.50v1.0_GPL_Tornado_1K_Cell1</Radio_Profile>
+		<Tac>15100</Tac>		
+	 </cell_2>
+
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.15.243</strAddress>
+		</snmp>	
+
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<ipAddress>172.20.15.243</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.44</comName>
+				<port>4001</port>
+			</serialCom>
+		</xlp>
+		<dans index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.44</comName>
+				<port>4002</port>
+			</serialCom>
+		</dans> 
+	</enb_2>
+
+
+	<HO_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4011</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4012</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>500</stepTime>
+		<attenuationStep>2</attenuationStep>
+		<maxAttenuation>60</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</HO_attenuator>
+	
+	<ANR_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4011</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4012</port>
+				<comName>172.20.60.44</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>1000</stepTime>
+		<attenuationStep>2</attenuationStep>
+		<maxAttenuation>60</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</ANR_attenuator>
+
+	
+	<GPS_attenuator>
+        <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+        <attenuators index="0">
+            <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+            <maxAttenuation>60</maxAttenuation>
+            <serialCom>
+                <class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+                <port>4006</port>
+                <comName>172.20.60.244</comName>
+            </serialCom>
+        </attenuators>
+        <stepTime>400</stepTime>
+        <attenuationStep>60</attenuationStep>
+        <maxAttenuation>60</maxAttenuation>
+        <minAttenuation>0</minAttenuation>
+    </GPS_attenuator>
+
+
+	<powerControl>
+		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
+		<snmp>
+        <class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
+        <readCommunity>public</readCommunity>
+        <writeCommunity>private</writeCommunity>
+        <snmpVersion>V1</snmpVersion>
+        <strAddress>172.20.61.11</strAddress>
+        </snmp>
+		<ports index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A2</port>
+			<description>enb_1</description>
+		</ports>
+		<ports index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A3</port>
+			<description>enb_2</description>
+		</ports>
+		<ports index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A5</port>
+			<description>dynamic_UEs</description>
+		</ports>
+		<ports index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A6</port>
+			<description>dynamic_UEs</description>
+		</ports>
+	</powerControl>
+
+
+	<stcController>
+		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
+		<stc>
+		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
+		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
+		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application\pkgIndex.tcl</initScriptPath>
+		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\TP_Automation_File2.tcc</defaultConfigTccFile>
+		<autoReservePorts>false</autoReservePorts>
+		<ip>172.20.60.233</ip>
+
+		<port index="0">
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+			<ip>172.20.60.233</ip>
+			<slot>11</slot>
+			<port>9</port>
+			<portName>DL</portName>
+		</port>
+		<port index="1">
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+			<ip>172.20.60.233</ip>
+			<slot>11</slot>
+			<port>10</port>
+			<portName>UL</portName>
+		</port>
+		</stc>
+	</stcController>
+
+	<pingServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+		<hostIpAddres>172.20.15.143</hostIpAddres>
+		<userName>admin</userName>
+		<password>HeWGEUx66m=_4!ND</password>
+		<operationSystemName>Linux</operationSystemName>
+	</pingServer>
+
+	<Pinger>
+	<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+	<hostIpAddres>192.168.62.6</hostIpAddres>
+	<userName>root</userName>
+	<password>airspan</password>
+	<operationSystemName>Linux</operationSystemName>
+    </Pinger>
+	
+	<UpgradeServer_velocity>
+		<class>EnodeB.EnodeBUpgradeServer</class>
+		<upgradeServerIp>172.20.60.205</upgradeServerIp>
+		<upgradeUser>velocity</upgradeUser>
+		<upgradePassword>velocity</upgradePassword>
+		<protocolType>ftp</protocolType>
+	</UpgradeServer_velocity>
+
+	<Iperf_Session_UE1>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.78</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.11</localEndPointIp>
+			<vlan>1101</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.1.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.1.254</defaultGateway>
+		</userSideStation>
+		<port>3003</port>
+		<sessionName>Session1</sessionName>
+	</Iperf_Session_UE1>
+
+	<Iperf_Session_UE2>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.79</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.12</localEndPointIp>
+			<vlan>1102</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.2.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.2.254</defaultGateway>
+		</userSideStation>
+		<port>4004</port>
+		<sessionName>Session2</sessionName>
+	</Iperf_Session_UE2>
+
+	<Iperf_Session_UE3>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.78</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.13</localEndPointIp>
+			<vlan>1103</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.3.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.3.254</defaultGateway>
+		</userSideStation>
+		<port>5003</port>
+		<sessionName>Session3</sessionName>
+	</Iperf_Session_UE3>
+
+	<Iperf_Session_UE4>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.79</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.14</localEndPointIp>
+			<vlan>1104</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.4.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.4.254</defaultGateway>
+		</userSideStation>
+		<port>6004</port>
+		<sessionName>Session4</sessionName>
+	</Iperf_Session_UE4>
+
+	<IPERF_SERVER>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_SERVER</sessionPath>
+	</IPERF_SERVER>
+
+	<IPERF_USER1>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_USER1</sessionPath>
+	</IPERF_USER1>
+
+	<IPERF_USER2>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_USER2</sessionPath>
+	</IPERF_USER2>
+
+	<IPG_SERVER>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPG\IPG_Tornado_4K</sessionPath>
+	</IPG_SERVER>
+
+</sut>
