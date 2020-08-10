@@ -53,12 +53,12 @@
                         </jsystemsetantproperties>
                         <antcallback return="TestResultToReturn" target="t14"/>
                         <antcallback return="TestResultToReturn, StartTimeToReturn" target="t15"/>
-                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t16"/>
-                        <antcallback target="t17"/>
+                        <antcallback target="t16"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t17"/>
                         <echo message="Check condition &quot;${scenario:Enb_HW_Type}&quot; EQUALS &quot;AS1300&quot;"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.bc4273fd-e719-43b2-93ff-465f812cfc95" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_HW_Type} &lt;SEP&gt; EQUALS &lt;SEP&gt; AS1300 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.bc4273fd-e719-43b2-93ff-465f812cfc95" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_HW_Type} &lt;SEP&gt; EQUALS &lt;SEP&gt; AS1300 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <echo message="Check condition &quot;${scenario:eNodeBsUnderTest}&quot; EQUALS &quot;enb_1&quot;"/>
                                 <if>
@@ -96,7 +96,7 @@
                         <echo message="Check condition &quot;${scenario:Enb_HW_Type}&quot; EQUALS &quot;AS1300&quot;"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4e86710d-cc0f-4258-add0-1aa940884169" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_HW_Type} &lt;SEP&gt; EQUALS &lt;SEP&gt; AS1300 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4e86710d-cc0f-4258-add0-1aa940884169" language="javascript" params="str &lt;SEP&gt; ${scenario:Enb_HW_Type} &lt;SEP&gt; EQUALS &lt;SEP&gt; AS1300 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <echo message="Check condition &quot;${scenario:eNodeBsUnderTest}&quot; EQUALS &quot;enb_1&quot;"/>
                                 <if>
@@ -299,18 +299,18 @@
     </target>
     <target name="t16">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="79ceb35d-3dfa-4345-973d-8f80838b947d"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.ValidateEnodebClockSourceStatusTest.validateEnodebClockSourceStatus"/>
-        </jsystem>
-    </target>
-    <target name="t17">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="428366ca-4776-4194-ad66-65628fbbfaea"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t17">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="79ceb35d-3dfa-4345-973d-8f80838b947d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.ValidateEnodebClockSourceStatusTest.validateEnodebClockSourceStatus"/>
         </jsystem>
     </target>
     <target name="t18">
