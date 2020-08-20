@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
 	<Custom>
-		<sshUser>op</sshUser>
-		<sshPassword_SR17>PZ8Hfy3=Ve7fQkt*</sshPassword_SR17>
+		<sut_file_new>xray_sut_Tornado_ipsec_SR17_50</sut_file_new>
 		<class>Custom</class>
-		<NMSipAddress>172.22.2.204</NMSipAddress>
+		<NMSipAddress>172.22.2.211</NMSipAddress>
 		<IP_ver>IPv4</IP_ver>
-		<IPSec_ON_OFF>OFF</IPSec_ON_OFF>
-		<setup_name>moon</setup_name>
-		<IP_MME>172.21.151.1</IP_MME>
-		<ZMTL_MC20>41200;41002;</ZMTL_MC20>
-		<EPC_num>EPC_1</EPC_num>
-		<RackSW>172.20.60.26</RackSW>
-		<enb_1_RackSW>GigabitEthernet1/0/26</enb_1_RackSW>
-		<enb_2_RackSW>GigabitEthernet1/0/25</enb_2_RackSW>
-		<PhyMac_vlan>265</PhyMac_vlan>
-		<setup_vlan>1230</setup_vlan>
-		<Role>Relay_eNodeB</Role>
-		<ACL_X2>true</ACL_X2>
-		<System_Profile_Previous>Automation_SR17.0v10_GPL_Moon</System_Profile_Previous>
-		<Mng_Profile_15min>Automation_SR17.50v1.0_GPL_Moon_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->	
-		<Traffic_Mng_Idle_ON>Automation_SR17.50v1.0_GPL_Moon_IDLE_ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->	
-		<Traffic_Mng_Idle_OFF>Automation_SR17.50v1.0_GPL_MoonIDLE_OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
-		<System_Profile_Idle_OFF>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
-		<System_Profile_Idle_ON>Automation_SR17.5v14 AirHarmony system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->	
-		<Slave_Name>Asil-sv-moon</Slave_Name>
+		<setup_vlan>1100</setup_vlan>
+		<setup_name>tornado</setup_name>
+		<IP_MME>172.21.165.1</IP_MME>
+		<sec_GW_ipv4>172.22.5.235</sec_GW_ipv4>
+		<EPC_num>EPC_15</EPC_num>
+		<ZMTL_MC20>41200;41005;</ZMTL_MC20>
+		<RackSW>172.20.61.170</RackSW>	
+		<enb_1_RackSW>GigabitEthernet1/0/25</enb_1_RackSW>
+		<enb_2_RackSW>GigabitEthernet1/0/13</enb_2_RackSW>
+		<ACL_X2>false</ACL_X2>
+		<IPSec_ON_OFF>ON</IPSec_ON_OFF>
+		<AutoPCI_3rdPartyEnbIP>100.10.20.130</AutoPCI_3rdPartyEnbIP>
+		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
+		<AutoPCI_Main_Window>Automation_Maintenance_Windows</AutoPCI_Main_Window>
+		<Mng_Profile_15min>SR17.00V6.0_AirHarmony_Sprint_GPL_Moon</Mng_Profile_15min>
+		<System_Profile_Previous>Automation_SR17.5v13 AirHarmony system defaults IDLE OFF</System_Profile_Previous>
+		<Slave_Name>Asil-sv-tornado</Slave_Name>
 	</Custom>
-
-
-
-	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
-		<hostname>asil-svg-nms4</hostname>
-		<WS>17.5</WS>
-		<netspanProtocol>http</netspanProtocol>
-	</NetspanWS> 
-
+	
+	<EPC>
+		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
+		<ipAddress>192.168.56.19</ipAddress> 
+		<username>autosvg</username>
+		<password>autosvg1</password>
+	</EPC>
+	
+	
 	<ue_lists>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
 		<ueList index="0">
@@ -69,17 +65,22 @@
 			<ues>ue1-ue8</ues>
 		</ueList>
 	</ue_lists>
+	
 
+	<NetspanWS>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>asil-svg-nms11</hostname>
+		<netspanProtocol>https</netspanProtocol>
+		<WS>17.5</WS>
+	</NetspanWS>
 
 
 
 	<ue1>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.1</wanIpAddress>
-		<lanIpAddress>100.30.1.254</lanIpAddress>
-		<iperfDlIpAddress>80.80.30.99</iperfDlIpAddress>
-		<iperfUlIpAddress>100.30.1.100</iperfUlIpAddress>
-		<imsi>200010001001252</imsi>
+		<wanIpAddress>10.10.15.11</wanIpAddress>
+		<lanIpAddress>100.115.1.254</lanIpAddress>
+		<imsi>200010001001301</imsi>
 		<powerControllerMapping>powerControl/A2</powerControllerMapping>
 		<connectedToEnb>enb_1</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -88,17 +89,15 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.1.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.1.254</strAddress>
+		</snmp>
 	</ue1>
 
 	<ue2>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.2</wanIpAddress>
-		<lanIpAddress>100.30.2.254</lanIpAddress>
-		<iperfDlIpAddress>80.80.30.100</iperfDlIpAddress>
-		<iperfUlIpAddress>100.30.2.100</iperfUlIpAddress>
-		<imsi>200010001001250</imsi>
+		<wanIpAddress>10.10.15.12</wanIpAddress>
+		<lanIpAddress>100.115.2.254</lanIpAddress>
+		<imsi>200010001001311</imsi>
 		<powerControllerMapping>powerControl/A2</powerControllerMapping>
 		<connectedToEnb>enb_1</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -107,18 +106,15 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.2.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.2.254</strAddress>
+		</snmp>
 	</ue2>
-
 
 	<ue3>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.3</wanIpAddress>
-		<lanIpAddress>100.30.3.254</lanIpAddress>
-		<iperfDlIpAddress>80.80.30.99</iperfDlIpAddress>
-		<iperfUlIpAddress>100.30.3.100</iperfUlIpAddress>
-		<imsi>200010001005948</imsi>
+		<wanIpAddress>10.10.15.13</wanIpAddress>
+		<lanIpAddress>100.115.3.254</lanIpAddress>
+		<imsi>200100001108002</imsi>
 		<powerControllerMapping>powerControl/A3</powerControllerMapping>
 		<connectedToEnb>enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -127,17 +123,15 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.3.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.3.254</strAddress>
+		</snmp>
 	</ue3>
 
 	<ue4>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.4</wanIpAddress>
-		<lanIpAddress>100.30.4.254</lanIpAddress>
-		<iperfDlIpAddress>80.80.30.100</iperfDlIpAddress>
-		<iperfUlIpAddress>100.30.4.100</iperfUlIpAddress>
-		<imsi>200010001001231</imsi>
+		<wanIpAddress>10.10.15.14</wanIpAddress>
+		<lanIpAddress>100.115.4.254</lanIpAddress>
+		<imsi>200010001003228</imsi>
 		<powerControllerMapping>powerControl/A3</powerControllerMapping>
 		<connectedToEnb>enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
@@ -146,16 +140,16 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.4.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.4.254</strAddress>
+		</snmp>
 	</ue4>
 
 	<ue5>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.5</wanIpAddress>
-		<lanIpAddress>100.30.5.254</lanIpAddress>
-		<imsi>200010001001376</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
+		<wanIpAddress>10.10.15.15</wanIpAddress>
+		<lanIpAddress>100.115.5.254</lanIpAddress>
+		<imsi>200100001108011</imsi>
+		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -163,16 +157,16 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.5.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.5.254</strAddress>
+		</snmp>
 	</ue5>
 
 	<ue6>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.6</wanIpAddress>
-		<lanIpAddress>100.30.6.254</lanIpAddress>
-		<imsi>200010001001222</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
+		<wanIpAddress>10.10.15.16</wanIpAddress>
+		<lanIpAddress>100.115.6.254</lanIpAddress>
+		<imsi>200100001108003</imsi>
+		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -180,16 +174,16 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.6.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.6.254</strAddress>
+		</snmp>
 	</ue6>
 
 	<ue7>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.7</wanIpAddress>
-		<lanIpAddress>100.30.7.254</lanIpAddress>
-		<imsi>200010001001230</imsi>
-		<powerControllerMapping>powerControl/A5</powerControllerMapping>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<wanIpAddress>10.10.15.17</wanIpAddress>
+		<lanIpAddress>100.115.7.254</lanIpAddress>
+		<imsi>200100001108019</imsi>
+		<powerControllerMapping>powerControl/A6</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -197,16 +191,16 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.7.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.7.254</strAddress>
+		</snmp>
 	</ue7>
 
 	<ue8>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.30.8</wanIpAddress>
-		<lanIpAddress>100.30.8.254</lanIpAddress>
-		<imsi>200010001001232</imsi>
-		<powerControllerMapping>powerControl/A5</powerControllerMapping>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
+		<wanIpAddress>10.10.15.18</wanIpAddress>
+		<lanIpAddress>100.115.8.254</lanIpAddress>
+		<imsi>200010001005656</imsi>
+		<powerControllerMapping>powerControl/A6</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -214,46 +208,32 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.30.8.254</strAddress>
-		</snmp>	
+			<strAddress>100.115.8.254</strAddress>
+		</snmp>
 	</ue8>
-
-    <amarisoftMME>
-         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
-         <userName>root</userName>
-         <password>airspan</password>
-         <ipAddress>192.168.62.20</ipAddress>
-         <port>9004</port>
-    </amarisoftMME>
-	<AppiumServer>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer</class>
-		<ipAddress>MoonSmart</ipAddress>
-		<ip>192.168.59.84</ip>
-		<port>4723</port>
-	</AppiumServer>
-
-	<OnePlusTornado>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
-		<deviceID>ffeb7eb5</deviceID>
-		<imsi>460020002946082</imsi>
-		<ueCategory>4</ueCategory>
-		<!-- default ueCategory is 4-->
-		<connectedToEnb>enb_1</connectedToEnb>
-	</OnePlusTornado>
 	
-	<EPC>
-		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class> 
-		<ipAddress>192.168.62.230</ipAddress> 
-		<username>autosvg</username>
-		<password>autosvg1</password>
-	</EPC>
+   <DHCP>
+        <class>com.airspan.testspan.jsystem.sysobjs.dhcp.DhcpServerCentOs</class>
+        <userName>root</userName>
+        <password>airspan</password>
+        <ipAddress>192.168.56.106</ipAddress>
+        <configurationFilePath>/etc/dhcp/</configurationFilePath>
+    </DHCP>
+	
+    <DHCP_IPsec>
+        <class>com.airspan.testspan.jsystem.sysobjs.dhcp.DhcpServerCentOs</class>
+        <userName>root</userName>
+        <password>airspan</password>
+        <ipAddress>192.168.56.112</ipAddress>
+        <configurationFilePath>/etc/dhcp/</configurationFilePath>
+    </DHCP_IPsec>
 
 	<enb_1>
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class>
-		<netspanName>Moon_H4K</netspanName>
-		<duplexMode>TDD</duplexMode>
-		<enb_type>Macro</enb_type>
+	    <enb_type>Macro</enb_type>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4400</class>
+		<netspanName>Tornado_AH4400</netspanName>
 		<band>B41LH</band>
+		<duplexMode>TDD</duplexMode>
 		<eNBID>4444</eNBID>
 		<TAC_1>15100</TAC_1>
 		<TAC_2>500</TAC_2>
@@ -270,11 +250,11 @@
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR18.0v4 AirHarmony system defaults IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_SR17.50v1.0_GPL_Moon</Sync_Profile>
 		<Security_Profile>Automation_SR17.50v1.0_GPL_Moon</Security_Profile>
-		<Net_Profile>Automation_SR17.50v1.0_GPL_Moon_Smart</Net_Profile>	
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Tornado</Net_Profile>		
 		<Mng_Profile>Automation_SR17.50v1.0_GPL_Moon</Mng_Profile>
 		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Moon_X2</Ngh_Profile>
 		<Son_Profile>Automation_SR17.50v1.0_GPL_Moon</Son_Profile>
@@ -302,42 +282,40 @@
 			<Tac>15100</Tac>		
 		</cell_2>
 
-
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<!--- <strAddress>172.20.30.53</strAddress> *** while using iRelay*** -->
-			<strAddress>172.20.15.40</strAddress>
-		</snmp>	
-
+			<strAddress>172.22.54.144</strAddress>
+		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<band>B41LH</band>
-			<!--- <strAddress>172.20.30.53</strAddress> *** while using iRelay*** -->
-			<ipAddress>172.20.15.40</ipAddress>
+			<band>41</band>
+			<ipAddress>172.22.54.144</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
-				<port>4006</port>
+				<comName>172.20.60.44</comName>
+				<port>4003</port>
 			</serialCom>
 		</xlp>
-		<dans index="0"> 
+		<dans index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
-				<port>4007</port>
+				<comName>172.20.60.44</comName>
+				<port>4004</port>
 			</serialCom>
-		</dans>
-	</enb_1> 
+		</dans> 
+	</enb_1>
 
-	<enb_2>     
+	<enb_2>
+	    <enb_type>Macro</enb_type>
+		<attnSide>LEFT</attnSide>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000d</class>
-		<netspanName>Moon_H1KD</netspanName>
-		<duplexMode>TDD</duplexMode>
+		<netspanName>Tornado_Harmony1KD</netspanName>
 		<band>B41LH</band>
+		<eNBID>11500</eNBID>
 		<inter20>41250</inter20>
 		<inter20_MC>40598</inter20_MC>
 		<intra20>41448</intra20>
@@ -349,7 +327,6 @@
 		<mvnomnc1>03</mvnomnc1>
 		<mvnomcc2>400</mvnomcc2>
 		<mvnomnc2>10</mvnomnc2>
-		<enb_type>Macro</enb_type>
 		<tx_power1>40</tx_power1>
 		<tx_power2>20</tx_power2>
 		<S1>Automation_SR17.50v1.0_GPL_Moon_S1</S1>
@@ -359,11 +336,11 @@
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v14 AirHarmony system defaults IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR18.0v4 AirHarmony system defaults IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Moon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_SR17.50v1.0_GPL_Moon</Sync_Profile>
-		<Security_Profile>Automation_SR17.50v1.0_GPL_Moon</Security_Profile>	
-	    <Net_Profile>Automation_SR17.50v1.0_GPL_Moon_Smart</Net_Profile>		
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Moon</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Tornado</Net_Profile>		
 		<Mng_Profile>Automation_SR17.50v1.0_GPL_Moon</Mng_Profile>
 		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Moon_X2</Ngh_Profile>
 		<Son_Profile>Automation_SR17.50v1.0_GPL_Moon</Son_Profile>
@@ -400,82 +377,56 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<!--- <strAddress>172.20.30.40</strAddress> *** while using iRelay*** -->
-			<strAddress>172.20.15.41</strAddress>
-		</snmp>
+			<strAddress>172.20.15.243</strAddress>
+		</snmp>	
 
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<band>B41LH</band>
-			<!--- <ipAddress>172.20.30.40</ipAddress> *** while using iRelay*** -->
-			<ipAddress>172.20.15.41</ipAddress>
+			<ipAddress>172.20.15.243</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
-				<port>4009</port>
+				<comName>172.20.60.44</comName>
+				<port>4001</port>
 			</serialCom>
 		</xlp>
 		<dans index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
-				<port>4008</port>
-			</serialCom>
-		</dans> 
-	</enb_2> 
-
-	<enb_3>     
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
-		<netspanName>Moon_Donor_AS1300</netspanName>
-		<duplexMode>TDD</duplexMode>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.230.15</strAddress>
-		</snmp>
-		<xlp>
-			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<band>B41LH</band>
-			<ipAddress>172.20.230.15</ipAddress>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.5</comName>
+				<comName>172.20.60.44</comName>
 				<port>4002</port>
 			</serialCom>
-		</xlp>
-	</enb_3>
+		</dans> 
+	</enb_2>
 
 
 	<HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>26</maxAttenuation>
+			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4001</port>
-				<comName>172.20.61.5</comName>
+				<port>4005</port>
+				<comName>172.20.60.44</comName>
 			</serialCom>
 		</attenuators>
 		<attenuators index="1">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>26</maxAttenuation>
+			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4003</port>
-				<comName>172.20.61.5</comName>
+				<port>4006</port>
+				<comName>172.20.60.44</comName>
 			</serialCom>
 		</attenuators>
 		<waitTime>1000</waitTime>
 		<stepTime>500</stepTime>
 		<attenuationStep>2</attenuationStep>
-		<maxAttenuation>26</maxAttenuation>
+		<maxAttenuation>30</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
-
+	
 	<ANR_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
@@ -483,8 +434,8 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4001</port>
-				<comName>172.20.61.5</comName>
+				<port>4005</port>
+				<comName>172.20.60.44</comName>
 			</serialCom>
 		</attenuators>
 		<attenuators index="1">
@@ -492,8 +443,8 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4003</port>
-				<comName>172.20.61.5</comName>
+				<port>4006</port>
+				<comName>172.20.60.44</comName>
 			</serialCom>
 		</attenuators>
 		<waitTime>1000</waitTime>
@@ -503,7 +454,86 @@
 		<minAttenuation>0</minAttenuation>
 	</ANR_attenuator>
 
-	<GPS_attenuator>
+	<fwd_HO_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4004</port>
+				<comName>172.20.61.39</comName>
+			</serialCom>
+		</attenuators>
+		<attenuators index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4005</port>
+				<comName>172.20.61.39</comName>
+			</serialCom>
+		</attenuators>
+		<waitTime>1000</waitTime>
+		<stepTime>500</stepTime>
+		<attenuationStep>60</attenuationStep>
+		<maxAttenuation>60</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</fwd_HO_attenuator>
+
+
+	<AMC_attenuator1>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>30</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4001</port>
+				<comName>172.20.61.154</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</AMC_attenuator1>
+
+	<AMC_attenuator2>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4002</port>
+				<comName>172.20.61.154</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</AMC_attenuator2>
+
+	<AMC_attenuator3>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>4003</port>
+				<comName>172.20.61.154</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</AMC_attenuator3>
+
+	<AMC_attenuator4>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
 		<attenuators index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
@@ -511,21 +541,42 @@
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<port>4004</port>
-				<comName>172.20.61.5</comName>
+				<comName>172.20.61.154</comName>
 			</serialCom>
 		</attenuators>
-	</GPS_attenuator>
+		<stepTime>400</stepTime>
+		<attenuationStep>1</attenuationStep>
+		<maxAttenuation>16</maxAttenuation>
+		<minAttenuation>1</minAttenuation>
+	</AMC_attenuator4>
+	
+	<GPS_attenuator>
+        <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+        <attenuators index="0">
+            <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+            <maxAttenuation>60</maxAttenuation>
+            <serialCom>
+                <class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+                <port>4006</port>
+                <comName>172.20.60.244</comName>
+            </serialCom>
+        </attenuators>
+        <stepTime>400</stepTime>
+        <attenuationStep>60</attenuationStep>
+        <maxAttenuation>60</maxAttenuation>
+        <minAttenuation>0</minAttenuation>
+    </GPS_attenuator>
 
 
 	<powerControl>
 		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
 		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V1</snmpVersion>
-			<strAddress>172.20.61.10</strAddress>
-		</snmp>		
+        <class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
+        <readCommunity>public</readCommunity>
+        <writeCommunity>private</writeCommunity>
+        <snmpVersion>V1</snmpVersion>
+        <strAddress>172.20.61.11</strAddress>
+        </snmp>
 		<ports index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
 			<port>A2</port>
@@ -538,12 +589,12 @@
 		</ports>
 		<ports index="2">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A4</port>
+			<port>A5</port>
 			<description>dynamic_UEs</description>
 		</ports>
 		<ports index="3">
 			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A5</port>
+			<port>A6</port>
 			<description>dynamic_UEs</description>
 		</ports>
 	</powerControl>
@@ -552,173 +603,29 @@
 	<stcController>
 		<class>com.airspan.testspan.jsystem.sysobjs.stc.controller.StcTclController</class>
 		<stc>
-			<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
-			<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
-			<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82/Spirent TestCenter Application/pkgIndex.tcl</initScriptPath>
-			<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\Moon_Automation.tcc</defaultConfigTccFile>
-			<runFiles>c:/Testspan/fileName</runFiles>
-			<autoReservePorts>false</autoReservePorts>
+		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
+		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
+		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application\pkgIndex.tcl</initScriptPath>
+		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent\TP_Automation_File2.tcc</defaultConfigTccFile>
+		<autoReservePorts>false</autoReservePorts>
+		<ip>172.20.60.233</ip>
+
+		<port index="0">
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<port index="0">
-				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
-				<ip>172.20.60.233</ip>
-				<slot>10</slot>
-				<port>7</port>
-				<portName>DL</portName>
-			</port>
-			<port index="1">
-				<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
-				<ip>172.20.60.233</ip>
-				<slot>10</slot>
-				<port>8</port>
-				<portName>UL</portName>
-			</port>
+			<slot>11</slot>
+			<port>9</port>
+			<portName>DL</portName>
+		</port>
+		<port index="1">
+			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
+			<ip>172.20.60.233</ip>
+			<slot>11</slot>
+			<port>10</port>
+			<portName>UL</portName>
+		</port>
 		</stc>
 	</stcController>
-
-
-	<Iperf_Session_UE1>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
-		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.5</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>network</location>
-			<localEndPointIp>80.80.30.99</localEndPointIp>
-			<localEndPointIp2>80.80.30.100</localEndPointIp2>
-			<vlan>1340</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>80.80.30.99</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>10.10.30.0</routeIp>
-			<defaultGateway>80.80.30.254</defaultGateway>
-		</networkSideStation>
-		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.4</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>user</location>
-			<localEndPointIp>10.10.30.1</localEndPointIp>
-			<vlan>1341</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>100.30.1.100</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>80.80.30.0</routeIp>
-			<defaultGateway>100.30.1.254</defaultGateway>
-		</userSideStation>
-		<port>3003</port>
-		<sessionName>Session1</sessionName>
-	</Iperf_Session_UE1>
-
-	<Iperf_Session_UE2>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
-		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.5</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>network</location>
-			<localEndPointIp>80.80.30.99</localEndPointIp>
-			<localEndPointIp2>80.80.30.100</localEndPointIp2>
-			<vlan>1340</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>80.80.30.99</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>10.10.30.0</routeIp>
-			<defaultGateway>80.80.30.254</defaultGateway>
-			<remoteEndPointIp/>
-		</networkSideStation>
-		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.6</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>user</location>
-			<localEndPointIp>10.10.30.2</localEndPointIp>
-			<vlan>1342</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>100.30.2.100</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>80.80.30.0</routeIp>
-			<defaultGateway>100.30.2.254</defaultGateway>
-		</userSideStation>
-		<port>4004</port>
-		<sessionName>Session2</sessionName>
-	</Iperf_Session_UE2>
-
-	<Iperf_Session_UE3>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
-		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.5</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>network</location>
-			<localEndPointIp>80.80.30.99</localEndPointIp>
-			<localEndPointIp2>80.80.30.100</localEndPointIp2>
-			<vlan>1340</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>80.80.30.99</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>10.10.30.0</routeIp>
-			<defaultGateway>80.80.30.254</defaultGateway>
-			<remoteEndPointIp/>
-		</networkSideStation>
-		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.4</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>user</location>
-			<localEndPointIp>10.10.30.3</localEndPointIp>
-			<vlan>1343</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>100.30.3.100</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>80.80.30.0</routeIp>
-			<defaultGateway>100.30.3.254</defaultGateway>
-		</userSideStation>
-		<port>3003</port>
-		<sessionName>Session3</sessionName>
-	</Iperf_Session_UE3>
-
-	<Iperf_Session_UE4>
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
-		<networkSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.5</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>network</location>
-			<localEndPointIp>80.80.30.99</localEndPointIp>
-			<localEndPointIp2>80.80.30.100</localEndPointIp2>
-			<vlan>1340</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>80.80.30.99</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>10.10.30.0</routeIp>
-			<defaultGateway>80.80.30.254</defaultGateway>
-			<remoteEndPointIp/>
-		</networkSideStation>
-		<userSideStation>
-			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
-			<host>172.20.62.6</host>
-			<user>root</user>
-			<password>airspan</password>
-			<location>user</location>
-			<localEndPointIp>10.10.30.4</localEndPointIp>
-			<vlan>1344</vlan>
-			<ethIf>eth1</ethIf>
-			<ethIfIP>100.30.4.100</ethIfIP>
-			<ethIfMask>255.255.255.0</ethIfMask>
-			<routeIp>80.80.30.0</routeIp>
-			<defaultGateway>100.30.4.254</defaultGateway>
-		</userSideStation>
-		<port>4004</port>
-		<sessionName>Session4</sessionName>
-	</Iperf_Session_UE4>
 
 	<Pinger>  <!-- UEs(Clients)_Iperf -->
 		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
@@ -751,27 +658,177 @@
 		<password>airspan</password>
 		<operationSystemName>Linux</operationSystemName>
 	</pingServer2>
+	
+	<UpgradeServer_velocity>
+		<class>EnodeB.EnodeBUpgradeServer</class>
+		<upgradeServerIp>172.20.60.205</upgradeServerIp>
+		<upgradeUser>velocity</upgradeUser>
+		<upgradePassword>velocity</upgradePassword>
+		<protocolType>ftp</protocolType>
+	</UpgradeServer_velocity>
 
-	<smartPhoneServer>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.SmartPhoneServer</class>
-		<ipAddress>tunasmart</ipAddress>
-		<port>8089</port>
-	</smartPhoneServer>
+	<Iperf_Session_UE1>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.78</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.11</localEndPointIp>
+			<vlan>1101</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.1.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.1.254</defaultGateway>
+		</userSideStation>
+		<port>3003</port>
+		<sessionName>Session1</sessionName>
+	</Iperf_Session_UE1>
 
-	<!-- For New_Iperf test -->
-	<iperf_server_1> <!-- Server_Iperf -->
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfServer</class>
-		<userName>root</userName>
-		<password>airspan</password>
-		<ipAddress>172.20.62.5</ipAddress>
-	</iperf_server_1>
+	<Iperf_Session_UE2>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.79</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.12</localEndPointIp>
+			<vlan>1102</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.2.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.2.254</defaultGateway>
+		</userSideStation>
+		<port>4004</port>
+		<sessionName>Session2</sessionName>
+	</Iperf_Session_UE2>
 
-	<iperf_server_2> <!-- UEs(Clients)_Iperf -->
-		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfServer</class>
-		<userName>root</userName>
-		<password>airspan</password>
-		<ipAddress>172.20.62.4</ipAddress>
-	</iperf_server_2>
+	<Iperf_Session_UE3>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.78</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.13</localEndPointIp>
+			<vlan>1103</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.3.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.3.254</defaultGateway>
+		</userSideStation>
+		<port>5003</port>
+		<sessionName>Session3</sessionName>
+	</Iperf_Session_UE3>
 
+	<Iperf_Session_UE4>
+		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
+		<networkSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.77</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>network</location>
+			<localEndPointIp>80.80.15.99</localEndPointIp>
+			<vlan>1100</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>80.80.15.99</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>10.10.15.0</routeIp>
+			<defaultGateway>80.80.15.254</defaultGateway>
+			<remoteEndPointIp/>
+		</networkSideStation>
+		<userSideStation>
+			<class>com.airspan.testspan.jsystem.sysobjs.iperf.Station</class>
+			<host>172.20.61.79</host>
+			<user>root</user>
+			<password>airspan</password>
+			<location>user</location>
+			<localEndPointIp>10.10.15.14</localEndPointIp>
+			<vlan>1104</vlan>
+			<ethIf>eth1</ethIf>
+			<ethIfIP>100.115.4.100</ethIfIP>
+			<ethIfMask>255.255.255.0</ethIfMask>
+			<routeIp>80.80.15.0</routeIp>
+			<defaultGateway>100.115.4.254</defaultGateway>
+		</userSideStation>
+		<port>6004</port>
+		<sessionName>Session4</sessionName>
+	</Iperf_Session_UE4>
+
+	<IPERF_SERVER>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_SERVER</sessionPath>
+	</IPERF_SERVER>
+
+	<IPERF_USER1>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_USER1</sessionPath>
+	</IPERF_USER1>
+
+	<IPERF_USER2>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPERF\IPERF_USER2</sessionPath>
+	</IPERF_USER2>
+
+	<IPG_SERVER>
+		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
+		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
+		<sessionPath>IPG\IPG_Tornado_4K</sessionPath>
+	</IPG_SERVER>
 
 </sut>
