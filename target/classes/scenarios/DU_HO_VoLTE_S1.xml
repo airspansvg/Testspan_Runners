@@ -242,8 +242,9 @@
         <antcallback return="TestResultToReturn, StringToReturn" target="t86"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t87"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t88"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t89"/>
-        <antcallback target="t90"/>
+        <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t89"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t90"/>
+        <antcallback target="t91"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -959,13 +960,21 @@
     </target>
     <target name="t89">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="6b18d829-e6ab-4075-8daf-addcd3942b75"/>
+            <sysproperty key="jsystem.uuid" value="af887f77-520b-48ab-87ca-9860e2092a5d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.GetJenkinsVariables.getJenkinsVariables"/>
+        </jsystem>
+    </target>
+    <target name="t90">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="387d8b54-5802-4ed4-9232-06141dc877bf"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
         </jsystem>
     </target>
-    <target name="t90">
+    <target name="t91">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1251be34-9707-4f6c-901c-5f829000e8cf"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
