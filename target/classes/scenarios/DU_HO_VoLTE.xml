@@ -238,8 +238,9 @@
         <antcallback return="TestResultToReturn" target="t82"/>
         <antcallback return="TestResultToReturn" target="t83"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t84"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t85"/>
-        <antcallback target="t86"/>
+        <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t85"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t86"/>
+        <antcallback target="t87"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -923,13 +924,21 @@
     </target>
     <target name="t85">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7972df24-6e26-4003-889d-25f3fe37a396"/>
+            <sysproperty key="jsystem.uuid" value="7aa651f1-5c2f-4dd9-95bf-f410e8135206"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.GetJenkinsVariables.getJenkinsVariables"/>
+        </jsystem>
+    </target>
+    <target name="t86">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d6055170-4a4e-4a99-a1bc-09c7ba3c1fde"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
         </jsystem>
     </target>
-    <target name="t86">
+    <target name="t87">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="1251be34-9707-4f6c-901c-5f829000e8cf"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>

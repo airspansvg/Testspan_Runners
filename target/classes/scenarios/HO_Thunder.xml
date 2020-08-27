@@ -165,7 +165,8 @@
                 <antcallback return="TestResultToReturn" target="t60"/>
                 <antcallback return="TestResultToReturn" target="t61"/>
                 <antcallback return="TestResultToReturn, StringToReturn" target="t62"/>
-                <antcallback return="TestResultToReturn, StringToReturn" target="t63"/>
+                <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t63"/>
+                <antcallback return="TestResultToReturn, StringToReturn" target="t64"/>
             </else>
         </if>
     </target>
@@ -673,7 +674,15 @@
     </target>
     <target name="t63">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="1bf7db84-73dd-41be-a803-4eb150ee87c8"/>
+            <sysproperty key="jsystem.uuid" value="c063aaa3-d7d4-4d48-98ec-02d87bb1013b"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.GetJenkinsVariables.getJenkinsVariables"/>
+        </jsystem>
+    </target>
+    <target name="t64">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d23f7819-01f8-42f5-bea6-2b768b1259bc"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
