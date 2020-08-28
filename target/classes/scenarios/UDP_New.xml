@@ -32,17 +32,19 @@
         <antcallback return="TestResultToReturn" target="t5"/>
         <antcallback return="TestResultToReturn" target="t6"/>
         <antcallback return="TestResultToReturn" target="t7"/>
-        <antcallback return="TestResultToReturn" target="t8"/>
-        <antcallback return="TestResultToReturn" target="t9"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t8"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t9"/>
         <antcallback target="t10"/>
         <antcallback return="TestResultToReturn" target="t11"/>
         <antcallback return="TestResultToReturn" target="t12"/>
         <antcallback target="t13"/>
         <antcallback return="TestResultToReturn, TpDlMbps, TpUlMbps, TpNumberOfUes, TpL4Protocol, TpFrameSize, TpCalcLabel, TpTrafficDirection, TpTestingTool" target="t14"/>
-        <antcallback return="TestResultToReturn" target="t15"/>
-        <antcallback return="TestResultToReturn" target="t16"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t15"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t16"/>
         <antcallback return="TestResultToReturn" target="t17"/>
         <antcallback return="TestResultToReturn" target="t18"/>
+        <antcallback target="t19"/>
+        <antcallback target="t20"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -192,5 +194,19 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
         </jsystem>
+    </target>
+    <target name="t19">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="175ac955-29ec-43e4-9c40-b075d9c3444b"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t20">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
+            <property name="jsystem.uuid" value="b80543a4-072c-40ea-81d4-c08560da2cff"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
