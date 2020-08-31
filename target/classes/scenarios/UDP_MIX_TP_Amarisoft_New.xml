@@ -11,6 +11,7 @@
     <typedef classname="com.aqua.anttask.jsystem.JSystemScriptCondition" name="jsystemscriptcondition"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSwitch" name="jsystemswitch"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemForTask" name="jsystemfor"/>
+    <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="IsTestWasSuccessful" target="t0"/>
@@ -220,8 +221,9 @@
         <antcallback return="TestResultToReturn" target="t54"/>
         <antcallback return="TestResultToReturn" target="t55"/>
         <antcallback return="TestResultToReturn" target="t56"/>
-        <antcallback return="TestResultToReturn" target="t57"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t58"/>
+        <antcallback target="t57"/>
+        <antcallback target="t58"/>
+        <antcallback return="TestResultToReturn" target="t59"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -680,19 +682,25 @@
         </jsystem>
     </target>
     <target name="t57">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
+            <property name="jsystem.uuid" value="7349ee4a-3798-476c-a04d-c27ee3f1cf8e"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t58">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="bf65b59b-d9c0-49bd-adcb-492aa1f46ada"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t59">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="f35fff99-8c20-4ed7-9267-c0c0cab1db81"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
-        </jsystem>
-    </target>
-    <target name="t58">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="22cbc771-2138-4146-9bdf-7d74847a69f1"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
         </jsystem>
     </target>
 </project>
