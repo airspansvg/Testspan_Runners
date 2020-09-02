@@ -79,7 +79,7 @@
                 <antcallback target="t35"/>
             </else>
         </if>
-        <antcallback target="t36"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t36"/>
         <antcallback target="t37"/>
         <echo message="Check condition &quot;${StringToReturn}&quot; CONTAINS &quot;_Fail&quot;"/>
         <if>
@@ -227,7 +227,7 @@
             </else>
         </if>
         <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t73"/>
-        <antcallback target="t74"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t74"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t75"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t76"/>
         <antcallback return="TestResultToReturn" target="t77"/>
@@ -526,11 +526,12 @@
         </jsystem>
     </target>
     <target name="t36">
-        <jsystem-ant antfile="${scenarios.base}/scenarios/Calculate_HOs.xml">
-            <property name="jsystem.uuid" value="9ddc534d-7d0f-4b44-a1e0-f820078eee93"/>
-            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-        </jsystem-ant>
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c7448334-b2d9-4b66-b28a-f209cf10fdfd"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
     </target>
     <target name="t37">
         <jsystem showoutput="true">
@@ -829,11 +830,12 @@
         </jsystem>
     </target>
     <target name="t74">
-        <jsystem-ant antfile="${scenarios.base}/scenarios/Report_to_Jira.xml">
-            <property name="jsystem.uuid" value="119e8d4c-0081-48ca-bb0c-2d4fc47bf728"/>
-            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-        </jsystem-ant>
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1cf78695-e243-4073-a949-a45d9ea8d791"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
     </target>
     <target name="t75">
         <jsystem showoutput="true">
