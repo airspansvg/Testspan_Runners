@@ -14,9 +14,18 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemDataDrivenTask" name="jsystemdatadriven"/>
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
-        <antcallback return="TestResultToReturn, StringToReturn" target="t0"/>
+        <antcallback return="IsTestWasSuccessful" target="t0"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
     </target>
     <target name="t0">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="76b4e9ac-f05e-4a88-a867-9e2073175b86"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SetScenarioParametersTest.setScenarioParameters"/>
+        </jsystem>
+    </target>
+    <target name="t1">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="f1c7f3da-b2fe-4d2c-8368-3198b64e9415"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
