@@ -19,6 +19,7 @@
         <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t2"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t3"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t4"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t5"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -55,6 +56,14 @@
     <target name="t4">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="b653f5d1-9584-4bae-a5d5-d23f77ee7f62"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t5">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="42e7a18e-84ba-4437-bdd5-a4fb883f38d6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
