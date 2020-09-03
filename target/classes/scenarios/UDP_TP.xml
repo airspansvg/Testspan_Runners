@@ -75,9 +75,10 @@
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t18"/>
         <antcallback return="TestResultToReturn" target="t19"/>
         <antcallback return="TestResultToReturn" target="t20"/>
-        <antcallback return="TestResultToReturn, StringToReturn" target="t21"/>
+        <antcallback return="TestResultToReturn" target="t21"/>
         <antcallback return="TestResultToReturn" target="t22"/>
-        <antcallback return="TestResultToReturn" target="t23"/>
+        <antcallback target="t23"/>
+        <antcallback target="t24"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -248,26 +249,32 @@
     </target>
     <target name="t21">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="35300923-af5a-44c9-b500-1d7bda147ee7"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
-        </jsystem>
-    </target>
-    <target name="t22">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="37b03d93-1858-4690-80c9-cecfa58f4971"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t23">
+    <target name="t22">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="48ccd86c-49a1-4729-abc1-dcb647ebf065"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
+    </target>
+    <target name="t23">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="4251da49-e9e1-4d76-acb6-bed758e8a443"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t24">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
+            <property name="jsystem.uuid" value="6eda5d12-347a-45b8-b7ca-7a11b652224e"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>

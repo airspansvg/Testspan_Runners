@@ -19,6 +19,9 @@
 		<AutoPCI_3rdPartyEnbIP>1.1.1.1</AutoPCI_3rdPartyEnbIP>
 		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
 		<AutoPCI_Main_Window>Ninja_AutoPCI_Maintenance_Windows</AutoPCI_Main_Window>
+		<ZMTL_SC20>1649</ZMTL_SC20>
+		<ZMTL_SC5>1649</ZMTL_SC5>
+		<Slave_Name>ASIL-MONSOON</Slave_Name>
 	</Custom>
 
 	<EPC>
@@ -186,6 +189,30 @@
 		</snmp>
 	</ue7>
 
+	<ue9>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+		<deviceID>d8ab627a</deviceID>
+		<imsi>460020002946100</imsi>
+		<ueCategory>4</ueCategory>
+		<!-- default ueCategory is 4-->
+		<connectedToEnb>enb_1,enb_2</connectedToEnb>
+	</ue9>
+	
+	<AppiumServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer </class>
+		<ipAddress>tokyosmart</ipAddress>
+		<ip>192.168.57.251</ip>
+		<port>4723</port>
+	</AppiumServer>
+	
+	<amarisoftMME>
+		<class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+		<userName>root</userName>
+		<password>airspan</password>
+		<ipAddress>192.168.62.20</ipAddress>
+		<port>9004</port>
+	</amarisoftMME>
+	
 	<enb_1> 
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirDensity386</class>
 		<netspanName>NInja_Monsoon_LC_1</netspanName>
@@ -196,6 +223,8 @@
 		<band>B3</band>
 		<intra20>1649</intra20>
 		<inter20>1675</inter20>
+		<intra5>1649</intra5>
+		<inter5>1675</inter5>
 		<enb_type>Home</enb_type>
 		<S1>Autoamation_Ninja</S1>
 		<X2>Autoamation_Ninja</X2>
@@ -209,6 +238,7 @@
 		<Sync_Profile>NInja_Sync</Sync_Profile>
 		<Security_Profile>Autoamation_Ninja</Security_Profile>
 		<Net_Profile>Autoamation_Ninja</Net_Profile>                         
+		<Net_Profile_Smartphone>Autoamation_Ninja_Smartphone</Net_Profile_Smartphone>                         
 		<Mng_Profile>Ninja_Automation</Mng_Profile>
 		<Ngh_Profile>Autoamation_Ninja</Ngh_Profile>
 		<Son_Profile>NInja_SON_LC1</Son_Profile>
@@ -219,12 +249,13 @@
 		<cell_1>              
 			<Cell_Adv_Profile>Autoamation_Ninja</Cell_Adv_Profile>
 			<Radio_Profile>NInja_FF</Radio_Profile>
+			<Radio_Profile_Smartphone>NInja_Smartphone</Radio_Profile_Smartphone>
 			<Mobility_Profile>Autoamation_Ninja</Mobility_Profile>
 			<HO_Mobility_Profile>Autoamation_Ninja</HO_Mobility_Profile>
 			<Embms_Profile>SR15.2 AirDensity Disabled</Embms_Profile>
 			<Traffic_Mng>SR15.5 AirDensity Defaults</Traffic_Mng>
 			<Call_Trace>AirDensity Call Trace Disabled</Call_Trace>
-			<Tac>4</Tac>              
+			<Tac>15110</Tac>              
 		</cell_1>
 
 		<snmp>
@@ -269,14 +300,12 @@
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<S1>Autoamation_Ninja</S1>
 		<X2>Autoamation_Ninja</X2>
-		<Cell_Adv_Profile_ANR>AU_Cell_Advanced_Tel_Aviv_NGHRemTH=15</Cell_Adv_Profile_ANR>
-		<MCProfile_CA_ON>AirUnity Default Disabled_Pirhana_CA</MCProfile_CA_ON>
-		<MCProfile_CA_OFF>Automation_AirUnity Default Disabled</MCProfile_CA_OFF>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		<!-- eNB Profiles -->
 		<System_Profile>SR17.5v14 AirDensity system defaults_Automation</System_Profile>
 		<eNB_Adv_Profile>Autoamation_Ninja</eNB_Adv_Profile>
 		<Net_Profile>Autoamation_Ninja</Net_Profile> 
+		<Net_Profile_Smartphone>Autoamation_Ninja_Smartphone</Net_Profile_Smartphone>
 		<Sync_Profile>NInja_Sync</Sync_Profile>
 		<Security_Profile>Autoamation_Ninja</Security_Profile> 
 		<Son_Profile>NInja_SON_LC2</Son_Profile>
@@ -288,12 +317,13 @@
 		<cell_1>              
 			<Cell_Adv_Profile>Autoamation_Ninja</Cell_Adv_Profile>
 			<Radio_Profile>NInja_LC</Radio_Profile>
+			<Radio_Profile_Smartphone>NInja_Smartphone</Radio_Profile_Smartphone>
 			<Mobility_Profile>Autoamation_Ninja</Mobility_Profile>
 			<Embms_Profile>SR15.2 AirDensity Disabled</Embms_Profile>
-			<Traffic_Mng>SR15.2 AirDensity Disabled</Traffic_Mng>
+			<Traffic_Mng>SR15.5 AirDensity Defaults</Traffic_Mng>
 			<Call_Trace>AirDensity Call Trace Disabled</Call_Trace>
 			<HO_Mobility_Profile>Autoamation_Ninja</HO_Mobility_Profile>
-			<Tac>4</Tac>              
+			<Tac>15110</Tac>              
 		</cell_1>
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
@@ -427,20 +457,19 @@
 		<port index="0">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>2</slot>
+			<slot>7</slot>
 			<port>3</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>2</slot>
+			<slot>7</slot>
 			<port>4</port>
 			<portName>UL</portName>
 		</port>
 		</stc>
 	</stcController>
-
 
 	<Iperf_Session_UE1>
 		<class>com.airspan.testspan.jsystem.sysobjs.iperf.IperfSession</class>
