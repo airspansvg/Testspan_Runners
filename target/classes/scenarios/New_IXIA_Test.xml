@@ -537,6 +537,8 @@
         <antcallback return="TestResultToReturn" target="t90"/>
         <antcallback return="TestResultToReturn" target="t91"/>
         <antcallback return="TestResultToReturn" target="t92"/>
+        <antcallback target="t93"/>
+        <antcallback target="t94"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -1281,5 +1283,19 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
         </jsystem>
+    </target>
+    <target name="t93">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
+            <property name="jsystem.uuid" value="b7a50499-3cb0-4880-8d46-cb1c4f49e246"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t94">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="f7ea6eb2-6942-49c5-b501-ce531813d34c"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
