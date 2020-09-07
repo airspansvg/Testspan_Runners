@@ -85,6 +85,7 @@
                 </if>
             </else>
         </if>
+        <antcallback target="t41"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -413,5 +414,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
+    </target>
+    <target name="t41">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="5aab30db-a967-43e9-8557-94b22dea28a2"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>

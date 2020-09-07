@@ -30,6 +30,8 @@
 	<NetspanWS>
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_0.NetspanWsImpl</class>
 		<hostname>10.23.101.132</hostname>
+		<WS>17.0</WS>
+		<netspanProtocol>http</netspanProtocol>
 	</NetspanWS>
 
 	<ue_lists>
@@ -201,10 +203,13 @@
 		<X2>Bhishma_AS1035_X2</X2>
 				<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		                     <!-- eNB Profiles -->
-		<System_Profile>SR17.0v15 AirSpeed system defaults_RJIL_GPL</System_Profile>
+		<System_Profile>SR17.0v15 AirSpeed system defaults_RJIL_GPL_Automation</System_Profile>
 		<System_Profile_Previous>SR17.0v15 AirSpeed system defaults_Automation</System_Profile_Previous>
 		<eNB_Adv_Profile>GPL_SR17.0 Airspeed eNodeb Advanced_16-01-2020</eNB_Adv_Profile>
 		<Sync_Profile>SR15.2v1 AirSpeed GPS Only</Sync_Profile>
+		<NL_Sync_Profile>SR15.2v1 AirSpeed NLM Only</NL_Sync_Profile>
+		<Switch_NL_Sync_Profile>SR15.2v1 AirSpeed GPS NLM</Switch_NL_Sync_Profile>
+		<NA_Sync_Profile>SR15.2v1 AirSpeed Not Supported Clock</NA_Sync_Profile>
 		<Security_Profile>SR15.2 AirSpeed Default</Security_Profile>
 		<Net_Profile>Bhishma_AS1035</Net_Profile>	
 		<Mng_Profile>SR16.0 AirSpeed: 5 minutes</Mng_Profile>
@@ -280,6 +285,7 @@
 		<Ngh_Profile>SR16_0 AirVelocity Neighbour Management Profile</Ngh_Profile>
 		<Son_Profile>Bhishma_NG600_SH</Son_Profile>
 		<MCProfile_CA_ON>AirVelocity Default Disabled</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>AirVelocity Default Disabled</MCProfile_CA_OFF>
         <cell_1>              
 				<Cell_Adv_Profile>SR15.0 AirVelocity Defaults_RJIL_GPL</Cell_Adv_Profile>
                 <Embms_Profile>SR14.5 AirVelocity Disabled</Embms_Profile>
@@ -310,6 +316,23 @@
             </serialCom>
         </xlp>
     </enb_2>
+	
+	<GPS_attenuator>
+		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+		<attenuators index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+			<maxAttenuation>60</maxAttenuation>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<port>2008</port>
+				<comName>10.23.0.248</comName>
+			</serialCom>
+		</attenuators>
+		<stepTime>400</stepTime>
+		<attenuationStep>60</attenuationStep>
+		<maxAttenuation>60</maxAttenuation>
+		<minAttenuation>0</minAttenuation>
+	</GPS_attenuator>
 	
 	<HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -583,11 +606,5 @@
         	<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
 		<sessionPath>IPERF\IPERF_USER2</sessionPath>
 	</IPERF_USER2>
-	
-	<crt_IPG>
-		<class>com.airspan.testspan.jsystem.sysobjs.station.script.execution.SecureCrt</class>
-		<folderPath>C:\Program Files\VanDyke Software\SecureCRT\</folderPath>
-		<sessionPath>IPG_SERVER</sessionPath>
-	</crt_IPG>
 	
 </sut>
