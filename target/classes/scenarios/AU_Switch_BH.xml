@@ -186,6 +186,40 @@
                         </if>
                     </sequential>
                 </jsystemfor>
+                <jsystemswitch caseinsensitive="false" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a5dd7c85-1d26-48a0-a79f-61ed800f9783" parentName="${jsystem.parent.name}.${ant.project.name}" value="${sut:Custom/setup_name}">
+                    <case fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.0742385a-65dc-43aa-b32f-68a7ed3357d2" parentName="${jsystem.parent.name}.${ant.project.name}" value="avalanche">
+                        <echo message="Check condition &quot;${scenario:BH_under_test})&quot; EQUALS &quot;(lte)&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.5137b4cb-948f-423a-8ee1-93946dea120d" language="javascript" params="str &lt;SEP&gt; ${scenario:BH_under_test}) &lt;SEP&gt; EQUALS &lt;SEP&gt; (lte) &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <antcallback target="t62"/>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <!--#Jsystem#-->
+                    </case>
+                    <case fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.732f2104-644f-4bd1-bed1-3c81005224b5" parentName="${jsystem.parent.name}.${ant.project.name}" value="piranha">
+                        <echo message="Check condition &quot;${scenario:BH_under_test})&quot; EQUALS &quot;(lte)&quot;"/>
+                        <if>
+                            <!--#Jsystem#-->
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.b0277896-592b-40ff-9680-896a90fef6c4" language="javascript" params="str &lt;SEP&gt; ${scenario:BH_under_test}) &lt;SEP&gt; EQUALS &lt;SEP&gt; (lte) &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <then>
+                                <antcallback target="t63"/>
+                            </then>
+                            <else>
+                                <!--#Jsystem#-->
+                            </else>
+                        </if>
+                        <!--#Jsystem#-->
+                    </case>
+                    <default>
+                        <!--#Jsystem#-->
+                    </default>
+                    <!--#Jsystem#-->
+                </jsystemswitch>
             </sequential>
         </jsystemfor>
     </target>
@@ -683,6 +717,22 @@
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t62">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="4fc8fcd0-4a55-4937-8c49-72c7c41334f4"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="jsystem.framework.sut.ChangeSutTest.changeSut"/>
+        </jsystem>
+    </target>
+    <target name="t63">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="f2ccc73b-6298-4c23-b85c-9f2d720bb5b8"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="jsystem.framework.sut.ChangeSutTest.changeSut"/>
         </jsystem>
     </target>
 </project>
