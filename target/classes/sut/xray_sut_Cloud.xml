@@ -4,7 +4,7 @@
 		<class>Custom</class>
 		<NMSipAddress>172.22.2.224</NMSipAddress>
 		<IP_ver>IPv6</IP_ver>
-		<setup_vlan>2500</setup_vlan>
+		<setup_vlan>2000</setup_vlan>
 		<setup_name>CLOUDS</setup_name>
 		<IP_MME>fc74:172:21:159::1</IP_MME>
 		<EPC_num>EPC_15</EPC_num>
@@ -190,12 +190,11 @@
     <ue128><class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class><wanIpAddress>10.10.13.128</wanIpAddress><lanIpAddress>100.13.128.250</lanIpAddress><imsi>200010001005758</imsi><connectedToEnb>enb_1,enb_2,enb_3,enb_4,enb_5</connectedToEnb><snmp><class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class><readCommunity>public</readCommunity><writeCommunity>private</writeCommunity><snmpVersion>V2</snmpVersion><strAddress>100.13.128.254</strAddress></snmp><ueCategory>6</ueCategory></ue128>
     <ue129><class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class><wanIpAddress>10.10.13.129</wanIpAddress><lanIpAddress>100.13.129.250</lanIpAddress><imsi>200010001005759</imsi><connectedToEnb>enb_1,enb_2,enb_3,enb_4,enb_5</connectedToEnb><snmp><class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class><readCommunity>public</readCommunity><writeCommunity>private</writeCommunity><snmpVersion>V2</snmpVersion><strAddress>100.13.129.254</strAddress></snmp><ueCategory>6</ueCategory></ue129>
 	
-	<enb_1>       <!-- AH4K Rakuten DU Mode IPv6 TAC 15110 MME 165 VCU 160  -->
-		<!--  <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4000</class> -->
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.du.AirHarmony4000DU</class>
-		<netspanName>Dolpin_AH4K_FDD_B3_CloudRoom</netspanName>
-		<band>B3</band>
-		<duplexMode>FDD</duplexMode>
+	<enb_1>       
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirVelocity1000</class>
+		<netspanName>CloudAV1K</netspanName>
+		<band>B40</band>
+		<duplexMode>TDD</duplexMode>
 		<intra20>1500</intra20>
 		<intra5>1575</intra5>
 		<snmp>
@@ -203,65 +202,77 @@
 			<readCommunity>public</readCommunity>
 			<writeCommunity>private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>fc74:172:20:560::1:62</strAddress>
+			<strAddress>fc74:172:22:603:113::10</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<ipAddress>fc74:172:20:560::1:62</ipAddress>
+			<ipAddress>fc74:172:22:603:113::10</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.54</comName>
-				<port>4005</port>
+				<comName>172.20.60.67</comName>
+				<port>4001</port>
+			</serialCom>
+		</xlp>
+	</enb_1>
+		
+	<enb_2>       
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirSpeed1035</class>
+		<netspanName>Cloud_AS1035</netspanName>
+		<band>B40</band>
+		<duplexMode>TDD</duplexMode>
+		<intra20>1500</intra20>
+		<intra5>1575</intra5>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>fc74:172:22:603:113::30</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<ipAddress>fc74:172:22:603:113::30</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.42</comName>
+				<port>4004</port>
+			</serialCom>
+		</xlp>
+	</enb_2>
+
+	<enb_3>       
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony1000</class>
+		<netspanName>Cloud_H1K</netspanName>
+		<band>B40</band>
+		<duplexMode>TDD</duplexMode>
+		<intra20>1500</intra20>
+		<intra5>1575</intra5>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>fc74:172:22:603:113::55</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<ipAddress>fc74:172:22:603:113::55</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.60.68</comName>
+				<port>4001</port>
 			</serialCom>
 		</xlp>
 		<dans index="0">
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.54</comName>
-				<port>4006</port>
+				<comName>172.20.60.68</comName>
+				<port>4002</port>
 			</serialCom>
-		</dans>
-	</enb_1>
+		</dans> 
 		
-	<enb_2> <!-- AS1050 DU Mode IPv6 TAC 15110 MME 165 VCU 159 Cell1 -->
-		<!--  <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirVelocity1200</class> -->
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.du.AirSpeed1050DU</class>
-		<netspanName>Dolphin_AS1050_FDD_B3_CloudRoom</netspanName>
-		<band>B3</band>
-		<duplexMode>FDD</duplexMode>
-		<intra20>1500</intra20>
-		<intra5>1575</intra5>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>fc74:172:20:560::1:60</strAddress>
-		</snmp>
-
-		<xlp>
-			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
-			<ipAddress>fc74:172:20:560::1:60</ipAddress>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.54</comName>
-				<port>4014</port>
-			</serialCom>
-		</xlp>
-		<!-- <dans index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Dan</class>
-			<serialCom>
-				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.61.73</comName>
-				<port>4011</port>
-			</serialCom>
-		</dans>   -->
-	</enb_2>  
-
-	
-
-
+	</enb_3>
 
 	<HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -270,8 +281,8 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4011</port>
-				<comName>172.20.61.54</comName>
+				<port>4003</port>
+				<comName>172.20.60.67</comName>
 			</serialCom>
 		</attenuators>
 		<attenuators index="1">
@@ -279,8 +290,8 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4012</port>
-				<comName>172.20.61.54</comName>
+				<port>4004</port>
+				<comName>172.20.60.67</comName>
 			</serialCom>
 		</attenuators>
 		<waitTime>1000</waitTime>
@@ -302,15 +313,15 @@
 		<port index="0">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>3</slot>
-			<port>11</port>
+			<slot>5</slot>
+			<port>7</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>3</slot>
-			<port>12</port>
+			<slot>5</slot>
+			<port>8</port>
 			<portName>UL</portName>
 		</port>
 		</stc>
