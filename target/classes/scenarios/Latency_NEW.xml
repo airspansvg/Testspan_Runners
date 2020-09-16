@@ -81,6 +81,7 @@
         <antcallback return="TestResultToReturn" target="t54"/>
         <antcallback return="TestResultToReturn" target="t55"/>
         <antcallback target="t56"/>
+        <antcallback target="t57"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -533,6 +534,13 @@
     <target name="t56">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="52080cbe-b82f-4237-97b3-7916533f9f60"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
+    </target>
+    <target name="t57">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="ade73c00-d03a-4bb2-937f-c11ef7e16fe2"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
