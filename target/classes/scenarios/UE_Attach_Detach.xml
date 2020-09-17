@@ -74,6 +74,7 @@
         <antcallback return="TestResultToReturn" target="t37"/>
         <antcallback return="TestResultToReturn" target="t38"/>
         <antcallback return="TestResultToReturn" target="t39"/>
+        <antcallback target="t40"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -394,5 +395,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
+    </target>
+    <target name="t40">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="da2f37a0-178a-4f39-ba19-26facc2363de"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>

@@ -72,6 +72,7 @@
         <antcallback return="TestResultToReturn" target="t31"/>
         <antcallback return="TestResultToReturn" target="t32"/>
         <antcallback return="TestResultToReturn" target="t33"/>
+        <antcallback target="t34"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -344,5 +345,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.traffic_generators.stc.StopTrafficTest.stopTraffic"/>
         </jsystem>
+    </target>
+    <target name="t34">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="63906a86-1ede-4417-8140-c32037e98832"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
