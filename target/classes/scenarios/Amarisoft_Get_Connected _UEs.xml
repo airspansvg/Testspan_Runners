@@ -15,27 +15,16 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="TestResultToReturn, StringToReturn" target="t0"/>
-        <antcallback return="TestResultToReturn, RegexToReturn" target="t1"/>
-        <echo message="Check condition ${StringToReturn} &lt; 128"/>
+        <echo message="Check condition ${StringToReturn} &gt;= 128"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e84a13a5-4230-4f0d-8981-a98adf0702e2" language="javascript" params="math &lt;SEP&gt; ${StringToReturn} &lt;SEP&gt; &lt; &lt;SEP&gt; 128" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e84a13a5-4230-4f0d-8981-a98adf0702e2" language="javascript" params="math &lt;SEP&gt; ${StringToReturn} &lt;SEP&gt; &gt;= &lt;SEP&gt; 128" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <echo message="Check condition &quot;PASS&quot; EQUALS &quot;${StringToReturn}&quot;"/>
-                <if>
-                    <!--#Jsystem#-->
-                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.7dd92c8f-894a-4271-b2e9-9fd54ff5ec11" language="javascript" params="str &lt;SEP&gt; PASS &lt;SEP&gt; EQUALS &lt;SEP&gt; ${StringToReturn} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
-                    <then>
-                        <antcallback target="t2"/>
-                    </then>
-                    <else>
-                        <!--#Jsystem#-->
-                        <antcallback target="t3"/>
-                    </else>
-                </if>
+                <antcallback target="t1"/>
             </then>
             <else>
                 <!--#Jsystem#-->
+                <antcallback target="t2"/>
             </else>
         </if>
     </target>
@@ -49,23 +38,15 @@
     </target>
     <target name="t1">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="d2313807-b997-4543-95b5-e5fc700d2049"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.RegexReturnStringTest.regexReturnStringTest"/>
-        </jsystem>
-    </target>
-    <target name="t2">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="e76db722-79ba-4fea-964f-3acf54f6ed8c"/>
+            <sysproperty key="jsystem.uuid" value="7d63b453-c7e8-4a8f-9873-ee58308fcae6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t3">
+    <target name="t2">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="4726a0e9-90f9-4096-b4de-aa8b8fb9bba6"/>
+            <sysproperty key="jsystem.uuid" value="3723636d-24a3-48c4-aec9-166c0bba8aa6"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
