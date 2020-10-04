@@ -16,45 +16,46 @@
     <target name="execute scenario">
         <antcallback return="TestResultToReturn" target="t0"/>
         <antcallback return="TestResultToReturn, StartTimeToReturn" target="t1"/>
-        <antcallback return="TestResultToReturn" target="t2"/>
-        <antcallback return="TestResultToReturn" target="t3"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t2"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t3"/>
         <antcallback return="TestResultToReturn" target="t4"/>
         <antcallback return="TestResultToReturn" target="t5"/>
         <antcallback target="t6"/>
-        <antcallback return="TestResultToReturn" target="t7"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t7"/>
         <antcallback target="t8"/>
-        <antcallback target="t9"/>
+        <antcallback return="LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t9"/>
         <antcallback target="t10"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t11"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t12"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t13"/>
         <antcallback return="SnmpReturnValue, TestResultToReturn" target="t14"/>
         <antcallback target="t15"/>
-        <antcallback return="TestResultToReturn" target="t16"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t16"/>
         <antcallback target="t17"/>
-        <antcallback return="TestResultToReturn" target="t18"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t18"/>
         <antcallback return="TestResultToReturn" target="t19"/>
         <antcallback target="t20"/>
         <antcallback return="TestResultToReturn" target="t21"/>
         <antcallback return="TestResultToReturn" target="t22"/>
         <antcallback return="TestResultToReturn" target="t23"/>
         <antcallback target="t24"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t25"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t25"/>
         <antcallback target="t26"/>
-        <antcallback return="TestResultToReturn" target="t27"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t27"/>
         <antcallback target="t28"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t29"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t29"/>
         <antcallback target="t30"/>
-        <antcallback return="EnbSnmpReturnValue, TestResultToReturn" target="t31"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t31"/>
         <antcallback target="t32"/>
-        <antcallback return="TestResultToReturn" target="t33"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t33"/>
         <antcallback target="t34"/>
-        <antcallback return="TestResultToReturn" target="t35"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t35"/>
         <antcallback return="TestResultToReturn" target="t36"/>
         <antcallback return="TestResultToReturn, StopTimeToReturn" target="t37"/>
         <antcallback target="t38"/>
-        <antcallback return="TestResultToReturn" target="t39"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t39"/>
         <antcallback target="t40"/>
+        <antcallback target="t41"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -383,5 +384,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.deprecated.TrafficGeneratorController.stopTraffic"/>
         </jsystem>
+    </target>
+    <target name="t41">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="0705c74b-cbbd-488c-b627-9fcfcfd28b09"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>

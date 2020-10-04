@@ -18,10 +18,10 @@
         <antcallback return="TestResultToReturn" target="t1"/>
         <antcallback return="TestResultToReturn" target="t2"/>
         <antcallback target="t3"/>
-        <antcallback return="TestResultToReturn" target="t4"/>
-        <antcallback return="TestResultToReturn" target="t5"/>
-        <antcallback return="TestResultToReturn" target="t6"/>
-        <antcallback return="TestResultToReturn" target="t7"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t4"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t5"/>
+        <antcallback return="IsTestWasSuccessful" target="t6"/>
+        <antcallback return="IsTestWasSuccessful" target="t7"/>
         <echo message="Check condition &quot;&quot; NOT_EQUALS &quot;${scenario:PNPloggers}&quot;"/>
         <if>
             <!--#Jsystem#-->
@@ -29,7 +29,7 @@
             <then>
                 <jsystemswitch caseinsensitive="false" fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.3d7e7b1e-d6bd-41f3-b53d-8f07bfbd2f76" parentName="${jsystem.parent.name}.${ant.project.name}" value="${scenario:HW}">
                     <case fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.d2048a7a-a0ff-40f0-ad2c-be232a47ad76" parentName="${jsystem.parent.name}.${ant.project.name}" value="AS1250">
-                        <antcallback return="TestResultToReturn" target="t8"/>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t8"/>
                         <!--#Jsystem#-->
                     </case>
                     <default>
@@ -44,10 +44,11 @@
         </if>
         <antcallback return="TestResultToReturn" target="t9"/>
         <antcallback target="t10"/>
-        <antcallback return="TestResultToReturn" target="t11"/>
-        <antcallback return="TestResultToReturn" target="t12"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t11"/>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t12"/>
         <antcallback return="TestResultToReturn" target="t13"/>
         <antcallback target="t14"/>
+        <antcallback target="t15"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -168,5 +169,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.deprecated.TrafficGeneratorController.stopTraffic"/>
         </jsystem>
+    </target>
+    <target name="t15">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="d9aac15b-25e8-457d-b761-a715ef3265ed"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
