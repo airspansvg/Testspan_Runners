@@ -17,11 +17,11 @@
         <antcallback return="IsTestWasSuccessful" target="t0"/>
         <antcallback return="TestResultToReturn, StringToReturn" target="t1"/>
         <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t2"/>
-        <echo message="Check condition &quot;${NodeNameToReturn} ${BuildNumberToReturn}&quot; CONTAINS &quot;matrix&quot;"/>
-        <echo message="Else if &quot;${sut:Custom/setup_name}&quot; CONTAINS &quot;tsunami&quot;"/>
+        <echo message="Check condition &quot;${NodeNameToReturn}&quot; CONTAINS &quot;Asil-sv-matrix&quot;"/>
+        <echo message="Else if &quot;${NodeNameToReturn}&quot; CONTAINS &quot;ASIL-TSUNAMI&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e1a90f85-8801-436f-a991-02a9bb73b7ea" language="javascript" params="str &lt;SEP&gt; ${NodeNameToReturn} ${BuildNumberToReturn} &lt;SEP&gt; CONTAINS &lt;SEP&gt; matrix &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e1a90f85-8801-436f-a991-02a9bb73b7ea" language="javascript" params="str &lt;SEP&gt; ${NodeNameToReturn} &lt;SEP&gt; CONTAINS &lt;SEP&gt; Asil-sv-matrix &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
                 <echo message="Check condition &quot;${scenario:PTP}&quot; EQUALS &quot;true&quot;"/>
                 <if>
@@ -38,7 +38,7 @@
             </then>
             <elseif>
                 <!--#Jsystem#-->
-                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.0beaf0fb-dd97-4f98-9f52-1c77cfd2145f" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/setup_name} &lt;SEP&gt; CONTAINS &lt;SEP&gt; tsunami &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.d5384c6c-c306-4e31-a7a5-0e705910f1b0" language="javascript" params="str &lt;SEP&gt; ${NodeNameToReturn} &lt;SEP&gt; CONTAINS &lt;SEP&gt; ASIL-TSUNAMI &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                 <then>
                     <echo message="Check condition &quot;${scenario:PTP}&quot; EQUALS &quot;true&quot;"/>
                     <if>
