@@ -13,6 +13,8 @@
 		<enb_2_RackSW>GigabitEthernet0/2</enb_2_RackSW>
 		<ACL_X2>true</ACL_X2>
 		<Slave_Name>Asil-sv-cyclone</Slave_Name>
+		<Python_VM>192.168.56.30</Python_VM>
+		<SAS_Server>172.22.2.188</SAS_Server>
 	</Custom>
 	
 	
@@ -24,12 +26,11 @@
 	</EPC>
 	
 	
-
 	<NetspanWS>
-		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_16_0.NetspanWsImpl</class>
-		<hostname>asil-svg-nms22</hostname>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>192.168.56.35</hostname>
+		<WS>17.5</WS>
 	</NetspanWS>
-
 
 	<ue_lists>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
@@ -62,6 +63,11 @@
 			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
 			<description>HO</description>
 			<ues>ue1-ue8</ues>
+		</ueList>
+		<ueList index="6">
+			<class>com.airspan.testspan.jsystem.sysobjs.ue.UeList</class>
+			<description>enb_3.ptp</description>
+			<ues>ue8</ues>
 		</ueList>
 	</ue_lists>
 
@@ -174,7 +180,7 @@
 		<wanIpAddress>10.10.18.7</wanIpAddress>
 		<lanIpAddress>100.18.7.254</lanIpAddress>
 		<imsi>454030001000210</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
+		<powerControllerMapping>powerControl/A5</powerControllerMapping>
 		<connectedToEnb>enb_1,enb_2</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
@@ -191,8 +197,8 @@
 		<wanIpAddress>10.10.18.8</wanIpAddress>
 		<lanIpAddress>100.18.8.254</lanIpAddress>
 		<imsi>454030001000211</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
+		<powerControllerMapping>powerControl/A5</powerControllerMapping>
+		<connectedToEnb>enb_3</connectedToEnb>
 		<ueCategory>4</ueCategory>
 		<snmp>
 		<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
@@ -206,58 +212,60 @@
 
 	<enb_1>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirHarmony4200</class>
-		<netspanName>Cyclone_AirHarmony4200</netspanName>
+		<netspanName>Cyclone_AH4200</netspanName>
+		<nodeid>D5EF24CED564</nodeid>
 		<duplexMode>TDD</duplexMode>
 		<band>B48</band>
 		<band>B41LH</band>
-		<eNBID>4002</eNBID>
+		<eNBID>46589</eNBID>
 		<inter20>56538</inter20>
 		<intra20>56340</intra20>
 		<inter15>56340</inter15>
 		<intra15>56540</intra15>
 		<inter10>55789</inter10>
 		<intra10>55690</intra10>
-		<TAC_Cell1>12594</TAC_Cell1>
-		<TAC_1>12594</TAC_1>
-		<TAC_2>12594</TAC_2>
+		<TAC_Cell1>15100</TAC_Cell1>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>15100</TAC_2>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<S1>SR15.50v3_AirHarmony_cyclone_Automation_S1</S1>
-		<X2>SR15.50v3_AirHarmony_cyclone_Automation_X2</X2>
+		<S1>Automation_Cyclone_AH4200_S1</S1>
+		<X2>Automation_Cyclone_AH4200_X2</X2>
 		<X2_ANR_ON>Automation_AirHarmony_ANR_ON</X2_ANR_ON>
 		<X2_ANR_OFF>Automation_AirHarmony_ANR_OFF</X2_ANR_OFF>
 		<MCProfile_CA_ON>Automation_AirHarmony_CA_ON</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>Automation_AirHarmony_CA_OFF</MCProfile_CA_OFF>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		                     <!-- eNB Profiles -->
-		<System_Profile>Automation_Cyclone_SR16.0v11_system_defaults</System_Profile>
-		<eNB_Adv_Profile>Automation_Cyclone_SR15.0_AirHarmony_Defaults</eNB_Adv_Profile>
+		<System_Profile>SR17.5v14 AirHarmony system defaults_CLPC</System_Profile>
+		<eNB_Adv_Profile>SR17.50V1.0_AirHarmony_Sprint_MTU</eNB_Adv_Profile>
 		<Sync_Profile>Automation_Cyclone_AirHarmony_GPS_Only</Sync_Profile>
 		<Security_Profile>Automation_Cyclone_AirHarmony_mandatory</Security_Profile>
 		<Net_Profile>Automation_Cyclone_AirHarmony</Net_Profile>		
-		<Mng_Profile>Automation_Cyclone_SR14.0_AirHarmony</Mng_Profile>
-		<Ngh_Profile>Automation_Cyclone_AirHarmony_Neighbour_Management_Profile</Ngh_Profile>
+		<Mng_Profile>SR17.50V1.0_AirHarmony_Sprint_GPL-I:522</Mng_Profile>
+		<Ngh_Profile>Automation_Cyclone_AH4200_X2</Ngh_Profile>
 		<Son_Profile>Automation_AirHarmony_ANR_ON</Son_Profile>
+		<Son_Profile_OFF>Automation_AirHarmony_ANR_OFF</Son_Profile_OFF>
 		<MC_Profile>Automation_AirHarmony_CA_ON</MC_Profile>
 		
 		                     <!-- CELL1 Profiles -->
 		<cell_1>	
-		<Cell_Adv_Profile>Automation_Cyclone_SR15.0_AirHarmony_Defaults</Cell_Adv_Profile>
-		<Embms_Profile>Automation_Cyclone_SR14.5_AirHarmony_Disabled</Embms_Profile>
-		<Traffic_Mng>Automation_Cyclone_SR15.50v3_AirHarmony_GPL</Traffic_Mng>
-		<Call_Trace>AirVelocity Call Trace Disabled</Call_Trace>
-		<Mobility_Profile>Automation_Cyclone_SR15.0v2_AirHarmony</Mobility_Profile>
-		<Radio_Profile>Harmony_B48_40_cell1</Radio_Profile>
-		<Tac>12594</Tac>		
+		<Cell_Adv_Profile>SR17.50V1.0_AirHarmony_Cyclone</Cell_Adv_Profile>
+		<Embms_Profile>Automation_Cyclone_AirHarmony_Disabled</Embms_Profile>
+		<Traffic_Mng>Automation_Cyclone_AirHarmony_GPL</Traffic_Mng>
+		<Call_Trace>Automation_Cyclone_AirHarmony_Disabled</Call_Trace>
+		<Mobility_Profile>SR17.00V4.0_AirHarmony_Cyclone_HO</Mobility_Profile>
+		<Radio_Profile>SR17.50V1.0_AH4200_B48_Custom _20Mhz_49dbm_FC1</Radio_Profile>
+		<Tac>15100</Tac>		
 		</cell_1>
 	                        <!-- CELL2 Profiles -->
 		<cell_2>	
-		<Cell_Adv_Profile>Automation_Cyclone_SR15.0_AirHarmony_Defaults</Cell_Adv_Profile>
-		<Embms_Profile>Automation_Cyclone_SR14.5_AirHarmony_Disabled</Embms_Profile>
-		<Traffic_Mng>Automation_Cyclone_SR15.50v3_AirHarmony_GPL</Traffic_Mng>
+		<Cell_Adv_Profile>SR17.50V1.0_AirHarmony_Cyclone</Cell_Adv_Profile>
+		<Embms_Profile>Automation_Cyclone_AirHarmony_Disabled</Embms_Profile>
+		<Traffic_Mng>Automation_Cyclone_AirHarmony_GPL</Traffic_Mng>
 		<Call_Trace>Automation_Cyclone_AirHarmony_Disabled</Call_Trace>
-		<Mobility_Profile>Automation_Cyclone_SR15.0v2_AirHarmony</Mobility_Profile>
-		<Radio_Profile>Harmony_B48_40_cell2</Radio_Profile>
-		<Tac>12594</Tac>		
+		<Mobility_Profile>SR17.00V4.0_AirHarmony_Cyclone_HO</Mobility_Profile>
+		<Radio_Profile>SR17.50V1.0_AH4200_B48_Custom _20Mhz_49dbm_FC1</Radio_Profile>
+		<Tac>15100</Tac>		
 		</cell_2>
 		
 		<snmp>
@@ -288,70 +296,72 @@
 	</enb_1>
 
     <enb_2>
-        <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirVelocity1500T</class>
-        <netspanName>Cyclone_AV1500T</netspanName>
+        <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirVelocity1500</class>
+        <netspanName>Cyclone_AV1500</netspanName>
+		<nodeid>E31A33010892</nodeid>
 		<duplexMode>TDD</duplexMode>
 		<band>B48</band>
 		<band>B41LH</band>
-		<eNBID>46</eNBID>
+		<eNBID>45688</eNBID>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
 		<inter20>56538</inter20>
 		<intra20>56340</intra20>
 		<inter15>43290</inter15>
 		<intra15>43340</intra15>
-		<TAC_Cell1>12594</TAC_Cell1>
-		<TAC_1>12594</TAC_1>
-		<TAC_2>12594</TAC_2>
+		<TAC_Cell1>15100</TAC_Cell1>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>15100</TAC_2>
 		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
-		<S1>SR16.0_AirVelocity_GPL_TDD_Automation_S1</S1>
-		<X2>SR16.0_AirVelocity_GPL_TDD_Automation_X2</X2>
+		<S1>AirVelocity_GPL_TDD_Automation_S1</S1>
+		<X2>AirVelocity_GPL_TDD_Automation_X2</X2>
 		<X2_ANR_ON>Automation_SR14.2_AirVelocity_ANR_ON</X2_ANR_ON>
 		<X2_ANR_OFF>Automation_SR14.2_AirVelocity_ANR_OFF</X2_ANR_OFF>
 		<MCProfile_CA_ON>Automation_AirVelocity_CA_ON</MCProfile_CA_ON>
 		<MCProfile_CA_OFF>Automation_AirVelocity_CA_OFF</MCProfile_CA_OFF>
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
 		                     <!-- eNB Profiles -->
-		<System_Profile>Automation_SR16.0v11_AirVelocity_system_defaults</System_Profile>
-		<eNB_Adv_Profile>Automation_SR15.0_AirVelocit_Defaults</eNB_Adv_Profile>
-		<Sync_Profile>Automation_SR15.0v2_AirVelocity_GPS_Only</Sync_Profile>
-		<Security_Profile>Automation_SR14.5_AirVelocity_mandatory</Security_Profile>
+		<System_Profile>SR17.5v14 AirVelocity system defaults</System_Profile>
+		<eNB_Adv_Profile>SR15.0 AirVelocity Defaults</eNB_Adv_Profile>
+		<Sync_Profile>Automation_AirVelocity_GPS_Only</Sync_Profile>
+		<Security_Profile>Automation_AirVelocity_mandatory</Security_Profile>
 		<Net_Profile>Automation_AirVelocity</Net_Profile>		
-		<Mng_Profile>Automation_SR14.0_AirVelocity</Mng_Profile>
-		<Ngh_Profile>Automation_AirVelocity_Neighbour_Management_Profile</Ngh_Profile>
-		<Son_Profile>Automation_SR14.2_AirVelocity_ANR_OFF</Son_Profile>
+		<Mng_Profile>Automation_AirVelocity</Mng_Profile>
+		<Ngh_Profile>AirVelocity_GPL_TDD_Automation_X2</Ngh_Profile>
+		<Son_Profile>Automation_AirVelocity_ANR</Son_Profile>
+		<Son_Profile_OFF>Automation_AirVelocity_ANR_OFF</Son_Profile_OFF>
 		<MC_Profile>Automation_AirVelocity_CA_ON</MC_Profile>
 		
 		                     <!-- CELL1 Profiles -->
 		<cell_1>	
-		<Cell_Adv_Profile>Automation_SR15.0_AirVelocity_Defaults</Cell_Adv_Profile>
-		<Embms_Profile>Automation_SR14.5_AirVelocity_Disabled</Embms_Profile>
-		<Traffic_Mng>Automation_SR14.5_AirVelocity_Defaults</Traffic_Mng>
+		<Cell_Adv_Profile>SR15.0 AirVelocity Defaults</Cell_Adv_Profile>
+		<Embms_Profile>Automation_AirVelocity_Disabled</Embms_Profile>
+		<Traffic_Mng>Automation_AirVelocity_Defaults</Traffic_Mng>
 		<Call_Trace>Automation_AirVelocity_CallTrace_Disabled</Call_Trace>
-		<Mobility_Profile>Automation_SR15.0v2_AirVelocity</Mobility_Profile>
-		<Radio_Profile>Automation_AirVelocity_cell1_10MHz_55290</Radio_Profile>
-		<Tac>12594</Tac>		
+		<Mobility_Profile>SR17.0 AirVelocity_Cyclone</Mobility_Profile>
+		<Radio_Profile>AirVelocity_B48_24dBm_20Mhz_FC2</Radio_Profile>
+		<Tac>15100</Tac>		
 		</cell_1>
 	                        <!-- CELL2 Profiles -->
 		<cell_2>	
-		<Cell_Adv_Profile>Automation_SR15.0_AirVelocity_Defaults</Cell_Adv_Profile>
-		<Embms_Profile>Automation_SR14.5_AirVelocity_Disabled</Embms_Profile>
-		<Traffic_Mng>Automation_SR14.5_AirVelocity_Defaults</Traffic_Mng>
+		<Cell_Adv_Profile>SR15.0 AirVelocity Defaults</Cell_Adv_Profile>
+		<Embms_Profile>Automation_AirVelocity_Disabled</Embms_Profile>
+		<Traffic_Mng>Automation_AirVelocity_Defaults</Traffic_Mng>
 		<Call_Trace>Automation_AirVelocity_CallTrace_Disabled</Call_Trace>
-		<Mobility_Profile>Automation_SR15.0v2_AirVelocity</Mobility_Profile>
-		<Radio_Profile>Automation_AirVelocity_cell2_10MHz_55389</Radio_Profile>
-		<Tac>12594</Tac>		
+		<Mobility_Profile>SR17.0 AirVelocity_Cyclone</Mobility_Profile>
+		<Radio_Profile>AirVelocity_B48_24dBm_20Mhz_FC2</Radio_Profile>
+		<Tac>15100</Tac>		
 		</cell_2>
 		
 		<snmp>
 			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
+			<readCommunity>ro-public</readCommunity>
+			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.20.15.218</strAddress>
+			<strAddress>172.22.54.88</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>			
-			<ipAddress>172.20.15.218</ipAddress>
+			<ipAddress>172.22.54.88</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.61.121</comName>
@@ -359,6 +369,80 @@
 			</serialCom>
 		</xlp>
 	</enb_2>
+	
+	<enb_3>
+        <class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirSpeed1035</class>
+        <netspanName>Cyclone_AS1030</netspanName>
+		<nodeid>E85A477291E0</nodeid>
+		<duplexMode>TDD</duplexMode>
+		<band>B48</band>
+		<band>B41LH</band>
+		<eNBID>53678</eNBID>
+		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
+		<inter20>56538</inter20>
+		<intra20>56340</intra20>
+		<inter15>43290</inter15>
+		<intra15>43340</intra15>
+		<TAC_Cell1>15100</TAC_Cell1>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>15100</TAC_2>
+		<Gemtek>pmpDevCpeEarfcnAndFrequencySettingEarfcnAndFrequency</Gemtek>
+		<S1>SR15.5v1 AirSpeed Neighbour Management Profile</S1>
+		<X2>SR15.5v1 AirSpeed Neighbour Management Profile</X2>
+		<X2_ANR_ON>Automation_SR14.2_AirVelocity_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR14.2_AirVelocity_ANR_OFF</X2_ANR_OFF>
+		<MCProfile_CA_ON>AirSpeed Default Enabled</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>AirSpeed Default Disable</MCProfile_CA_OFF>
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 27-1-2019 -->
+		                     <!-- eNB Profiles -->
+		<System_Profile>SR17.5v14 AirSpeed system defaults</System_Profile>
+		<eNB_Adv_Profile>SR15.2 AirSpeed Defaults</eNB_Adv_Profile>
+		<Sync_Profile>SR15.2v1 AirSpeed GPS Only-I:472</Sync_Profile>
+		<Security_Profile>SR15.2 AirSpeed Default</Security_Profile>
+		<Net_Profile>SR17.50v1.0_AirStrand1300_GPL</Net_Profile>		
+		<Mng_Profile>SR16.0 AirSpeed: 15 minutes</Mng_Profile>
+		<Ngh_Profile>SR15.5v1 AirSpeed Neighbour Management Profile</Ngh_Profile>
+		<Son_Profile>SR15.2 Strand_PNP_ANR_AS1030</Son_Profile>
+		<MC_Profile>AirSpeed Default Enabled</MC_Profile>
+		
+		                     <!-- CELL1 Profiles -->
+		<cell_1>	
+		<Cell_Adv_Profile>SR15.2 AirSpeed Defaults</Cell_Adv_Profile>
+		<Embms_Profile>SR15.2 AirSpeed Disabled</Embms_Profile>
+		<Traffic_Mng>SR15.5 AirSpeed Defaults</Traffic_Mng>
+		<Call_Trace>AirSpeed Call Trace Disabled</Call_Trace>
+		<Mobility_Profile>SR17.0 AirSpeed</Mobility_Profile>
+		<Radio_Profile>AS1030_B48</Radio_Profile>
+		<Tac>15100</Tac>		
+		</cell_1>
+	                        <!-- CELL2 Profiles -->
+		<cell_2>	
+		<Cell_Adv_Profile>SR15.2 AirSpeed Defaults</Cell_Adv_Profile>
+		<Embms_Profile>SR15.2 AirSpeed Disabled</Embms_Profile>
+		<Traffic_Mng>SR15.5 AirSpeed Defaults</Traffic_Mng>
+		<Call_Trace>AirSpeed Call Trace Disabled</Call_Trace>
+		<Mobility_Profile>SR17.0 AirSpeed</Mobility_Profile>
+		<Radio_Profile>AS1030_B48</Radio_Profile>
+		<Tac>15100</Tac>		
+		</cell_2>
+		
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>ro-public1</readCommunity>
+			<writeCommunity>rw-private1</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.15.81</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>			
+			<ipAddress>172.20.15.81</ipAddress>
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.61.121</comName>
+				<port>4006</port>
+			</serialCom>
+		</xlp>
+	</enb_3>
 	
 	<HO_attenuator>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -439,6 +523,16 @@
 			<port>A4</port>
 			<description>dynamic_UEs</description>
 		</ports>
+		<ports index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A5</port>
+			<description>dynamic_UEs</description>
+		</ports>
+		<ports index="4">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A5</port>
+			<description>enb_3</description>
+		</ports>
 	</powerControl>
 
 
@@ -448,22 +542,22 @@
 		<class>com.ignissoft.testCenterEmulations.TestCenterEmulations</class>
 		<shellPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\TCL\bin\wish85.exe</shellPath>
 		<initScriptPath>C:\Program Files (x86)\Spirent Communications\Spirent TestCenter 4.82\Spirent TestCenter Application\pkgIndex.tcl</initScriptPath>
-		<defaultConfigTccFile>C:/Users/spuser/Documents/Spirent/TP_Automation_File2.tcc</defaultConfigTccFile>
+		<defaultConfigTccFile>C:\Users\spuser.AIRSPAN\Documents\Spirent/TP_Automation_File2.tcc</defaultConfigTccFile>
 		<runFiles>c:/Testspan/fileName</runFiles>
 		<autoReservePorts>false</autoReservePorts>
 		<ip>172.20.60.233</ip>
 		<port index="0">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>8</slot>
-			<port>9</port>
+			<slot>4</slot>
+			<port>12</port>
 			<portName>DL</portName>
 		</port>
 		<port index="1">
 			<class>com.ignissoft.testCenterEmulations.TestCenterPortEmulations</class>
 			<ip>172.20.60.233</ip>
-			<slot>8</slot>
-			<port>10</port>
+			<slot>4</slot>
+			<port>11</port>
 			<portName>UL</portName>
 		</port>
 		</stc>
@@ -498,114 +592,6 @@
 			<vlanName>S1_DATA</vlanName>
 		</vlans>		 
 	</svg-racksw>
-
-
-	<Deny_X2>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.118</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.118</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_X2>
-
-	<Deny_S1>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.156.1</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.21.156.1</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-	</Deny_S1>
-
-
-	<Deny_Netspan>
-		<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.AccessList</class>
-		<rules index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</destination>
-		</rules>
-		<rules index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Deny</type>
-			<protocol>ip</protocol>
-			<source>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.22.2.222</ipAddress>
-			</source>
-			<destination>
-				<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.RuleElement</class>
-				<ipAddress>172.20.15.218</ipAddress>
-			</destination>
-		</rules>
-		<rules index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.networking.acl.Rule</class>
-			<type>Permit</type>
-			<protocol>ip</protocol>
-		</rules>
-
-	</Deny_Netspan>	
 
 	<!--<UpgradeServer_xlp>
 		<class>EnodeB.EnodeBUpgradeServer</class>
@@ -689,13 +675,13 @@
 			<user>root</user>
 			<password>airspan</password>
 			<location>user</location>
-			<localEndPointIp>10.10.18.3</localEndPointIp>
+			<localEndPointIp>10.10.18.2</localEndPointIp>
 			<vlan>1162</vlan>
 			<ethIf>eth1</ethIf>
-			<ethIfIP>100.18.3.100</ethIfIP>
+			<ethIfIP>100.18.2.100</ethIfIP>
 			<ethIfMask>255.255.255.0</ethIfMask>
 			<routeIp>80.80.18.0</routeIp>
-			<defaultGateway>100.18.3.254</defaultGateway>
+			<defaultGateway>100.18.2.254</defaultGateway>
 		</userSideStation>
 		<port>5003</port>
 		<sessionName>Session3</sessionName>
