@@ -179,8 +179,22 @@
         <antcallback return="TestResultToReturn" target="t62"/>
         <antcallback return="TestResultToReturn" target="t63"/>
         <antcallback return="TestResultToReturn" target="t64"/>
-        <antcallback target="t65"/>
-        <antcallback target="t66"/>
+        <echo message="Check condition &quot;3.5&quot; EQUALS &quot;${sut:Custom/vCU_Rel}&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.334109fb-1c6f-40f7-a821-8b114bea4fa2" language="javascript" params="str &lt;SEP&gt; 3.5 &lt;SEP&gt; EQUALS &lt;SEP&gt; ${sut:Custom/vCU_Rel} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn, StringToReturn" target="t65"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+                <antcallback return="TestResultToReturn, StringToReturn" target="t66"/>
+            </else>
+        </if>
+        <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t67"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t68"/>
+        <antcallback target="t69"/>
+        <antcallback target="t70"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -703,13 +717,45 @@
         </jsystem>
     </target>
     <target name="t65">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="e8e1c7f3-be72-4c0a-bafc-34fb7e9a1093"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t66">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1a8b97ca-3ee7-4602-89cc-a56d8c52d614"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t67">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="a9eebeac-0b7a-4671-855a-396a7735e2e3"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.GetJenkinsVariables.getJenkinsVariables"/>
+        </jsystem>
+    </target>
+    <target name="t68">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="5df08c38-0c22-4804-bb5e-cef346226f03"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t69">
         <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
             <property name="jsystem.uuid" value="8b014287-76c8-4c6f-afae-64aaee402e76"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t66">
+    <target name="t70">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="acb511ca-784d-463f-b566-6f077a819338"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
