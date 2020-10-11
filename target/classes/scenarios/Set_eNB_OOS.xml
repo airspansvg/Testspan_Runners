@@ -15,6 +15,7 @@
     <taskdef classname="com.aqua.anttask.jsystem.JSystemSetAntProperties" name="jsystemsetantproperties"/>
     <target name="execute scenario">
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t0"/>
+        <antcallback target="t1"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -23,5 +24,12 @@
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.SetServiceStateTest.setServiceState"/>
         </jsystem>
+    </target>
+    <target name="t1">
+        <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
+            <property name="jsystem.uuid" value="afd50a08-0459-491c-b675-1ffac5acb808"/>
+            <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+        </jsystem-ant>
     </target>
 </project>
