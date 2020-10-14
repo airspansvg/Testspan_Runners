@@ -79,9 +79,10 @@
         </if>
         <antcallback return="TestResultToReturn" target="t53"/>
         <antcallback return="TestResultToReturn" target="t54"/>
-        <antcallback return="TestResultToReturn" target="t55"/>
-        <antcallback target="t56"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t55"/>
+        <antcallback return="TestResultToReturn" target="t56"/>
         <antcallback target="t57"/>
+        <antcallback target="t58"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -525,20 +526,28 @@
     </target>
     <target name="t55">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="bc3d0981-4dc1-4929-b458-e4a75a0abd77"/>
+            <sysproperty key="jsystem.uuid" value="7b53797d-60c6-485e-887b-0cff2fb72103"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.SnmpRequestForEnodebTest.snmpRequestForEnodeb"/>
+        </jsystem>
+    </target>
+    <target name="t56">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="585184f5-0713-4c5c-9637-1f63c61267a3"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
         </jsystem>
     </target>
-    <target name="t56">
+    <target name="t57">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="52080cbe-b82f-4237-97b3-7916533f9f60"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t57">
+    <target name="t58">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="ade73c00-d03a-4bb2-937f-c11ef7e16fe2"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
