@@ -64,12 +64,13 @@
             </else>
         </if>
         <antcallback target="t39"/>
-        <antcallback return="TestResultToReturn" target="t40"/>
+        <antcallback return="EnbSnmpReturnValue, TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t40"/>
         <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t41"/>
-        <antcallback target="t42"/>
-        <antcallback return="TestResultToReturn" target="t43"/>
+        <antcallback return="TestResultToReturn" target="t42"/>
+        <antcallback target="t43"/>
         <antcallback return="TestResultToReturn" target="t44"/>
-        <antcallback target="t45"/>
+        <antcallback return="TestResultToReturn" target="t45"/>
+        <antcallback target="t46"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -393,10 +394,10 @@
     </target>
     <target name="t40">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="047e36e5-6cbc-4a41-bc4e-8a6c68b73737"/>
+            <sysproperty key="jsystem.uuid" value="12eb266f-2828-42a0-963f-4b1b8514ae65"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.SnmpRequestForEnodebTest.snmpRequestForEnodeb"/>
         </jsystem>
     </target>
     <target name="t41">
@@ -409,13 +410,21 @@
     </target>
     <target name="t42">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="b94bbd71-62b5-4d2f-9431-11836b99189c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
+        </jsystem>
+    </target>
+    <target name="t43">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="9027425b-cf5c-47b9-b14d-0bc1fdbe1a77"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
-    <target name="t43">
+    <target name="t44">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e222c421-8b53-46a2-94de-d3a5d2363556"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -423,7 +432,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t44">
+    <target name="t45">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="a880a586-c2ab-4ee6-8a17-5c67bd73b993"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -431,7 +440,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t45">
+    <target name="t46">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="df87f000-2935-48e2-92b1-c3fc07cdc815"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
