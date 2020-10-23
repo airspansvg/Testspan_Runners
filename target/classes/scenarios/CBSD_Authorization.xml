@@ -22,17 +22,25 @@
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t5"/>
         <antcallback return="TestResultToReturn" target="t6"/>
         <antcallback target="t7"/>
-        <antcallback return="TestResultToReturn" target="t8"/>
-        <antcallback return="TestResultToReturn" target="t9"/>
-        <echo message="Check condition &quot;enable&quot; EQUALS &quot;${scenario:eNodeBsSupportingTest_2}&quot;"/>
+        <echo message="Check condition &quot;${scenario:eNodeBsUnderTest}&quot; EQUALS &quot;enb_1&quot;"/>
+        <echo message="Else if &quot;${scenario:eNodeBsUnderTest}&quot; EQUALS &quot;enb_2&quot;"/>
         <if>
             <!--#Jsystem#-->
-            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.a98d592b-32ac-4e36-90d2-39cf95ba36f1" language="javascript" params="str &lt;SEP&gt; enable &lt;SEP&gt; EQUALS &lt;SEP&gt; ${scenario:eNodeBsSupportingTest_2} &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.4f330789-1655-401a-846f-df76c8ed23b0" language="javascript" params="str &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; EQUALS &lt;SEP&gt; enb_1 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="TestResultToReturn" target="t10"/>
+                <antcallback return="TestResultToReturn" target="t8"/>
             </then>
+            <elseif>
+                <!--#Jsystem#-->
+                <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.d4cd6c66-9087-488f-9116-0577aad3eeef" language="javascript" params="str &lt;SEP&gt; ${scenario:eNodeBsUnderTest} &lt;SEP&gt; EQUALS &lt;SEP&gt; enb_2 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                <then>
+                    <antcallback return="TestResultToReturn" target="t9"/>
+                </then>
+                <!--#Jsystem#-->
+            </elseif>
             <else>
                 <!--#Jsystem#-->
+                <antcallback return="TestResultToReturn" target="t10"/>
             </else>
         </if>
         <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t11"/>
@@ -108,7 +116,7 @@
     </target>
     <target name="t8">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="d7e687d7-007e-4e62-bc51-f25d02de9eda"/>
+            <sysproperty key="jsystem.uuid" value="60439245-4b1c-4f03-9d16-3e768fd187cd"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.web_services.ValidateSoapResponseTest.validateSoapResponse"/>
@@ -116,7 +124,7 @@
     </target>
     <target name="t9">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9bc5c422-15ad-4e78-89ed-c33fc7956f86"/>
+            <sysproperty key="jsystem.uuid" value="d5f3c746-5ab5-416d-adb3-e436e5346b42"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.web_services.ValidateSoapResponseTest.validateSoapResponse"/>
@@ -124,7 +132,7 @@
     </target>
     <target name="t10">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="4b3f458d-6bb3-4ea1-a348-d1b941e20513"/>
+            <sysproperty key="jsystem.uuid" value="8af549e7-e8af-4c18-a32e-33e79723f42a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.web_services.ValidateSoapResponseTest.validateSoapResponse"/>
