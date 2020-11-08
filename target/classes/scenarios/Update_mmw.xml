@@ -143,11 +143,15 @@
                     </default>
                     <!--#Jsystem#-->
                 </jsystemswitch>
-                <antcallback return="TestResultToReturn, RegexToReturn" target="t52"/>
             </sequential>
         </jsystemfor>
-        <antcallback return="TestResultToReturn" target="t53"/>
-        <antcallback target="t54"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t52"/>
+        <antcallback return="TestResultToReturn, RegexToReturn" target="t53"/>
+        <antcallback return="TestResultToReturn" target="t54"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t55"/>
+        <antcallback return="TestResultToReturn, RegexToReturn" target="t56"/>
+        <antcallback return="TestResultToReturn" target="t57"/>
+        <antcallback target="t58"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -567,13 +571,45 @@
     </target>
     <target name="t52">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="02df756f-8ab5-49af-9561-ebffba2686db"/>
+            <sysproperty key="jsystem.uuid" value="b1b710d2-dbcf-4dbf-97b4-f676e7713007"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t53">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="e786dbd5-f972-4204-8bac-44ca141e9b92"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.RegexReturnStringTest.regexReturnStringTest"/>
         </jsystem>
     </target>
-    <target name="t53">
+    <target name="t54">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="83dc53b9-2ede-4708-aa6d-73d716b394bd"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
+        </jsystem>
+    </target>
+    <target name="t55">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="d936c331-4c0c-4cd6-962b-e51acff39656"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t56">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="e7abbaed-db89-4a06-8aca-53e771933010"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.RegexReturnStringTest.regexReturnStringTest"/>
+        </jsystem>
+    </target>
+    <target name="t57">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="45e4ce77-74f9-4391-a407-d0583036faea"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -581,7 +617,7 @@
             <test name="com.airspan.testspan.jsystem.tests.persistence.PropertiesPersistenceTest.saveResultsInXray"/>
         </jsystem>
     </target>
-    <target name="t54">
+    <target name="t58">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="67eacbd2-f8bf-4d63-88e6-d53f5ed61207"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
