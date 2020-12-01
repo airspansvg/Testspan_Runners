@@ -241,7 +241,7 @@
                         <echo message="Check condition &quot;${sut:Custom/VCU_Release}&quot; EQUALS &quot;3.5&quot;"/>
                         <if>
                             <!--#Jsystem#-->
-                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.636b97bb-6309-4c5a-bb61-aa863e03b4b1" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/VCU_Release} &lt;SEP&gt; EQUALS &lt;SEP&gt; 3.5 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.636b97bb-6309-4c5a-bb61-aa863e03b4b1" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/VCU_Release} &lt;SEP&gt; EQUALS &lt;SEP&gt; 3.5 &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
                             <then>
                                 <antcallback return="TestResultToReturn, StringToReturn" target="t81"/>
                                 <antcallback return="TestResultToReturn, StringToReturn" target="t82"/>
@@ -670,27 +670,49 @@
                 <!--#Jsystem#-->
             </else>
         </if>
-        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t236"/>
-        <antcallback target="t237"/>
-        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t238"/>
-        <antcallback return="TestResultToReturn" target="t239"/>
+        <antcallback target="t236"/>
+        <echo message="Check condition &quot;${sut:Custom/VCU_Release}&quot; EQUALS &quot;3.5&quot;"/>
+        <if>
+            <!--#Jsystem#-->
+            <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.fe77a611-63e9-4ac6-8ffa-7006533258d9" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/VCU_Release} &lt;SEP&gt; EQUALS &lt;SEP&gt; 3.5 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+            <then>
+                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t237"/>
+            </then>
+            <else>
+                <!--#Jsystem#-->
+                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t238"/>
+            </else>
+        </if>
+        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t239"/>
         <antcallback return="TestResultToReturn" target="t240"/>
+        <antcallback return="TestResultToReturn" target="t241"/>
         <echo message="Check condition &quot;${scenario:Handovers}&quot; EQUALS &quot;true&quot;"/>
         <if>
             <!--#Jsystem#-->
             <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.e238669e-74ca-4cc7-b3dd-2602504f4678" language="javascript" params="str &lt;SEP&gt; ${scenario:Handovers} &lt;SEP&gt; EQUALS &lt;SEP&gt; true &lt;SEP&gt; false" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
             <then>
-                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t241"/>
-                <antcallback target="t242"/>
-                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t243"/>
-                <antcallback return="TestResultToReturn" target="t244"/>
-                <antcallback return="TestResultToReturn" target="t245"/>
+                <echo message="Check condition &quot;${sut:Custom/VCU_Release}&quot; EQUALS &quot;3.5&quot;"/>
+                <if>
+                    <!--#Jsystem#-->
+                    <jsystemscriptcondition fullUuid="${jsystem.parent.uuid}.${jsystem.uuid}.c1856f9c-b264-4528-a157-166f8bf9ac97" language="javascript" params="str &lt;SEP&gt; ${sut:Custom/VCU_Release} &lt;SEP&gt; EQUALS &lt;SEP&gt; 3.5 &lt;SEP&gt; true" parentName="${jsystem.parent.name}.${ant.project.name}" src="ifScriptCondition.js" value="false"/>
+                    <then>
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t242"/>
+                    </then>
+                    <else>
+                        <!--#Jsystem#-->
+                        <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t243"/>
+                    </else>
+                </if>
+                <antcallback target="t244"/>
+                <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t245"/>
+                <antcallback return="TestResultToReturn" target="t246"/>
+                <antcallback return="TestResultToReturn" target="t247"/>
             </then>
             <else>
                 <!--#Jsystem#-->
             </else>
         </if>
-        <antcallback target="t246"/>
+        <antcallback target="t248"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -2582,23 +2604,23 @@
     </target>
     <target name="t236">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="051ae711-08a6-4d1d-b3f0-896af324d110"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
-        </jsystem>
-    </target>
-    <target name="t237">
-        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="dc3e9114-9a8a-44bd-b638-c14a75490f01"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
         </jsystem>
     </target>
+    <target name="t237">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="473bffe6-e25f-4ded-bf84-f3533835b803"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
+        </jsystem>
+    </target>
     <target name="t238">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="776ae9c4-a39e-4ea5-8490-079762d3a74e"/>
+            <sysproperty key="jsystem.uuid" value="cf48d53f-24af-47f8-8c28-f6ab2cfa69a8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
@@ -2606,15 +2628,15 @@
     </target>
     <target name="t239">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="7d101153-feed-4d37-a772-b74ccf3bfb7a"/>
+            <sysproperty key="jsystem.uuid" value="776ae9c4-a39e-4ea5-8490-079762d3a74e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
         </jsystem>
     </target>
     <target name="t240">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="2aa7f847-f06e-4326-b757-e8129c6e901d"/>
+            <sysproperty key="jsystem.uuid" value="7d101153-feed-4d37-a772-b74ccf3bfb7a"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
@@ -2622,23 +2644,23 @@
     </target>
     <target name="t241">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="f6f3c2ff-9579-45fa-a31b-63afc23b2c55"/>
+            <sysproperty key="jsystem.uuid" value="2aa7f847-f06e-4326-b757-e8129c6e901d"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
+        </jsystem>
+    </target>
+    <target name="t242">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="1532e2bb-f5be-4fcb-84af-0b27d574a842"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
         </jsystem>
     </target>
-    <target name="t242">
-        <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="0bf735dd-bcff-42d0-b2d0-577209d171b9"/>
-            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
-            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
-            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
-        </jsystem>
-    </target>
     <target name="t243">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="9aef60f0-1baa-4b96-8b71-139f0c58fd3c"/>
+            <sysproperty key="jsystem.uuid" value="04fb4560-1516-4ae1-9db3-b2a3ce2854c1"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
@@ -2646,13 +2668,29 @@
     </target>
     <target name="t244">
         <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="0bf735dd-bcff-42d0-b2d0-577209d171b9"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.WaitTest.waitTest"/>
+        </jsystem>
+    </target>
+    <target name="t245">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="9aef60f0-1baa-4b96-8b71-139f0c58fd3c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.raw.SendCommandsTest.sendCommands"/>
+        </jsystem>
+    </target>
+    <target name="t246">
+        <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3846e1cd-cca8-4141-83d0-7c1730bd6e00"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t245">
+    <target name="t247">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="f9dd3971-6063-4dfd-875d-15cf734dcfc0"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -2660,7 +2698,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t246">
+    <target name="t248">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="ccec10b9-ecc8-45b0-946f-fd59482dca8f"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
