@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
 	<Custom>
-	    <sut_file_new>xray_sut_Typhoon_SR18_00_Node_ID</sut_file_new>
 		<class>Custom</class>
 		<NMSipAddress>172.22.2.12</NMSipAddress>
 		<IP_ver>IPv4</IP_ver>
@@ -10,23 +9,21 @@
 		<IP_MME>172.21.151.1</IP_MME>
 		<sec_GW_ipv4>172.22.5.235</sec_GW_ipv4>
 		<EPC_num>EPC_1</EPC_num>
-		<ZMTL_MC20>39750;39948;</ZMTL_MC20>
 		<RackSW>172.20.61.151</RackSW>   
+		<ZMTL_MC20>39750;39948;</ZMTL_MC20>
 		<Mng_Profile_15min>Automation_SR17.50v1.0_GPL_Typhoon_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->	
-		<Traffic_Mng_Idle_ON>Automation_SR17.50v1.0_GPL_Typhoon_IDLE_ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->
-		<Traffic_Mng_Idle_OFF>Automation_SR17.50v1.0_GPL_Typhoon_IDLE_OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
-		<System_Profile_Idle_ON>Automation_SR17.5v15 AirSpeed system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->		
-		<System_Profile_Idle_OFF>Automation_SR17.5v15 AirSpeed system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
+		<Traffic_Mng_Idle_ON>Automation_SR17.5v11 AirSpeed system defaults IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->
+		<Traffic_Mng_Idle_OFF>Automation_SR17.5v11 AirSpeed system defaults IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
+		<System_Profile_Idle_ON>Automation_SR17.5v13 AirSpeed system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->		
+		<System_Profile_Idle_OFF>Automation_SR17.5v13 AirSpeed system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
 		<enb_1_RackSW>GigabitEthernet 0/8</enb_1_RackSW> 
 		<enb_2_RackSW>GigabitEthernet 0/1</enb_2_RackSW>
-		<ACL_X2>false</ACL_X2>
+		<ACL_X2>true</ACL_X2>
 		<IPSec_ON_OFF>ON</IPSec_ON_OFF>
 		<AutoPCI_3rdPartyEnbIP>100.10.20.130</AutoPCI_3rdPartyEnbIP>
 		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
 		<AutoPCI_Main_Window>Automation_Maintenance_Windows</AutoPCI_Main_Window>
-		<System_Profile_Previous_SR17_0>Automation_SR17.0v10_AirSpeed</System_Profile_Previous_SR17_0>
-		<System_Profile_Previous>Automation_SR17.5v15 AirSpeed system defaults IDLE OFF</System_Profile_Previous>
-		<Slave_Name>ASIL-TYPHOON</Slave_Name>
+		<System_Profile_Previous>Automation_SR17.0v10_AirSpeed</System_Profile_Previous>
 	</Custom>
 
 	<EPC>
@@ -35,39 +32,6 @@
 		<username>autosvg</username>
 		<password>autosvg1</password>
 	</EPC>
-	
-	<amarisoftMME>
-         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
-         <userName>root</userName>
-         <password>airspan</password>
-         <ipAddress>192.168.62.20</ipAddress>
-         <port>9004</port>
-    </amarisoftMME>
-	
-	<AppiumServer>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer</class>
-		<ipAddress>typhoonsmart</ipAddress>
-		<ip>192.168.56.160</ip>
-		<port>4723</port>
-	</AppiumServer>
-
-	<OnePlusTyphoon>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
-		<deviceID>3dd44fe0</deviceID>
-		<imsi>460020002946097</imsi>
-		<ueCategory>4</ueCategory>
-		<!-- default ueCategory is 4-->
-		<connectedToEnb>enb_1</connectedToEnb>
-	</OnePlusTyphoon>
-
-	<SamsungTyphoon>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.SamsungUe</class>
-		<deviceID>ce11171b228a4f2c04</deviceID>
-		<imsi>460020002946030</imsi>
-		<ueCategory>4</ueCategory>
-		<!-- default ueCategory is 4-->
-		<connectedToEnb>enb_1</connectedToEnb>
-	</SamsungTyphoon>
 	
 	<ue_lists>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
@@ -106,11 +70,20 @@
 	<NetspanWS>
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
 		<hostname>asil-svg-nms12</hostname>
+<<<<<<< Updated upstream
 		<netspanProtocol>http</netspanProtocol>
+=======
+>>>>>>> Stashed changes
 		<WS>17.5</WS>
 	</NetspanWS>
-
 	
+	<NetspanSfWs>
+		<class>com.airspan.testspan.jsystem.sysobj.netspansf.web_services.NetspanSfWsImpl</class>
+		<hostname>192.168.62.11</hostname>
+		<username>automation</username> <!-- The user has to be of type Power User -->
+		<password>Automation1!</password>
+	</NetspanSfWs>
+
 	<ue1>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
 		<wanIpAddress>10.10.29.1</wanIpAddress>
@@ -179,261 +152,29 @@
 		</snmp>
 	</ue4>
 
-	<ue5>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.29.5</wanIpAddress>
-		<lanIpAddress>100.29.5.254</lanIpAddress>
-		<imsi>200010001010014</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.5.254</strAddress>
-		</snmp>
-	</ue5>
+    <amarisoftMME>
+         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+         <userName>root</userName>
+         <password>airspan</password>
+         <ipAddress>192.168.62.20</ipAddress>
+         <port>9004</port>
+    </amarisoftMME>
+	
+	<AppiumServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer</class>
+		<ipAddress>typhoonsmart</ipAddress>
+		<ip>192.168.56.57</ip>
+		<port>4723</port>
+	</AppiumServer>
 
-	<ue6>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.ZemtelUe</class>
-		<wanIpAddress>10.10.29.6</wanIpAddress>
-		<lanIpAddress>100.29.6.254</lanIpAddress>
-		<imsi>200010001010013</imsi>
-		<powerControllerMapping>powerControl/A4</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
+	<OnePlusTyphoon>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+		<deviceID>3dd44fe0</deviceID>
+		<imsi>460020002946097</imsi>
 		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.6.254</strAddress>
-		</snmp>
-	</ue6>
-
-	<ue7>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.7</wanIpAddress>
-		<lanIpAddress>100.29.7.254</lanIpAddress>
-		<imsi>200010001010015</imsi>
-		<powerControllerMapping>powerControl/A8</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.7.254</strAddress>
-		</snmp>
-	</ue7>
-
-	<ue8>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.8</wanIpAddress>
-		<lanIpAddress>100.29.8.254</lanIpAddress>
-		<imsi>200010001003361</imsi>
-		<powerControllerMapping>powerControl/A8</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.8.254</strAddress>
-		</snmp>
-	</ue8>
-
-	<ue9>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.9</wanIpAddress>
-		<lanIpAddress>100.29.9.254</lanIpAddress>
-		<imsi>200010001010251</imsi>
-		<powerControllerMapping>powerControl/A6</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.9.254</strAddress>
-		</snmp>
-	</ue9>
-
-	<ue10>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.10</wanIpAddress>
-		<lanIpAddress>100.29.10.254</lanIpAddress>
-		<imsi>200010001010250</imsi>
-		<powerControllerMapping>powerControl/A6</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.10.254</strAddress>
-		</snmp>
-	</ue10>
-
-	<ue11>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.11</wanIpAddress>
-		<lanIpAddress>100.29.11.254</lanIpAddress>
-		<imsi>200010001010247</imsi>
-		<powerControllerMapping>powerControl/A5</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.11.254</strAddress>
-		</snmp>
-	</ue11>
-
-	<ue12>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.12</wanIpAddress>
-		<lanIpAddress>100.29.12.254</lanIpAddress>
-		<imsi>200010001010246</imsi>
-		<powerControllerMapping>powerControl/A5</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.12.254</strAddress>
-		</snmp>
-	</ue12>
-
-	<ue13>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.13</wanIpAddress>
-		<lanIpAddress>100.29.13.254</lanIpAddress>
-		<imsi>200010001010245</imsi>
-		<powerControllerMapping>powerControl/A6</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.13.254</strAddress>
-		</snmp>
-	</ue13>
-
-	<ue14>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.14</wanIpAddress>
-		<lanIpAddress>100.29.14.254</lanIpAddress>
-		<imsi>200010001010244</imsi>
-		<powerControllerMapping>powerControl/A6</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.14.254</strAddress>
-		</snmp>
-	</ue14>
-
-	<ue15>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.15</wanIpAddress>
-		<lanIpAddress>100.29.15.254</lanIpAddress>
-		<imsi>200010001010243</imsi>
-		<powerControllerMapping>powerControl/A7</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.15.254</strAddress>
-		</snmp>
-	</ue15>
-
-	<ue16>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.16</wanIpAddress>
-		<lanIpAddress>100.29.16.254</lanIpAddress>
-		<imsi>200010001010242</imsi>
-		<powerControllerMapping>powerControl/A7</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.16.254</strAddress>
-		</snmp>
-	</ue16>
-
-	<ue17>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.17</wanIpAddress>
-		<lanIpAddress>100.29.17.254</lanIpAddress>
-		<imsi>501010001000072</imsi>
-		<powerControllerMapping>powerControl/A8</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.17.254</strAddress>
-		</snmp>
-	</ue17>
-
-	<ue18>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.18</wanIpAddress>
-		<lanIpAddress>100.29.18.254</lanIpAddress>
-		<imsi>501010001000073</imsi>
-		<powerControllerMapping>powerControl/A8</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.18.254</strAddress>
-		</snmp>
-	</ue18>
-
-	<ue19>
-		<class>com.airspan.testspan.jsystem.sysobjs.ue.GemtekUe</class>
-		<wanIpAddress>10.10.29.19</wanIpAddress>
-		<lanIpAddress>100.29.19.254</lanIpAddress>
-		<imsi>501010001000071</imsi>
-		<powerControllerMapping>powerControl/A6</powerControllerMapping>
-		<connectedToEnb>enb_1,enb_2</connectedToEnb>
-		<ueCategory>4</ueCategory>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V2</snmpVersion>
-			<strAddress>100.29.19.254</strAddress>
-		</snmp>
-	</ue19>
-
+		<!-- default ueCategory is 4-->
+		<connectedToEnb>enb_1</connectedToEnb>
+	</OnePlusTyphoon>
 
 
 	<enb_1>
@@ -441,24 +182,29 @@
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
 		<nodeId>DB4F22CD2DAE</nodeId>
 		<duplexMode>TDD</duplexMode>
-		<nms>Typhoon_AS1300_1</nms>
 		<band>B41LH</band>
 		<eNBID>423</eNBID>
-		<intra20>39750</intra20>
 		<inter20>39948</inter20>
-		<intra10_NonCont>40094</intra10_NonCont>
+		<intra20>39750</intra20>
+		<inter15>41050</inter15>
+		<intra15>41200</intra15>
+		<intra10>41200</intra10>
+		<inter10>41111</inter10>
 		<TAC_Cell1>15100</TAC_Cell1>
 		<TAC_1>15100</TAC_1>
 		<TAC_2>13100</TAC_2>
-
+		<Mng_Profile_15min>Automation_SR17.50v1.0_GPL_Typhoon_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->	
+		<Traffic_Mng_Idle_ON>Automation_SR17.5v11 AirSpeed system defaults IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->
+		<Traffic_Mng_Idle_OFF>Automation_SR17.5v11 AirSpeed system defaults IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
+		<System_Profile_Idle_ON>Automation_SR17.5v13 AirSpeed system defaults IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->		
+		<System_Profile_Idle_OFF>Automation_SR17.5v13 AirSpeed system defaults IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
 		<S1>Automation_SR17.50v1.0_GPL_Typhoon_S1</S1>
 		<X2>Automation_SR17.50v1.0_GPL_Typhoon_X2</X2>
 		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Typhoon_X2_ANR_ON</X2_ANR_ON>
 		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Typhoon_X2_ANR_OFF</X2_ANR_OFF>
-
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v15 AirSpeed system defaults IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR17.5v13 AirSpeed system defaults IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Sync_Profile>
 		<Security_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Security_Profile>
@@ -499,12 +245,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.129</strAddress>
+			<strAddress>172.22.54.129</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.56.129</ipAddress>
+			<ipAddress>172.22.54.129</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
@@ -517,26 +263,29 @@
 		<enb_type>Macro</enb_type>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
 		<nodeId>DDEF27CD97B0</nodeId>
-		<nms>Typhoon_AS1300_2</nms>
 		<eNBID>45344</eNBID>
 		<duplexMode>TDD</duplexMode>
 		<band>B41LH</band>
 		<TAC_Cell1>15100</TAC_Cell1>
 		<TAC_1>15100</TAC_1>
 		<TAC_2>13100</TAC_2>
-		<inter20>40000</inter20>
-		<intra20>40198</intra20>
+		<inter20>39950</inter20>
+		<intra20>39750</intra20>
+		<inter15>39900</inter15>
+		<intra15>39750</intra15>
+		<intra10>41200</intra10>
+		<inter10>41111</inter10>
 		<S1>Automation_SR17.50v1.0_GPL_Typhoon_S1</S1>
 		<X2>Automation_SR17.50v1.0_GPL_Typhoon_X2</X2>
 
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v15 AirSpeed system defaults IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR17.5v13 AirSpeed system defaults IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Sync_Profile>
 		<Security_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Security_Profile>
-		<Net_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Net_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Typhoon_Smart</Net_Profile>
 		<Mng_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Mng_Profile>
 		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Typhoon_X2</Ngh_Profile>
 		<Son_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Son_Profile>
@@ -573,12 +322,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.130</strAddress>
+			<strAddress>172.22.54.130</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.56.130</ipAddress>
+			<ipAddress>172.22.54.130</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
@@ -615,7 +364,7 @@
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v15_AirVelocityFemto IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR17.5v13_AirVelocityFemto IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</Sync_Profile>
 		<Security_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</Security_Profile>
@@ -641,12 +390,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.29</strAddress>
+			<strAddress>172.22.54.29</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.56.29</ipAddress>
+			<ipAddress>172.22.54.29</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
@@ -663,7 +412,7 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4007</port>
+				<port>4011</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
 		</attenuators>
@@ -672,43 +421,43 @@
 			<maxAttenuation>30</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4008</port>
+				<port>4012</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
 		</attenuators>
-		<waitTime>2000</waitTime>
-		<stepTime>500</stepTime>
+		<waitTime>500</waitTime>
+		<stepTime>550</stepTime>
 		<attenuationStep>3</attenuationStep>
 		<maxAttenuation>30</maxAttenuation>
 		<minAttenuation>0</minAttenuation>
 	</HO_attenuator>
 	
-	<ANR_attenuator>
-		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
-		<attenuators index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>30</maxAttenuation>
-			<serialCom>
+    <ANR_attenuator>
+        <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+        <attenuators index="0">
+          <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+          <maxAttenuation>30</maxAttenuation>
+          <serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4007</port>
+				<port>4011</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
-		</attenuators>
-		<attenuators index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
-			<maxAttenuation>30</maxAttenuation>
-			<serialCom>
+        </attenuators>
+        <attenuators index="1">
+          <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+          <maxAttenuation>30</maxAttenuation>
+          <serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4008</port>
+				<port>4012</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
-		</attenuators>
-		<waitTime>1000</waitTime>
-		<stepTime>1000</stepTime>
-		<attenuationStep>2</attenuationStep>
-		<maxAttenuation>30</maxAttenuation>
-		<minAttenuation>0</minAttenuation>
-	</ANR_attenuator>
+        </attenuators>
+        <waitTime>1000</waitTime>
+        <stepTime>1000</stepTime>
+        <attenuationStep>2</attenuationStep>
+        <maxAttenuation>30</maxAttenuation>
+        <minAttenuation>0</minAttenuation>
+    </ANR_attenuator>
 
 	<AMC_attenuator1>
 		<class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
@@ -717,11 +466,11 @@
 			<maxAttenuation>60</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4005</port>
+				<port>4011</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
 		</attenuators>
-		<stepTime>4005</stepTime>
+		<stepTime>4011</stepTime>
 		<attenuationStep>1</attenuationStep>
 		<maxAttenuation>16</maxAttenuation>
 		<minAttenuation>1</minAttenuation>
@@ -734,17 +483,17 @@
 			<maxAttenuation>60</maxAttenuation>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<port>4006</port>
+				<port>4012</port>
 				<comName>172.20.60.244</comName>
 			</serialCom>
 		</attenuators>
-		<stepTime>4006</stepTime>
+		<stepTime>400</stepTime>
 		<attenuationStep>1</attenuationStep>
 		<maxAttenuation>16</maxAttenuation>
 		<minAttenuation>1</minAttenuation>
 	</AMC_attenuator2>
-	
-    <GPS_attenuator>
+
+  <GPS_attenuator>
         <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
         <attenuators index="0">
             <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><sut validators="">
 
 	<Custom>
-		<sshUser>op</sshUser>
-		<sshPassword_SR17>PZ8Hfy3=Ve7fQkt*</sshPassword_SR17>
 		<class>Custom</class>
 		<NMSipAddress>172.22.2.12</NMSipAddress>
 		<IP_ver>IPv4</IP_ver>
@@ -16,8 +14,8 @@
         <Mng_Profile_15min>Automation_Combo_SR16.50v1_GPL_Typhoon_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->	
 		<Traffic_Mng_Idle_ON>Automation_SR17.5v9_AirVelocityFemto IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->	
 		<Traffic_Mng_Idle_OFF>Automation_SR17.5v9_AirVelocityFemto IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
-		<System_Profile_Idle_OFF>Automation_SR17.5v15_AirVelocityFemto IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
-		<System_Profile_Idle_ON>Automation_SR17.5v15_AirVelocityFemto IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->		
+		<System_Profile_Idle_OFF>Automation_SR17.5v13_AirVelocityFemto IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
+		<System_Profile_Idle_ON>Automation_SR17.5v13_AirVelocityFemto IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->		
         <enb_1_RackSW>GigabitEthernet 0/8</enb_1_RackSW> 
         <enb_2_RackSW>GigabitEthernet 0/1</enb_2_RackSW>
 		<ACL_X2>true</ACL_X2>
@@ -26,9 +24,44 @@
 		<AutoPCI_3rdPartyEnbID>3</AutoPCI_3rdPartyEnbID>
 		<AutoPCI_Main_Window>Automation_Maintenance_Windows</AutoPCI_Main_Window>
 		<System_Profile_Previous>Automation_SR17.0v10_AirVelocityFemto</System_Profile_Previous>
-		<Slave_Name>ASIL-TYPHOON</Slave_Name>
 	</Custom>
 	
+	<amarisoftMME>
+         <class>com.airspan.testspan.jsystem.sysobjs.amarisoft.UeSimulatorServer</class>
+         <userName>root</userName>
+         <password>airspan</password>
+         <ipAddress>192.168.62.20</ipAddress>
+         <port>9004</port>
+    </amarisoftMME>
+	
+    <AppiumServer>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.smartphone.AppiumServer</class>
+		<ipAddress>typhoonsmart</ipAddress>
+		<ip>192.168.56.57</ip>
+		<port>4723</port>
+	</AppiumServer>
+
+	<OnePlusTyphoon>
+		<class>com.airspan.testspan.jsystem.sysobjs.ue.OnePlusUe</class>
+		<deviceID>3dd44fe0</deviceID>
+		<imsi>460020002946097</imsi>
+		<ueCategory>4</ueCategory>
+		<!-- default ueCategory is 4-->
+		<connectedToEnb>enb_1</connectedToEnb>
+	</OnePlusTyphoon>
+
+	<EPC>
+		<class>com.airspan.testspan.jsystem.sysobjs.epc.CiscoEpc</class>
+		<ipAddress>192.168.62.230</ipAddress>
+		<username>autosvg</username>
+		<password>autosvg1</password>
+	</EPC>
+
+	<NetspanWS>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>asil-svg-nms12</hostname>
+		<WS>17.5</WS>
+	</NetspanWS>
 
 	<ue_lists>
 		<class>com.airspan.testspan.jsystem.sysobjs.ue.UeLists</class>
@@ -131,6 +164,7 @@
 			<strAddress>100.29.4.254</strAddress>
 		</snmp>
 	</ue4>
+<<<<<<< Updated upstream
 	
 	
 	<amarisoftMME>
@@ -179,6 +213,8 @@
 		<WS>17.5</WS>
 		<netspanProtocol>http</netspanProtocol>
 	</NetspanWS>
+=======
+>>>>>>> Stashed changes
 
 	<enb_1>
 	    <enb_type>Home</enb_type>
@@ -206,11 +242,11 @@
         <Mng_Profile_15min>Automation_Combo_SR16.50v1_GPL_Typhoon_15m</Mng_Profile_15min> <!-- for CMAS/ETWS Test -->	
 		<Traffic_Mng_Idle_ON>Automation_SR17.5v9_AirVelocityFemto IDLE ON</Traffic_Mng_Idle_ON> <!-- for CMAS/ETWS Test -->	
 		<Traffic_Mng_Idle_OFF>Automation_SR17.5v9_AirVelocityFemto IDLE OFF</Traffic_Mng_Idle_OFF> <!-- for CMAS/ETWS Test -->	
-		<System_Profile_Idle_OFF>Automation_SR17.5v15_AirVelocityFemto IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
-		<System_Profile_Idle_ON>Automation_SR17.5v15_AirVelocityFemto IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->	
+		<System_Profile_Idle_OFF>Automation_SR17.5v13_AirVelocityFemto IDLE OFF</System_Profile_Idle_OFF> <!-- for CMAS/ETWS Test -->
+		<System_Profile_Idle_ON>Automation_SR17.5v13_AirVelocityFemto IDLE ON</System_Profile_Idle_ON> <!-- for CMAS/ETWS Test -->	
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v15_AirVelocityFemto IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR17.5v13_AirVelocityFemto IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</Sync_Profile>
 		<Security_Profile>Automation_Combo_SR16.50v1_GPL_Typhoon</Security_Profile>
@@ -237,12 +273,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.29</strAddress>
+			<strAddress>172.22.54.29</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>B41LH</band>
-			<ipAddress>172.22.56.29</ipAddress>
+			<ipAddress>172.22.54.29</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
@@ -255,7 +291,6 @@
 	    <enb_type>Macro</enb_type>
 		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand1300</class>
 		<nodeId>DDEF27CD97B0</nodeId>
-		<nms>Typhoon_AS1300_2</nms>
 		<eNBID>45344</eNBID>
 		<duplexMode>TDD</duplexMode>
 		<band>B41LH</band>
@@ -271,7 +306,7 @@
 
 		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
 		<!-- eNB Profiles -->
-		<System_Profile>Automation_SR17.5v15 AirSpeed system defaults IDLE OFF</System_Profile>
+		<System_Profile>Automation_SR17.5v13 AirSpeed system defaults IDLE OFF</System_Profile>
 		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</eNB_Adv_Profile>
 		<Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Sync_Profile>
 		<Security_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Security_Profile>
@@ -309,12 +344,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.130</strAddress>
+			<strAddress>172.22.54.130</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.56.130</ipAddress>
+			<ipAddress>172.22.54.130</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
@@ -356,12 +391,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.56.129</strAddress>
+			<strAddress>172.22.54.129</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.56.129</ipAddress>
+			<ipAddress>172.22.54.129</ipAddress>
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>172.20.60.244</comName>
