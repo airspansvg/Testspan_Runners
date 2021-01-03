@@ -350,8 +350,9 @@
         <antcallback return="TestResultToReturn" target="t113"/>
         <antcallback return="TestResultToReturn" target="t114"/>
         <antcallback return="TestResultToReturn" target="t115"/>
-        <antcallback target="t116"/>
+        <antcallback return="TestResultToReturn, StringToReturn" target="t116"/>
         <antcallback target="t117"/>
+        <antcallback target="t118"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -1282,13 +1283,21 @@
         </jsystem>
     </target>
     <target name="t116">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="c23fcbbe-8c79-4dbd-870b-d37c142b235c"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.general.SendCommandsOnSessionTest.sendCommandsOnSession"/>
+        </jsystem>
+    </target>
+    <target name="t117">
         <jsystem-ant antfile="${scenarios.base}/scenarios/TP_Analyzer_Test.xml">
             <property name="jsystem.uuid" value="8b014287-76c8-4c6f-afae-64aaee402e76"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <property name="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
         </jsystem-ant>
     </target>
-    <target name="t117">
+    <target name="t118">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="acb511ca-784d-463f-b566-6f077a819338"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
