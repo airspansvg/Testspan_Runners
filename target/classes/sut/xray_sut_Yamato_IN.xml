@@ -85,12 +85,12 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.22.30.52</strAddress>
+			<strAddress>172.22.30.51</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.22.30.52</ipAddress> <!-- ssh root@[fc74:172:20:560:2a0:aff:feaa:aaa4]-->
+			<ipAddress>172.22.30.51</ipAddress> <!-- ssh root@[172.22.30.51]-->
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
 				<comName>10.23.0.223</comName>
@@ -186,8 +186,17 @@
             <maxAttenuation>60</maxAttenuation>
             <serialCom>
                 <class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-                <port>4015</port>
-                <comName>10.23.105.21</comName>
+                <port>4009</port>
+                <comName>10.23.0.223</comName>
+            </serialCom>
+        </attenuators>
+		<attenuators index="1">
+            <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+            <maxAttenuation>60</maxAttenuation>
+            <serialCom>
+                <class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+                <port>4006</port>
+                <comName>10.23.0.6</comName>
             </serialCom>
         </attenuators>
         <stepTime>400</stepTime>
@@ -196,50 +205,26 @@
         <minAttenuation>0</minAttenuation>
     </GPS_attenuator>
 
+	
 	<powerControl>
-		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aviosys9258</class>
+		<ipAddress>10.23.0.45</ipAddress>
 		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V1</snmpVersion>
-			<strAddress>10.23.105.21</strAddress>
-		</snmp>
+        <class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>                            
+        <readCommunity>public</readCommunity>
+        <writeCommunity>private</writeCommunity>
+        <snmpVersion>V1</snmpVersion>
+        <strAddress>10.23.0.45</strAddress>
+        </snmp>
 		<ports index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A2</port>
-			<description>enb_1</description>
+				<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+				<port>Power1</port>
+				<description>A2</description> <!-- enb_1 -->
 		</ports>
 		<ports index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A3</port>
-			<description>enb_2</description>
-		</ports>
-		<ports index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A4</port>
-			<description>dynamic_UEs_1</description>
-			<description>ue5_ue6</description>
-		</ports>
-		<ports index="3">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A5</port>
-			<description>dynamic_UEs_2</description>
-		</ports>
-		<ports index="4">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A6</port>
-			<description>dynamic_UEs_3</description>
-		</ports>
-		<ports index="5">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A7</port>
-			<description>dynamic_UEs_4</description>
-		</ports>
-		<ports index="6">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A8</port>
-			<description>dynamic_UEs_5</description>
+				<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+				<port>Power2</port>
+				<description>A3</description>  <!-- enb_2 -->
 		</ports>
 	</powerControl>
 	
