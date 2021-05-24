@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?><sut validators="">
+
+	<Custom>
+		<class>Custom</class>
+		<IP_ver>IPv4</IP_ver>
+		<setup_name>ARISAKA</setup_name>
+		<setup_vlan>715</setup_vlan> 
+		<Slave_Name>ASIL-ARISAKA</Slave_Name>
+		<eNB_user_Name>root</eNB_user_Name>
+		<eNB_password_Name>Airspan</eNB_password_Name>
+		<Upload_Folder>/home/airspan/</Upload_Folder>  <!-- scp mmw-C7.00007.1.321097.1-16.bsx root@[fc74:172:27:715::15e]:/home/airspan/ -->
+		<Tool_Pass>/home/airspan/Kernel/airspan_drv/</Tool_Pass>
+		<Inter_switch_nornal>i2c_tool wr 1 0x27 0x6 0xef</Inter_switch_nornal>
+		<Inter_switch_bypass>i2c_tool wr 1 0x27 0x6 0xff</Inter_switch_bypass>
+		<Inter_switch_ready>i2c_tool rd 1 0x27 0x6 1</Inter_switch_ready>
+		<Scp_Folder>c:\Build\</Scp_Folder>
+		<Scp_Folder_Previous>c:\Previous_Build\</Scp_Folder_Previous>
+		
+	</Custom>
+
+    <NetspanWS>
+		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
+		<hostname>asil-svg-nms12</hostname>
+		<WS>17.5</WS>
+		<netspanProtocol>http</netspanProtocol>
+	</NetspanWS>
+
+	<enb_2>
+		<enb_type>Macro</enb_type>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.RIU-D</class>
+		<nodeId>DDEF27CD97B0</nodeId>
+		<nms>Typhoon_AS1300_2</nms>
+		<eNBID>45344</eNBID>
+		<duplexMode>TDD</duplexMode>
+		<band>B41LH</band>
+		<TAC_Cell1>15100</TAC_Cell1>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>13100</TAC_2>
+		<inter20>40000</inter20>
+		<intra20>40198</intra20>
+		<S1>Automation_SR17.50v1.0_GPL_Typhoon_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Typhoon_X2</X2>
+
+
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
+		<!-- eNB Profiles -->
+		<System_Profile>Automation_SR17.0v10a AirSpeed system defaults</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Sync_Profile>
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Net_Profile>
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Typhoon_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Son_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Typhoon</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Typhoon_OFF</MCProfile_CA_OFF>
+
+		<!-- CELL1 Profiles -->
+		<cell_1>
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Typhoon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Typhoon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_target</Mobility_Profile>
+			<HO_Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_target</HO_Mobility_Profile>
+			<Radio_Profile>Automation_AS1300_2_Typhoon_Cell0</Radio_Profile>
+			<Radio_Profile_Inter>Automation_AS1300_2_Typhoon_Cell0_inter</Radio_Profile_Inter>
+			<Tac>15100</Tac>
+		</cell_1>
+		<!-- CELL2 Profiles -->
+		<cell_2>
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Typhoon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Typhoon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_target</Mobility_Profile>
+			<HO_Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_target</HO_Mobility_Profile>
+			<Radio_Profile>Automation_AS1300_2_Typhoon_Cell0</Radio_Profile>
+			<Radio_Profile_Inter>Automation_AS1300_2_Typhoon_Cell1_inter</Radio_Profile_Inter>
+			<Tac>15100</Tac>
+		</cell_2>
+
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>ro-public</readCommunity>
+			<writeCommunity>rw-private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.160.24</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<band>41</band>
+			<ipAddress>172.20.160.24</ipAddress> <!-- ssh root@[fc74:172:20:560:2a0:aff:feaa:aaa4]-->
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.62.37</comName>
+				<port>2010</port>
+			</serialCom>
+		</xlp>
+	</enb_2>
+	
+
+    <enb_1>
+		<enb_type>Macro</enb_type>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.RIU-D</class>
+		<nodeId>DB4F22CD2DAE</nodeId>
+		<duplexMode>TDD</duplexMode>
+		<band>B41LH</band>
+		<nms>Typhoon_AS1300_1</nms>
+		<eNBID>423</eNBID>
+		<intra20>39750</intra20>
+		<inter20>39948</inter20>
+		<intra10_NonCont>40094</intra10_NonCont>
+		<TAC_Cell1>15100</TAC_Cell1>
+		<TAC_1>15100</TAC_1>
+		<TAC_2>13100</TAC_2>
+
+		<S1>Automation_SR17.50v1.0_GPL_Typhoon_S1</S1>
+		<X2>Automation_SR17.50v1.0_GPL_Typhoon_X2</X2>
+		<X2_ANR_ON>Automation_SR17.50v1.0_GPL_Typhoon_X2_ANR_ON</X2_ANR_ON>
+		<X2_ANR_OFF>Automation_SR17.50v1.0_GPL_Typhoon_X2_ANR_OFF</X2_ANR_OFF>
+
+		<!-- New Profiles Defenition for ResetToDefault scenario - from 28-1-2019 -->
+		<!-- eNB Profiles -->
+		<System_Profile>Automation_SR17.0v10a AirSpeed system defaults</System_Profile>
+		<eNB_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</eNB_Adv_Profile>
+		<Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Sync_Profile>
+		<NL_Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon_NLM</NL_Sync_Profile>                <!-- for NL Test -->
+		<Switch_NL_Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon_GNSS_NLM</Switch_NL_Sync_Profile>  <!-- for NL Test -->
+		<NA_Sync_Profile>Automation_SR17.50v1.0_GPL_Typhoon_PTP</NA_Sync_Profile>                    <!-- for NL Test -->
+		<Security_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Security_Profile>
+		<Net_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Net_Profile>
+		<Mng_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Mng_Profile>
+		<Ngh_Profile>Automation_SR17.50v1.0_GPL_Typhoon_X2</Ngh_Profile>
+		<Son_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Son_Profile>
+		<MCProfile_CA_ON>Automation_SR17.50v1.0_GPL_Typhoon</MCProfile_CA_ON>
+		<MCProfile_CA_OFF>Automation_SR17.50v1.0_GPL_Typhoon_OFF</MCProfile_CA_OFF>
+
+		<!-- CELL1 Profiles -->
+		<cell_1>
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Typhoon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Typhoon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_Source</Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v_AS1300_1_Typhoon_Cell0</Radio_Profile>
+			<Radio_Profile_10M>Automation_SR17.50v_AS1300_1_10M_Cell0</Radio_Profile_10M>
+			<Tac>15100</Tac>
+		</cell_1>
+		<!-- CELL2 Profiles -->
+		<cell_2>
+			<Cell_Adv_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Cell_Adv_Profile>
+			<Embms_Profile>Automation_SR17.50v1.0_GPL_Typhoon</Embms_Profile>
+			<Traffic_Mng>Automation_SR17.50v1.0_GPL_Typhoon</Traffic_Mng>
+			<Call_Trace>Automation_SR17.50v1.0_GPL_Typhoon</Call_Trace>
+			<Mobility_Profile>Automation_SR17.50v1.0_GPL_Typhoon_Source</Mobility_Profile>
+			<Radio_Profile>Automation_SR17.50v_AS1300_1_Typhoon_Cell1</Radio_Profile>
+			<Tac>15100</Tac>
+		</cell_2>
+
+		<duplexMode>TDD</duplexMode>
+		<PTP_UE1>C:/Users/spuser/Documents/Spirent/Typhoon_UE1.tcc</PTP_UE1>
+		<PTP_UE3>C:/Users/spuser/Documents/Spirent/Typhoon_UE3.tcc</PTP_UE3>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>ro-public</readCommunity>
+			<writeCommunity>rw-private</writeCommunity>
+			<snmpVersion>V2</snmpVersion>
+			<strAddress>172.20.160.33</strAddress>
+		</snmp>
+		<xlp>
+			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
+			<band>41</band>
+			<ipAddress>172.20.160.33</ipAddress> <!-- ssh root@[fc74:172:27:715::14e]-->
+			<serialCom>
+				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+				<comName>172.20.62.37</comName>
+				<port>2014</port>
+			</serialCom>
+		</xlp>
+	</enb_1>
+
+	
+    <GPS_attenuator>
+        <class>com.airspan.testspan.jsystem.sysobjs.attenuator.AttenuatorSet</class>
+        <attenuators index="0">
+            <class>com.airspan.testspan.jsystem.sysobjs.attenuator.RudatAttenuator</class>
+            <maxAttenuation>60</maxAttenuation>
+            <serialCom>
+                <class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
+                <port>4015</port>
+                <comName>172.20.60.40</comName>
+            </serialCom>
+        </attenuators>
+        <stepTime>400</stepTime>
+        <attenuationStep>60</attenuationStep>
+        <maxAttenuation>60</maxAttenuation>
+        <minAttenuation>0</minAttenuation>
+    </GPS_attenuator>
+
+	<powerControl>
+		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
+		<snmp>
+			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
+			<readCommunity>public</readCommunity>
+			<writeCommunity>private</writeCommunity>
+			<snmpVersion>V1</snmpVersion>
+			<strAddress>172.20.61.167</strAddress>
+		</snmp>
+		<ports index="0">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A2</port>
+			<description>enb_2</description>
+		</ports>
+		<ports index="1">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A3</port>
+			<description>enb_1</description>
+		</ports>
+		<ports index="2">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A4</port>
+			<description>dynamic_UEs_1</description>
+			<description>ue5_ue6</description>
+		</ports>
+		<ports index="3">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A5</port>
+			<description>dynamic_UEs_2</description>
+		</ports>
+		<ports index="4">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A6</port>
+			<description>dynamic_UEs_3</description>
+		</ports>
+		<ports index="5">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A7</port>
+			<description>dynamic_UEs_4</description>
+		</ports>
+		<ports index="6">
+			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
+			<port>A8</port>
+			<description>dynamic_UEs_5</description>
+		</ports>
+	</powerControl>
+	
+	<Pinger_Server> <!-- Server_Iperf -->
+		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
+		<hostIpAddress>ASIL-SV-YAMATO</hostIpAddress>
+		<userName>spuser</userName>
+		<password>sp_user9</password>
+		<operationSystemName>WINDOWS</operationSystemName>
+	</Pinger_Server>
+	
+
+</sut>
