@@ -66,12 +66,13 @@
                 <antcallback return="TestResultToReturn, LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t31"/>
             </else>
         </if>
-        <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t32"/>
-        <antcallback return="TestResultToReturn" target="t33"/>
+        <antcallback return="LteVersion, RelayVersion, NetspanVersion, SystemDefaultProfile, SystemDefaultProfileRelay" target="t32"/>
+        <antcallback return="TestResultToReturn, XrayExecIdToReturn, EnbVersionToReturn, BuildNameToReturn, NodeNameToReturn, BuildNumberToReturn" target="t33"/>
         <antcallback return="TestResultToReturn" target="t34"/>
         <antcallback return="TestResultToReturn" target="t35"/>
         <antcallback return="TestResultToReturn" target="t36"/>
-        <antcallback target="t37"/>
+        <antcallback return="TestResultToReturn" target="t37"/>
+        <antcallback target="t38"/>
     </target>
     <target name="t0">
         <jsystem showoutput="true">
@@ -331,13 +332,21 @@
     </target>
     <target name="t32">
         <jsystem showoutput="true">
-            <sysproperty key="jsystem.uuid" value="3cd87fb2-2859-4a38-8fbf-064d81915da7"/>
+            <sysproperty key="jsystem.uuid" value="3b991e6e-12b4-447b-878d-e73c97bfdb75"/>
+            <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
+            <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
+            <test name="com.airspan.testspan.jsystem.tests.enodeb.configuration.SetEnodebConfigTest.setEnodebConfig"/>
+        </jsystem>
+    </target>
+    <target name="t33">
+        <jsystem showoutput="true">
+            <sysproperty key="jsystem.uuid" value="816fc19b-77f8-4894-b7c9-aa9052f5ce46"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
             <sysproperty key="jsystem.parent.name" value="${jsystem.parent.name}.${ant.project.name}"/>
             <test name="com.airspan.testspan.jsystem.tests.general.GetJenkinsVariables.getJenkinsVariables"/>
         </jsystem>
     </target>
-    <target name="t33">
+    <target name="t34">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="90fdec2f-94ee-4506-b538-0b998e65d575"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -345,7 +354,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t34">
+    <target name="t35">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="bbaf3b56-050b-4c27-8b2a-c89536bea6e8"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -353,7 +362,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t35">
+    <target name="t36">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="e42d1e69-7228-4839-b7bf-2f757b63670e"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -361,7 +370,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t36">
+    <target name="t37">
         <jsystem showoutput="true">
             <sysproperty key="jsystem.uuid" value="3701aad6-b120-48fb-9be1-a29e5a9f8ed9"/>
             <sysproperty key="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
@@ -369,7 +378,7 @@
             <test name="com.airspan.testspan.jsystem.tests.enodeb.log.LogTest.stopEnodeBLogs"/>
         </jsystem>
     </target>
-    <target name="t37">
+    <target name="t38">
         <jsystem-ant antfile="${scenarios.base}/scenarios/MTBF.xml">
             <property name="jsystem.uuid" value="50d35d34-6fa5-4898-b35f-5fa42c6ecfcf"/>
             <property name="jsystem.parent.uuid" value="${jsystem.parent.uuid}.${jsystem.uuid}"/>
