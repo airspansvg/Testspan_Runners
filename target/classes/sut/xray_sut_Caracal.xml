@@ -3,38 +3,31 @@
 	<Custom>
 		<class>Custom</class>
 		<IP_ver>IPv4</IP_ver>
-		<setup_name>Naruto</setup_name>
+		<setup_name>CARACAL</setup_name>
 		<setup_vlan>715</setup_vlan> 
-		<Slave_Name>ASIL-NARUTO</Slave_Name>
+		<Slave_Name>192.168.56.98</Slave_Name>
 		<eNB_user_Name>root</eNB_user_Name>
 		<eNB_password_Name>Airspan</eNB_password_Name>
-		<SCP_server_IP>192.168.60.114</SCP_server_IP> 
 		<Upload_Folder>/home/airspan/</Upload_Folder>  <!-- scp mmw-C7.00007.1.321097.1-16.bsx root@[fc74:172:27:715::15e]:/home/airspan/ -->
 		<Tool_Pass>/home/airspan/Kernel/airspan_drv/</Tool_Pass>
 		<Inter_switch_nornal>i2c_tool wr 1 0x27 0x6 0xef</Inter_switch_nornal>
 		<Inter_switch_bypass>i2c_tool wr 1 0x27 0x6 0xff</Inter_switch_bypass>
 		<Inter_switch_ready>i2c_tool rd 1 0x27 0x6 1</Inter_switch_ready>
-		<Scp_Folder>c:\FR\</Scp_Folder>
-		<Scp_Folder_Previous>c:\Previos_FR\</Scp_Folder_Previous>
-		<Scp_Folder_Airspan>c:\FR_Airspan\</Scp_Folder_Airspan>
-		<Scp_Folder_Airspan_Previous>c:\Previos_FR_Airspan\</Scp_Folder_Airspan_Previous>
-		<Fibrolan_Switch>172.20.62.210</Fibrolan_Switch>
-		<Fibrolan_Username>moose</Fibrolan_Username>
-		<Fibrolan_Password>1234</Fibrolan_Password>	
-		<Fibrolan_Port>10GigabitEthernet 1/29</Fibrolan_Port>	
-		<DefaultGW>172.27.253.254</DefaultGW>
+		<Scp_Folder>c:\Build\</Scp_Folder>
+		<Scp_Folder_Previous>c:\Previous_Build\</Scp_Folder_Previous>
+		<DefaultGW>172.27.118.254</DefaultGW>
 	</Custom>
 
     <NetspanWS>
 		<class>com.airspan.testspan.jsystem.sysobj.netspan.web_services.ver_17_5.NetspanWsImpl</class>
-		<hostname>asil-svg-nms28</hostname>
+		<hostname>asil-svg-nms12</hostname>
 		<WS>17.5</WS>
 		<netspanProtocol>http</netspanProtocol>
 	</NetspanWS>
 
-	<enb_3>
+	<enb_1>
 		<enb_type>Macro</enb_type>
-		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.mmW RDU</class>
+		<class>com.airspan.testspan.jsystem.sysobjs.enodeb.AirStrand2200</class>
 		<nodeId>DDEF27CD97B0</nodeId>
 		<nms>Typhoon_AS1300_2</nms>
 		<eNBID>45344</eNBID>
@@ -92,76 +85,19 @@
 			<readCommunity>ro-public</readCommunity>
 			<writeCommunity>rw-private</writeCommunity>
 			<snmpVersion>V2</snmpVersion>
-			<strAddress>172.27.253.31</strAddress>
+			<strAddress>172.27.118.118</strAddress>
 		</snmp>
 		<xlp>
 			<class>com.airspan.testspan.jsystem.sysobjs.enodeb.component.Xlp</class>
 			<band>41</band>
-			<ipAddress>172.27.253.31</ipAddress> <!-- ssh root@[fc74:172:27:715::16e]-->
+			<ipAddress>172.27.118.118</ipAddress> <!-- ssh root@[fc74:172:20:560:2a0:aff:feaa:aaa4]-->
 			<serialCom>
 				<class>com.airspan.testspan.jsystem.sysobjs.moxa.MoxaCom</class>
-				<comName>172.20.62.37</comName>
-				<port>2012</port>
-				<intf>enp3s0f1</intf>
-				<intf1>enp3s0f1.715</intf1>
+				<comName>172.20.62.239</comName>
+				<port>2002</port>
+				<intf>enp5s0f0</intf>
 			</serialCom>
 		</xlp>
-	</enb_3>
+	</enb_1>
 	
-	<powerControl>
-		<class>com.airspan.testspan.jsystem.sysobjs.power.controller.Aten</class>
-		<snmp>
-			<class>com.airspan.testspan.jsystem.sysobjs.snmp.Snmp</class>
-			<readCommunity>public</readCommunity>
-			<writeCommunity>private</writeCommunity>
-			<snmpVersion>V1</snmpVersion>
-			<strAddress>172.20.60.168</strAddress>
-		</snmp>
-		<ports index="0">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A2</port>
-			<description>enb_1</description>
-		</ports>
-		<ports index="1">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A3</port>
-			<description>enb_2</description>
-		</ports>
-		<ports index="2">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A4</port>
-			<description>dynamic_UEs_1</description>
-			<description>ue5_ue6</description>
-		</ports>
-		<ports index="3">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A5</port>
-			<description>dynamic_UEs_2</description>
-		</ports>
-		<ports index="4">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A6</port>
-			<description>dynamic_UEs_3</description>
-		</ports>
-		<ports index="5">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A7</port>
-			<description>enb_3</description>
-		</ports>
-		<ports index="6">
-			<class>com.airspan.testspan.jsystem.sysobjs.power.controller.PowerControllerPort</class>
-			<port>A8</port>
-			<description>dynamic_UEs_5</description>
-		</ports>
-	</powerControl>
-	
-	<Pinger_Server> <!-- Server_Iperf -->
-		<class>com.airspan.testspan.jsystem.sysobjs.station.WorkStation</class>
-		<hostIpAddress>192.168.60.114</hostIpAddress>
-		<userName>Administrator</userName>
-		<password>sp_user9</password>
-		<operationSystemName>WINDOWS</operationSystemName>
-	</Pinger_Server>
-	
-
 </sut>
